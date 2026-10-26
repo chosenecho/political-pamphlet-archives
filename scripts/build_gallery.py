@@ -1,4 +1,8 @@
-"""生成画廊 HTML：图片存在就显示，不存在则降级为条目卡片（供公开仓库使用）。"""
+"""生成画廊 HTML：图片存在就显示，不存在则降级为条目卡片（供公开仓库使用）。
+
+注意：页面顶部的声明条与页脚弃权声明写在 BANNER / FOOTER 里，修改页面时不要删掉；
+条款正文见仓库根目录的 DISCLAIMER.md。
+"""
 
 import json
 import os
@@ -6,6 +10,18 @@ import re
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG = os.path.join(BASE, "images")
+REPO_URL = "https://github.com/chosenecho/political-pamphlet-archives"
+
+BANNER = """<div class="disc" role="note">
+<b>声明</b>　本目录由 AI 辅助生成与整理，<b>仅供学术研究与交流</b>；内容可能有误，不保证准确、完整，也不对使用后果负责。所收录材料为历史宣传品，收录不等于认同其立场。若权利人或其他方面认为内容不当，<a href="{repo}/issues">提出即删</a>。完整条款见 <a href="{repo}/blob/main/DISCLAIMER.md">DISCLAIMER.md</a>。
+</div>"""
+
+FOOTER = """<footer class="foot">
+<p><b>声明与免责</b>　本页与仓库内容由 AI 辅助生成与整理，仅供历史学、图书馆学与政治传播史方向的研究、教学与检索方法交流，不构成法律、版权或政治意见。维护者不对内容的准确性、完整性作保证，也不对因使用或无法使用这些内容而产生的后果负责。</p>
+<p>书目信息与馆藏描述摘自已公开的图书馆、档案馆页面，著作权归各原机构与捐赠者；扫描图像<b>不随仓库分发</b>。所收录材料为十九至二十世纪各政党与派系的宣传品，其中包含今日看来极具争议的内容，<b>收录不等于认同</b>。</p>
+<p>若任何机构或个人认为某条目、摘录或链接侵犯其权利或不宜公开，请在 <a href="{repo}/issues">Issues</a> 留言，核实后<b>立即下架</b>相关条目或整库。完整条款与英文说明见 <a href="{repo}/blob/main/DISCLAIMER.md">DISCLAIMER.md</a>。</p>
+</footer>"""
+
 
 
 def load(folder):
@@ -86,12 +102,22 @@ figcaption span{{color:#777}}
 padding:0 5px;font-size:11px}}
 .src{{color:#4a6fa5;text-decoration:none}}
 .src:hover{{text-decoration:underline}}
+.disc{{margin:0 0 20px;padding:10px 14px;background:#fdf7e8;border:1px solid #ecdcae;
+border-left:4px solid #c08a1e;border-radius:6px;font-size:13px;line-height:1.65;color:#5b4a24}}
+.disc a{{color:#8a5a00}}
+.foot{{margin:36px 0 0;padding-top:16px;border-top:1px solid #e3e1db;color:#7a756c;
+font-size:12.5px;line-height:1.7;max-width:900px}}
+.foot p{{margin:0 0 8px}}
+.foot b{{color:#1d1d1b}}
+.foot a{{color:#4a6fa5}}
 </style></head><body>
+{BANNER.format(repo=REPO_URL)}
 <h1>政党与政治派系宣传品 · 图像目录</h1>
 <p class="lede">共 {total} 条记录（中国 {len(mh)} 件，西方 {len(cm)} 件）。
 图像文件不随仓库分发，按 README 的脚本可自行抓取。</p>
 {page(mh, "中国 · 1920–1949", "来源：抗日战争与近代中日关系文献数据平台。1949 年前原版。")}
 {page(cm, "西方 · 1815–1948", "来源：Wikimedia Commons。许可证见各条记录。")}
+{FOOTER.format(repo=REPO_URL)}
 </body></html>"""
 
 os.makedirs(os.path.join(BASE, "docs"), exist_ok=True)

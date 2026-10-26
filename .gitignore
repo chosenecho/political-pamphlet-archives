@@ -2,6 +2,7 @@
 images/
 raw/
 samples/
+*.7z
 */metadata.json.bak
 
 # 系统与编辑器

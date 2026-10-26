@@ -2,6 +2,8 @@
 
 源数 38　|　已取正文 21　|　仅登记入口 14
 
+> 声明：本清单由 AI 辅助整理，仅供学术研究与交流；内容可能有误，不对使用后果负责。如有版权或内容问题，提出后立即移除。详见 [DISCLAIMER.md](../DISCLAIMER.md)。
+
 | # | 专藏 | 地区 | 类型 | 正文字符 | 状态 |
 |---|---|---|---|---|---|
 | 1 | [JSTOR · 19th Century British Pamphlets](https://about.jstor.org/products/journals-and-primary-sources/licensed-collections/19th-century-british-pamphlets/) | UK | 数据库(订阅) | 10649 | ✅ |

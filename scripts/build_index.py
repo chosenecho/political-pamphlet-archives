@@ -46,6 +46,8 @@ only = [r for r in rows if r["status"] == "index-only"]
 
 L = ["# 专藏清单与抓取状态", "",
      f"源数 {len(rows)}　|　已取正文 {len(ok)}　|　仅登记入口 {len(only)}", "",
+     "> 声明：本清单由 AI 辅助整理，仅供学术研究与交流；内容可能有误，不对使用后果负责。"
+     "如有版权或内容问题，提出后立即移除。详见 [DISCLAIMER.md](../DISCLAIMER.md)。", "",
      "| # | 专藏 | 地区 | 类型 | 正文字符 | 状态 |", "|---|---|---|---|---|---|"]
 MARK = {"ok": "✅", "partial": "⚠️", "index-only": "○"}
 for i, r in enumerate(rows, 1):
