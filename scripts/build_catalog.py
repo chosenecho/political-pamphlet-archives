@@ -10,16 +10,17 @@ recs = json.load(open(os.path.join(IMG, "索引.json"), encoding="utf-8"))
 book = [r for r in recs if r["kind"] == "小册子"]
 single = [r for r in recs if r["kind"] != "小册子"]
 
-ORDER = ["中国", "美国", "英国", "法国", "德国"]
+ORDER = ["中国", "美国", "英国", "法国", "德国", "俄国", "意大利", "西班牙",
+         "葡萄牙", "荷兰", "奥地利", "捷克", "波兰", "匈牙利", "瑞典"]
 
 data = []
 for r in sorted(book, key=lambda x: (ORDER.index(x["country"]) if x["country"] in ORDER else 99, str(x["year"]))):
     data.append({"kind": "book", "c": r["country"], "y": r["year"], "t": r["title"],
                  "n": int(r["pages"]), "d": r["dir"], "cv": r["cover"],
-                 "pdf": r.get("pdf") or "", "u": r["url"]})
+                 "st": r.get("stance") or "", "pdf": r.get("pdf") or "", "u": r["url"]})
 for r in single:
     data.append({"kind": "single", "c": r["country"], "y": r["year"], "t": r["title"],
-                 "n": 1, "d": r["dir"], "cv": r["cover"], "pdf": "", "u": r["url"]})
+                 "n": 1, "d": r["dir"], "cv": r["cover"], "st": "", "pdf": "", "u": r["url"]})
 for i, d in enumerate(data):
     d["i"] = i
 
@@ -35,15 +36,21 @@ for c in ORDER:
     items = sorted(groups[c], key=lambda x: x["y"])
     cards = []
     for d in items:
+        chip = f'<span class="st">{d["st"]}</span>' if d.get("st") else ""
         cards.append(
-            f'<figure class="c" data-i="{d["i"]}">'
+            f'<figure class="c" data-i="{d["i"]}" data-st="{d.get("st","")}">'
             f'<img loading="lazy" src="{d["d"]}/pages/p-00001.jpg" alt="">'
             f'<figcaption><b>{d["y"]}</b> {d["t"][:44]} '
-            f'<span class="pg">{d["n"]}p</span></figcaption></figure>')
+            f'<span class="pg">{d["n"]}p</span>{chip}</figcaption></figure>')
     sections.append(f'<section data-c="{c}"><h2>{c} <small>{len(items)} 本</small></h2>'
                     f'<div class="grid">{"".join(cards)}</div></section>')
 
 payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+from collections import Counter
+stance_counts = Counter(d["st"] for d in data if d.get("st"))
+stance_opts = "".join(
+    f'<option value="{s}">{s}（{n}）</option>' for s, n in stance_counts.most_common())
 
 html = f"""<!doctype html>
 <html lang="zh"><head><meta charset="utf-8">
@@ -69,6 +76,7 @@ transition:box-shadow .15s,border-color .15s}}
 figcaption{{padding:8px 10px 10px;font-size:12.5px;line-height:1.45;color:#333}}
 figcaption b{{color:#981722}}
 .pg{{display:inline-block;background:#eef2f7;color:#40618c;border-radius:4px;padding:0 5px;font-size:11px}}
+.st{{display:inline-block;background:#f6ece6;color:#9c4a1e;border-radius:4px;padding:0 5px;font-size:11px;margin-left:3px}}
 #v{{position:fixed;inset:0;background:rgba(20,20,18,.94);display:none;z-index:50;
 align-items:center;justify-content:center;flex-direction:column;padding:44px 76px 70px}}
 #v.on{{display:flex}}
@@ -95,6 +103,7 @@ button.nav:disabled{{opacity:.3;cursor:default}}
   <input id="q" placeholder="搜索标题 / 国别 / 年份">
   <span class="tab on" data-k="book">小册子 {len(book)}</span>
   <span class="tab" data-k="single">单页传单/海报 {len(single)}</span>
+  <select id="st"><option value="">全部立场</option>{stance_opts}</select>
 </div>
 <div id="books">{''.join(sections)}</div>
 <div id="singles" style="display:none"><p class="lede" style="margin-top:18px">单页宣传品共 {len(single)} 件，不在小册子统计内。</p></div>
@@ -177,19 +186,25 @@ document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () =>
   document.getElementById('singles').style.display = k === 'single' ? '' : 'none';
 }}));
 const q = document.getElementById('q');
-q.addEventListener('input', () => {{
+const selSt = document.getElementById('st');
+function applyFilter() {{
   const s = q.value.trim().toLowerCase();
+  const st = selSt.value;
   document.querySelectorAll('section').forEach(sec => {{
     let n = 0;
     sec.querySelectorAll('.c').forEach(c => {{
       const d = D.find(x => x.i === +c.dataset.i);
-      const hit = !s || (d.c + ' ' + d.y + ' ' + d.t).toLowerCase().includes(s);
+      const hitText = !s || (d.c + ' ' + d.y + ' ' + d.t).toLowerCase().includes(s);
+      const hitSt = !st || (d.st || '') === st;
+      const hit = hitText && hitSt;
       c.style.display = hit ? '' : 'none';
       if (hit) n++;
     }});
     sec.style.display = n ? '' : 'none';
   }});
-}});
+}}
+q.addEventListener('input', applyFilter);
+selSt.addEventListener('change', applyFilter);
 </script>
 </body></html>"""
 
