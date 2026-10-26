@@ -43,6 +43,41 @@ def load(folder):
     return out
 
 
+def load_index():
+    """读 images/索引.json —— 当前采集结构（小册子 + 单页）。"""
+    p = os.path.join(IMG, "索引.json")
+    if not os.path.exists(p):
+        return [], []
+    recs = json.load(open(p, encoding="utf-8"))
+    books = [r for r in recs if r.get("kind") == "小册子"]
+    singles = [r for r in recs if r.get("kind") != "小册子"]
+    for r in books + singles:
+        r["has_cover"] = os.path.exists(os.path.join(IMG, r["cover"]))
+    return books, singles
+
+
+def card_idx(r):
+    title = re.sub(r"<[^>]+>", "", str(r.get("title", "")))
+    year = r.get("year") or ""
+    rel = "images/" + r["cover"]
+    src = r.get("url") or "#"
+    badge = f'<span class="pg">{r["pages"]} 页</span>' if int(r.get("pages") or 1) > 1 else ""
+    if r["has_cover"]:
+        media = (f'<a href="{rel}" target="_blank">'
+                 f'<img loading="lazy" src="{rel}" alt="{title}" '
+                 f'onerror="this.parentNode.innerHTML=\'<div class=ph>图像未随仓库分发</div>\'"></a>')
+    else:
+        media = '<div class="ph">图像未随仓库分发<br><small>运行 scripts/ 下的采集脚本后出现</small></div>'
+    return f"""<figure class="c">{media}
+<figcaption><b>{year}</b> {title[:52]} {badge}<br>
+<a class="src" href="{src}" target="_blank">来源 ↗</a></figcaption></figure>"""
+
+
+def page_idx(items, heading, note):
+    return f"""<h2>{heading} <small>{len(items)}</small></h2><p class="note">{note}</p>
+<div class="grid">{''.join(card_idx(r) for r in items)}</div>"""
+
+
 def card(r):
     title = re.sub(r"<[^>]+>", "", str(r.get("title", "")))
     year = r.get("year") or ""
@@ -73,9 +108,28 @@ def page(items, heading, note):
 <div class="grid">{''.join(card(r) for r in items)}</div>"""
 
 
-mh = load("modernhistory")
-cm = load("commons")
-total = len(mh) + len(cm)
+books, singles = load_index()
+if not books:
+    mh = load("modernhistory")
+    cm = load("commons")
+    total = len(mh) + len(cm)
+    body = (page(mh, "中国 · 1920–1949", "来源：抗日战争与近代中日关系文献数据平台。") +
+            page(cm, "西方 · 1815–1948", "来源：Wikimedia Commons。"))
+    lede = f"共 {total} 条记录（中国 {len(mh)} 件，西方 {len(cm)} 件）。"
+else:
+    total = len(books) + len(singles)
+    groups = {}
+    for r in books:
+        groups.setdefault(r["country"], []).append(r)
+    body = ""
+    for c in ["中国", "美国", "英国", "法国", "德国", "俄国", "意大利"]:
+        if c in groups:
+            body += page_idx(sorted(groups[c], key=lambda x: str(x["year"])),
+                             f"小册子 · {c}", "多页装订印刷品，整本采集。")
+    body += page_idx(singles[:60], "单页传单与海报",
+                     f"单张宣传品，不计入小册子统计；共 {len(singles)} 件，此处列前 60 件。")
+    lede = (f"共 {len(books)} 本多页小册子 + {len(singles)} 件单页宣传品。"
+            "图像文件不随仓库分发，按 README 的脚本可自行抓取。")
 
 html = f"""<!doctype html>
 <html lang="zh"><head><meta charset="utf-8">
@@ -112,17 +166,14 @@ font-size:12.5px;line-height:1.7;max-width:900px}}
 .foot a{{color:#4a6fa5}}
 </style></head><body>
 {BANNER.format(repo=REPO_URL)}
-<h1>政党与政治派系宣传品 · 图像目录</h1>
-<p class="lede">共 {total} 条记录（中国 {len(mh)} 件，西方 {len(cm)} 件）。
-图像文件不随仓库分发，按 README 的脚本可自行抓取。</p>
-{page(mh, "中国 · 1920–1949", "来源：抗日战争与近代中日关系文献数据平台。1949 年前原版。")}
-{page(cm, "西方 · 1815–1948", "来源：Wikimedia Commons。许可证见各条记录。")}
+<h1>政党与政治派系宣传品 · 目录</h1>
+<p class="lede">{lede}</p>
+{body}
 {FOOTER.format(repo=REPO_URL)}
 </body></html>"""
 
 os.makedirs(os.path.join(BASE, "docs"), exist_ok=True)
 open(os.path.join(BASE, "docs", "index.html"), "w", encoding="utf-8").write(html)
 
-print(f"gallery.html: {total} 条（中国 {len(mh)} / 西方 {len(cm)}）")
-print("covers present:", sum(1 for r in mh + cm if r["has_cover"]))
-print("with pages:", sum(1 for r in mh + cm if r["has_pages"]))
+print(f"docs/index.html: {total} 条")
+print("books:", len(books), "singles:", len(singles))
