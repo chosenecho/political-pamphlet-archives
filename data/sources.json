@@ -8,7 +8,18 @@
       "region": "UK",
       "kind": "数据库(订阅)",
       "url": "https://about.jstor.org/products/journals-and-primary-sources/licensed-collections/19th-century-british-pamphlets/",
-      "note": "2.6 万册 / 逾 100 万页，7 所英国大学馆藏合并"
+      "note": "2.6 万册 / 逾 100 万页，7 所英国大学馆藏合并",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "bodleian-john-johnson",
@@ -16,112 +27,276 @@
       "region": "UK",
       "kind": "特藏(部分在线)",
       "url": "https://www.bodleian.ox.ac.uk/collections-and-resources/special-collections/catalogues/johnson",
-      "note": "6.5 万件印刷品，含选举传单 handbill"
+      "note": "6.5 万件印刷品，含选举传单 handbill",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "bishopsgate-labour-socialist",
       "title": "Bishopsgate Institute · Labour and Socialist History",
       "region": "UK",
       "kind": "特藏",
-      "url": "https://www.bishopsgate.org.uk/collections/labour-and-socialist-history/"
+      "url": "https://www.bishopsgate.org.uk/collections/labour-and-socialist-history/",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "phm-labour-history-archive",
       "title": "People's History Museum · Labour History Archive & Study Centre",
       "region": "UK",
       "kind": "档案馆",
-      "url": "https://phm.org.uk/collection/labour-history-archive-study-centre/"
+      "url": "https://phm.org.uk/collection/labour-history-archive-study-centre/",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "lse-digital-library",
       "title": "LSE Digital Library · Collections",
       "region": "UK",
       "kind": "数字馆藏(免费)",
-      "url": "https://digital.library.lse.ac.uk/collections"
+      "url": "https://digital.library.lse.ac.uk/collections",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "nyu-tamiment-cpusa",
       "title": "NYU Tamiment · Printed Ephemera Collection on the CPUSA",
       "region": "US",
       "kind": "档案馆",
-      "url": "https://findingaids.library.nyu.edu/tamwag/pe_031/"
+      "url": "https://findingaids.library.nyu.edu/tamwag/pe_031/",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "umich-labadie",
       "title": "University of Michigan · Joseph A. Labadie Collection",
       "region": "US",
       "kind": "特藏",
-      "url": "https://www.lib.umich.edu/collections/collecting-areas/special-collections/joseph-labadie-collection/"
+      "url": "https://www.lib.umich.edu/collections/collecting-areas/special-collections/joseph-labadie-collection/",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "hoover-posters",
       "title": "Hoover Institution · Poster Collection",
       "region": "US",
       "kind": "特藏(在线)",
-      "url": "https://www.hoover.org/library-archives/collections/posters"
+      "url": "https://www.hoover.org/library-archives/collections/posters",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "hoover-digital-collections",
       "title": "Hoover Institution · Digital Collections",
       "region": "US",
       "kind": "数字馆藏(免费)",
-      "url": "https://www.hoover.org/library-archives/collections/digital-collections"
+      "url": "https://www.hoover.org/library-archives/collections/digital-collections",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "loc-printed-ephemera",
       "title": "Library of Congress · Printed Ephemera (An American Time Capsule)",
       "region": "US",
       "kind": "数字馆藏(免费)",
-      "url": "https://www.loc.gov/loc/lcib/9905/newammem.html"
+      "url": "https://www.loc.gov/loc/lcib/9905/newammem.html",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "iisg-collections",
       "title": "IISH Amsterdam · Collections",
       "region": "NL",
       "kind": "档案馆",
-      "url": "https://iisg.amsterdam/en/collections"
+      "url": "https://iisg.amsterdam/en/collections",
+      "lang": "nl",
+      "terms": [
+        "brochure",
+        "pamflet",
+        "vlugschrift",
+        "verkiezingsprogramma"
+      ]
     },
     {
       "slug": "sozialarchiv-zuerich",
       "title": "Schweizerisches Sozialarchiv",
       "region": "CH",
       "kind": "档案馆",
-      "url": "https://www.sozialarchiv.ch/"
+      "url": "https://www.sozialarchiv.ch/",
+      "lang": "de",
+      "terms": [
+        "Flugschrift",
+        "Flugblatt",
+        "Broschüre",
+        "Wahlaufruf",
+        "Wahlprogramm",
+        "Parteiprogramm",
+        "Handzettel"
+      ]
     },
     {
       "slug": "fes-adsd",
       "title": "Friedrich-Ebert-Stiftung · Archiv der sozialen Demokratie",
       "region": "DE",
       "kind": "党档案馆",
-      "url": "https://www.fes.de/archiv-der-sozialen-demokratie"
+      "url": "https://www.fes.de/archiv-der-sozialen-demokratie",
+      "lang": "de",
+      "terms": [
+        "Flugschrift",
+        "Flugblatt",
+        "Broschüre",
+        "Wahlaufruf",
+        "Wahlprogramm",
+        "Parteiprogramm",
+        "Handzettel"
+      ]
     },
     {
       "slug": "fes-digitale-bibliothek",
       "title": "FES · Digitale Bibliothek",
       "region": "DE",
       "kind": "数字馆藏",
-      "url": "https://www.fes.de/bibliothek/zeitschriften-digitalisierung"
+      "url": "https://www.fes.de/bibliothek/zeitschriften-digitalisierung",
+      "lang": "de",
+      "terms": [
+        "Flugschrift",
+        "Flugblatt",
+        "Broschüre",
+        "Wahlaufruf",
+        "Wahlprogramm",
+        "Parteiprogramm",
+        "Handzettel"
+      ]
     },
     {
       "slug": "kas-archiv-bibliothek",
       "title": "Konrad-Adenauer-Stiftung · ACDP 档案馆与图书馆",
       "region": "DE",
       "kind": "党档案馆",
-      "url": "https://www.kas.de/de/archiv-und-bibliothek"
+      "url": "https://www.kas.de/de/archiv-und-bibliothek",
+      "lang": "de",
+      "terms": [
+        "Flugschrift",
+        "Flugblatt",
+        "Broschüre",
+        "Wahlaufruf",
+        "Wahlprogramm",
+        "Parteiprogramm",
+        "Handzettel"
+      ]
     },
     {
       "slug": "wlb-zeit-der-weltkriege",
       "title": "Württembergische Landesbibliothek · Zeit der Weltkriege",
       "region": "DE",
       "kind": "特藏",
-      "url": "https://www.wlb-stuttgart.de/sammlungen/zeit-der-weltkriege"
+      "url": "https://www.wlb-stuttgart.de/sammlungen/zeit-der-weltkriege",
+      "lang": "de",
+      "terms": [
+        "Flugschrift",
+        "Flugblatt",
+        "Broschüre",
+        "Wahlaufruf",
+        "Wahlprogramm",
+        "Parteiprogramm",
+        "Handzettel"
+      ]
     },
     {
       "slug": "la-contemporaine",
       "title": "La Contemporaine · Collections",
       "region": "FR",
       "kind": "档案馆/博物馆",
-      "url": "https://www.lacontemporaine.fr/en/collections/"
+      "url": "https://www.lacontemporaine.fr/en/collections/",
+      "lang": "fr",
+      "terms": [
+        "brochure",
+        "tract",
+        "profession de foi",
+        "affiche",
+        "feuille volante"
+      ]
     },
     {
       "slug": "francearchives-tracts",
@@ -129,7 +304,15 @@
       "region": "FR",
       "kind": "在线档案目录(免费)",
       "url": "https://francearchives.gouv.fr/fr/findingaid/1e48faec7165e984c693396f23969f5e00008e55",
-      "note": "1934-2024，按年份+生产者+主题分类；含 PCF/PS/CFDT 等"
+      "note": "1934-2024，按年份+生产者+主题分类；含 PCF/PS/CFDT 等",
+      "lang": "fr",
+      "terms": [
+        "brochure",
+        "tract",
+        "profession de foi",
+        "affiche",
+        "feuille volante"
+      ]
     },
     {
       "slug": "gallica-tracts-ww2",
@@ -137,21 +320,51 @@
       "region": "FR",
       "kind": "数字馆藏(免费)",
       "url": "https://gallica.bnf.fr/accueil/fr/html/les-tracts-de-la-seconde-guerre-mondiale-a-la-reserve-des-livres-rares",
-      "note": "9000 份二战传单已上线"
+      "note": "9000 份二战传单已上线",
+      "lang": "fr",
+      "terms": [
+        "brochure",
+        "tract",
+        "profession de foi",
+        "affiche",
+        "feuille volante"
+      ]
     },
     {
       "slug": "pares-carteles",
       "title": "PARES · Carteles de la España Republicana",
       "region": "ES",
       "kind": "在线档案目录(免费)",
-      "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/description/117015"
+      "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/description/117015",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "gale-political-extremism",
       "title": "Gale · Political Extremism and Radicalism",
       "region": "US/UK",
       "kind": "数据库(订阅)",
-      "url": "https://www.gale.com/primary-sources/political-extremism-and-radicalism"
+      "url": "https://www.gale.com/primary-sources/political-extremism-and-radicalism",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "modernhistory-cn",
@@ -159,21 +372,43 @@
       "region": "CN",
       "kind": "数字馆藏(免费)",
       "url": "https://www.modernhistory.org.cn/",
-      "note": "含红色文献专题库、中共党史/组织史专题库"
+      "note": "含红色文献专题库、中共党史/组织史专题库",
+      "lang": "zh",
+      "terms": [
+        "小册子",
+        "传单",
+        "宣传品",
+        "标语",
+        "宣言"
+      ]
     },
     {
       "slug": "ndl-digital-collections",
       "title": "国立国会図書館デジタルコレクション / NDL 电子展示",
       "region": "JP",
       "kind": "数字馆藏",
-      "url": "https://www.ndl.go.jp/gallery/exhibitions/202507"
+      "url": "https://www.ndl.go.jp/gallery/exhibitions/202507",
+      "lang": "ja",
+      "terms": [
+        "パンフレット",
+        "ビラ",
+        "選挙公報",
+        "政綱"
+      ]
     },
     {
       "slug": "amsab-isg",
       "title": "Amsab-ISG · Institute of Social History",
       "region": "BE",
       "kind": "档案馆",
-      "url": "https://www.amsab.be/en/"
+      "url": "https://www.amsab.be/en/",
+      "lang": "nl",
+      "terms": [
+        "brochure",
+        "pamflet",
+        "vlugschrift",
+        "verkiezingsprogramma"
+      ]
     },
     {
       "slug": "social-history-portal",
@@ -181,7 +416,18 @@
       "region": "欧洲",
       "kind": "聚合检索",
       "url": "https://www.socialhistoryportal.org/",
-      "note": "国际劳工史机构协会（IALHI）门户，跨馆检索社会运动与工运档案、100 余种期刊目次"
+      "note": "国际劳工史机构协会（IALHI）门户，跨馆检索社会运动与工运档案、100 余种期刊目次",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "rgaspi-comintern",
@@ -189,7 +435,18 @@
       "region": "俄/美",
       "kind": "档案馆",
       "url": "https://guides.loc.gov/comintern-archives/",
-      "note": "莫斯科 RGASPI 藏 1919–1943 共产国际档案约 2000 万页，各国共产党文献；LoC 提供 INCOMKA 检索指南与缩微"
+      "note": "莫斯科 RGASPI 藏 1919–1943 共产国际档案约 2000 万页，各国共产党文献；LoC 提供 INCOMKA 检索指南与缩微",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     },
     {
       "slug": "ohara-institute",
@@ -197,7 +454,14 @@
       "region": "日本",
       "kind": "档案馆",
       "url": "https://oisr-org.ws.hosei.ac.jp/",
-      "note": "日本社会运动史核心机构，藏有大量政党、工会的ビラ（传单）与パンフレット"
+      "note": "日本社会运动史核心机构，藏有大量政党、工会的ビラ（传单）与パンフレット",
+      "lang": "ja",
+      "terms": [
+        "パンフレット",
+        "ビラ",
+        "選挙公報",
+        "政綱"
+      ]
     },
     {
       "slug": "osa-archivum",
@@ -205,7 +469,13 @@
       "region": "匈牙利",
       "kind": "档案馆",
       "url": "https://archivum.org/",
-      "note": "冷战、自由欧洲电台、samizdat（地下出版物）与人权材料，1956 匈牙利革命专题"
+      "note": "冷战、自由欧洲电台、samizdat（地下出版物）与人权材料，1956 匈牙利革命专题",
+      "lang": "hu",
+      "terms": [
+        "röpirat",
+        "brosúra",
+        "választási program"
+      ]
     },
     {
       "slug": "memoria-chilena-panfletos",
@@ -213,7 +483,15 @@
       "region": "智利",
       "kind": "数字馆藏(免费)",
       "url": "https://www.memoriachilena.gob.cl/602/w3-article-3641.html",
-      "note": "军事独裁时期政党活动被禁，传单成为主要宣传形式；该专题收录此期 panfletos"
+      "note": "军事独裁时期政党活动被禁，传单成为主要宣传形式；该专题收录此期 panfletos",
+      "lang": "es",
+      "terms": [
+        "folleto",
+        "panfleto",
+        "hoja volante",
+        "cartel",
+        "programa electoral"
+      ]
     },
     {
       "slug": "bcn-chile-panfletos",
@@ -221,7 +499,15 @@
       "region": "智利",
       "kind": "数字馆藏(免费)",
       "url": "https://www.bcn.cl/estanteriadigital/resultados?terminos=portada_sitio&coleccion=panfletos",
-      "note": "含 1969 年政治传单等竞选材料"
+      "note": "含 1969 年政治传单等竞选材料",
+      "lang": "es",
+      "terms": [
+        "folleto",
+        "panfleto",
+        "hoja volante",
+        "cartel",
+        "programa electoral"
+      ]
     },
     {
       "slug": "feltrinelli",
@@ -229,7 +515,14 @@
       "region": "意大利",
       "kind": "档案馆",
       "url": "https://fondazionefeltrinelli.it/",
-      "note": "意大利政治社会运动档案与「Archivi del presente」当代运动文献采集项目"
+      "note": "意大利政治社会运动档案与「Archivi del presente」当代运动文献采集项目",
+      "lang": "it",
+      "terms": [
+        "opuscolo",
+        "volantino",
+        "manifesto",
+        "programma elettorale"
+      ]
     },
     {
       "slug": "fpabloiglesias",
@@ -237,7 +530,15 @@
       "region": "西班牙",
       "kind": "党档案馆",
       "url": "https://fpabloiglesias.es/archivo-y-biblioteca/",
-      "note": "PSOE、UGT、JSE 及主要领导人（Pablo Iglesias、Largo Caballero 等）的历史档案与书刊"
+      "note": "PSOE、UGT、JSE 及主要领导人（Pablo Iglesias、Largo Caballero 等）的历史档案与书刊",
+      "lang": "es",
+      "terms": [
+        "folleto",
+        "panfleto",
+        "hoja volante",
+        "cartel",
+        "programa electoral"
+      ]
     },
     {
       "slug": "torre-do-tombo-pide",
@@ -245,7 +546,14 @@
       "region": "葡萄牙",
       "kind": "档案馆",
       "url": "https://antt.dglab.gov.pt/",
-      "note": "政治警察档案，内含大量被查扣的地下传单与政党印刷品"
+      "note": "政治警察档案，内含大量被查扣的地下传单与政党印刷品",
+      "lang": "pt",
+      "terms": [
+        "folheto",
+        "panfleto",
+        "cartaz",
+        "profissão de fé"
+      ]
     },
     {
       "slug": "vga-wien",
@@ -253,7 +561,17 @@
       "region": "奥地利",
       "kind": "档案馆",
       "url": "https://www.vga.at/",
-      "note": "经「zeithistorischer politischer Archive」平台可在线检索 6000 余张政治海报"
+      "note": "经「zeithistorischer politischer Archive」平台可在线检索 6000 余张政治海报",
+      "lang": "de",
+      "terms": [
+        "Flugschrift",
+        "Flugblatt",
+        "Broschüre",
+        "Wahlaufruf",
+        "Wahlprogramm",
+        "Parteiprogramm",
+        "Handzettel"
+      ]
     },
     {
       "slug": "onb-plakate",
@@ -261,7 +579,17 @@
       "region": "奥地利",
       "kind": "特藏",
       "url": "https://www.onb.ac.at/sammlungen/bildarchiv-und-grafiksammlung/bestandsuebersicht/plakate-flugblaetter-exlibris",
-      "note": "海报收藏约 10 万张、跨三个世纪，另有 Flugblätter（传单）专藏"
+      "note": "海报收藏约 10 万张、跨三个世纪，另有 Flugblätter（传单）专藏",
+      "lang": "de",
+      "terms": [
+        "Flugschrift",
+        "Flugblatt",
+        "Broschüre",
+        "Wahlaufruf",
+        "Wahlprogramm",
+        "Parteiprogramm",
+        "Handzettel"
+      ]
     },
     {
       "slug": "aan-warszawa",
@@ -269,7 +597,14 @@
       "region": "波兰",
       "kind": "档案馆",
       "url": "https://aan.gov.pl/",
-      "note": "1919 年设立的国家central档案馆，藏 19–20 世纪政党与政治组织档案"
+      "note": "1919 年设立的国家central档案馆，藏 19–20 世纪政党与政治组织档案",
+      "lang": "pl",
+      "terms": [
+        "broszura",
+        "ulotka",
+        "plakat wyborczy",
+        "program wyborczy"
+      ]
     },
     {
       "slug": "arab-stockholm",
@@ -277,7 +612,13 @@
       "region": "瑞典",
       "kind": "档案馆",
       "url": "https://arbark.se/sv/",
-      "note": "瑞典工人运动档案与图书馆，社民党、工会的竞选与宣传材料"
+      "note": "瑞典工人运动档案与图书馆，社民党、工会的竞选与宣传材料",
+      "lang": "sv",
+      "terms": [
+        "broschyr",
+        "pamflett",
+        "valprogram"
+      ]
     },
     {
       "slug": "loc-newdelhi-pamphlets",
@@ -285,7 +626,18 @@
       "region": "印度/美",
       "kind": "特藏",
       "url": "https://www.loc.gov/item/2009345307",
-      "note": "美国国会图书馆新德里办公室收集整理的南亚政治小册子（1959–2009，含孟加拉语、印地语等）"
+      "note": "美国国会图书馆新德里办公室收集整理的南亚政治小册子（1959–2009，含孟加拉语、印地语等）",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "election platform"
+      ]
     }
   ]
 }

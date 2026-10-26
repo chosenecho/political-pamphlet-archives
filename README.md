@@ -15,11 +15,12 @@
 | [`notes/`](notes/) | 已抓取的收藏说明页正文纯文本，可直接 grep |
 | [`docs/index.html`](docs/index.html) | 图像目录页，按来源分列；开启 GitHub Pages 即可浏览 |
 | [`docs/COLLECTIONS.md`](docs/COLLECTIONS.md) | 38 个专藏的可点击清单与抓取状态 |
+| [`docs/FINDING-AIDS.md`](docs/FINDING-AIDS.md) | **检索手册**：14 种语言的体裁检索词、按出版社反查、各类型馆藏查法 |
 | [`scripts/`](scripts/) | 采集脚本，见下 |
 
 ## 图像不随仓库分发
 
-图片本身（160 张封面 + 1052 张内页，约 186 MB）没有放进仓库。原因有二：体积，以及**扫描件的版权属于各原藏机构与捐赠者**，公开再分发不合适。
+已抓取的实体材料：**54 本多页小册子**（1380 页，449 MB，其中 34 本带原始 PDF）+ 144 件单页传单／海报（131 MB）。都没有放进仓库，原因有二：体积，以及**扫描件的版权属于各原藏机构与捐赠者**，公开再分发不合适。
 
 条目元数据完整保留，所以任何人都能按下面的步骤把图抓回来。
 
@@ -84,11 +85,12 @@ python scripts/build_category_sheets.py  # 每类一张缩略总览
 
 ## 检索提示
 
-这类材料在目录里按**体裁**而非主题标引，换词比换库更有效：
+这类材料在目录里按**体裁**而非主题标引，换词比换库更有效。完整对照表见 [`docs/FINDING-AIDS.md`](docs/FINDING-AIDS.md)：
 
 - 英文 `pamphlet` `leaflet` `handbill` `broadside` `tract`；德文 `Flugschrift` `Flugblatt`；法文 `brochure` `tract`；西文 `folleto` `panfleto`；俄文 `брошюра` `листовка`
 - 竞选材料单独成类：`election addresses`（英）、`profession de foi`（法）、`Wahlaufruf`（德）
 - 按**出版机构**反查命中率最高：Dietz Verlag、Lawrence & Wishart、Editions Sociales、人民出版社、东北书店
+- 别忽略**警察与情报档案**：被查扣的传单往往是某份材料唯一存世的副本
 
 ## 授权
 
