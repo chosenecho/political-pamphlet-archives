@@ -10,6 +10,10 @@ recs = json.load(open(os.path.join(IMG, "索引.json"), encoding="utf-8"))
 ORDER = ["中国", "俄国", "德国", "法国", "英国", "美国", "意大利", "西班牙",
          "葡萄牙", "荷兰", "奥地利", "捷克", "波兰", "日本", "印度", "拉美"]
 
+# 按展示顺序排序，保证连续翻页与视觉顺序一致
+rank = {c: i for i, c in enumerate(ORDER)}
+recs = sorted(recs, key=lambda r: (rank.get(r["country"], 99), str(r["year"])))
+
 data = []
 for i, r in enumerate(recs):
     n = int(r.get("pages") or 1)
@@ -96,7 +100,7 @@ button.nav:disabled{{opacity:.3;cursor:default}}
 .hint{{color:#8d887d;font-size:12px}}
 </style></head><body>
 <h1>政党宣传品 · 目录与阅读器</h1>
-<p class="lede">{len(data)} 件，{len(groups)} 个国别/地区。点击任一条目打开；多页条目用左右方向键或点击画面两侧翻页，Esc 退出。</p>
+<p class="lede">{len(data)} 件，{len(groups)} 个国别/地区。点击任一条目打开；<b>← / →</b> 或点击画面两侧翻页，翻到条目末尾会接着进入下一条。<b>Esc</b> 退出。</p>
 <input id="q" placeholder="搜索标题 / 国别 / 年份">
 
 {"".join(sections)}
@@ -133,11 +137,14 @@ function show() {{
   img.src = path(cur, page);
   bar.textContent = cur.c + ' · ' + cur.y + ' · ' + cur.t;
   srcLink.href = cur.u || '#';
-  cnt.textContent = cur.n > 1 ? (page + ' / ' + cur.n) : '单页';
-  prevB.disabled = cur.n === 1 || page <= 1;
-  nextB.disabled = cur.n === 1 || page >= cur.n;
-  // 预载
-  if (cur.n > 1 && page < cur.n) {{ const p = new Image(); p.src = path(cur, page + 1); }}
+  cnt.textContent = (cur.n > 1) ? (page + ' / ' + cur.n) : '单页';
+  const atStart = page <= 1 && cur.i <= 0;
+  const atEnd = page >= cur.n && cur.i >= D.length - 1;
+  prevB.disabled = atStart;
+  nextB.disabled = atEnd;
+  // 预载下一页 / 下一条
+  if (page < cur.n) {{ const p = new Image(); p.src = path(cur, page + 1); }}
+  else if (cur.i < D.length - 1) {{ const p = new Image(); p.src = path(D[cur.i + 1], 1); }}
 }}
 
 function open(i) {{
@@ -150,11 +157,18 @@ function open(i) {{
 
 function close() {{ v.classList.remove('on'); }}
 
+// 连续翻页：跨过条目边界时自动进入上一/下一条目
 function step(s) {{
-  if (!cur || cur.n === 1) return;
-  const p = page + s;
-  if (p < 1 || p > cur.n) return;
-  page = p;
+  if (!cur) return;
+  if (s > 0) {{
+    if (page < cur.n) {{ page++; }}
+    else if (cur.i < D.length - 1) {{ cur = D[cur.i + 1]; page = 1; }}
+    else return;
+  }} else {{
+    if (page > 1) {{ page--; }}
+    else if (cur.i > 0) {{ cur = D[cur.i - 1]; page = cur.n; }}
+    else return;
+  }}
   show();
 }}
 
