@@ -32,6 +32,8 @@ python scripts/harvest_commons2.py    # Wikimedia Commons：竞选材料
 python scripts/retry_commons2.py      # 对 429 失败的条目重试
 python scripts/build_gallery.py       # 重新生成 docs/index.html
 python scripts/build_index.py         # 重建 index.csv 与 COLLECTIONS.md
+python scripts/organize_images.py     # 按议题把图分到 15 类（先加 --dry 看结果）
+python scripts/build_category_sheets.py  # 每类一张缩略总览
 ```
 
 ## 采集方式说明
