@@ -1,0 +1,19 @@
+# 忽略抓取产物（体积大、版权归原藏机构）
+images/
+raw/
+samples/
+*/metadata.json.bak
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+__pycache__/
+*.pyc
+.venv/
+.vscode/
+.idea/
+
+# 临时
+*.log
+tmp/

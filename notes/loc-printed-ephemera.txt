@@ -1,0 +1,8 @@
+来源: https://www.loc.gov/loc/lcib/9905/newammem.html （LC Information Bulletin, 1999-05）
+抓取状态: www.loc.gov/collections/ 对 urllib 返回 403；以下为官方公告页摘要
+
+# An American Time Capsule: Three Centuries of Broadsides and Other Printed Ephemera
+
+美国国会图书馆 Printed Ephemera Collection 的数字呈现，1999 年上线。
+涵盖三个世纪的 broadside 与其他印刷 ephemera，是 Americana 的重要仓。
+相关入口: https://www.loc.gov/collections/ （可按 original-format: printed ephemera 过滤）

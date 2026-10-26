@@ -1,0 +1,241 @@
+Collections - LSE Digital Library
+
+You are logged in as a CMS user.
+
+Return to Site Manager
+
+X
+
+Keyboard Shortcuts
+
+Back
+Skip to main content
+
+Keyboard Shortcuts
+
+Skip to main content
+
+Keyboard shortcuts can be used to navigate aspects of this site without a mouse or cursor.
+
+When viewing a item, select or tab into the image viewer and use the following controls to manipulate the image.
+
+Move up: w or [up arrow]
+
+Move down: s or [down arrow]
+
+Move left: a or [left arrow]
+
+Move right: d or [right arrow]
+
+Return to centre: 0
+
+Zoom in: = or [shift] + w or [shift] + [up arrow]
+
+Zoom out: - or [shift] + s or [shift] + [down arrow]
+
+Rotate clockwise: r
+
+Rotate counterclockwise: R
+
+Flip horizontally: f
+
+Skip to main content
+
+Skip to main content
+
+Hello, | My Account: Logout
+
+My Account: Logout | Restricted Content: Logout
+
+My Account: Logout | Restricted Content: Approved IP address
+
+Hello, | My Account: Logout | Restricted Content: Logout
+
+Hello, | My Account: Logout | Restricted Content: Approved IP address
+
+You are able to view restricted content due to your approved IP address
+
+You are logged in to view restricted content: Logout
+
+Close
+Skip to main content
+
+My Account Login
+
+Skip to main content
+
+My Account allows searches and documents to be saved across any AM or AM Quartex powered site. My Account is a free and optional service provided by AM.
+
+Don't have an account? Register for free
+
+Email
+
+Password
+
+Forgotten Password?
+
+Please enter the email address you use for your personal Quartex account. A link to reset your password will be emailed to this address.
+
+Email Address
+
+If you haven't received an email within 24 hours, please contact support@quartexcollections.com
+
+Back to Login
+
+Close
+
+Close
+
+Skip to main content
+
+Search
+
+Search...
+
+Search
+
+Advanced search
+
+Share
+
+Facebook
+
+Twitter
+
+Email
+
+My Account
+
+Switch to high contrast
+
+Menu
+
+Home
+
+Browse
+
+Search
+
+Collections
+
+About
+
+More
+
+Collections
+
+Archives in Absentia
+
+Association for Moral and Social Hygiene
+
+Autograph Letters
+
+Beatrice Webb's Diaries
+
+Cavendish-Bentinck Pamphlets and Leaflets
+
+Charles Booth Archive
+
+Christian Voices Coming Out
+
+Economic History
+
+Election Ephemera
+
+Emigrant Letters
+
+Endell Street Military Hospital
+
+European Referendum - 1975 and 2016
+
+Fabian Society Archive
+
+Gay Liberation Front
+
+General Strike 1926
+
+George Lansbury Archive
+
+Greenham Women Everywhere
+
+Hugh Dalton's Diaries
+
+Inter-war Feminist Pamphlets
+
+Left Wing Politics
+
+LGBT+ Badges
+
+Lionel Robbins' Diaries
+
+LSE Anthropology Photos
+
+LSE Public Lectures 1990 - 2006
+
+LSE Publications
+
+Mill-Taylor Collection
+
+Movement for the Ordination of Women Oral Histories
+
+Oral Histories
+
+Oxford Research Group
+
+Peace and Internationalism
+
+Political Posters
+
+Rare Women's History Books
+
+South African Censuses
+
+South African Education Reports
+
+South Asian Heritage
+
+Street Life in London
+
+Suffrage Banners
+
+Suffrage Collection
+
+The Beaver – LSE Student Union Newspaper
+
+The Women's Library Annual Reports
+
+The Women's Library Pamphlets and Leaflets
+
+The Women's Library Photos
+
+The Women's Library Posters
+
+The Women’s Library Journals
+
+Women's Freedom League
+
+Women's International League for Peace and Freedom
+
+Women's Resource Centre
+
+Working Families
+
+Takedown policy
+
+Privacy information
+
+Accessibility information
+
+Potentially harmful content
+
+Sitemap
+
+Email us
+
+Find an expert
+
+Visit LSE Library
+
+Powered by
+
+This is from the quartex-front-end repo.

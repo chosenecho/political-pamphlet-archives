@@ -1,0 +1,41 @@
+来源: https://francearchives.gouv.fr/fr/findingaid/1e48faec7165e984c693396f23969f5e00008e55
+抓取方式: firecrawl_scrape (2026-10-26)
+
+# Fonds des Tracts politiques — Sciences Po / CEVIPOF
+
+Date: 1934 - 2024
+Cote: TR et 25 TR
+Publication: Sciences Po
+Identifiant: FR_751079802_579438
+Importance matérielle: 3 (métrage) / 38 (dimensions)
+
+## 内容与分类逻辑
+Le fonds est classé par années puis par producteurs ou par thèmes.
+- 按生产者（政党、工会、协会）：PCF、PS、CFDT 等产出量大者优先按生产者归类
+- 按政治与社会主题： santé, Éducation nationale, femmes, Paris, Travail, Causes étrangères（阿尔及利亚、智利、巴勒斯坦、苏联/中国受压迫少数群体）等
+- 按游行事件：如五一游行
+Les documents les plus anciens datent de 1934. Fonds ouvert, 2008/2010/2012/2015/2016/2018/2022 多次整理。
+
+## 来源与合法性
+Tracts recueillis par dons personnels, dépôts dans boîtes aux lettres, distributions dans la rue,
+marchés, manifestations, affichage. 非穷尽性收藏。
+Conservation: CEVIPOF 原址 → 2021 迁至 Sciences Po DRIS 档案部，28 rue Saint-Guillaume, 75007 Paris.
+Conditions d'accès: 需遵守 Sciences Po DRIS 档案部阅览室规章。Publiable sur internet.
+Langues: français, allemand, anglais, arabe, espagnol, polonais.
+
+## 该档案说明中列出的关联收藏（对找小册子极有用）
+- Archives nationales: 78AJ Collection de tracts, journaux et imprimés de 1914 à nos jours
+- Fonds Vincent Auriol 552AP、Léon Blum 2BL/3BL、Édouard Daladier 496AP、Jacques Kayser 465AP、
+  François de La Rocque 451AP（Croix-de-Feu / PSF 全套宣传品）、MRP 350AP、UDSR 412AP、Alain Savary 743AP
+- ANMT、ANOM（阿尔及尔总督府 121 tracts；SLOTFOM 111 tracts；奥兰省 99 tracts）
+- BnF: Série WZ Recueils de tracts（在编）、4°-Lb61-600 Tracts politiques et syndicaux、
+  Rés G 1470-1479 Tracts de la Seconde Guerre mondiale、MFILM 4-LB60-364 第四共和国政党传单缩微
+- La contemporaine: Recueils de tracts（学运、UNEF、移民、极左、PCF、PS、阿尔及利亚战争、五月风暴、女权）
+- IHTP: CNRS IHTP ARC 074/1-74 Propagande et documents (1934-1946) tracts, brochures
+- OURS、Fondation Jean-Jaurès（4 SN 系列，1970s 至今数百份 PS 传单）、FEP（约 800 件生态政治传单，多已数字化）
+- CODHOS 网络、ADIAMOS、CFDT/CGT 档案、Centre des archives du féminisme (CAF) 昂热
+- Bibliothèque historique de la Ville de Paris: Fonds des éphémères DEP-001/004/005/007/013
+- Archives départementales 举例: Indre-et-Loire 229J/240J/16ZA；Loire-Atlantique 203J；
+  Vendée BIB R 1-72（19 世纪末至今传单与 ephemera 收藏）；Seine-Saint-Denis 8J 系列（工会/政治/教区传单）、261J/55 PCF；
+  Val-de-Marne 1J617、10J1-9；Archives de Paris D38Z
+- Tractothèque（Syndicoop 参与式传单库）
