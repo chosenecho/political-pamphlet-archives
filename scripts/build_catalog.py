@@ -21,14 +21,14 @@ data = []
 for r in book:
     data.append({
         "k": "book", "c": r["country"], "y": str(r.get("year") or ""),
-        "t": r["title"], "n": int(r.get("pages") or 1),
+        "t": r["title"], "tz": r.get("title_zh") or "", "n": int(r.get("pages") or 1),
         "d": r["dir"], "cv": r["cover"], "st": r.get("stance") or "",
         "pdf": r["pdf"] if r.get("pdf") else "", "u": r.get("url") or "",
     })
 for r in single:
     data.append({
         "k": "single", "c": r["country"], "y": str(r.get("year") or ""),
-        "t": r["title"], "n": 1,
+        "t": r["title"], "tz": r.get("title_zh") or "", "n": 1,
         "d": r["dir"], "cv": r["cover"], "st": "", "pdf": "", "u": r.get("url") or "",
     })
 for i, d in enumerate(data):
@@ -92,6 +92,9 @@ select{padding:8px 10px;border:1px solid #d8d5cd;border-radius:8px;background:#f
 .card figcaption{padding:9px 11px 11px;font-size:12.5px;line-height:1.45;color:#333;flex:1}
 .card .yr{color:#981722;font-weight:600}
 .card .ti{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .to{display:block;margin-top:2px;color:#9a958c;font-size:11.5px;line-height:1.35;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  font-style:italic}
 .chips{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
 .chip{font-size:11px;padding:0 6px;border-radius:4px;background:#f0eee9;color:#6b675f}
 .chip.pages{background:#eef2f7;color:#40618c}
@@ -103,8 +106,9 @@ select{padding:8px 10px;border:1px solid #d8d5cd;border-radius:8px;background:#f
   grid-template-rows:auto 1fr auto auto}
 #viewer.on{display:grid}
 #vtop{display:flex;align-items:center;gap:14px;padding:10px 16px;color:#e8e4da;font-size:13px}
-#vtitle{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#vmeta{color:#a8a297;font-size:12.5px;white-space:nowrap}
+#vtitle{flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+#vmeta{flex:1;color:#a8a297;font-size:12.5px;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap;font-style:italic}
 #vtop a{color:#9db4d4;text-decoration:none;white-space:nowrap}
 #vtop a:hover{text-decoration:underline}
 #vclose{background:rgba(255,255,255,.1);border:0;color:#e8e4da;width:32px;height:32px;
@@ -157,7 +161,7 @@ button.nb:disabled{opacity:.28;cursor:default}
   <p class="lede"><b>__NBOOK__ 本多页小册子</b> · __NSINGLE__ 件单页宣传品 · __NSTANCE__ 种政治立场。
   点开整本翻阅：<b>←/→</b> 翻页、<b>↑/↓</b> 换本、<b>+/-</b> 缩放、双击放大、滚轮缩放、<b>Esc</b> 退出。</p>
   <div class="tools">
-    <input id="q" placeholder="搜索标题 / 国别 / 年份 / 立场" autocomplete="off">
+    <input id="q" placeholder="搜索中/外文标题、国别、年份、立场" autocomplete="off">
     <select id="fc"><option value="">全部国别</option>__COPTS__</select>
     <select id="fs"><option value="">全部立场</option>__SOPTS__</select>
     <div class="seg" id="fk">
@@ -182,7 +186,7 @@ button.nb:disabled{opacity:.28;cursor:default}
 <div id="viewer">
   <div id="vtop">
     <span id="vtitle"></span>
-    <span id="vmeta"></span>
+    <span id="vmeta"><span class="orig"></span></span>
     <a id="vpdf" target="_blank" rel="noopener">下载 PDF</a>
     <a id="vsrc" target="_blank" rel="noopener">来源 ↗</a>
     <button id="vclose" title="关闭 (Esc)">✕</button>
@@ -231,7 +235,8 @@ for (const d of DATA) {
     '<div class="thumb"><img loading="lazy" src="' + d.cv + '" alt="">' +
     '<span class="kind">' + kindTxt + '</span></div>' +
     '<figcaption><span class="yr">' + (d.y || '—') + '</span> ' +
-    '<span class="ti">' + escapeHtml(d.t) + '</span>' +
+    '<span class="ti">' + escapeHtml(d.tz || d.t) + '</span>' +
+    (d.tz ? '<span class="to">' + escapeHtml(d.t) + '</span>' : '') +
     '<div class="chips">' + chips.join('') + '</div></figcaption>';
   el.addEventListener('click', () => open(d.i));
   cards.set(d.i, el);
@@ -266,7 +271,7 @@ function apply() {
     if (c && d.c !== c) return false;
     if (st && d.st !== st) return false;
     if (s) {
-      const hay = (d.t + ' ' + d.c + ' ' + d.y + ' ' + d.st).toLowerCase();
+      const hay = (d.t + ' ' + (d.tz || '') + ' ' + d.c + ' ' + d.y + ' ' + d.st).toLowerCase();
       if (!hay.includes(s)) return false;
     }
     return true;
@@ -378,9 +383,15 @@ function render() {
     vimg.src = src;
     resetZoom();
   }
-  vtitle.textContent = d.t;
-  vmeta.textContent = [d.c, d.y, d.k === 'book' ? d.n + ' 页' : '单页', d.st]
+  vtitle.textContent = d.tz || d.t;
+  vtitle.title = d.tz ? (d.tz + ' / ' + d.t) : d.t;
+  const metaBits = [d.c, d.y, d.k === 'book' ? d.n + ' 页' : '单页', d.st]
     .filter(Boolean).join(' · ');
+  vmeta.innerHTML = '<span class="orig"></span><span class="ori-meta">' +
+    (d.tz ? ' · ' + escapeHtml(metaBits) : '') + '</span>';
+  const sub = vmeta.querySelector('.orig');
+  sub.textContent = d.tz ? d.t : metaBits;
+  sub.style.fontStyle = d.tz ? 'italic' : 'normal';
   vsrc.href = d.u || '#';
   vsrc.style.display = d.u ? '' : 'none';
   vpdf.style.display = d.pdf ? '' : 'none';
