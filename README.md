@@ -8,13 +8,13 @@
 
 | 内容 | 说明 |
 |---|---|
-| [`data/sources.json`](data/sources.json) | 24 个专藏的清单：名称、国别、类型、入口 URL、规模注记 |
+| [`data/sources.json`](data/sources.json) | **38 个专藏**的清单：名称、国别、类型、入口 URL、规模注记 |
 | [`data/index.csv`](data/index.csv) | 同一份清单的表格版，带抓取状态，Excel 可直接打开 |
 | [`data/manifest.json`](data/manifest.json) | 每个源的抓取记录：HTTP 状态、字节数、正文字符数、失败原因 |
-| [`metadata/`](metadata/) | **160 条条目级元数据**（中国 121 件 1920–1949、西方 39 件 1815–1948），含标题、年份、出版者、页数、来源链接 |
-| [`notes/`](notes/) | 24 份收藏说明页的正文纯文本，可直接 grep |
+| [`metadata/`](metadata/) | 条目级元数据（中国 1920–1949、西方 1815–1948），含标题、年份、出版者、页数、来源链接 |
+| [`notes/`](notes/) | 已抓取的收藏说明页正文纯文本，可直接 grep |
 | [`docs/index.html`](docs/index.html) | 图像目录页，按来源分列；开启 GitHub Pages 即可浏览 |
-| [`docs/COLLECTIONS.md`](docs/COLLECTIONS.md) | 24 个专藏的可点击清单与抓取状态 |
+| [`docs/COLLECTIONS.md`](docs/COLLECTIONS.md) | 38 个专藏的可点击清单与抓取状态 |
 | [`scripts/`](scripts/) | 采集脚本，见下 |
 
 ## 图像不随仓库分发
@@ -44,18 +44,43 @@ python scripts/build_category_sheets.py  # 每类一张缩略总览
 - **Wikimedia Commons**：必须使用符合其[用户代理政策](https://meta.wikimedia.org/wiki/User-Agent_policy)的 UA，否则缩略图服务会持续返回 429。换成 `ToolName/1.0 (URL; mail)` 形式后一次通过。抓取间隔不要低于 1 秒。
 - **Gallica / Hoover / 西班牙 PARES**：Cloudflare 挑战页，本轮未突破。Gallica 的 SRU 与 IIIF 接口对脚本请求返回 403。
 
-## 已核实的 24 个专藏（节选）
+## 已核实的 38 个专藏（节选）
 
-完整表见 [`docs/COLLECTIONS.md`](docs/COLLECTIONS.md)。几个规模较大的：
+完整表见 [`docs/COLLECTIONS.md`](docs/COLLECTIONS.md)。跨地区的几组：
 
-| 专藏 | 国别 | 规模 |
+**综合与聚合入口**
+
+| 专藏 | 地区 | 规模 |
 |---|---|---|
+| [Social History Portal](https://www.socialhistoryportal.org/) | 欧洲 | IALHI 国际劳工史机构协会门户，跨馆检索社会运动档案与 100 余种期刊目次 |
 | [JSTOR 19th Century British Pamphlets](https://about.jstor.org/products/journals-and-primary-sources/licensed-collections/19th-century-british-pamphlets/) | 英国 | 2.6 万册、逾 100 万页，合并 7 所大学馆藏 |
-| [Hoover Institution](https://www.hoover.org/library-archives/collections/posters) | 美国 | 10 万张以上政治海报 |
+
+**党档案馆（往往比国家馆更全）**
+
+| 专藏 | 地区 | 规模 |
+|---|---|---|
+| [FES 社会民主党档案馆](https://www.fes.de/archiv-der-sozialen-demokratie) | 德国 | SPD 党产文献，Digitale Bibliothek 做期刊与小册子回溯数字化 |
+| [KAS 基督教民主档案馆](https://www.kas.de/de/archiv-und-bibliothek) | 德国 | CDU/CSU 1900 余个档案群，19 公里档案，Flugblätter 可全文检索 |
+| [Fundación Pablo Iglesias](https://fpabloiglesias.es/archivo-y-biblioteca/) | 西班牙 | PSOE、UGT、JSE 历史档案 |
+| [People's History Museum](https://phm.org.uk/collection/labour-history-archive-study-centre/) | 英国 | 工党及各左翼压力团体全宗 |
+
+**社会运动与冷战专门机构**
+
+| 专藏 | 地区 | 规模 |
+|---|---|---|
 | [IISH 阿姆斯特丹](https://iisg.amsterdam/en/collections) | 荷兰 | 100 万册、5445 个档案群 |
 | [Schweizerisches Sozialarchiv](https://www.sozialarchiv.ch/) | 瑞士 | 约 18 万册小册子与传单 |
-| [巴黎政治学院 CEVIPOF 传单档案](https://francearchives.gouv.fr/fr/findingaid/1e48faec7165e984c693396f23969f5e00008e55) | 法国 | 1934–2024，按年份与生产者分类，附法国全国传单收藏清单 |
+| [Blinken OSA Archivum](https://archivum.org/) | 匈牙利 | 冷战、自由欧洲电台、samizdat |
+| [VGA 维也纳](https://www.vga.at/) | 奥地利 | 6000 余张政治海报在线检索 |
+
+**亚洲与拉美**
+
+| 专藏 | 地区 | 规模 |
+|---|---|---|
 | [抗日战争与近代中日关系文献数据平台](https://www.modernhistory.org.cn/) | 中国 | 5000 万页以上，含红色文献专题库 |
+| [法政大学大原社会問題研究所](https://oisr-org.ws.hosei.ac.jp/) | 日本 | 日本社会运动史核心机构，政党与工会ビラ |
+| [LoC 新德里政治小册子集](https://www.loc.gov/item/2009345307) | 印度/美 | 南亚政治小册子 1959–2009，多语种 |
+| [Memoria Chilena · Panfletos](https://www.memoriachilena.gob.cl/602/w3-article-3641.html) | 智利 | 1973–1988 军政府时期政党传单 |
 
 ## 检索提示
 
@@ -74,5 +99,6 @@ python scripts/build_category_sheets.py  # 每类一张缩略总览
 ## 已知缺口
 
 - 西班牙内战海报（PARES）、法国二战 9000 份传单（Gallica）、胡佛 10 万张海报——自动化访问被 Cloudflare 拦截，未接入。
-- 俄语区（RGASPI 共产国际档案、GPIB 历史图书馆）、印度、拉美、中东的政党宣传品尚未覆盖。
+- 中东（奥斯曼档案、以色列国家图书馆）、撒哈拉以南非洲、东南亚的民族主义政党宣传品尚未覆盖。
+- 14 个专藏只登记了入口，正文未抓取（清单状态标 ○）。
 - 抗战平台有 7 张内页取不到，源站对该页返回 403。

@@ -1,6 +1,6 @@
 # 专藏清单与抓取状态
 
-源数 24　|　取得有效正文 21
+源数 38　|　已取正文 21　|　仅登记入口 14
 
 | # | 专藏 | 地区 | 类型 | 正文字符 | 状态 |
 |---|---|---|---|---|---|
@@ -28,9 +28,24 @@
 | 22 | [抗日战争与近代中日关系文献数据平台](https://www.modernhistory.org.cn/) | CN | 数字馆藏(免费) | 643 | ✅ |
 | 23 | [国立国会図書館デジタルコレクション / NDL 电子展示](https://www.ndl.go.jp/gallery/exhibitions/202507) | JP | 数字馆藏 | 243 | ⚠️ |
 | 24 | [Amsab-ISG · Institute of Social History](https://www.amsab.be/en/) | BE | 档案馆 | 6456 | ✅ |
+| 25 | [Social History Portal (IALHI 聚合)](https://www.socialhistoryportal.org/) | 欧洲 | 聚合检索 | 0 | ○ |
+| 26 | [RGASPI 共产国际档案（经 LoC 指南）](https://guides.loc.gov/comintern-archives/) | 俄/美 | 档案馆 | 0 | ○ |
+| 27 | [法政大学大原社会問題研究所](https://oisr-org.ws.hosei.ac.jp/) | 日本 | 档案馆 | 0 | ○ |
+| 28 | [Blinken OSA Archivum](https://archivum.org/) | 匈牙利 | 档案馆 | 0 | ○ |
+| 29 | [Memoria Chilena · Panfletos 1973–1988](https://www.memoriachilena.gob.cl/602/w3-article-3641.html) | 智利 | 数字馆藏(免费) | 0 | ○ |
+| 30 | [智利国会图书馆 · Estantería Digital 传单集](https://www.bcn.cl/estanteriadigital/resultados?terminos=portada_sitio&coleccion=panfletos) | 智利 | 数字馆藏(免费) | 0 | ○ |
+| 31 | [Fondazione Giangiacomo Feltrinelli](https://fondazionefeltrinelli.it/) | 意大利 | 档案馆 | 0 | ○ |
+| 32 | [Fundación Pablo Iglesias](https://fpabloiglesias.es/archivo-y-biblioteca/) | 西班牙 | 党档案馆 | 0 | ○ |
+| 33 | [Arquivo Nacional Torre do Tombo · PIDE/DGS 档案](https://antt.dglab.gov.pt/) | 葡萄牙 | 档案馆 | 0 | ○ |
+| 34 | [Verein für Geschichte der ArbeiterInnenbewegung](https://www.vga.at/) | 奥地利 | 档案馆 | 0 | ○ |
+| 35 | [Österreichische Nationalbibliothek · 海报与传单](https://www.onb.ac.at/sammlungen/bildarchiv-und-grafiksammlung/bestandsuebersicht/plakate-flugblaetter-exlibris) | 奥地利 | 特藏 | 0 | ○ |
+| 36 | [Archiwum Akt Nowych（波兰新档案）](https://aan.gov.pl/) | 波兰 | 档案馆 | 0 | ○ |
+| 37 | [Arbetarrörelsens arkiv och bibliotek](https://arbark.se/sv/) | 瑞典 | 档案馆 | 0 | ○ |
+| 38 | [LoC 新德里办事处政治小册子集](https://www.loc.gov/item/2009345307) | 印度/美 | 特藏 | 0 | ○ |
 
 ## 状态说明
 
 - ✅ 共 21 个源抓到了可读正文。
 - ⚠️ 共 3 个源只有说明文件：loc-printed-ephemera、pares-carteles、ndl-digital-collections。
   这些站点对自动化访问返回 403 / 429，或正文全在 JS 前端。`notes/` 里保留了失败原因与已知信息，未编造正文。
+- ○ 共 14 个源已核实入口但尚未抓取正文；清单可用，内容待取。
