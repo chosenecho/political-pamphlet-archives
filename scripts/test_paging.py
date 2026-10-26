@@ -1,4 +1,4 @@
-"""实测连续翻页：跨条目边界是否顺畅。"""
+"""实测小册子阅读器：整本翻页、跨本连续、PDF 链接、搜索。"""
 
 import os
 import pathlib
@@ -13,56 +13,42 @@ with sync_playwright() as p:
     pg = b.new_page(viewport={"width": 1500, "height": 950})
     errs = []
     pg.on("pageerror", lambda e: errs.append(str(e)))
-    pg.on("requestfailed", lambda r: errs.append("404:" + r.url.split("/")[-1]) if r.url.endswith(".jpg") else None)
+    pg.on("requestfailed", lambda r: errs.append("404:" + r.url.split("/")[-1][:40])
+          if r.url.split("?")[0].endswith(".jpg") else None)
 
     pg.goto(HTML, wait_until="load")
-    pg.wait_for_timeout(600)
+    pg.wait_for_timeout(700)
 
-    # 单页条目（国际）应当能继续往后翻
-    i = pg.evaluate("()=>D.findIndex(d=>d.n===1)")
-    d = pg.evaluate(f"()=>({{c:D[{i}].c,t:D[{i}].t,n:D[{i}].n,i:D[{i}].i}})")
-    print("单页条目:", d["c"], d["t"][:34])
-    pg.locator(f'.c[data-i="{i}"]').click()
+    print("卡片数:", pg.locator(".c").count())
+    print("小册子:", pg.evaluate("() => BOOKS.length"))
+    print("页数分布:", pg.evaluate("() => [Math.min(...BOOKS.map(b=>b.n)), Math.max(...BOOKS.map(b=>b.n))]"))
+
+    first = pg.evaluate("() => BOOKS[0]")
+    print(f"第一本: {first['c']} {first['y']} {first['t'][:30]} ({first['n']}p)")
+
+    pg.locator(f'.c[data-i="{first["i"]}"]').click()
     pg.wait_for_timeout(500)
-    print("  打开:", pg.inner_text("#cnt"), "| 下一条禁用:", pg.eval_on_selector('#foot button[data-step="1"]', "e=>e.disabled"))
+    print("  打开:", pg.inner_text("#cnt"), "| PDF 链接:", pg.get_attribute("#bar .pdf", "href"))
 
+    for _ in range(first["n"] - 1):
+        pg.keyboard.press("ArrowRight")
+    pg.wait_for_timeout(300)
+    print("  末页:", pg.inner_text("#cnt"))
     pg.keyboard.press("ArrowRight")
     pg.wait_for_timeout(500)
-    nd = pg.evaluate("()=>({c:D.find(x=>x.i===cur.i).c,t:cur.t,i:cur.i})")
-    print("  按→之后:", pg.inner_text("#cnt"), "| 条目 index:", nd["i"], "|", nd["c"], nd["t"][:30])
-    print("  是否进入了下一条:", nd["i"] == i + 1)
+    nxt = pg.evaluate("() => ({c:cur.c, t:cur.t, i:cur.i})")
+    print("  跨本后:", pg.inner_text("#cnt"), "| 是否第二本:", nxt["i"] == pg.evaluate("() => BOOKS[1].i"))
 
-    # 跨页条目末尾 → 下一条
-    j = pg.evaluate("()=>D.findIndex(x=>x.n>1)")
-    pg.keyboard.press("Escape")
-    pg.wait_for_timeout(200)
-    pg.locator(f'.c[data-i="{j}"]').click()
-    pg.wait_for_timeout(400)
-    n = pg.evaluate(f"()=>D[{j}].n")
-    for _ in range(n):
-        pg.keyboard.press("ArrowRight")
-    pg.wait_for_timeout(500)
-    k = pg.evaluate("()=>cur.i")
-    print(f"  多页条目({n}p)翻到末页后再→: 条目 index {k}（应为 {j+1}）")
-
-    # 反向：单页条目首按← 回到上一条末页
-    pg.keyboard.press("Escape")
-    m = pg.evaluate("()=>D.findIndex(x=>x.n===1 && x.i>0)")
-    pg.keyboard.press("Escape")
-    pg.locator(f'.c[data-i="{m}"]').click()
-    pg.wait_for_timeout(400)
     pg.keyboard.press("ArrowLeft")
     pg.wait_for_timeout(400)
-    back = pg.evaluate("()=>({i:cur.i,cnt:document.getElementById('cnt').textContent})")
-    print(f"  单页条目按←: 回到 index {back['i']}，显示 {back['cnt']}")
+    print("  往回:", pg.inner_text("#cnt"), "| 回到第一本末页:", pg.evaluate("() => cur.i === BOOKS[0].i"))
 
-    # 全局边界
-    pg.keyboard.press("Escape")
-    pg.locator('.c[data-i="0"]').click()
-    pg.wait_for_timeout(300)
-    for _ in range(6):
-        pg.keyboard.press("ArrowLeft")
-    print("  首条首页再按←: 条目 index", pg.evaluate("()=>cur.i"), "| 按钮禁用:", pg.eval_on_selector('#foot button[data-step="-1"]', "e=>e.disabled"))
+    nat = pg.eval_on_selector("#v img", "e => [e.complete, e.naturalWidth]")
+    print("  图片加载:", nat)
 
-    print("错误:", errs[:4] if errs else "无")
+    pg.fill("#q", "美国")
+    pg.wait_for_timeout(400)
+    print("搜索美国可见:", pg.evaluate("() => Array.from(document.querySelectorAll('.c')).filter(c=>c.style.display!=='none').length"))
+
+    print("错误:", sorted(set(errs))[:4] if errs else "无")
     b.close()
