@@ -1,4 +1,4 @@
-"""用 Internet Archive 的语言过滤补欧洲各国小册子（德/法/俄/意/西/荷/波）。"""
+"""Internet Archive 补欧洲小册子（MARC 语言代码 + 本地语主题词）。"""
 
 import json
 import os
@@ -18,27 +18,28 @@ ROOT = os.path.join(BASE, "images", "ia-eu")
 RAW = os.path.join(ROOT, "raw")
 os.makedirs(RAW, exist_ok=True)
 
-MINP, MAXP = 10, 64
+MINP, MAXP = 12, 64
 PDF_MAX_MB = 18
 QUOTA = 4
 
-# (检索式, 国别)
-QUERIES = [
-    ('language:(German) AND subject:(Sozialdemokratie OR Sozialismus) AND imagecount:[10 TO 64] AND year:[1880 TO 1933]', "德国"),
-    ('language:(German) AND subject:(Politik) AND imagecount:[10 TO 64] AND year:[1900 TO 1945]', "德国"),
-    ('language:(French) AND subject:(politique OR socialisme) AND imagecount:[10 TO 64] AND year:[1870 TO 1940]', "法国"),
-    ('language:(Russian) AND subject:(revolution OR bolshevik) AND imagecount:[10 TO 64] AND year:[1900 TO 1930]', "俄国"),
-    ('language:(Italian) AND subject:(politica OR socialismo) AND imagecount:[10 TO 64] AND year:[1890 TO 1945]', "意大利"),
-    ('language:(Spanish) AND subject:(política OR socialismo) AND imagecount:[10 TO 64] AND year:[1890 TO 1940]', "西班牙"),
-    ('language:(Dutch) AND subject:(politiek) AND imagecount:[10 TO 64] AND year:[1890 TO 1940]', "荷兰"),
-    ('language:(Polish) AND subject:(polityka) AND imagecount:[10 TO 64] AND year:[1890 TO 1940]', "波兰"),
+GROUPS = [
+    ("德国", "ger", "Sozialismus OR Sozialdemokratie OR Politik"),
+    ("法国", "fre", "politique OR socialisme OR élections"),
+    ("俄国", "rus", "revolution OR bolshevik OR politique"),
+    ("意大利", "ita", "politica OR socialismo"),
+    ("西班牙", "spa", "política OR socialismo"),
+    ("荷兰", "dut", "politiek OR socialisme"),
+    ("波兰", "pol", "polityka OR socjalizm"),
+    ("瑞典", "swe", "politik OR socialism"),
+    ("匈牙利", "hun", "politika OR szocializmus"),
 ]
 
 BAD = re.compile(
     r"(novel|poems|sermon|hymn|cookery|recipe|dictionary|encyclopedia|almanac|yearbook|"
     r"catalog|directory|journal|magazine|argus|herald|tribune|gazette|newspaper|"
     r"courier|sentinel|bulletin|statutes|code of|compiled laws|session laws|"
-    r"report of the|proceedings of|minutes of|annual report|kalender|adressbuch)", re.I)
+    r"report of the|proceedings of|minutes of|annual report|kalender|adressbuch|"
+    r"romans?|gedichte|récit|romanzo|poesie)", re.I)
 
 
 def get_json(url, timeout=60, retries=3):
@@ -78,14 +79,16 @@ def fetch(url, path, timeout=180, retries=3):
 
 records, seen, titles = [], set(), set()
 n = 0
-for q, country in QUERIES:
-    got = 0
+for country, code, subj in GROUPS:
+    q = (f'language:({code}) AND subject:({subj}) AND '
+         f'imagecount:[{MINP} TO {MAXP}] AND year:[1880 TO 1948] AND mediatype:texts')
     try:
         d = search(q)
     except Exception as e:
         print(f"ERR {country}: {type(e).__name__}", flush=True)
         continue
 
+    got = 0
     for doc in (d.get("response") or {}).get("docs", []):
         if got >= QUOTA:
             break
@@ -125,7 +128,8 @@ for q, country in QUERIES:
         os.makedirs(os.path.join(folder, "pages"), exist_ok=True)
         rec = {"no": n, "country": country, "title": title, "year": year,
                "pages": ic, "identifier": ident,
-               "url": f"https://archive.org/details/{ident}"}
+               "url": f"https://archive.org/details/{ident}",
+               "subject": str(doc.get("subject"))[:80]}
         if pdf_name and pdf_size <= PDF_MAX_MB * 1048576:
             try:
                 fetch(f"https://archive.org/download/{ident}/{urllib.parse.quote(pdf_name)}",
