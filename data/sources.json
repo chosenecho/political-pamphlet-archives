@@ -638,8 +638,7 @@
         "election address",
         "election platform"
       ]
-    }
-,
+    },
     {
       "slug": "internet-archive",
       "title": "Internet Archive · 政治组织与政治材料扫描件",
@@ -657,6 +656,24 @@
         "campaign literature",
         "election address",
         "Fabian tract"
+      ]
+    },
+    {
+      "slug": "wiki-commons",
+      "title": "Wikimedia Commons · 政治海报与传单扫描件",
+      "region": "跨国",
+      "kind": "数字馆藏(免费)",
+      "url": "https://commons.wikimedia.org/",
+      "note": "各国档案馆与图书馆上传的历史政治海报、竞选招贴、传单扫描件；本目录已收录 200 余件，1848-1990",
+      "lang": "en",
+      "terms": [
+        "political poster",
+        "election poster",
+        "campaign poster",
+        "propaganda poster",
+        "leaflet",
+        "handbill",
+        "suffragette poster"
       ]
     }
   ]

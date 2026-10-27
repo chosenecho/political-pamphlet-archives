@@ -50,8 +50,11 @@ def main():
             problems.append(f"{tag}: pages 目录不存在")
             continue
         imgs = sorted(f for f in os.listdir(pages_dir) if f.endswith(".jpg"))
-        if len(imgs) != x["pages"]:
-            problems.append(f"{tag}: pages={x['pages']} 但实际页图 {len(imgs)}")
+        # pages 允许小于文件数：fix_duplicates.py 已把 pages 改回真实页数，
+        # 尾部重复的填充页文件仍留在 images/ 下（不入库）。只有 pages 大于
+        # 文件数才是虚报。
+        if x["pages"] > len(imgs):
+            problems.append(f"{tag}: pages={x['pages']} 超过实际页图 {len(imgs)}")
 
         # 3. cover
         cov = os.path.join(IMG, x["cover"].replace("/", os.sep))

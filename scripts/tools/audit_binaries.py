@@ -85,8 +85,12 @@ def main():
             problems.append(f"{tag}: {len(undecodable)} 个页图解码失败 {undecodable[:3]}")
         if tiny:
             problems.append(f"{tag}: {len(tiny)} 个页图小于 2KB（可能空白）")
-        if len(imgs) != x["pages"]:
-            problems.append(f"{tag}: pages={x['pages']} 实际 {len(imgs)}")
+        # pages 与磁盘文件数可以不等：抓取脚本在内页不足时会把最后一页重复
+        # 存几遍凑数，fix_duplicates.py 已把 pages 改回真实页数，冗余文件仍
+        # 留在 images/ 下（不入库）。因此 pages <= 文件数是正常状态，
+        # 只有 pages > 文件数才说明记录虚报。
+        if x["pages"] > len(imgs):
+            problems.append(f"{tag}: pages={x['pages']} 超过页图数 {len(imgs)}")
 
         # --- PDF ---
         if x["pdf"]:
