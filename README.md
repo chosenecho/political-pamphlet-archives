@@ -121,35 +121,35 @@ scripts/
 
 | 专藏 | 地区 | 规模 |
 |---|---|---|
-| [Social History Portal](https://www.socialhistoryportal.org/) | 欧洲 | IALHI 国际劳工史机构协会门户，跨馆检索社会运动档案与 100 余种期刊目次 |
-| [JSTOR 19th Century British Pamphlets](https://about.jstor.org/products/journals-and-primary-sources/licensed-collections/19th-century-british-pamphlets/) | 英国 | 2.6 万册、逾 100 万页，合并 7 所大学馆藏 |
+| [Social History Portal (IALHI 聚合)](https://www.socialhistoryportal.org/) | 欧洲 | 国际劳工史机构协会（IALHI）门户，跨馆检索社会运动与工运档案、100 余种期刊目次 |
+| [JSTOR · 19th Century British Pamphlets](https://about.jstor.org/products/journals-and-primary-sources/licensed-collections/19th-century-british-pamphlets/) | 英国 | 2.6 万册 / 逾 100 万页，7 所英国大学馆藏合并 |
 
 **党档案馆（往往比国家馆更全）**
 
 | 专藏 | 地区 | 规模 |
 |---|---|---|
-| [FES 社会民主党档案馆](https://www.fes.de/archiv-der-sozialen-demokratie) | 德国 | SPD 党产文献，Digitale Bibliothek 做期刊与小册子回溯数字化 |
-| [KAS 基督教民主档案馆](https://www.kas.de/de/archiv-und-bibliothek) | 德国 | CDU/CSU 1900 余个档案群，19 公里档案，Flugblätter 可全文检索 |
-| [Fundación Pablo Iglesias](https://fpabloiglesias.es/archivo-y-biblioteca/) | 西班牙 | PSOE、UGT、JSE 历史档案 |
-| [People's History Museum](https://phm.org.uk/collection/labour-history-archive-study-centre/) | 英国 | 工党及各左翼压力团体全宗 |
+| [Friedrich-Ebert-Stiftung · Archiv der sozialen Demokratie](https://www.fes.de/archiv-der-sozialen-demokratie) | 德国 | 社会民主党档案馆；提供馆藏总览、图书馆目录与数字化来源三个检索入口 |
+| [Konrad-Adenauer-Stiftung · ACDP 档案馆与图书馆](https://www.kas.de/de/archiv-und-bibliothek) | 德国 | 1900 余个档案群、逾 19 架公里档案；联邦议院 CDU/CSU 党团的传单与新闻稿可全文检索 |
+| [Fundación Pablo Iglesias](https://fpabloiglesias.es/archivo-y-biblioteca/) | 西班牙 | PSOE、UGT、JSE 及主要领导人（Pablo Iglesias、Largo Caballero 等）的历史档案与书刊 |
+| [People's History Museum · Labour History Archive & Study Centre](https://phm.org.uk/collection/labour-history-archive-study-centre/) | 英国 | 工党与英国共产党的完整全宗，另有工人阶级组织档案与 9.5 万余张照片 |
 
 **社会运动与冷战专门机构**
 
 | 专藏 | 地区 | 规模 |
 |---|---|---|
-| [IISH 阿姆斯特丹](https://iisg.amsterdam/en/collections) | 荷兰 | 100 万册、5445 个档案群 |
-| [Schweizerisches Sozialarchiv](https://www.sozialarchiv.ch/) | 瑞士 | 约 18 万册小册子与传单 |
-| [Blinken OSA Archivum](https://archivum.org/) | 匈牙利 | 冷战、自由欧洲电台、samizdat |
-| [VGA 维也纳](https://www.vga.at/) | 奥地利 | 6000 余张政治海报在线检索 |
+| [IISH Amsterdam · Collections](https://iisg.amsterdam/en/collections) | 荷兰 | — |
+| [Schweizerisches Sozialarchiv](https://www.sozialarchiv.ch/) | 瑞士 | 约 1000 个档案群；文献部藏有小册子、传单与新闻剪报 |
+| [Blinken OSA Archivum](https://archivum.org/) | 匈牙利 | 冷战、自由欧洲电台、samizdat（地下出版物）与人权材料，1956 匈牙利革命专题 |
+| [Verein für Geschichte der ArbeiterInnenbewegung](https://www.vga.at/) | 奥地利 | 经「zeithistorischer politischer Archive」平台可在线检索 6000 余张政治海报 |
 
 **亚洲与拉美**
 
 | 专藏 | 地区 | 规模 |
 |---|---|---|
-| [抗日战争与近代中日关系文献数据平台](https://www.modernhistory.org.cn/) | 中国 | 5000 万页以上，含红色文献专题库 |
-| [法政大学大原社会問題研究所](https://oisr-org.ws.hosei.ac.jp/) | 日本 | 日本社会运动史核心机构，政党与工会ビラ |
-| [LoC 新德里政治小册子集](https://www.loc.gov/item/2009345307) | 印度/美 | 南亚政治小册子 1959–2009，多语种 |
-| [Memoria Chilena · Panfletos](https://www.memoriachilena.gob.cl/602/w3-article-3641.html) | 智利 | 1973–1988 军政府时期政党传单 |
+| [抗日战争与近代中日关系文献数据平台](https://www.modernhistory.org.cn/) | 中国 | 含红色文献专题库、中共党史/组织史专题库 |
+| [法政大学大原社会問題研究所](https://oisr-org.ws.hosei.ac.jp/) | 日本 | 日本社会运动史核心机构，藏有大量政党、工会的ビラ（传单）与パンフレット |
+| [LoC 新德里办事处政治小册子集](https://www.loc.gov/item/2009345307) | 印度/美 | 美国国会图书馆新德里办公室收集整理的南亚政治小册子（1959–2009，含孟加拉语、印地语等） |
+| [Memoria Chilena · Panfletos 1973–1988](https://www.memoriachilena.gob.cl/602/w3-article-3641.html) | 智利 | 军事独裁时期政党活动被禁，传单成为主要宣传形式；该专题收录此期 panfletos |
 
 ## 检索提示
 

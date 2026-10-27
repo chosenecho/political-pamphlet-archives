@@ -2,6 +2,11 @@
 
 文档里的每个数字都要用脚本能算出来的真实值去比。查不实陈述，
 包括我自己写的"覆盖 18 国""3630 页""210/230 译名"等。
+
+2026-10 增补：README 的「已核实的 N 个专藏（节选）」那一节本来是一张手抄表，
+与 data/sources.json 分头维护，漂了 30 处（名称口径、地区写中文还是代码、
+规模注记被缩写到意思变样，还有 6 个数字在数据里根本查不到）。
+现在该节由 scripts/lib/readme_sources.py 生成，这里负责反查它没有被手改回去。
 """
 
 import json
@@ -10,6 +15,9 @@ import re
 import sys
 
 BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(BASE, "scripts"))
+
+from lib import readme_sources
 
 
 def main():
@@ -89,10 +97,58 @@ def main():
                     problems.append(f"{label}: README {nums} vs 实际 "
                                     f"{[truth['有来源'], truth['总条目']]}")
 
+    # --- 节选表：必须与生成结果逐字一致 ---
+    problems += check_excerpt_section(readme)
+
     print(f"\n问题 {len(problems)} 项")
     for p in problems:
         print("  ✗", p)
     return 1 if problems else 0
+
+
+def check_excerpt_section(readme):
+    """README 的专藏节选表必须等于 readme_sources.render() 的输出。
+
+    这一节的内容只有一个来源（data/sources.json），README 里是它的投影。
+    手改 README 会让两者分叉，所以这里不允许「差不多」——整节逐字比。
+    """
+    src = json.load(open(os.path.join(BASE, "data", "sources.json"), encoding="utf-8"))
+    sources = src["sources"]
+    expect = readme_sources.render(sources)
+
+    lines = readme.split("\n")
+    start = next((i for i, l in enumerate(lines) if l.startswith("## 已核实的")), None)
+    end = next((i for i, l in enumerate(lines) if l.startswith("## 检索提示")), None)
+    print("\n专藏节选表：")
+    if start is None or end is None or end <= start:
+        return ["节选表：README 里找不到「## 已核实的…」到「## 检索提示」这一节"]
+
+    got = "\n".join(lines[start + 1:end]).strip()
+    # 生成结果前面还有一句导语，比正文即可
+    body_at = got.find("**综合与聚合入口**")
+    if body_at < 0:
+        return ["节选表：找不到第一个小标题「**综合与聚合入口**」，结构已被改动"]
+    got_body = got[body_at:].rstrip()
+
+    if got_body == expect:
+        print(f"   与 sources.json 生成的 {len(readme_sources.all_slugs())} 行一致")
+        return []
+
+    # 逐行定位差异，报出来的必须是能直接改的内容
+    out = ["节选表与 data/sources.json 生成结果不一致（跑 "
+           "scripts/tools/update_readme_sources.py 可自动重写）"]
+    got_lines = got_body.split("\n")
+    exp_lines = expect.split("\n")
+    for i in range(max(len(got_lines), len(exp_lines))):
+        g = got_lines[i] if i < len(got_lines) else "(缺行)"
+        e = exp_lines[i] if i < len(exp_lines) else "(多余行)"
+        if g != e:
+            out.append(f"  第 {i + 1} 行 README={g[:90]!r}")
+            out.append(f"           应为={e[:90]!r}")
+            if len(out) > 12:
+                out.append("  …（差异过多，已截断）")
+                break
+    return out
 
 
 if __name__ == "__main__":

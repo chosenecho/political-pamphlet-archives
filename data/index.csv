@@ -2,7 +2,7 @@
 jstor-19c-british-pamphlets,JSTOR · 19th Century British Pamphlets,UK,数据库(订阅),https://about.jstor.org/products/journals-and-primary-sources/licensed-collections/19th-century-british-pamphlets/,10649,ok,True,urllib-retry,0,2.6 万册 / 逾 100 万页，7 所英国大学馆藏合并
 bodleian-john-johnson,Bodleian · John Johnson Collection of Printed Ephemera,UK,特藏(部分在线),https://www.bodleian.ox.ac.uk/collections-and-resources/special-collections/catalogues/johnson,4262,ok,True,urllib-crawl,0,6.5 万件印刷品，含选举传单 handbill
 bishopsgate-labour-socialist,Bishopsgate Institute · Labour and Socialist History,UK,特藏,https://www.bishopsgate.org.uk/collections/labour-and-socialist-history/,3159,ok,True,urllib-crawl,0,
-phm-labour-history-archive,People's History Museum · Labour History Archive & Study Centre,UK,档案馆,https://phm.org.uk/collection/labour-history-archive-study-centre/,3130,ok,True,urllib-crawl,0,
+phm-labour-history-archive,People's History Museum · Labour History Archive & Study Centre,UK,档案馆,https://phm.org.uk/collection/labour-history-archive-study-centre/,3130,ok,True,urllib-crawl,0,工党与英国共产党的完整全宗，另有工人阶级组织档案与 9.5 万余张照片
 lse-digital-library,LSE Digital Library · Collections,UK,数字馆藏(免费),https://digital.library.lse.ac.uk/collections,3426,ok,True,urllib-crawl,0,
 nyu-tamiment-cpusa,NYU Tamiment · Printed Ephemera Collection on the CPUSA,US,档案馆,https://findingaids.library.nyu.edu/tamwag/pe_031/,12699,ok,True,urllib-crawl,0,
 umich-labadie,University of Michigan · Joseph A. Labadie Collection,US,特藏,https://www.lib.umich.edu/collections/collecting-areas/special-collections/joseph-labadie-collection/,12644,ok,True,urllib-crawl,0,
@@ -10,10 +10,10 @@ hoover-posters,Hoover Institution · Poster Collection,US,特藏(在线),https:/
 hoover-digital-collections,Hoover Institution · Digital Collections,US,数字馆藏(免费),https://www.hoover.org/library-archives/collections/digital-collections,21105,ok,True,urllib-crawl,0,
 loc-printed-ephemera,Library of Congress · Printed Ephemera (An American Time Capsule),US,数字馆藏(免费),https://www.loc.gov/loc/lcib/9905/newammem.html,416,partial,True,firecrawl/manual,0,
 iisg-collections,IISH Amsterdam · Collections,NL,档案馆,https://iisg.amsterdam/en/collections,2974,ok,True,urllib-crawl,0,
-sozialarchiv-zuerich,Schweizerisches Sozialarchiv,CH,档案馆,https://www.sozialarchiv.ch/,1868,ok,True,urllib-crawl,0,
-fes-adsd,Friedrich-Ebert-Stiftung · Archiv der sozialen Demokratie,DE,党档案馆,https://www.fes.de/archiv-der-sozialen-demokratie,16023,ok,True,urllib-crawl,0,
+sozialarchiv-zuerich,Schweizerisches Sozialarchiv,CH,档案馆,https://www.sozialarchiv.ch/,1868,ok,True,urllib-crawl,0,约 1000 个档案群；文献部藏有小册子、传单与新闻剪报
+fes-adsd,Friedrich-Ebert-Stiftung · Archiv der sozialen Demokratie,DE,党档案馆,https://www.fes.de/archiv-der-sozialen-demokratie,16023,ok,True,urllib-crawl,0,社会民主党档案馆；提供馆藏总览、图书馆目录与数字化来源三个检索入口
 fes-digitale-bibliothek,FES · Digitale Bibliothek,DE,数字馆藏,https://www.fes.de/bibliothek/zeitschriften-digitalisierung,20461,ok,True,urllib-crawl,0,
-kas-archiv-bibliothek,Konrad-Adenauer-Stiftung · ACDP 档案馆与图书馆,DE,党档案馆,https://www.kas.de/de/archiv-und-bibliothek,2084,ok,True,firecrawl/manual,0,
+kas-archiv-bibliothek,Konrad-Adenauer-Stiftung · ACDP 档案馆与图书馆,DE,党档案馆,https://www.kas.de/de/archiv-und-bibliothek,2084,ok,True,firecrawl/manual,0,1900 余个档案群、逾 19 架公里档案；联邦议院 CDU/CSU 党团的传单与新闻稿可全文检索
 wlb-zeit-der-weltkriege,Württembergische Landesbibliothek · Zeit der Weltkriege,DE,特藏,https://www.wlb-stuttgart.de/sammlungen/zeit-der-weltkriege,6264,ok,True,urllib-crawl,0,
 la-contemporaine,La Contemporaine · Collections,FR,档案馆/博物馆,https://www.lacontemporaine.fr/en/collections/,18050,ok,True,urllib-crawl,0,
 francearchives-tracts,FranceArchives · Fonds des Tracts politiques (Sciences Po / CEVIPOF),FR,在线档案目录(免费),https://francearchives.gouv.fr/fr/findingaid/1e48faec7165e984c693396f23969f5e00008e55,2274,ok,True,firecrawl/manual,0,1934-2024，按年份+生产者+主题分类；含 PCF/PS/CFDT 等
