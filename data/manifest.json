@@ -11,7 +11,9 @@
     "ok": true,
     "seconds": 0.7,
     "encoding": "utf-8",
-    "via": "urllib-retry"
+    "via": "urllib-retry",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "bodleian-john-johnson",
@@ -25,7 +27,9 @@
     "ok": true,
     "seconds": 1.8,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "bishopsgate-labour-socialist",
@@ -39,7 +43,9 @@
     "ok": true,
     "seconds": 1.6,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "phm-labour-history-archive",
@@ -53,7 +59,9 @@
     "ok": true,
     "seconds": 1.6,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "lse-digital-library",
@@ -67,7 +75,9 @@
     "ok": true,
     "seconds": 2.1,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "nyu-tamiment-cpusa",
@@ -81,7 +91,9 @@
     "ok": true,
     "seconds": 0.8,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "umich-labadie",
@@ -95,7 +107,9 @@
     "ok": true,
     "seconds": 1.0,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "hoover-posters",
@@ -109,7 +123,9 @@
     "ok": true,
     "seconds": 1.2,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "hoover-digital-collections",
@@ -123,20 +139,24 @@
     "ok": true,
     "seconds": 0.7,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "loc-printed-ephemera",
     "title": "Library of Congress · Printed Ephemera / An American Time Capsule",
     "region": "US",
     "url": "https://www.loc.gov/collections/",
-    "ok": true,
+    "ok": false,
     "status": 403,
-    "error": "HTTPError: HTTP Error 403: Forbidden",
+    "error": "HTTP 403",
     "seconds": 0.5,
     "chars": 416,
     "via": "firecrawl/manual",
-    "note": "手工落盘（原站对 urllib 403 / JS 门禁）"
+    "note": "手工落盘（原站对 urllib 403 / JS 门禁）",
+    "fetched": false,
+    "readable": false
   },
   {
     "slug": "iisg-collections",
@@ -150,7 +170,9 @@
     "ok": true,
     "seconds": 2.7,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "sozialarchiv-zuerich",
@@ -164,7 +186,9 @@
     "ok": true,
     "seconds": 1.5,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "fes-adsd",
@@ -178,7 +202,9 @@
     "ok": true,
     "seconds": 2.7,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "fes-digitale-bibliothek",
@@ -192,7 +218,9 @@
     "ok": true,
     "seconds": 2.3,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "kas-archiv-bibliothek",
@@ -201,11 +229,13 @@
     "url": "https://www.kas.de/de/archiv-und-bibliothek",
     "ok": true,
     "status": 403,
-    "error": "HTTPError: HTTP Error 403: Forbidden",
+    "error": "HTTP 403（正文另行取得）",
     "seconds": 1.1,
     "chars": 2084,
     "via": "firecrawl/manual",
-    "note": "手工落盘（原站对 urllib 403 / JS 门禁）"
+    "note": "手工落盘（原站对 urllib 403 / JS 门禁）",
+    "fetched": false,
+    "readable": true
   },
   {
     "slug": "wlb-zeit-der-weltkriege",
@@ -219,7 +249,9 @@
     "ok": true,
     "seconds": 2.1,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "la-contemporaine",
@@ -233,7 +265,9 @@
     "ok": true,
     "seconds": 2.5,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "francearchives-tracts",
@@ -247,9 +281,10 @@
     "ok": true,
     "seconds": 0.9,
     "encoding": "utf-8",
-    "error": "ValueError: body too short (276 chars) - likely JS gate",
     "via": "firecrawl/manual",
-    "note": "手工落盘（原站对 urllib 403 / JS 门禁）"
+    "note": "手工落盘（原站对 urllib 403 / JS 门禁）",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "gallica-tracts-ww2",
@@ -263,20 +298,24 @@
     "ok": true,
     "seconds": 1.2,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "pares-carteles",
     "title": "PARES · Carteles de la España Republicana",
     "region": "ES",
     "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/description/117015",
-    "ok": true,
+    "ok": false,
     "status": 429,
-    "error": "HTTPError: HTTP Error 429: Too Many Requests",
+    "error": "HTTP 429",
     "seconds": 1.1,
     "chars": 419,
     "via": "firecrawl/manual",
-    "note": "手工落盘（原站对 urllib 403 / JS 门禁）"
+    "note": "手工落盘（原站对 urllib 403 / JS 门禁）",
+    "fetched": false,
+    "readable": false
   },
   {
     "slug": "gale-political-extremism",
@@ -290,7 +329,9 @@
     "ok": true,
     "seconds": 1.7,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "modernhistory-cn",
@@ -305,7 +346,9 @@
     "seconds": 0.2,
     "encoding": "utf-8",
     "via": "firecrawl/manual",
-    "note": "手工落盘（原站对 urllib 403 / JS 门禁）"
+    "note": "手工落盘（原站对 urllib 403 / JS 门禁）",
+    "fetched": true,
+    "readable": true
   },
   {
     "slug": "ndl-digital-collections",
@@ -316,11 +359,14 @@
     "final_url": "https://www.ndl.go.jp/gallery/exhibitions/202507",
     "bytes": 726529,
     "chars": 243,
-    "ok": true,
+    "ok": false,
     "seconds": 0.8,
     "encoding": "utf-8",
     "via": "firecrawl/manual",
-    "note": "手工落盘（原站对 urllib 403 / JS 门禁）"
+    "note": "手工落盘（原站对 urllib 403 / JS 门禁）",
+    "fetched": true,
+    "readable": false,
+    "error": "正文仅 243 字符（下限 500），疑似 JS 门禁或空壳页"
   },
   {
     "slug": "amsab-isg",
@@ -334,6 +380,8 @@
     "ok": true,
     "seconds": 1.9,
     "encoding": "utf-8",
-    "via": "urllib-crawl"
+    "via": "urllib-crawl",
+    "fetched": true,
+    "readable": true
   }
 ]
