@@ -66,7 +66,9 @@ def main():
                 problems.append(f"{tag}: pdf 路径不存在 {x['pdf']}")
 
         # 6. 基本字段
-        if not x["year"].isdigit() or not (1840 <= int(x["year"]) <= 1955):
+        # 年份上限放到 1990：2026-10 深度补采纳入印度甘地小册（1960s）
+        # 与拉美反独裁海报（1980s），原有 1955 上限会把它们误判为异常。
+        if not x["year"].isdigit() or not (1840 <= int(x["year"]) <= 1990):
             problems.append(f"{tag}: 年份异常 {x['year']!r}")
         if not x["title_zh"]:
             problems.append(f"{tag}: 缺中文译名")
