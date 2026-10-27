@@ -2,31 +2,185 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
 <title>占位</title>
 <style>
-  :root { color-scheme: light dark; }
-  body {
-    margin: 0; min-height: 100vh;
-    display: grid; place-items: center;
-    font: 14px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
-    color: #6b6456; background: #faf8f2;
+:root{
+  --paper:#efece3; --surface:#faf8f2; --mat:#e7e2d3; --mat2:#ded8c6;
+  --ink:#191713; --rule:#d5cfbe; --rule2:#e5e0d2;
+  --bar:#d9d3c2; --bar2:#c9c2ae;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#191713; --surface:#1f1c17; --mat:#2a2620; --mat2:#332e27;
+    --ink:#efece3; --rule:#3a352c; --rule2:#2e2a23;
+    --bar:#3a352c; --bar2:#4a443a;
   }
-  @media (prefers-color-scheme: dark) {
-    body { color: #9a9384; background: #191713; }
-  }
-  main { text-align: center; }
-  .ph {
-    display: inline-block; padding: 18px 28px;
-    border: 1px dashed currentColor; border-radius: 4px;
-    opacity: .55;
-  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--paper); color:var(--ink);
+  font:14px/1.5 system-ui,-apple-system,"Segoe UI","PingFang SC","Noto Sans SC",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.b{display:block;height:9px;border-radius:2px;background:var(--bar)}
+.b.dim{background:var(--bar2)}
+.b.tall{height:13px}
+.w15{width:15%}.w25{width:25%}.w35{width:35%}.w45{width:45%}
+.w55{width:55%}.w65{width:65%}.w75{width:75%}.w85{width:85%}.w100{width:100%}
+
+/* ---------- 页头 ---------- */
+.mast{padding:26px 26px 18px;background:var(--surface);border-bottom:1px solid var(--rule)}
+.mast-in{max-width:1560px;margin:0 auto}
+.mast .t1{height:20px;width:min(320px,42%);border-radius:3px;background:var(--bar2);margin-bottom:12px}
+.mast .t2{height:9px;width:min(150px,22%);margin-bottom:18px}
+.mast .t3{height:9px;width:min(760px,92%);margin-bottom:8px}
+.mast .t4{height:9px;width:min(520px,68%)}
+.stats{display:flex;gap:34px;margin-top:22px;flex-wrap:wrap}
+.stat{min-width:58px}
+.stat .k{height:7px;width:44px;margin-bottom:7px}
+.stat .v{height:15px;width:34px;border-radius:3px;background:var(--bar2)}
+
+/* ---------- 工具条 ---------- */
+.tool{position:sticky;top:0;z-index:5;background:var(--surface);
+  border-bottom:1px solid var(--rule);padding:11px 26px}
+.tool-in{max-width:1560px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.search{flex:0 1 300px;height:32px;border:1px solid var(--rule);border-radius:6px;
+  background:var(--paper);display:flex;align-items:center;padding:0 10px}
+.search .b{width:52%;height:8px}
+.plate{height:32px;border:1px solid var(--rule);border-radius:6px;background:var(--paper);
+  display:flex;align-items:center;justify-content:center;padding:0 14px}
+.plate .b{width:26px;height:8px}
+.seg{display:flex;border:1px solid var(--rule);border-radius:6px;overflow:hidden;height:32px}
+.seg div{width:42px;display:flex;align-items:center;justify-content:center;
+  border-right:1px solid var(--rule)}
+.seg div:last-child{border-right:0}
+.seg .b{width:16px;height:16px;border-radius:3px}
+.sel{height:32px;width:104px;border:1px solid var(--rule);border-radius:6px;background:var(--paper);
+  display:flex;align-items:center;padding:0 10px}
+.sel .b{width:58%;height:8px}
+.count{margin-left:auto;height:9px;width:76px}
+
+/* ---------- 主体 ---------- */
+.shell{max-width:1560px;margin:0 auto;display:grid;
+  grid-template-columns:238px minmax(0,1fr);gap:26px;padding:22px 26px 40px}
+.rail .grp{margin-bottom:24px}
+.rail .gh{height:8px;width:46px;margin-bottom:12px}
+.opt{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.opt .dot{width:13px;height:13px;border-radius:3px;border:1px solid var(--rule2);
+  background:var(--paper);flex:none}
+.opt .lbl{height:8px;flex:1}
+.opt .n{height:7px;width:20px;flex:none}
+
+.grid{display:grid;gap:18px;
+  grid-template-columns:repeat(auto-fill,minmax(186px,1fr))}
+.card{border:1px solid var(--rule);border-radius:5px;background:var(--surface);
+  padding:9px;overflow:hidden}
+.cov{aspect-ratio:3/4;border-radius:3px;border:1px solid var(--rule2);
+  background:repeating-linear-gradient(45deg,var(--mat) 0 7px,var(--mat2) 7px 14px)}
+.card .l1{margin-top:11px;height:9px;width:92%}
+.card .l2{margin-top:7px;height:8px;width:64%}
+.card .l3{margin-top:10px;height:6px;width:40%}
+
+.foot{grid-column:1/-1;border-top:1px solid var(--rule);margin-top:14px;padding-top:18px}
+.foot .b{margin-bottom:9px}
+
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr;padding:16px}
+  .rail{display:none}
+  .mast{padding:20px 16px 14px}
+  .tool{padding:10px 16px}
+  .tool-in{gap:8px}
+  .search{flex:1 1 auto}
+  .sel,.count{display:none}
+  .stats{gap:22px}
+}
 </style>
 </head>
 <body>
-<main>
-  <div class="ph">占位</div>
-</main>
+
+<header class="mast">
+  <div class="mast-in">
+    <div class="t1"></div>
+    <div class="b t2"></div>
+    <div class="b t3"></div>
+    <div class="b t4 dim</div>
+    <div class="stats">
+      <div class="stat"><div class="b k"></div><div class="v"></div></div>
+      <div class="stat"><div class="b k"></div><div class="v"></div></div>
+      <div class="stat"><div class="b k"></div><div class="v"></div></div>
+      <div class="stat"><div class="b k"></div><div class="v"></div></div>
+      <div class="stat"><div class="b k"></div><div class="v"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="tool">
+  <div class="tool-in">
+    <div class="search"><span class="b"></span></div>
+    <div class="plate"><span class="b"></span></div>
+    <div class="seg"><div><span class="b"></span></div><div><span class="b"></span></div></div>
+    <div class="sel"><span class="b"></span></div>
+    <div class="b count"></div>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="grp"><div class="b gh"></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+    </div>
+    <div class="grp"><div class="b gh"></div>
+      <div class="opt"><span class="b lbl"></span></div>
+      <div class="opt"><span class="b lbl"></span></div>
+    </div>
+    <div class="grp"><div class="b gh"></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+    </div>
+    <div class="grp"><div class="b gh"></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+    </div>
+    <div class="grp"><div class="b gh"></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+    </div>
+    <div class="grp"><div class="b gh"></div>
+      <div class="opt"><span class="dot"></span><span class="b lbl"></span><span class="b n dim"></span></div>
+    </div>
+  </aside>
+
+  <main class="grid" id="grid"></main>
+
+  <footer class="foot">
+    <div class="b w85"></div>
+    <div class="b w75 dim"></div>
+    <div class="b w55 dim"></div>
+  </footer>
+</div>
+
+<script>
+/* 卡片只是骨架占位，不含任何条目数据 */
+(function () {
+  var g = document.getElementById("grid"), f = document.createDocumentFragment();
+  for (var i = 0; i < 24; i++) {
+    var d = document.createElement("div");
+    d.className = "card";
+    d.innerHTML = '<div class="cov"></div><div class="b l1"></div>' +
+                  '<div class="b l2 dim"></div><div class="b l3 dim"></div>';
+    f.appendChild(d);
+  }
+  g.appendChild(f);
+})();
+</script>
 </body>
 </html>
