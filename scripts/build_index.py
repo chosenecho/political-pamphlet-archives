@@ -46,7 +46,10 @@ for s in src["sources"]:
 
 with open(paths.INDEX_CSV, "w", encoding="utf-8-sig", newline="") as f:
     w = csv.DictWriter(f, fieldnames=["slug", "title", "region", "kind", "url",
-                                      "chars", "status", "has_manifest", "via", "note"])
+                                      "chars", "status", "has_manifest", "via", "note"],
+                       # csv 默认 \r\n；仓库里存的是 LF，不显式指定会让
+                       # Windows 上重建的产物与提交不一致，CI 的产物校验必红
+                       lineterminator="\n")
     w.writeheader()
     w.writerows(rows)
 
@@ -83,7 +86,10 @@ if no_via:
 L += [""]
 
 os.makedirs(os.path.join(BASE, "docs"), exist_ok=True)
-open(os.path.join(BASE, "docs", "COLLECTIONS.md"), "w", encoding="utf-8").write("\n".join(L))
+# newline="\n"：Windows 上默认会把 \n 转成 \r\n，产物与提交就对不上了
+with open(os.path.join(BASE, "docs", "COLLECTIONS.md"), "w",
+          encoding="utf-8", newline="\n") as f:
+    f.write("\n".join(L))
 
 print(f"sources={len(rows)} ok={len(ok)} partial={len(part)} index-only={len(only)}")
 print(f"notes={len(os.listdir(NOTES)) if os.path.isdir(NOTES) else 0} "

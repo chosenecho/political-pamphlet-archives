@@ -1,0 +1,14 @@
+# 构建产物必须与提交逐字节一致，CI 会校验 docs/ 与 data/ 的 diff。
+# 若换行随平台变化，Windows 上重建的产物就与 ubuntu CI 的不一致。
+# 这里把文本产出与脚本统一钉成 LF，覆盖 core.autocrlf 的本地设置。
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.pdf binary
+*.7z binary
+*.woff binary
+*.woff2 binary
