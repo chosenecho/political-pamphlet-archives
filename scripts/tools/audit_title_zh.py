@@ -37,17 +37,18 @@ def main():
         if re.search(r"[A-Za-z]{12,}", zh):
             problems.append(f"{en[:40]}: 译名残留原文 {zh!r}")
         # 年份一致性。译名常如实反映材料内文年份，与出版年（year 字段）
-        # 相差 1 年属正常，不算错：
+        # 不完全相同属正常，不都是错：
         #   - "Verhandlungen ... Oktober 1887" 出版年 1888（会议次年印行）
         #   - "Sozialdemokratische Arbeitsgemeinschaft 1915/1916" 出版年 1916
         #   - "1st October 1886 to 31st March 1887" 出版年 1887
-        # 只有相差 >1 年才提示复查。
+        #   - 苏厄德 1858 年罗切斯特演说，1860 年出版（演说先于出版两年）
+        # 只有相差 >3 年才提示复查——再远就多半是真错。
         for y in re.findall(r"(1[89]\d{2}|20\d{2})", zh):
             try:
                 delta = abs(int(y) - int(x["year"]))
             except ValueError:
                 continue
-            if delta > 1:
+            if delta > 3:
                 problems.append(f"{en[:40]}: 译名含年份 {y}，与 year={x['year']} 相差 {delta} 年")
         # 译名不该是原文的逐字复制
         if zh == en:

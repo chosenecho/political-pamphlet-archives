@@ -403,7 +403,7 @@
   "pdf": "小册子/美国/009_1896_Address to the People of Delaware on the Approaching/doc.pdf",
   "url": "https://archive.org/details/addresstopeopleo00nati",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -431,7 +431,7 @@
   "pdf": "小册子/美国/011_1840_An Address to the People of the United States on the/doc.pdf",
   "url": "https://archive.org/details/addresstopeopleo00bent",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -472,8 +472,8 @@
   "cover": "小册子/英国/001_1957_Fabian Tract/pages/p-00001.jpg",
   "pdf": "小册子/英国/001_1957_Fabian Tract/doc.pdf",
   "url": "https://archive.org/details/fabiantract1957a58fabiuoft",
-  "stance": "",
-  "source": ""
+  "stance": "费边社会主义",
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -501,7 +501,7 @@
   "pdf": "小册子/德国/001_1848_Manifesto of the Communist Party/doc.pdf",
   "url": "https://archive.org/details/manifestoofcommu00marxrich",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "单页",
@@ -515,7 +515,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Women_Chainmakers_Strike_-_General_Meeting_handbill_-_April_1910.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -529,7 +529,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Harry_R._Hopps%2C_Destroy_this_mad_brute_Enlist_-_U.S._Army%2C_03216u_edit.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -543,7 +543,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:SovietSpainCivilWarPoster.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -557,7 +557,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Young_female_voters_reading_an_election_poster_for_Congress_candidate_Daljit_Singh_in_Delhi%2C_January_1952.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -571,7 +571,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Aldo_Moro_%28congresso_DC_1959%29.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -585,7 +585,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:BCN_Chile-%C2%A1%C2%A1%C2%A1Con_la_Junta_Militar_No_Hay_Libertad%21%21%21.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -599,7 +599,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:BCN_Chile-Era_el_%C3%BAnico%2C_y_salio_%C3%BAltimo%21.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -613,7 +613,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Ein_Volk-ein_Reich-ein_F%C3%BChrer_%281938%29.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -627,7 +627,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%22Reichstagsw%C3%A4hler%21%22_Wahlplakat_f%C3%BCr_die_Liste_der_Deutschen_Volkspartei_-_LABW_-_Hauptstaatsarchiv_Stuttgart_J_151_Nr_2458.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -641,7 +641,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%22Seid_nicht_taub_-_W%C3%A4hlt_Traub%21%22_Wahlplakat_der_deutschnationalen_Volkspartei_zur_Wahl_der_Nationalversammlung_1919_-_LABW_-_Hauptstaatsarchiv_Stuttgart_J_151_Nr_2460.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -655,7 +655,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Theo_Matejko_In_den_Abgrund_1919.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -669,7 +669,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Wahlplakat_der_Demokratischen_Partei_1919_OeNB_15824395.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -683,7 +683,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Alfred_Stiller_Waehlt_Kommunisten%21_Plakat_KPD_%281920%29.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -697,7 +697,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%22Arbeiter%21_Bauern%21_B%C3%BCrger%21_Wohin_soll_der_Weg_f%C3%BChren%3F%22_Wahlplakat_zu_den_Reichstagswahlen_am_6._Juni_1920_-_LABW_-_Hauptstaatsarchiv_Stuttgart_J_151_Nr_2433.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -711,7 +711,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Diejudeninderkar00fuch_04_Die_Juden_in_der_Karikatur_%28Eduard_Fuchs_1921%29_302_Antisemitisches_Wahlplakat_zur_Reichstagswahl_1920_Deutschland_Anti-Semitic_%28Nazi_propaganda%29_election_poster_1920_Jew_Arayn_woman_swastikas_cropped.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -725,7 +725,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Diejudeninderkar00fuch_04_Die_Juden_in_der_Karikatur_%28Eduard_Fuchs_1921%29_302_Antisemitisches_Wahlplakat_zur_Reichstagswahl_1920_Deutschland_Anti-Semitic_%28Nazi_propaganda%29_election_poster_1920_Jew_caricature_Arayn_woman_swastikas.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -739,7 +739,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cathal_O%27Shannon_Election_Poster.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -753,7 +753,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Alfred_Stiller_Die_neuen_Steuern_Plakat_KPD_1924.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -767,7 +767,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1925_election_poster_SDAP.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -781,7 +781,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:DEUTSCHLANDS_SIEG_EUROPAS_FREIHEIT_NSDAP_Kriegsplakate_GERMANY%27S_VICTORY_EUROPE%27S_FREEDOM_WW2_Nazi_propaganda_poster_1941-42_Wehrmacht_soldier_defeats_communist_dragon_Dalkeith_Poster_Card_P118_Anonymous_No_known_copyright.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -795,7 +795,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:La_Lotta_Elettorale.webp",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -809,7 +809,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Libro_Scolastico_Primavera_Fascista_di_Asvero_Gravelli.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -823,7 +823,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1934_manifesto_-_C%C4%83tre_%C3%AEntreag%C4%83_muncitorime_din_Capital%C4%83.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -837,7 +837,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Museo_Reina_Sof%C3%ADa_cartel_1.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -851,7 +851,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Panfleto_propaganda_politica_anti-fascista_-_Google_Arts_%26_Culture.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -865,7 +865,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Manifestazione_pace_e_pane.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -879,7 +879,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Manifesto_sciopero_dicembre_1943.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -893,7 +893,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Manifesto_DC_1948.webp",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -907,7 +907,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cartel_electoral_Extremadura_1983.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -921,7 +921,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cartel_electoral_Extremadura_1983_%28cropped%29.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -935,7 +935,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cartel_electoral_Extremadura_Unida_1983.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -949,7 +949,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cartel_electoral_M%C3%A9rida_AP_1983.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -963,7 +963,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:BCN_Chile-No_al_Marxismo.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -977,7 +977,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:ST_01-00009.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -991,7 +991,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:ST_01-00027.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1005,7 +1005,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:ST_01-00001.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1019,7 +1019,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Volebn%C3%AD_plak%C3%A1t_1960.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1033,7 +1033,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Birger_Cranner_%281902-45%29_Vi_seirer%21_Bli_med_Den_Norske_Legions_Skil%C3%B8perbataljon_1941_WW2_Norway_propaganda_recruiting_poster_%28SS-Freiwilligen-Schikompanie_Norwegen_Skijegerbataljonen%29_No_known_copyright_restrictions.png",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1047,7 +1047,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Japan_Labour-Farmer_Party_poster_1928.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1061,7 +1061,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Diada_internacional_de_la_dona_antifeixista..._Catalans_%21_Assistiu_al_gran_acte.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1075,7 +1075,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%E5%AF%9F%E5%8D%97%E8%87%AA%E6%B2%BB%E6%94%BF%E5%BA%9C%E5%AE%A3%E4%BC%A0%E7%94%BB3.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1089,7 +1089,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Xinjiang_Sheng_Shicai_propaganda_-_Flags.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1103,7 +1103,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Biblioteca_del_Senado_de_la_Provincia_-_52_-_Por_una_raza_fuerte%2C_laboriosa%2C_pacifista_y_soberana.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1117,7 +1117,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Propaganda_lui_Ceau%C8%99escu.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1131,7 +1131,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1.re_Circonscription_%C3%A9lectorale%2C_%C3%89lection_du_4_Septembre_1853._A_nos_Concitoyens_les_%C3%89lecteurs_travailleurs_des_villes_et_des_campagnes.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1145,7 +1145,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Affiche_%C3%A9lectorale_d%27un_candidat_antis%C3%A9mite_de_1899.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1159,7 +1159,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Tract_anti-imp%C3%A9rialiste_et_anti-guerre_1925.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1173,7 +1173,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Tract_CGTU_1929.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1187,7 +1187,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Affiche_%C3%A9lectorale_d%27Idola_Saint-Jean._-_1930.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1201,7 +1201,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Affiche_%C3%A9lectorale_-_Hugenberg%2C_Von_Papen_et_Seldte_-_btv1b90351283.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1215,7 +1215,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Parti_proven%C3%A7al_Affiche_1935.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1229,7 +1229,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Tract_L%27esprit_du_mouvement_de_la_France_Libre%2C_2001.109.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1243,7 +1243,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Plakat_wyborczy_Narodowej_Organizacji_Kobiet.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1257,7 +1257,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Plakat_wyborczy_Unii_Syjonist%C3%B3w_Rewizjonist%C3%B3w_1933.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1271,7 +1271,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Od%C5%BCydzi%C4%87_Wilno%21_-_plakat_wyborczy.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1285,7 +1285,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:A.Che%C5%82stowski_L.Piotrowski_W.Wielowieyski_Solidarno%C5%9B%C4%87_plakat.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1299,7 +1299,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:W.Wielowieyski_Solidarno%C5%9B%C4%87_plakat.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1313,7 +1313,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Plakat_wyborczy_Solidarno%C5%9B%C4%87_Wroc%C5%82aw_27_maja_1990.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1327,7 +1327,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Wybory_1990_plakat_wyborczy_Lech_Walesa_Wiki.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1341,7 +1341,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Wybory_1990_plakat_wyborczy_Lech_Walesa_Wiki_%28cropped%29.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1355,7 +1355,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:McKinley_Prosperity.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1369,7 +1369,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Populist_Party_campaign_poster_1904.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1383,7 +1383,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:American_Library_Association_-_Posters_-_Poster_used_in_A.L.A._Campaign_for_books._Camp_Meade_-_NARA_-_20801784.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1397,7 +1397,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:American_Library_Association_-_Posters_-_Poster_used_in_A.L.A._Campaign_for_books._Camp_Meade_-_NARA_-_20801786.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1411,7 +1411,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:American_Library_Association_-_Posters_-_Poster_used_in_A.L.A._Campaign_for_books_-_NARA_-_20801782.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1425,7 +1425,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Food_Administration_-_Anti-Waste_Campaign_-_Poster_issued_by_the_Food_Administration_-_NARA_-_31482308.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1439,7 +1439,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Food_Administration_-_Anti-Waste_Campaign_-_Poster_issued_by_the_Food_Administration_-_NARA_-_31482466.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1453,7 +1453,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Food_Administration_-_Anti-Waste_Campaign_-_Poster_issued_by_the_U.S._Food_Administration_-_NARA_-_31482366.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1467,7 +1467,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%22Weapons_For_Liberty._USA_Bonds._Third_Liberty_Loan_Campaign._Boy_Scouts_of_America._Be_Prepared.%22_-_NARA_-_512598.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1481,7 +1481,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Propagandaposter_voor_Amerikaanse_troepen_in_Siberie_in_1918-1919-1-.jpeg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1495,7 +1495,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Labour_party_1912.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1509,7 +1509,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Britain_Needs_You_at_Once_-_WWI_recruitment_poster_-_Parliamentary_Recruiting_Committee_Poster_No._108.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1523,7 +1523,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:KALLIDOPOULOS-1928.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1537,7 +1537,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1969_Irish_Labour_Poster_-_New_Republic.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1551,7 +1551,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Verkiezingsaffiche_van_het_Zwart_Front.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1565,7 +1565,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Nationaal-socialistische_anti-geallieerde_propagandaposter_%28from.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1579,7 +1579,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1946_election_poster_PvdA.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1593,7 +1593,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Verkiezingen_1946._Reclamezuil_%28peperbus%29_met_verkiezingsaffiches_te_Amsterdam%2C_Bestanddeelnr_041-0321.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1607,7 +1607,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Verkiezingsaffiche_van_de_C.P.N..jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1621,7 +1621,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1948_election_poster_PvdA.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1635,7 +1635,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Verkiezingsaffiche_van_de_Partij_van_de_Arbeid_Drees_vraagt_uw_vertrouwen_voor_lijst_2_%28titel_op_object%29%2C_NG-689.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1649,7 +1649,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Congrega%C3%A7%C3%A3o_oper%C3%A1ria_J%C3%BAlio_Prestes.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1663,7 +1663,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Election_poster_of_party_Popular_Action_%281933%29.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1677,7 +1677,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Estado_Novo1_-_1935.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1691,7 +1691,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Propaganda_do_Estado_Novo_%28Brasil%29.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1705,7 +1705,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Artistas_que_trabalharam_para_o_Secretariado_de_Propaganda_Nacional_na_gest%C3%A3o_de_Ant%C3%B3nio_Ferro%2C_1939.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1719,7 +1719,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:A_Juventude_no_Estado_Novo.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1733,7 +1733,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:O_Novo_Horizonte_%28Documento_NH19460500%29%2C_Arquivo_P%C3%BAblico_do_Estado_de_S%C3%A3o_Paulo.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1747,7 +1747,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:O_Novo_Horizonte_%28ano_VIII%2C_n%C3%BAmero_64%29%2C_Arquivo_P%C3%BAblico_do_Estado_de_S%C3%A3o_Paulo.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1761,7 +1761,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cartaz_de_campanha_Eunice_Michiles_1978.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1775,7 +1775,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:La_victoria_se_obtiene_con_disciplina%2C_trabajo_y_adhesi%C3%B3n_al_Gobierno.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1789,7 +1789,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cartel_descriptivo.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1803,7 +1803,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cartel_propaganda_c._1937-1938.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1817,7 +1817,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Museo_Reina_Sof%C3%ADa_cartel_2.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1831,7 +1831,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Textil.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1845,7 +1845,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Museo_Reina_Sof%C3%ADa_cartel_3.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1859,7 +1859,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cartel_electoral_AP_elecciones_generales_1977.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1873,7 +1873,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cartel_electoral_PSP_elecciones_generales_1977.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -1887,7 +1887,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cartel_electoral_UCD_elecciones_generales_1977.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "小册子",
@@ -1901,7 +1901,7 @@
   "pdf": "小册子/美国/014_1860_The doom of slavery in the Union_ its safety out o/doc.pdf",
   "url": "https://archive.org/details/doomofslaveryinu02town",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -1915,7 +1915,7 @@
   "pdf": "小册子/美国/015_1860_The Republican platform. Revised speech of Hon. E/doc.pdf",
   "url": "https://archive.org/details/republicanplatfo00spau",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -1929,7 +1929,7 @@
   "pdf": "小册子/美国/016_1860_The barbarism of slavery _ speech of Hon. Charles/doc.pdf",
   "url": "https://archive.org/details/barbarismofslavesumn",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -1943,7 +1943,7 @@
   "pdf": "小册子/美国/017_1860_The irrepressible conflict _ a speech by William H/doc.pdf",
   "url": "https://archive.org/details/irrepressiblecon00insewa",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -1957,7 +1957,7 @@
   "pdf": "小册子/美国/018_1860_Speech of Hon. John C. Breckinridge, vice-presiden/doc.pdf",
   "url": "https://archive.org/details/speechofhonjohnc00brec",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -1971,7 +1971,7 @@
   "pdf": "小册子/美国/019_1880_A record of the statesmanship and political achiev/doc.pdf",
   "url": "https://archive.org/details/recordofstatesma01arms",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -1985,7 +1985,7 @@
   "pdf": "小册子/美国/020_1898_The _march of the flag,_ beginning of greater Amer/doc.pdf",
   "url": "https://archive.org/details/marchofflagbegin00beve",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -1999,7 +1999,7 @@
   "pdf": "小册子/美国/021_1860_The position of John Bell and his supporters/doc.pdf",
   "url": "https://archive.org/details/positionofjohnbe00wils",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2013,7 +2013,7 @@
   "pdf": "小册子/美国/022_1858_The irrepressible conflict _ speech by William H/doc.pdf",
   "url": "https://archive.org/details/irrepressiblecon00sewa",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2027,7 +2027,7 @@
   "pdf": "小册子/美国/023_1880_Maxims of James Abram Garfield, general, patriotic/doc.pdf",
   "url": "https://archive.org/details/maximsofjamesabr00garf",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2041,7 +2041,7 @@
   "pdf": "小册子/美国/024_1856_Memoir of James Buchanan, of Pennsylvania/doc.pdf",
   "url": "https://archive.org/details/memoirofjamesbuc00demo",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2055,7 +2055,7 @@
   "pdf": "小册子/美国/025_1860_Political record of Stephen A. Douglas on the slav/doc.pdf",
   "url": "https://archive.org/details/politicalrecordo00republi",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2069,7 +2069,7 @@
   "pdf": "小册子/美国/026_1860_The interest in slavery of the southern non-slaveh/doc.pdf",
   "url": "https://archive.org/details/interestinslaver00indebo",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2083,7 +2083,7 @@
   "pdf": "小册子/美国/027_1848_Speech of Hon. Horace Mann, on the right of Congre/doc.pdf",
   "url": "https://archive.org/details/speechofhonhorac00mann",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2097,7 +2097,7 @@
   "pdf": "小册子/美国/028_1864_McClellan's military career reviewed and exposed/doc.pdf",
   "url": "https://archive.org/details/mcclellansmilitary00swinrich",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2111,7 +2111,7 @@
   "pdf": "小册子/美国/029_1856_Speeches of Millard Fillmore, at New York, Newburg/doc.pdf",
   "url": "https://archive.org/details/speechesofmillar00fill",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2125,7 +2125,7 @@
   "pdf": "小册子/美国/030_1868_Speech of Major Gen'l John A. Rawlins, chief of st/doc.pdf",
   "url": "https://archive.org/details/speechofmajorgen00rawl",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2139,7 +2139,7 @@
   "pdf": "小册子/美国/031_1864_The Lincoln catechism _ wherein the eccentricities/doc.pdf",
   "url": "https://archive.org/details/lincolncatechis3518newy",
   "stance": "",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2573,7 +2573,7 @@
   "pdf": "小册子/德国/003_1925_Das kleine ABC des Nationalsozialisten (neu/doc.pdf",
   "url": "https://archive.org/details/kleines_abc",
   "stance": "纳粹主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2587,7 +2587,7 @@
   "pdf": "小册子/德国/004_1944_Alfred Rosenberg_ Friedrich Nietzsche/doc.pdf",
   "url": "https://archive.org/details/Friedrich.Nietzsche",
   "stance": "纳粹主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2601,7 +2601,7 @@
   "pdf": "",
   "url": "https://archive.org/details/nsdap-schulungsbrief-1942-11-12",
   "stance": "纳粹主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2615,7 +2615,7 @@
   "pdf": "小册子/德国/006_1924_Individualismus und Kommunismus im Anarchism/doc.pdf",
   "url": "https://archive.org/details/de_Individualismus_und_Kommunismus_im_Anarchismus",
   "stance": "无政府主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2629,7 +2629,7 @@
   "pdf": "小册子/意大利/002_1940_La tutela fascista della razza ariana nell'I/doc.pdf",
   "url": "https://archive.org/details/TO01197965",
   "stance": "法西斯主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2643,7 +2643,7 @@
   "pdf": "小册子/西班牙/001_1939_Guillermo Estrada Acebal, Notas para la hist/doc.pdf",
   "url": "https://archive.org/details/uo_anales6_i",
   "stance": "右翼史论",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2657,7 +2657,7 @@
   "pdf": "小册子/西班牙/002_1936_Claridad Proletaria (1936-09, vol. 2, no. 2)/doc.pdf",
   "url": "https://archive.org/details/claridad_proletaria-1936-09",
   "stance": "社会主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2671,7 +2671,7 @@
   "pdf": "小册子/西班牙/003_1939_Claridad Proletaria (1939-04, vol. 4, no. 7)/doc.pdf",
   "url": "https://archive.org/details/claridad_proletaria_revolt-1939-04",
   "stance": "社会主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2685,7 +2685,7 @@
   "pdf": "小册子/西班牙/004_1938_Claridad Proletaria (1938-12, vol. 3, no. 6)/doc.pdf",
   "url": "https://archive.org/details/claridad_proletaria_revolt-1938-12",
   "stance": "社会主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2699,7 +2699,7 @@
   "pdf": "小册子/法国/026_1895_Le communisme [microforme]/doc.pdf",
   "url": "https://archive.org/details/cihm_00047",
   "stance": "共产主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2713,7 +2713,7 @@
   "pdf": "小册子/法国/027_1919_Bolchévisme ou syndicalisme, lequel_ [microf/doc.pdf",
   "url": "https://archive.org/details/cihm_990314",
   "stance": "工团主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2727,7 +2727,7 @@
   "pdf": "小册子/法国/028_1920_T'as menti! [microforme]/doc.pdf",
   "url": "https://archive.org/details/cihm_84698",
   "stance": "右翼论战",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2741,7 +2741,7 @@
   "pdf": "小册子/法国/029_1919_La Race supérieure _ [conférence prononcée a/doc.pdf",
   "url": "https://archive.org/details/laracesuprieur00lala",
   "stance": "极右·行动法兰西",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2755,7 +2755,7 @@
   "pdf": "小册子/法国/030_1880_Programme de la ligue nationale [microforme]/doc.pdf",
   "url": "https://archive.org/details/cihm_29101",
   "stance": "民族主义",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2769,7 +2769,7 @@
   "pdf": "小册子/俄国/003_1919_Obrazovanie Sievero-zapadnago pravitelstva/doc.pdf",
   "url": "https://archive.org/details/obrazovaniesieve00kuzm",
   "stance": "白俄·临时政府",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2783,7 +2783,7 @@
   "pdf": "小册子/俄国/004_1925_The Cause of Ilyich (in Russian)/doc.pdf",
   "url": "https://archive.org/details/25-kamenev-deloilicha",
   "stance": "布尔什维克",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2797,7 +2797,7 @@
   "pdf": "小册子/俄国/005_1925_Lenin by Lev Kamenev (in Russian)/doc.pdf",
   "url": "https://archive.org/details/25-kamenev-lenin",
   "stance": "布尔什维克",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2811,7 +2811,7 @@
   "pdf": "小册子/俄国/006_1920_Bylaws of the Komsomol - 1920 (in Russian)/doc.pdf",
   "url": "https://archive.org/details/20-komsomol-ustav",
   "stance": "共青团",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -2825,7 +2825,7 @@
   "pdf": "小册子/荷兰/001_1911_Pro en Contra_ stemplicht/doc.pdf",
   "url": "https://archive.org/details/pro_en_contra__Stemplicht",
   "stance": "选举权",
-  "source": ""
+  "source": "internet-archive"
  },
  {
   "kind": "小册子",
@@ -3217,7 +3217,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Fianna_F%C3%A1il_1948_Election_Poster_(Skipper).jpg",
   "stance": "共和派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3231,7 +3231,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Fianna_F%C3%A1il_Election_Poster_1948_(Workers!).jpg",
   "stance": "共和派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3245,7 +3245,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Fine_Gael_1937_poster_(Digitalised_version).jpg",
   "stance": "民族主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3259,7 +3259,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%22To_Protest_Against_the_Lawless_Policy_of_Carsonism%22.jpg",
   "stance": "联合派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3273,7 +3273,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1919_election_poster_-_Die_b%C3%BCrgerlich-demokratische_Partei.jpg",
   "stance": "社会民主党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3287,7 +3287,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Ernst_Ludwig_Franke_-_B%C3%BCrger!_rettet_euch_-_w%C3%A4hlt_f%C3%BCr_Freiheit-_Arbeit-_Brot!.jpg",
   "stance": "社会民主党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3301,7 +3301,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:M%C3%BCtter!_Denkt_an_Eure_toten_S%C3%B6hne_-_Wollt_Ihr_keinen_Krieg_mehr,_so_w%C3%A4hlt_sozialdemokratisch!.jpg",
   "stance": "社会民主党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3315,7 +3315,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Antisemitisches_Wahlplakat_CSP_1920.jpg",
   "stance": "基督教社会党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3329,7 +3329,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:W%C3%A4hlt_christlichsozial.jpg",
   "stance": "基督教社会党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3343,7 +3343,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:11_Jahre_Faschismus_-_w%C3%A4hle_Sozialistische_Partei.jpg",
   "stance": "社会民主党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3357,7 +3357,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Mszdp_szorolap_1922.jpg",
   "stance": "民族主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3371,7 +3371,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Mih%C3%A1ly_B%C3%ADr%C3%B3_anti-war_poster_1912.png",
   "stance": "和平主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3385,7 +3385,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:BCN-Chile_Plebiscito_1980_-_La_gran_farsa.jpg",
   "stance": "反独裁",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3399,7 +3399,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1913_Seachtain_na_Gaeilge_poster.jpg",
   "stance": "民族主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3413,7 +3413,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%22Deutsche_Christen_Rettet_Osterreich%22_(Vote_Christian_Socialist;_German_Christians_will_save_Austria)_by_Bernd_Steiner_(1920)_HQ_Ed.png",
   "stance": "基督教社会党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3427,7 +3427,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Afiche_Radomiro_Tomic_1970_(2).jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3441,7 +3441,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%C2%A1%C2%A1Fuera_Pinochet!!.jpg",
   "stance": "反独裁",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "小册子",
@@ -3539,7 +3539,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:An-das-Weltgewissen.jpg",
   "stance": "反战",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3553,7 +3553,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Bei_Deutschland_dauern_der_Wohlstand;_bei_Polen,_Armut_und_Auswanderung_LCCN2004665982.jpg",
   "stance": "民族主义右翼",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3567,7 +3567,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Brennstaebe-Plakat-1983.jpg",
   "stance": "反核",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3581,7 +3581,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Buecherverbrennung-flugblatt.jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3595,7 +3595,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Der_Gelbe_Fleck_(Antisemittic_book_1936)_p45_Wider_den_undeutschen_Geist_Deutsche_Studentenschaft_Plakat_Nazi_propaganda_poster_German_Student_Union_Campaign_against_un-German_spirit_Book_burnings_Berlin_May_1933_(archive.org_scan)_No.jpg",
   "stance": "纳粹主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3609,7 +3609,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Erw%C3%BCrgt_nicht_die_junge_Freiheit_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._007393.jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3623,7 +3623,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Eure_Schuld.jpg",
   "stance": "反战",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3637,7 +3637,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Frauentag_1914_Heraus_mit_dem_Frauenwahlrecht_(cropped).jpg",
   "stance": "妇女参政",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3651,7 +3651,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Freiheit_und_Arbeit!_(Mit_dem_Symbol_der_%22Eisernen_Front%22_%C3%BCber_dem_Hakenkreuz).jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3665,7 +3665,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Freischar_Loeschebrand,_der_Garde_Kavallerie_Sch%C3%BCtzen_Division._Offiziere,_Unteroffiziere_und_Mannschaften_aller_Waffen,_meldet_euch_LCCN2004666109.jpg",
   "stance": "民族主义右翼",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3679,7 +3679,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Germany_human_traffic.JPG",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3693,7 +3693,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1920_Komm_Mit_Jung-Stahlhelm._Der_Stahlhelm_Bund_Der_Frontsoldaten_Plakat_Ludwig_Hohlwein_(1874-1949)_M%C3%BCnchen_German_propaganda_recruitment_poster_for_paramilitary_youth_organisation_of_WWI_veterans_c_1920-23_Cadet_Public_domain.jpg",
   "stance": "民族主义右翼",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3707,7 +3707,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:H%C3%A4nde_weg_vom_Ruhrgebiet_(1923).jpg",
   "stance": "民族主义右翼",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3721,7 +3721,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Ist_Schleswig_d%C3%A4nisch%3F_..._Schleswig_ist_deutsch!_LCCN2004665992.jpg",
   "stance": "民族主义右翼",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3735,7 +3735,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Deutsche_in_Wien_!_Zeichnet_7_Kriegsanleihe..._(7%C3%A8me_Emprunt_de_guerre)_-_affiche_-_non_identifi%C3%A9_-_btv1b9017858q.jpg",
   "stance": "君主派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3749,7 +3749,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Kaiser_Karl_I_Plakat_Verzicht_1918.jpg",
   "stance": "君主派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3763,7 +3763,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Kutter_Volksabstimmung_in_K%C3%A4rnten_1920_Plakat.jpg",
   "stance": "民族主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3777,7 +3777,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Mih%C3%A1ly_B%C3%ADr%C3%B3_-_DIE_DORT_SIND_AN_UNSEREM_ELEND_SCHULD,_1920.jpg",
   "stance": "社会民主党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3791,7 +3791,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Plakat_ob_plebiscitu_Mama,_ne_%C5%A1timajte_za_Jugoslavijo_1920.jpg",
   "stance": "民族主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3805,7 +3805,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Plakat_ob_plebiscitu_Pojdimo_vsi_k_glasovanju_1920.jpg",
   "stance": "民族主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3819,7 +3819,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Keine_Klassen_-_Keine_Rassen_-_%C3%96VP.jpg",
   "stance": "人民党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3833,7 +3833,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Nie_mehr_Februar_1934_-_Darum,_keine_neue_Wehrmacht!.jpg",
   "stance": "社会民主党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3847,7 +3847,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1942-TRAVAIL-FAMILLE-PATRIE-%E5%BF%A0%E5%AD%9D-C%E1%BA%A6N-LAO-GIA-%C4%90%C3%8CNH-T%E1%BB%94-QU%E1%BB%90C-600x854.jpg",
   "stance": "维希政权",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3861,7 +3861,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Affiche_conf%C3%A9rence_Patrie_fran%C3%A7aise_%C3%A0_Nancy_(1899-06-04).jpg",
   "stance": "民族主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3875,7 +3875,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Affiche_de_propagande_anticommuniste_-_Le_communisme_c%27est_le_r%C3%A8gne_du_crime.jpg",
   "stance": "保守派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3889,7 +3889,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Affiche_d%C3%A9l%C3%A9gation_municipale_Dijon_16_juin_1940.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3903,7 +3903,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Affiche_%C3%A9lectorale_liste_Vincent_Badie_1946-Archives_d%C3%A9partementales_de_l%E2%80%99H%C3%A9rault-_12FI329-1.jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3917,7 +3917,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cultivateurs_agriculteurs_%C3%A9leveurs,_%C3%A0_bas_le_cartel-vie-ch%C3%A8re_-_Charles_de_Boussay.jpg",
   "stance": "左翼联盟",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3931,7 +3931,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Dernier_mot.jpg",
   "stance": "共和派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3945,7 +3945,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Election_l%C3%A9gislative_du_16_f%C3%A9vrier_1890._Francis_Laur_d%C3%A9fenseur_du_suffrage_universel,_Joffrin,_la_honte_du_suffrage_universel_etson_nourrisson_Lissagaray._Electeurs_du_Canton_de_Neuilly,_choisissez..jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3959,7 +3959,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Elections_l%C3%A9gislatives_du_2_f%C3%A9vrier_1879._Arrondissement_de_Pontivy_-_Choisissez_..._Dr_Le_Maguet...Comte_de_Mun_-_affiche_-_And._G._-_btv1b9007706c.jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3973,7 +3973,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Elections_l%C3%A9gislatives_du_22_septembre_1889_(...),_Ad._Willette_candidat_antis%C3%A9mite_(...),_le_juda%C3%AFsme_voil%C3%A0_l%27ennemi_!_(...)_A.Willette_directeur_du_Pierrot._-_affiche_-_A._Willette_..._-_btv1b90118383.jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -3987,7 +3987,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%22Demand_the_Beveridge_Plan%22,_1944_(8219741831).jpg",
   "stance": "工党与社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4001,7 +4001,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%27Leicester_police_sent_to_bludgeon_starving_workers!%27_1893_anarchist-communist_poster.jpg",
   "stance": "无政府主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4015,7 +4015,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:A_Question_of_Control_(22710476510).jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4029,7 +4029,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:A_Warning!_Free_Traders_read_this!_(22279848674)_(cropped).jpg",
   "stance": "自由贸易派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4043,7 +4043,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Anarchists_on_Anarchy!_poster,_Leicester_1894.jpg",
   "stance": "无政府主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4057,7 +4057,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Anarchy!_What_is_it%3F_1894_Fauset_MacDonald_meeting_poster_original.jpg",
   "stance": "无政府主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4071,7 +4071,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Anarchy-Order_Without_Law_poster_advertising_David_Nicoll_talk_in_Leicester,_1893.jpg",
   "stance": "无政府主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4085,7 +4085,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:British_Factory-_closed_through_unfair_foreign_competition%E2%80%A6_(22281691733).jpg",
   "stance": "自由贸易派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4099,7 +4099,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:British_Workman-_It%27s_no_use_trying_to_hide_it,_guv%27ner._We_are_going_to_vote_for_Tariff_Reform_-_(3268711009).jpg",
   "stance": "自由贸易派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4113,7 +4113,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:C1905-c1910_Signor_Campbell_Bannerman%27s_Original_Troupe_of_Radical_Pierrots.jpg",
   "stance": "自由贸易派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4127,7 +4127,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Chartist_Demonstration.jpg",
   "stance": "宪章运动",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4141,7 +4141,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Each_for_all_and_all_for_each_(3268711083).jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4155,7 +4155,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Alg._Kiesrecht_voor_Mannen_en_Vrouwen.jpg",
   "stance": "选举权",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4169,7 +4169,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Algemeen_kiesrecht.jpg",
   "stance": "选举权",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4183,7 +4183,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Groote_Nationale_Betooging.jpg",
   "stance": "选举权",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4197,7 +4197,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Jeugd_bezint_u!_NASB,_AJC,_NVV-jeugd.jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4211,7 +4211,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Laat_mij_binnen_-_ik_breng_nieuw_licht.jpg",
   "stance": "选举权",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4225,7 +4225,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Landelijke_verkiezingen_1913_SDAP.jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4239,7 +4239,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Avec_l%27ouvrier_soldat_pour_le_socialisme.jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4253,7 +4253,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Vi_bygger_landet.jpg",
   "stance": "社会民主党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4267,7 +4267,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Capitalist_pyramid_1900.jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4281,7 +4281,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%D0%A2%D1%8B_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D0%BB%D1%81%D1%8F_%D0%B4%D0%BE%D0%B1%D1%80%D0%BE%D0%B2%D0%BE%D0%BB%D1%8C%D1%86%D0%B5%D0%BC_(%D0%94._%D0%9C%D0%BE%D0%BE%D1%80,_1920).jpg",
   "stance": "共产主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4295,7 +4295,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1940._Latvia._Poster._Vote_for_the_Workers%27_Block.jpg",
   "stance": "共产主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4309,7 +4309,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Poster_of_Azerbaijan_1939._General_elections.jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4323,7 +4323,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Corpo_Truppe_Volontarie_24.jpg",
   "stance": "法西斯主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4337,7 +4337,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Ordinamento_Corporativo_dello_Stato_Fascista_manifesto_storico_anni_1930_(ricolorato).png",
   "stance": "法西斯主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4351,7 +4351,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:%22I_Want_You%22_(FDR)_-_NARA_-_513640.jpg",
   "stance": "战时宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4365,7 +4365,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:..._for_all_the_people_STEVENSON_AND_SPARKMAN_(Adlai_Stevenson_-_John_Sparkman_campaign_poster,_1972).jpg",
   "stance": "民主党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4379,7 +4379,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:An_Available_Candidate_1848.jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4393,7 +4393,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1856_cartoon_union_soup.jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4407,7 +4407,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1888DemocraticPoster.png",
   "stance": "民主党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4421,7 +4421,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1892PopulistPoster.png",
   "stance": "人民党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4435,7 +4435,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1904RepublicanPoster.png",
   "stance": "共和党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4449,7 +4449,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1904socialist.jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4463,7 +4463,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1908DemocraticPoster.png",
   "stance": "民主党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4477,7 +4477,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:1908RepublicanPoster.png",
   "stance": "共和党",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4491,7 +4491,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Art_detail,_The_poster_for_1936_Japanese_general_election_(cropped).jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4505,7 +4505,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Election_posters_in_Toyama_Prefecture(1).jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4519,7 +4519,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:The_poster_for_1936_Japanese_general_election.jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4533,7 +4533,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cumann_na_nGaedheal_anti-communist_poster,_circa_1932.jpg",
   "stance": "联合派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4547,7 +4547,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Cumann_na_nGaedheal_anti-Saor_%C3%89ire_poster,_circa_1932.png",
   "stance": "联合派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4561,7 +4561,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Easter_Lily_poster,_c._1928-1932.png",
   "stance": "共和派",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4575,7 +4575,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Szoci%C3%A1ldemokrata_P%C3%A1rt.jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4589,7 +4589,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Afiche_Abdulajad_1962.jpg",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4603,7 +4603,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Ahora_el_argentinazo_con_Alfons%C3%ADn.JPG",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4617,7 +4617,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Ahora_vivienda_para_todos.JPG",
   "stance": "",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4631,7 +4631,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Campa%C3%B1a_de_empadronamiento_-_1951.jpg",
   "stance": "选举宣传",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4645,7 +4645,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Campa%C3%B1a_pol%C3%ADtica_de_1973_en_Argentina_-_Afiche_de_C%C3%A1mpora.jpg",
   "stance": "庇隆主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4659,7 +4659,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Museo_del_Bicentenario_-_Afiche_%22Lealtad%22.jpg",
   "stance": "庇隆主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4673,7 +4673,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Museo_del_Bicentenario_-_Afiche_%22Libertad_y_amnistia%22.jpg",
   "stance": "庇隆主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4687,7 +4687,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Altamirano_es_decision_revolucionaria.jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4701,7 +4701,7 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Appeal_of_the_Jewish_community_in_%C5%81uk%C3%B3w,_encouraging_to_take_part_in_the_celebration_of_the_Constitution_Day_on_May_3,_1933..jpg",
   "stance": "少数民族政治",
-  "source": ""
+  "source": "wiki-commons"
  },
  {
   "kind": "单页",
@@ -4715,6 +4715,6 @@
   "pdf": "",
   "url": "https://commons.wikimedia.org/wiki/File:Poster_Pracujemy_w_tr%C3%B3jk%C4%99_budujemy_za_dwunastu.jpg",
   "stance": "社会主义",
-  "source": ""
+  "source": "wiki-commons"
  }
 ]

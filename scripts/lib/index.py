@@ -151,13 +151,26 @@ _IA_COLLECTION_TO_SLUG = {
 def _slug_from_url(url):
     from urllib.parse import urlparse
 
-    host = urlparse(url or "").netloc.lower()
+    url = url or ""
+    host = urlparse(url).netloc.lower()
     if host in _DOMAIN_TO_SLUG:
         return _DOMAIN_TO_SLUG[host]
+    # 同域但路径不同的来源，必须先判路径：
+    #   modernhistory.org.cn 与 europeana 的具体条目都在别的路径下
     if host.endswith("archive.org"):
         for marker, slug in _IA_COLLECTION_TO_SLUG.items():
             if marker in url:
                 return slug
+    # 只有 URL 里确有条目路径才归属；站点根（https://commons.wikimedia.org/）
+    # 无法指向具体条目，留空而不是猜。
+    if host == "commons.wikimedia.org":
+        if "/wiki/File:" in url or "/wiki/file:" in url.lower():
+            return "wiki-commons"
+        return ""
+    if host in ("archive.org", "www.archive.org"):
+        if "/details/" in url:
+            return "internet-archive"
+        return ""
     return ""
 
 
