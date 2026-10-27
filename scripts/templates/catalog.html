@@ -1,0 +1,2630 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>政黨宣傳品檔案 · 目录与阅读器</title>
+<meta name="description" content="十九至二十世纪政党、政治家与政治派系散发的宣传小册子、传单、竞选材料与政治海报馆藏索引，含可翻页阅读器。仅供学术研究。">
+<script>
+/* 主题先于首屏确定，避免闪白 */
+(function () {
+  try {
+    var t = localStorage.getItem('pam.theme');
+    if (!t) t = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+  } catch (e) {}
+})();
+</script>
+<style>
+/* ==========================================================================
+   0. 变量：纸、墨、一道赭红
+   整站只用这套色。政治宣传品的色彩由实物自己提供，界面不替它们表态。
+   ========================================================================== */
+:root {
+  --paper: #efece3;
+  --surface: #faf8f2;
+  --surface-2: #f4f1e8;
+  --ink: #191713;
+  --ink-2: #4c4639;
+  /* 三级墨用于次要文字（原名、脚注、分组标题）。取 #6b6456 而非更浅的灰：
+     在 --paper 上实测 4.8:1，过 AA；再浅就掉到 3.5 附近了。 */
+  --ink-3: #6b6456;
+  --rule: #d5cfbe;
+  --rule-2: #e5e0d2;
+  --mat: #e7e2d3;
+  --accent: #8c2f22;
+  --accent-2: #b4553f;
+  --accent-soft: #efe0d9;
+  --mark: #f3e2a9;
+  --serif: "Songti SC", "Noto Serif SC", "Source Han Serif SC", "SimSun", Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", Roboto, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --bar-h: 58px;
+  --ease: cubic-bezier(.2, .7, .3, 1);
+}
+
+[data-theme="dark"] {
+  --paper: #131209;
+  --paper: #14130e;
+  --surface: #1c1a14;
+  --surface-2: #232019;
+  --ink: #f0eade;
+  --ink-2: #bdb5a5;
+  --ink-3: #9a9284;
+  --rule: #38322a;
+  --rule-2: #272219;
+  --mat: #211e17;
+  --accent: #d4675a;
+  --accent-2: #e08a7c;
+  --accent-soft: #3a241f;
+  --mark: #6b5a1c;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.55 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body.locked { overflow: hidden; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--accent-2); }
+button, input, select { font: inherit; color: inherit; }
+.figs { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+mark { background: var(--mark); color: inherit; border-radius: 1px; padding: 0 1px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  background: var(--ink); color: var(--paper); padding: 10px 16px;
+}
+.skip:focus { left: 8px; top: 8px; }
+
+/* ==========================================================================
+   1. 报头
+   ========================================================================== */
+.mast { border-bottom: 1px solid var(--rule); background: var(--surface); }
+.mast-in {
+  max-width: 1600px; margin: 0 auto;
+  padding: 30px 34px 26px;
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
+  gap: 6px 38px;
+  align-items: end;
+}
+.brand h1 {
+  font: 600 31px/1.15 var(--serif);
+  letter-spacing: .08em;
+  margin: 0;
+}
+.brand .en {
+  margin: 9px 0 0;
+  font-size: 10.5px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.blurb {
+  margin: 0 0 2px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  max-width: 46em;
+}
+.blurb b { color: var(--ink); font-weight: 600; }
+
+.stats {
+  display: flex; gap: 26px; margin: 0; padding: 0;
+  grid-column: 1 / -1;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule-2);
+}
+.stats div { display: flex; flex-direction: column; gap: 3px; }
+.stats dt {
+  font-size: 10.5px; letter-spacing: .16em; color: var(--ink-3);
+  text-transform: uppercase; order: 2;
+}
+.stats dd {
+  margin: 0; order: 1;
+  font: 600 21px/1 var(--serif);
+  font-variant-numeric: tabular-nums;
+}
+.stats dd small { font: 400 12px/1 var(--sans); color: var(--ink-3); margin-left: 2px; }
+
+.theme-btn {
+  grid-column: 3; grid-row: 1;
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  background: transparent; border: 1px solid var(--rule); border-radius: 50%;
+  cursor: pointer; color: var(--ink-2);
+}
+.theme-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+.theme-btn svg { width: 15px; height: 15px; }
+
+/* ==========================================================================
+   2. 工具条（吸顶）
+   ========================================================================== */
+.bar {
+  position: sticky; top: 0; z-index: 30;
+  background: var(--paper);
+  background: color-mix(in srgb, var(--paper) 93%, transparent);
+  backdrop-filter: blur(12px) saturate(1.2);
+  border-bottom: 1px solid var(--rule);
+}
+.bar-in {
+  max-width: 1600px; margin: 0 auto;
+  min-height: var(--bar-h);
+  padding: 10px 34px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+
+.search {
+  position: relative;
+  flex: 1 1 300px;
+  min-width: 210px;
+  display: flex; align-items: center;
+}
+.search svg {
+  position: absolute; left: 11px; width: 14px; height: 14px;
+  color: var(--ink-3); pointer-events: none;
+}
+.search input {
+  width: 100%;
+  padding: 8px 46px 8px 33px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.search input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.search input::placeholder { color: var(--ink-3); }
+.search input:focus {
+  border-color: var(--ink-3);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink-3) 14%, transparent);
+}
+.search kbd {
+  position: absolute; right: 9px;
+  font: 500 10.5px/1 var(--mono);
+  color: var(--ink-3);
+  border: 1px solid var(--rule);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  padding: 3px 5px;
+  pointer-events: none;
+}
+.search input:focus ~ kbd { opacity: 0; }
+
+/* 报头滚出后，在工具条里补一个身份标签，别让页面变成无标题的表格 */
+.barid {
+  display: none;
+  font: 600 13px/1 var(--serif);
+  letter-spacing: .06em;
+  color: var(--ink-2);
+  white-space: nowrap;
+  padding-right: 4px;
+}
+.bar.stuck .barid { display: block; }
+@media (max-width: 560px) {
+  .bar.stuck .barid { display: none; }
+}
+
+.seg { display: flex; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; background: var(--surface); }
+.seg button {
+  border: 0; background: transparent;
+  padding: 7px 13px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  border-right: 1px solid var(--rule-2);
+  white-space: nowrap;
+}
+.seg button:last-child { border-right: 0; }
+.seg button:hover { background: var(--surface-2); color: var(--ink); }
+.seg button.on { background: var(--ink); color: var(--surface); }
+.seg button svg { width: 13px; height: 13px; }
+
+select#sort {
+  padding: 7px 10px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-size: 12.5px;
+  cursor: pointer;
+  max-width: 150px;
+}
+
+.count { font-size: 12.5px; color: var(--ink-2); white-space: nowrap; }
+.count b { color: var(--ink); font-weight: 600; }
+
+.reset {
+  border: 1px solid transparent; background: transparent;
+  border-radius: 3px; padding: 7px 10px;
+  font-size: 12.5px; color: var(--ink-3); cursor: pointer;
+}
+.reset:hover { color: var(--accent); border-color: var(--rule); }
+.reset[hidden] { display: none; }
+
+@media (max-width: 720px) {
+  .only-wide { display: none; }
+}
+.mbtn {
+  display: none;
+  align-items: center; gap: 7px;
+  padding: 7px 12px;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 3px;
+  font-size: 12.5px; cursor: pointer;
+}
+.mbtn .badge {
+  min-width: 16px; height: 16px; padding: 0 4px;
+  display: none; place-items: center;
+  background: var(--accent); color: #fff; border-radius: 8px;
+  font-size: 10.5px; font-variant-numeric: tabular-nums;
+}
+.mbtn .badge.on { display: grid; }
+
+/* ==========================================================================
+   3. 主体两栏
+   ========================================================================== */
+.shell {
+  max-width: 1600px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  align-items: start;
+}
+.rail {
+  position: sticky; top: var(--bar-h);
+  max-height: calc(100vh - var(--bar-h));
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 26px 22px 60px 34px;
+  border-right: 1px solid var(--rule-2);
+  background: var(--paper);
+}
+
+.fg { margin-bottom: 28px; }
+.fg:last-child { margin-bottom: 0; }
+.fg > h3 {
+  margin: 0 0 11px;
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: .16em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 8px;
+}
+.fg > h3::after { content: ""; flex: 1; height: 1px; background: var(--rule-2); }
+
+.fopt {
+  display: flex; align-items: center; gap: 8px;
+  padding: 4px 7px; margin: 1px -7px;
+  border-radius: 2px;
+  font-size: 13px;
+  color: var(--ink-2);
+  cursor: pointer;
+  user-select: none;
+}
+.fopt:hover { background: var(--surface-2); }
+.fopt.on { color: var(--ink); font-weight: 600; background: var(--accent-soft); }
+.fopt.on .n { color: var(--accent); }
+.fopt input {
+  appearance: none; -webkit-appearance: none;
+  width: 12px; height: 12px; margin: 0; flex: 0 0 auto;
+  border: 1px solid var(--ink-3); border-radius: 1px;
+  background: var(--surface);
+  cursor: pointer;
+  position: relative;
+}
+.fopt input:checked { background: var(--accent); border-color: var(--accent); }
+.fopt input:checked::after {
+  content: ""; position: absolute; left: 3.5px; top: 1px;
+  width: 3px; height: 6px; border: solid #fff; border-width: 0 1.5px 1.5px 0;
+  transform: rotate(42deg);
+}
+.fopt .lbl { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fopt .n { font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+/* 数据缺口说明：把「没标」讲清楚，而不是让它看起来像「没有」 */
+.fgap {
+  margin: 9px 0 0;
+  font-size: 11px;
+  line-height: 1.65;
+  color: var(--ink-3);
+}
+.fgap b { color: var(--ink-2); font-weight: 600; }
+
+/* 年代直方图 */
+.hist { margin: 2px 0 8px; }
+.hist-bars {
+  display: flex; align-items: flex-end; gap: 2px;
+  height: 54px;
+  touch-action: none;
+}
+.hist-bars button {
+  flex: 1 1 0; min-width: 0;
+  border: 0; padding: 0; margin: 0;
+  background: var(--rule);
+  border-radius: 1px 1px 0 0;
+  cursor: pointer;
+  position: relative;
+  transition: background .12s;
+}
+.hist-bars button:hover { background: var(--ink-3); }
+.hist-bars button.on { background: var(--accent); }
+.hist-bars button.dim { opacity: .35; }
+.hist-ax {
+  display: flex; justify-content: space-between;
+  margin-top: 5px;
+  font-size: 10px; color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   4. 目录：网格
+   ========================================================================== */
+main { min-width: 0; }
+.chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 0 34px;
+}
+.chips:not(:empty) { padding-top: 18px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 3px 5px 3px 10px;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.chip button {
+  border: 0; background: transparent; cursor: pointer;
+  color: var(--ink-3); font-size: 13px; line-height: 1;
+  width: 16px; height: 16px; border-radius: 50%;
+  display: grid; place-items: center;
+}
+.chip button:hover { background: var(--accent); color: #fff; }
+.chip.clear { padding: 3px 11px; cursor: pointer; color: var(--accent); border-color: transparent; background: transparent; }
+.chip.clear:hover { border-color: var(--accent); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
+  gap: 1px;
+  background: var(--rule-2);
+  border-bottom: 1px solid var(--rule-2);
+  margin-top: 20px;
+}
+.grid[hidden] { display: none; }
+/* 条目少时别把卡片拉宽：限制单列上限，剩余空间留白 */
+.grid.tight { grid-template-columns: repeat(auto-fill, minmax(172px, 210px)); }
+
+.card {
+  background: var(--surface);
+  padding: 0;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex; flex-direction: column;
+  transition: background .14s;
+  position: relative;
+}
+.card:hover { background: var(--surface-2); }
+.card:hover .mat img { transform: scale(1.012); }
+.card:focus-visible { outline-offset: -2px; }
+
+/* 衬纸：不裁切任何一件实物 */
+.mat {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--mat);
+  overflow: hidden;
+  display: block;
+}
+.mat img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  transition: transform .35s var(--ease);
+  z-index: 1;
+}
+.mat img[hidden] { display: none; }
+
+/* 排版封面：图缺席时它不是错误态，它就是封面。
+   小册子照书籍扉页排（双线框、居中题名、出版行）；
+   单页照招贴排（粗横条、左对齐、大字号），两种实物本来就长得不一样。 */
+.plate {
+  position: absolute; inset: 6%;
+  display: flex; flex-direction: column;
+  color: var(--ink-2);
+  overflow: hidden;
+  /* 纸纹：两道极淡的斜纹，避免纯色平板感 */
+  background-image:
+    repeating-linear-gradient(38deg,
+      color-mix(in srgb, var(--ink) 2.6%, transparent) 0 1px,
+      transparent 1px 7px);
+}
+.plate .frame {
+  position: absolute; inset: 0;
+  border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  outline: 3px solid transparent;
+  outline-offset: -5px;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 9%, transparent);
+  pointer-events: none;
+}
+.plate .frame::before {
+  content: "";
+  position: absolute; inset: 4px;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 13%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 13%, transparent);
+}
+
+/* —— 小册子：扉页 —— */
+.plate.book { padding: 13px 11px 10px; text-align: center; }
+.plate.book .py {
+  font: 600 14px/1 var(--serif);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .06em;
+  color: var(--ink);
+  padding-bottom: 8px;
+}
+.plate.book .pt {
+  flex: 1;
+  min-height: 0;
+  display: flex; flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+  padding: 14px 0 8px;
+  overflow: hidden;
+}
+.plate.book .pt b {
+  font: 400 13px/1.55 var(--serif);
+  color: var(--ink);
+  font-weight: 400;
+  word-break: break-word;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.plate.book .pt i {
+  font: italic 400 9.5px/1.5 var(--serif);
+  color: var(--ink-3);
+  word-break: break-word;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* 扉页题名上方的装饰短线，替代实物版面上的花纹 */
+.plate.book .pt::before {
+  content: "";
+  display: block;
+  flex: 0 0 auto;
+  width: 22px; height: 1px;
+  margin: 0 auto 2px;
+  background: color-mix(in srgb, var(--ink) 26%, transparent);
+}
+.plate.book .pf {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 13%, transparent);
+  font-size: 9px;
+  line-height: 1.6;
+  letter-spacing: .06em;
+  color: var(--ink-3);
+}
+.plate.book .pf em {
+  display: block;
+  font-style: normal;
+  color: var(--ink-2);
+  letter-spacing: .08em;
+}
+
+/* —— 单页：招贴 —— */
+.plate.single { padding: 0; }
+.plate.single .band {
+  background: color-mix(in srgb, var(--accent) 82%, transparent);
+  height: 26%;
+  min-height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 8px;
+}
+.plate.single .band b {
+  font: 700 20px/1 var(--serif);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .08em;
+  color: #f7f1e4;
+}
+.plate.single .pt {
+  flex: 1;
+  display: flex; align-items: center;
+  padding: 10px 11px;
+  font: 700 12.5px/1.42 var(--serif);
+  color: var(--ink);
+  text-align: left;
+  letter-spacing: .01em;
+  overflow: hidden;
+  word-break: break-word;
+}
+.plate.single .pt span {
+  display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.plate.single .pf {
+  padding: 7px 11px 9px;
+  border-top: 2px solid color-mix(in srgb, var(--ink) 30%, transparent);
+  font-size: 9px;
+  letter-spacing: .09em;
+  color: var(--ink-2);
+  display: flex; justify-content: space-between; gap: 6px;
+}
+.plate.single .pf i { font-style: normal; opacity: .72; }
+
+.tag {
+  position: absolute; z-index: 2;
+  top: 7px; right: 7px;
+  background: color-mix(in srgb, var(--accent) 88%, transparent);
+  color: #fdf6e8;
+  font-size: 10px;
+  letter-spacing: .04em;
+  padding: 1px 6px;
+  border-radius: 2px;
+  backdrop-filter: blur(4px);
+}
+
+.cap {
+  padding: 10px 12px 13px;
+  display: flex; flex-direction: column; gap: 3px;
+  flex: 1;
+  border-top: 1px solid var(--rule-2);
+}
+.cap .top { display: flex; align-items: baseline; gap: 7px; }
+.cap .yr {
+  font: 600 12.5px/1 var(--serif);
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  letter-spacing: .02em;
+}
+.cap .yr.none { color: var(--ink-3); }
+.cap .ti {
+  margin: 0;
+  font-size: 12.5px; line-height: 1.45;
+  color: var(--ink);
+  font-weight: 500;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.9em;
+}
+.cap .or {
+  margin: 0;
+  font: italic 400 11px/1.35 var(--serif);
+  color: var(--ink-3);
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cap .tail {
+  margin-top: auto; padding-top: 6px;
+  display: flex; flex-wrap: wrap; gap: 4px 8px;
+  font-size: 10.5px; color: var(--ink-3);
+}
+.cap .tail .st { color: var(--accent); }
+
+/* ==========================================================================
+   5. 目录：列表（研究用，密度优先）
+   ========================================================================== */
+.list {
+  margin-top: 20px;
+  border-top: 1px solid var(--rule-2);
+}
+.list[hidden] { display: none; }
+.row {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) 92px 62px 54px 104px;
+  gap: 16px;
+  align-items: baseline;
+  padding: 11px 34px;
+  border-bottom: 1px solid var(--rule-2);
+  cursor: pointer;
+  transition: background .12s;
+}
+.row:hover { background: var(--surface); }
+.row:focus-visible { outline-offset: -2px; }
+.row .r-y {
+  font: 600 12.5px/1.5 var(--serif);
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+.row .r-y.none { color: var(--ink-3); }
+.row .r-t { min-width: 0; }
+.row .r-t b {
+  display: block;
+  font-weight: 500; font-size: 13.5px; line-height: 1.45;
+  color: var(--ink);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.row .r-t span {
+  display: block;
+  font: italic 400 11.5px/1.4 var(--serif);
+  color: var(--ink-3);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.row .r-c, .row .r-k, .row .r-n {
+  font-size: 12px; color: var(--ink-2);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.row .r-n { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-3); }
+.row .r-s { font-size: 11.5px; color: var(--accent); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row .r-s.none { color: var(--ink-3); }
+.row .r-ext {
+  position: relative;
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 11px;
+  color: var(--ink-3);
+  text-decoration: none;
+}
+.row .r-ext:hover { color: var(--accent); }
+
+/* ==========================================================================
+   6. 空态 / 页脚
+   ========================================================================== */
+.empty {
+  padding: 90px 34px;
+  text-align: center;
+  color: var(--ink-3);
+}
+.empty[hidden] { display: none; }
+.empty p { margin: 0 0 6px; font-size: 14px; }
+.empty .hint { font-size: 12.5px; color: var(--ink-3); }
+.empty button {
+  margin-top: 18px;
+  padding: 8px 18px;
+  background: transparent; border: 1px solid var(--rule); border-radius: 3px;
+  font-size: 13px; cursor: pointer; color: var(--ink-2);
+}
+.empty button:hover { border-color: var(--accent); color: var(--accent); }
+
+.foot {
+  margin-top: 0;
+  padding: 30px 34px 70px;
+  border-top: 1px solid var(--rule-2);
+  font-size: 11.5px;
+  line-height: 1.8;
+  color: var(--ink-3);
+}
+.foot p { margin: 0 0 7px; max-width: 76em; }
+.foot b { color: var(--ink-2); font-weight: 600; }
+.foot .links { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 14px; }
+
+/* ==========================================================================
+   7. 阅读器
+   ========================================================================== */
+.rd {
+  position: fixed; inset: 0; z-index: 100;
+  background: #0d0c09;
+  color: #e9e3d6;
+  display: grid;
+  /* 显式声明列，否则隐式 auto 列会被底栏按钮的 min-content 撑宽，窄屏溢出 */
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .18s var(--ease), visibility .18s;
+}
+.rd.on { opacity: 1; visibility: visible; }
+
+.rd-top {
+  display: flex; align-items: center; gap: 14px;
+  padding: 9px 14px 9px 10px;
+  border-bottom: 1px solid #241f18;
+  background: #111007;
+  background: linear-gradient(#141209, #0f0e08);
+  min-height: 54px;
+  min-width: 0;
+}
+.rd-icon {
+  flex: 0 0 auto;
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  background: rgba(255, 255, 255, .06);
+  border: 0; border-radius: 3px;
+  color: #cdc6b6; cursor: pointer;
+  transition: background .14s, color .14s;
+}
+.rd-icon:hover { background: rgba(255, 255, 255, .14); color: #fff; }
+.rd-icon[aria-pressed="false"] { color: #6d665a; }
+.rd-icon svg { width: 15px; height: 15px; }
+
+.rd-head { flex: 1; min-width: 0; }
+.rd-head h2 {
+  margin: 0;
+  font: 500 14px/1.35 var(--serif);
+  color: #f2ece0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.rd-head p {
+  margin: 2px 0 0;
+  font-size: 11.5px;
+  color: #8d8578;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.rd-head p .it { font-style: italic; }
+
+.rd-tools { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.rd-link {
+  font-size: 11.5px;
+  color: #b9c8d8;
+  text-decoration: none;
+  padding: 6px 9px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.rd-link:hover { background: rgba(255, 255, 255, .09); color: #fff; }
+.rd-link[hidden] { display: none; }
+
+.rd-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 288px;
+  min-height: 0;
+  position: relative;
+}
+.rd-body.noside { grid-template-columns: minmax(0, 1fr); }
+
+.rd-canvas {
+  position: relative;
+  min-width: 0; min-height: 0;
+  display: flex; align-items: stretch;
+  background:
+    radial-gradient(ellipse at 50% 40%, #191710 0%, #0b0a06 78%);
+  overflow: hidden;
+}
+
+.rd-vp {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  touch-action: none;
+}
+.rd-vp[hidden] { display: none; }
+/* 绝对定位给小图一个确定高度，max-height:100% 才可解 */
+.rd-frames {
+  position: absolute;
+  inset: 18px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 3px;
+  transform-origin: center center;
+  will-change: transform;
+}
+/* 扫描件分辨率参差（最窄 330px），按可用空间铺满，而不是按原始像素显示。
+   画框按可用区域 contain，白底与投影跟着实际绘制区域走。 */
+.rd-page {
+  display: block;
+  width: 100%; height: 100%;
+  min-width: 0; min-height: 0;
+  object-fit: contain;
+  object-position: center;
+  user-select: none; -webkit-user-drag: none;
+  cursor: zoom-in;
+  filter: drop-shadow(0 12px 34px rgba(0, 0, 0, .62));
+}
+.rd-frames.zoom .rd-page { cursor: grab; }
+.rd-frames.dragging { cursor: grabbing; }
+.rd-page[hidden] { display: none; }
+.rd-page[hidden] { display: none; }
+
+.rd-hit {
+  position: absolute; top: 0; bottom: 0; width: 15%;
+  border: 0; background: transparent; cursor: pointer;
+  z-index: 3;
+  color: transparent;
+  transition: background .16s;
+}
+.rd-hit.l { left: 0; }
+.rd-hit.r { right: 0; }
+.rd-hit:hover { background: linear-gradient(90deg, rgba(255, 255, 255, .07), transparent); }
+.rd-hit.r:hover { background: linear-gradient(270deg, rgba(255, 255, 255, .07), transparent); }
+.rd-hit:disabled { cursor: default; }
+.rd-hit:disabled:hover { background: none; }
+.rd-hit svg {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 22px; height: 22px;
+  color: rgba(255, 255, 255, .5);
+  transition: color .16s, transform .16s;
+}
+.rd-hit.l svg { left: 16px; }
+.rd-hit.r svg { right: 16px; }
+.rd-hit:hover svg { color: #fff; }
+
+/* 连续滚动 */
+.rd-scroll {
+  position: relative;
+  flex: 1; min-width: 0;
+  overflow-y: auto; overflow-x: hidden;
+  padding: 22px 18px 90px;
+  display: none;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+.rd-scroll.on { display: block; }
+.rd-scroll .sc-page {
+  display: block;
+  width: 100%;
+  max-width: var(--colw, 760px);
+  margin: 0 auto 14px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .55);
+}
+.rd-scroll .sc-miss {
+  max-width: var(--colw, 760px);
+  margin: 0 auto 14px;
+  aspect-ratio: 3 / 4;
+  background: #16140e;
+  border: 1px dashed #332c22;
+  display: grid; place-items: center;
+  font-size: 12px; color: #6f685c;
+}
+
+/* 加载 / 缺图 */
+.rd-spin {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s;
+  z-index: 4;
+}
+.rd-spin.on { opacity: 1; }
+.rd-spin i {
+  width: 26px; height: 26px;
+  border: 2px solid rgba(255, 255, 255, .16);
+  border-top-color: rgba(255, 255, 255, .62);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.rd-miss {
+  position: absolute; inset: 0;
+  display: none;
+  place-items: center;
+  text-align: center;
+  z-index: 5;
+  padding: 20px;
+  pointer-events: none;   /* 缺图时左右点击区仍然可用 */
+  background: radial-gradient(ellipse at 50% 45%, #17150e 0%, #0b0a06 80%);
+}
+.rd-miss.on { display: grid; }
+.rd-miss div { max-width: 32em; }
+.rd-miss h3 {
+  font: 500 15px/1.5 var(--serif);
+  color: #cfc7b7;
+  margin: 0 0 8px;
+}
+.rd-miss p { margin: 0; font-size: 12px; line-height: 1.75; color: #7d7568; }
+.rd-miss code {
+  font: 11.5px/1.6 var(--mono);
+  background: #1b1912; padding: 1px 5px; border-radius: 2px; color: #b3a992;
+}
+
+/* 侧栏 */
+.rd-side {
+  border-left: 1px solid #221e16;
+  background: #121109;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex; flex-direction: column;
+  min-height: 0;
+}
+.rd-side[hidden] { display: none; }
+.rd-meta { padding: 18px 18px 14px; margin: 0; }
+.rd-meta h3 {
+  margin: 0 0 3px;
+  font: 500 14.5px/1.5 var(--serif);
+  color: #f0eadd;
+  word-break: break-word;
+}
+.rd-meta .orig {
+  margin: 0 0 14px;
+  font: italic 400 11.5px/1.5 var(--serif);
+  color: #8a8274;
+  word-break: break-word;
+}
+.rd-meta dl { margin: 0; display: grid; gap: 0; }
+.rd-meta .kv {
+  display: grid; grid-template-columns: 52px minmax(0, 1fr);
+  gap: 10px;
+  padding: 6px 0;
+  border-top: 1px solid #201c14;
+  font-size: 12px;
+}
+.rd-meta .kv dt { color: #77705f; }
+.rd-meta .kv dd { margin: 0; color: #d6cebe; word-break: break-word; }
+.rd-meta .kv dd a { color: #b9c8d8; }
+.rd-file { margin-top: 14px; border-top: 1px solid #201c14; padding-top: 10px; }
+.rd-file summary {
+  font-size: 11px; color: #77705f; cursor: pointer; list-style: none;
+}
+.rd-file summary::-webkit-details-marker { display: none; }
+.rd-file summary::before { content: "▸ "; }
+.rd-file[open] summary::before { content: "▾ "; }
+.rd-file code {
+  display: block; margin-top: 7px;
+  font: 10.5px/1.6 var(--mono);
+  color: #8d8578; word-break: break-all;
+}
+.rd-meta .kv dd.mono { font: 11px/1.5 var(--mono); color: #9c9484; }
+
+.rd-thumbs {
+  margin-top: auto;
+  border-top: 1px solid #221e16;
+  padding: 12px 14px 16px;
+}
+.rd-thumbs h4 {
+  margin: 0 0 8px;
+  font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+  color: #6d665a;
+}
+.rd-thumbs .cells {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  gap: 4px;
+  max-height: 34vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.rd-thumbs button {
+  border: 1px solid transparent;
+  background: #1d1a12;
+  border-radius: 1px;
+  padding: 0;
+  cursor: pointer;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  position: relative;
+}
+.rd-thumbs button img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: .55;
+  transition: opacity .14s;
+}
+.rd-thumbs button:hover img { opacity: .85; }
+.rd-thumbs button.on { border-color: #c8a06a; }
+.rd-thumbs button.on img { opacity: 1; }
+.rd-thumbs button.miss::after {
+  content: attr(data-p);
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font: 10px/1 var(--mono);
+  color: #5d564a;
+}
+
+/* 底栏 */
+.rd-foot {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 14px;
+  border-top: 1px solid #221e16;
+  background: #100f08;
+  min-height: 48px;
+  min-width: 0;
+}
+.rd-grp { display: flex; align-items: center; gap: 4px; flex: 0 0 auto; }
+.rd-btn {
+  height: 30px; min-width: 30px;
+  padding: 0 9px;
+  display: inline-grid; place-items: center;
+  background: rgba(255, 255, 255, .06);
+  border: 0; border-radius: 3px;
+  color: #ddd5c4; cursor: pointer;
+  font-size: 12px;
+  transition: background .14s, color .14s;
+}
+.rd-btn:hover:not(:disabled) { background: rgba(255, 255, 255, .15); color: #fff; }
+.rd-btn:disabled { opacity: .26; cursor: default; }
+.rd-btn svg { width: 14px; height: 14px; }
+.rd-btn .lb { font-size: 11.5px; white-space: nowrap; }
+
+#rdSlider {
+  flex: 1 1 120px; min-width: 70px;
+  accent-color: #c8a06a;
+  cursor: pointer;
+  height: 18px;
+  margin: 0;
+}
+#rdSlider:disabled { opacity: .3; cursor: default; }
+
+.rd-cnt {
+  font-size: 11.5px;
+  color: #a89f8f;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  min-width: 84px;
+  text-align: center;
+}
+.rd-cnt b { color: #ede7da; font-weight: 600; }
+
+.rd-zoom { display: flex; align-items: center; gap: 3px; margin-left: auto; flex: 0 0 auto; }
+/* 窄屏把缩放挪到顶栏，底栏保持单行 */
+.rd-topzoom { display: none; gap: 2px; }
+.rd-zl {
+  min-width: 42px; text-align: center;
+  font-size: 11px; color: #8d8578;
+  font-variant-numeric: tabular-nums;
+}
+
+#rdModes button.seg-b {
+  background: transparent;
+  border: 1px solid #2a251b;
+  color: #8d8578;
+  height: 28px;
+  padding: 0 9px;
+  border-radius: 3px;
+  font-size: 11.5px;
+  cursor: pointer;
+}
+#rdModes button.seg-b.on { background: #cdc3ad; color: #16140d; border-color: #cdc3ad; font-weight: 600; }
+#rdModes button.seg-b:disabled { opacity: .28; cursor: default; }
+
+/* ==========================================================================
+   8. 快捷键浮层
+   ========================================================================== */
+.keys {
+  position: fixed; inset: 0; z-index: 120;
+  display: none;
+  place-items: center;
+  background: rgba(8, 8, 6, .82);
+  backdrop-filter: blur(3px);
+  padding: 20px;
+}
+.keys.on { display: grid; }
+.keys .box {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 24px 26px;
+  max-width: 520px; width: 100%;
+  max-height: 84vh; overflow: auto;
+}
+.keys h2 { margin: 0 0 4px; font: 600 16px/1.3 var(--serif); }
+.keys .sub { margin: 0 0 18px; font-size: 12px; color: var(--ink-3); }
+.keys dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 9px 16px; align-items: baseline; }
+.keys dt { display: flex; gap: 4px; flex-wrap: wrap; }
+.keys dd { margin: 0; font-size: 12.5px; color: var(--ink-2); }
+.keys kbd {
+  font: 500 10.5px/1 var(--mono);
+  border: 1px solid var(--rule); border-bottom-width: 2px;
+  border-radius: 3px; padding: 3px 6px;
+  background: var(--paper);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.keys .close { margin-top: 20px; width: 100%; padding: 9px; cursor: pointer;
+  background: transparent; border: 1px solid var(--rule); border-radius: 3px; color: var(--ink-2); font-size: 13px; }
+.keys .close:hover { border-color: var(--accent); color: var(--accent); }
+
+/* 移动端筛选抽屉 */
+.scrim {
+  position: fixed; inset: 0; z-index: 39;
+  background: rgba(10, 9, 6, .5);
+  opacity: 0; visibility: hidden;
+  transition: opacity .2s, visibility .2s;
+}
+.scrim.on { opacity: 1; visibility: visible; }
+
+/* ==========================================================================
+   9. 响应式
+   ========================================================================== */
+@media (max-width: 1180px) {
+  .rd-body { grid-template-columns: minmax(0, 1fr) 250px; }
+}
+
+@media (max-width: 1000px) {
+  .mast-in { grid-template-columns: minmax(0, 1fr) auto; padding: 22px 20px 18px; }
+  .blurb { grid-column: 1 / -1; margin-top: 12px; }
+  .brand h1 { font-size: 25px; }
+  .stats { margin-top: 16px; padding-top: 14px; gap: 18px; overflow-x: auto; }
+  .stats dd { font-size: 17px; }
+
+  .bar-in { padding: 9px 20px; gap: 8px; }
+  .mbtn { display: inline-flex; }
+  .count { order: 9; margin-left: auto; }
+
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  .rail {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: min(310px, 84vw);
+    max-height: none;
+    z-index: 40;
+    transform: translateX(-102%);
+    transition: transform .24s var(--ease);
+    padding: 20px 22px 60px;
+    border-right: 1px solid var(--rule);
+    box-shadow: 20px 0 60px rgba(0, 0, 0, .28);
+    background: var(--surface);
+  }
+  .rail.open { transform: none; }
+  .rail::before {
+    content: "筛选";
+    display: block;
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 18px;
+  }
+
+  .chips { padding: 0 20px; }
+  .grid { margin-top: 16px; grid-template-columns: repeat(auto-fill, minmax(146px, 1fr)); }
+  .row { grid-template-columns: 46px minmax(0, 1fr) 58px; gap: 10px; padding: 10px 20px; }
+  .row .r-k, .row .r-s, .row .r-c { display: none; }
+  .foot { padding: 26px 20px 60px; }
+
+  .rd-body { grid-template-columns: minmax(0, 1fr); }
+  .rd-side {
+    position: absolute; right: 0; top: 0; bottom: 0;
+    width: min(300px, 86vw);
+    z-index: 6;
+    box-shadow: -16px 0 50px rgba(0, 0, 0, .5);
+  }
+  .rd-tools .rd-link { display: none; }
+  .rd-top { min-height: 50px; gap: 10px; }
+  .rd-foot { gap: 6px; padding: 7px 9px; }
+  .rd-cnt { min-width: 66px; font-size: 11px; }
+  #rdModes { display: none; }
+  /* 底栏只保留翻页与滑块；缩放移到顶栏，避免换行吃掉画面高度 */
+  .rd-zoom { display: none; }
+  .rd-topzoom { display: flex; }
+  .rd-hit { width: 18%; }
+  #rdSlider { flex: 1 1 40px; min-width: 40px; }
+  .rd-grp { gap: 3px; }
+  .rd-btn { padding: 0 7px; min-width: 28px; }
+}
+
+@media (max-width: 560px) {
+  .mast-in { padding: 18px 16px 14px; }
+  .brand h1 { font-size: 21px; }
+  .brand .en { font-size: 9px; letter-spacing: .2em; }
+  .blurb { font-size: 12px; }
+  .stats { gap: 14px; }
+  .stats dt { font-size: 9.5px; letter-spacing: .1em; }
+  .bar-in { padding: 8px 14px; }
+  .search { flex: 1 1 100%; }
+  .search kbd { display: none; }
+  #sort { max-width: 112px; font-size: 12px; }
+  .seg button { padding: 7px 9px; font-size: 12px; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); }
+  .cap { padding: 8px 9px 11px; }
+  .cap .ti { font-size: 11.5px; }
+  .chips { padding: 0 14px; }
+  .row { padding: 9px 14px; }
+  .empty { padding: 60px 20px; }
+  .rd-foot { padding-bottom: max(7px, env(safe-area-inset-bottom)); }
+  .rd-btn .lb { display: none; }
+  .rd-frames { inset: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#stage">跳到目录</a>
+
+<!-- ============================ 报头 ============================ -->
+<header class="mast">
+  <div class="mast-in">
+    <div class="brand">
+      <h1>政黨宣傳品檔案</h1>
+      <p class="en">Political Pamphlet Archives</p>
+    </div>
+    <p class="blurb">
+      十九至二十世纪政党、政治家与政治派系散发的宣传小册子、传单、竞选材料与政治海报：
+      <b>馆藏索引</b>、可翻页的阅读器，以及一份说明它们散落在哪里的专藏清单。
+    </p>
+    <button class="theme-btn" id="themeBtn" title="切换明暗" aria-label="切换明暗">
+      <svg id="themeIcon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+        <circle cx="8" cy="8" r="3.2"></circle>
+        <path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3.05 3.05l1.13 1.13M11.82 11.82l1.13 1.13M12.95 3.05l-1.13 1.13M4.18 11.82l-1.13 1.13"></path>
+      </svg>
+    </button>
+    <dl class="stats" id="stats"></dl>
+  </div>
+</header>
+
+<!-- ============================ 工具条 ============================ -->
+<div class="bar">
+  <div class="bar-in">
+    <span class="barid">政黨宣傳品檔案</span>
+    <label class="search">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <circle cx="6.8" cy="6.8" r="4.6"></circle><path d="M10.4 10.4L14 14"></path>
+      </svg>
+      <input id="q" type="search" placeholder="搜索标题、原名、国别、年份、立场" autocomplete="off" spellcheck="false" aria-label="搜索">
+      <kbd>/</kbd>
+    </label>
+
+    <button class="mbtn" id="fbtn">筛选<span class="badge" id="fbadge"></span></button>
+
+    <div class="seg" id="views" role="group" aria-label="视图">
+      <button data-view="grid" class="on" title="网格">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="2" y="2" width="5" height="5"></rect><rect x="9" y="2" width="5" height="5"></rect>
+          <rect x="2" y="9" width="5" height="5"></rect><rect x="9" y="9" width="5" height="5"></rect>
+        </svg>
+        <span class="only-wide">网格</span>
+      </button>
+      <button data-view="list" title="列表">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M2 4h12M2 8h12M2 12h12"></path>
+        </svg>
+        <span class="only-wide">列表</span>
+      </button>
+    </div>
+
+    <select id="sort" aria-label="排序">
+      <option value="y+">年代 ↑</option>
+      <option value="y-">年代 ↓</option>
+      <option value="i">馆藏顺序</option>
+      <option value="c">按国别</option>
+      <option value="n-">页数 ↓</option>
+      <option value="t">按题名</option>
+    </select>
+
+    <span class="count" id="count"></span>
+    <button class="reset" id="reset" hidden>重置</button>
+  </div>
+</div>
+
+<!-- ============================ 主体 ============================ -->
+<div class="shell">
+  <aside class="rail" id="rail" aria-label="筛选">
+    <div class="fg" data-f="kind"><h3>体裁</h3><div class="opts" id="fKind"></div></div>
+    <div class="fg" data-f="decade"><h3>年代</h3><div id="fDecade"></div></div>
+    <div class="fg" data-f="country"><h3>国别 / 地区</h3><div class="opts" id="fCountry"></div></div>
+    <div class="fg" data-f="stance"><h3>政治立场</h3><div class="opts" id="fStance"></div></div>
+    <div class="fg" data-f="source"><h3>来源专藏</h3><div class="opts" id="fSource"></div></div>
+    <div class="fg" data-f="has"><h3>可获取</h3><div class="opts" id="fHas"></div></div>
+  </aside>
+
+  <main id="stage" tabindex="-1">
+    <div class="chips" id="chips"></div>
+    <div class="grid" id="grid"></div>
+    <div class="list" id="list" hidden></div>
+    <div class="empty" id="empty" hidden>
+      <p>没有匹配的条目</p>
+      <p class="hint">放宽年限、换一个国家，或改用一个更短的词。</p>
+      <button id="emptyReset">清除全部筛选</button>
+    </div>
+    <footer class="foot">
+      <p><b>声明</b>　本页面由 AI 辅助整理，仅供学术研究与交流；元数据抓取自各原藏机构的公开页面，未经逐条人工复核，不保证准确、完整或时效。</p>
+      <p>所收录材料为十九至二十世纪各政党与派系的宣传品，包含法西斯主义、殖民主义、种族主义等今日极具争议的内容；<b>收录不等于认同</b>，本项目不代表任何政党、组织或政治立场。</p>
+      <p>扫描图像的著作权属各原藏机构与捐赠者，<b>不随本仓库分发</b>。图上不去时封面显示为排版占位，目录与版本信息仍然完整；在本机跑一次采集脚本即可恢复实物图像。</p>
+      <div class="links">
+        <span class="figs" id="buildInfo"></span>
+        <a href="https://github.com/chosenecho/political-pamphlet-archives/blob/main/DISCLAIMER.md" target="_blank" rel="noopener">完整免责声明</a>
+        <a href="https://github.com/chosenecho/political-pamphlet-archives" target="_blank" rel="noopener">仓库</a>
+        <a href="https://github.com/chosenecho/political-pamphlet-archives/blob/main/docs/FINDING-AIDS.md" target="_blank" rel="noopener">检索手册</a>
+        <a href="https://github.com/chosenecho/political-pamphlet-archives/blob/main/docs/COLLECTIONS.md" target="_blank" rel="noopener">专藏清单</a>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<div class="scrim" id="scrim"></div>
+
+<!-- ============================ 阅读器 ============================ -->
+<div class="rd" id="rd" role="dialog" aria-modal="true" aria-labelledby="rdTitle">
+  <div class="rd-top">
+    <button class="rd-icon" id="rdClose" title="关闭 (Esc)" aria-label="关闭">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <path d="M3.5 3.5l9 9M12.5 3.5l-9 9"></path>
+      </svg>
+    </button>
+    <div class="rd-head">
+      <h2 id="rdTitle"></h2>
+      <p id="rdSub"></p>
+    </div>
+    <div class="rd-tools">
+      <a class="rd-link" id="rdPdf" target="_blank" rel="noopener" hidden>下载 PDF</a>
+      <a class="rd-link" id="rdSrc" target="_blank" rel="noopener" hidden>来源 ↗</a>
+      <button class="rd-icon" id="rdInfo" title="信息与缩略图 (i)" aria-pressed="true">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <circle cx="8" cy="8" r="6.2"></circle><path d="M8 7.2v4"></path><circle cx="8" cy="4.9" r=".85" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </button>
+      <button class="rd-icon" id="rdFs" title="全屏 (f)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M6 2H2v4M10 2h4v4M6 14H2v-4M10 14h4v-4"></path>
+        </svg>
+      </button>
+      <span class="rd-topzoom" id="rdTopZoom">
+        <button class="rd-icon" id="rdZoomOutM" title="缩小">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 8h9"></path></svg>
+        </button>
+        <button class="rd-icon" id="rdZoomInM" title="放大">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 8h9M8 3.5v9"></path></svg>
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <div class="rd-body" id="rdBody">
+    <div class="rd-canvas" id="rdCanvas">
+      <button class="rd-hit l" id="rdPrev" aria-label="上一页">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 5l-7 7 7 7"></path>
+        </svg>
+      </button>
+      <button class="rd-hit r" id="rdNext" aria-label="下一页">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <div class="rd-vp" id="rdVp">
+        <div class="rd-frames" id="rdFrames">
+          <img class="rd-page" id="rdImgA" alt="">
+          <img class="rd-page" id="rdImgB" alt="" hidden>
+        </div>
+      </div>
+
+      <div class="rd-scroll" id="rdScroll"></div>
+
+      <div class="rd-spin" id="rdSpin"><i></i></div>
+      <div class="rd-miss" id="rdMiss"><div>
+        <h3 id="rdMissT">这一页的图像不在本机</h3>
+        <p>扫描件不随仓库分发。跑一次采集脚本，图像会回到 <code>images/</code>，本页自动恢复。<br>也可以先用 <code>?assets=</code> 指向你自建的图像目录。</p>
+      </div></div>
+    </div>
+
+    <aside class="rd-side" id="rdSide">
+      <div class="rd-meta" id="rdMeta"></div>
+      <div class="rd-thumbs" id="rdThumbsWrap" hidden>
+        <h4>全部页面</h4>
+        <div class="cells" id="rdThumbs"></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="rd-foot">
+    <div class="rd-grp">
+      <button class="rd-btn" id="rdPrevBook" title="上一本 (↑)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12.5V3.5M4 7l4-4 4 4"></path></svg>
+      </button>
+      <button class="rd-btn" id="rdPrevPage" title="上一页 (←)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.5L5.5 8l4.5 4.5"></path></svg>
+      </button>
+    </div>
+
+    <input id="rdSlider" type="range" min="1" max="1" value="1" aria-label="页码">
+
+    <span class="rd-cnt" id="rdCnt"></span>
+
+    <div class="rd-grp">
+      <button class="rd-btn" id="rdNextPage" title="下一页 (→)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5L10.5 8 6 12.5"></path></svg>
+      </button>
+      <button class="rd-btn" id="rdNextBook" title="下一本 (↓)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3.5v9M4 9l4 4 4-4"></path></svg>
+      </button>
+    </div>
+
+    <div class="rd-zoom">
+      <button class="rd-btn" id="rdZoomOut" title="缩小 (-)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 8h9"></path></svg>
+      </button>
+      <span class="rd-zl figs" id="rdZoomL">适应</span>
+      <button class="rd-btn" id="rdZoomIn" title="放大 (+)">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 8h9M8 3.5v9"></path></svg>
+      </button>
+      <button class="rd-btn" id="rdFit" title="复位 (0)"><span class="lb">复位</span></button>
+    </div>
+
+    <div class="rd-grp" id="rdModes">
+      <button class="seg-b on" data-mode="page" title="单页 (m)">单页</button>
+      <button class="seg-b" data-mode="spread" title="双页">双页</button>
+      <button class="seg-b" data-mode="scroll" title="连续">连续</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ 快捷键 ============================ -->
+<div class="keys" id="keys">
+  <div class="box">
+    <h2>键盘操作</h2>
+    <p class="sub">目录页按 <kbd>/</kbd> 聚焦搜索，按 <kbd>?</kbd> 打开本页。</p>
+    <dl>
+      <dt><kbd>←</kbd><kbd>→</kbd></dt><dd>翻页</dd>
+      <dt><kbd>↑</kbd><kbd>↓</kbd></dt><dd>上一本 / 下一本</dd>
+      <dt><kbd>Home</kbd><kbd>End</kbd></dt><dd>首末页</dd>
+      <dt><kbd>+</kbd><kbd>−</kbd><kbd>0</kbd></dt><dd>放大 / 缩小 / 复位</dd>
+      <dt><kbd>m</kbd></dt><dd>切换单页 · 双页 · 连续</dd>
+      <dt><kbd>i</kbd></dt><dd>显示或隐藏信息栏</dd>
+      <dt><kbd>f</kbd></dt><dd>全屏</dd>
+      <dt><kbd>Esc</kbd></dt><dd>关闭阅读器</dd>
+    </dl>
+    <button class="close" id="keysClose">知道了</button>
+  </div>
+</div>
+
+<noscript>
+  <p style="padding:24px 34px">这个目录是前端渲染的，需要 JavaScript。原始数据见 <code>data/catalog.json</code>。</p>
+</noscript>
+
+<script>
+/* ==========================================================================
+   数据
+   ========================================================================== */
+const DATA = __DATA__;
+const STATS = __STATS__;
+const SOURCES = __SOURCES__;
+const BUILD = "__BUILD__";
+
+let ASSET = "__ASSET__";
+try {
+  const ov = new URLSearchParams(location.search).get("assets");
+  if (ov) ASSET = ov.endsWith("/") ? ov : ov + "/";
+} catch (e) {}
+
+const KIND = { book: "小册子", single: "单页" };
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g,
+  c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* 目录名含中文、空格与撇号：逐段编码，保留 / */
+const asrc = rel => ASSET + String(rel).split("/").map(encodeURIComponent).join("/");
+
+/* 折叠变音符号，让 kropotkine / Kropotkine / Brochüre 都能命中 */
+const fold = s => {
+  try { return String(s).normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase(); }
+  catch (e) { return String(s).toLowerCase(); }
+};
+
+const srcLabel = slug => {
+  const s = SOURCES[slug];
+  if (!s) return "";
+  return String(s.t).split(" · ")[0];
+};
+
+/* 搜索索引一次建好 */
+for (const d of DATA) {
+  d._h = fold([d.t, d.tz, d.c, d.y, d.st, KIND[d.k], srcLabel(d.s)].join(" "));
+  d._dec = d.y ? Math.floor(+d.y / 10) * 10 : 0;
+}
+
+const byId = new Map(DATA.map(d => [d.i, d]));
+const ALL_IDS = DATA.map(d => d.i);
+
+/* ==========================================================================
+   状态
+   ========================================================================== */
+const st = {
+  q: "",
+  terms: [],
+  kinds: new Set(),
+  countries: new Set(),
+  stances: new Set(),
+  sources: new Set(),
+  decades: new Set(),
+  has: new Set(),      // "pdf" | "img" …… 目前只用 pdf
+  sort: "y+",
+  view: "grid",
+};
+
+let filtered = DATA.slice();
+
+/* ==========================================================================
+   筛选器（左栏）
+   ========================================================================== */
+const countBy = fn => {
+  const m = new Map();
+  for (const d of DATA) { const v = fn(d); m.set(v, (m.get(v) || 0) + 1); }
+  return m;
+};
+
+const COUNTRY_ORDER = ["中国", "日本", "印度", "拉美", "俄国", "德国", "奥地利", "捷克",
+  "波兰", "匈牙利", "荷兰", "英国", "法国", "西班牙", "葡萄牙", "意大利", "美国"];
+
+function optRow(value, label, n, group, checked) {
+  return `<label class="fopt${checked ? " on" : ""}" data-g="${group}" data-v="${esc(value)}">
+    <input type="checkbox" ${checked ? "checked" : ""} tabindex="-1">
+    <span class="lbl">${esc(label)}</span><span class="n figs">${n}</span></label>`;
+}
+
+function buildFacets() {
+  /* 体裁 */
+  const kc = countBy(d => d.k);
+  $("#fKind").innerHTML =
+    optRow("book", "小册子", kc.get("book") || 0, "kind", false) +
+    optRow("single", "单页传单与海报", kc.get("single") || 0, "kind", false);
+
+  /* 年代直方图 */
+  const dc = countBy(d => d._dec);
+  const decs = [0, ...Array.from(dc.keys()).filter(k => k > 0).sort((a, b) => a - b)];
+  const max = Math.max(...decs.map(k => dc.get(k) || 0));
+  const bars = decs.map(k => {
+    const n = dc.get(k) || 0;
+    const h = n ? Math.max(3, Math.round((n / max) * 100)) : 3;
+    const lab = k ? k + "s" : "无年";
+    return `<button data-dec="${k}" title="${lab} · ${n} 件" aria-label="${lab}，${n} 件"
+      style="height:${h}%"></button>`;
+  }).join("");
+  const real = decs.filter(k => k);
+  $("#fDecade").innerHTML =
+    `<div class="hist"><div class="hist-bars" id="histBars">${bars}</div>
+     <div class="hist-ax figs"><span>${real[0]}s</span><span>${real[real.length - 1]}s</span></div></div>`;
+
+  /* 国别 */
+  const cc = countBy(d => d.c);
+  const names = Array.from(cc.keys());
+  const ordered = COUNTRY_ORDER.filter(c => cc.has(c))
+    .concat(names.filter(c => !COUNTRY_ORDER.includes(c)).sort((a, b) => cc.get(b) - cc.get(a)));
+  $("#fCountry").innerHTML = ordered.map(c => optRow(c, c, cc.get(c), "country", false)).join("");
+
+  /* 立场：只列有值的，并把未标注的量说清楚，免得读者以为全库只有这些立场 */
+  const sc = countBy(d => d.st);
+  const stances = Array.from(sc.keys()).filter(Boolean).sort((a, b) => sc.get(b) - sc.get(a));
+  const unmarked = sc.get("") || 0;
+  $("#fStance").innerHTML = (stances.length
+    ? stances.map(s => optRow(s, s, sc.get(s), "stance", false)).join("")
+    : `<p style="font-size:12px;color:var(--ink-3);margin:0">尚未标注</p>`)
+    + (unmarked ? `<p class="fgap">另 <b class="figs">${unmarked}</b> 条未标注立场，不进本筛选项。
+        可在搜索框直接查国别与年代。</p>` : "");
+
+  /* 来源 */
+  const uc = countBy(d => d.s);
+  const used = Array.from(uc.keys()).filter(Boolean).sort((a, b) => uc.get(b) - uc.get(a));
+  const unowned = uc.get("") || 0;
+  $("#fSource").innerHTML = (used.length
+    ? used.map(s => optRow(s, srcLabel(s) || s, uc.get(s), "source", false)).join("")
+    : "")
+    + (unowned ? `<p class="fgap">另 <b class="figs">${unowned}</b> 条尚未确认所属专藏，
+        按 URL 域名仍无法唯一判定，未猜。</p>` : "");
+
+  /* 可获取 */
+  const pdfN = DATA.filter(d => d.pdf).length;
+  $("#fHas").innerHTML = optRow("pdf", "有 PDF 全文", pdfN, "has", false);
+}
+
+/* 点选（事件委托） */
+$("#rail").addEventListener("click", e => {
+  const row = e.target.closest(".fopt");
+  if (row) {
+    e.preventDefault();
+    toggle(row.dataset.g, row.dataset.v);
+    return;
+  }
+  const bar = e.target.closest("#histBars button");
+  if (bar) {
+    const k = +bar.dataset.dec;
+    if (e.shiftKey && decAnchor !== null) {
+      for (const x of decadeRange(decAnchor, k)) st.decades.add(x);
+      decAnchor = k;
+    } else if (st.decades.has(k)) {
+      st.decades.delete(k);
+      decAnchor = k;
+    } else {
+      st.decades.add(k);
+      decAnchor = k;
+    }
+    apply();
+  }
+});
+
+/* 年代直方图：点选切换；按住 Shift 点第二个可一次选中区间 */
+let decAnchor = null;
+function decadeRange(from, to, mode) {
+  const bars = $$("#histBars button").map(b => +b.dataset.dec).sort((a, b) => a - b);
+  const a = bars.indexOf(from), b = bars.indexOf(to);
+  if (a < 0 || b < 0) return [];
+  const [lo, hi] = a <= b ? [a, b] : [b, a];
+  return bars.slice(lo, hi + 1);
+}
+
+function toggle(group, value) {
+  const set = st[group === "kind" ? "kinds" : group === "country" ? "countries"
+    : group === "stance" ? "stances" : group === "source" ? "sources" : "has"];
+  if (set.has(value)) set.delete(value); else set.add(value);
+  apply();
+}
+
+/* ==========================================================================
+   过滤 + 排序
+   ========================================================================== */
+function matches(d) {
+  if (st.kinds.size && !st.kinds.has(d.k)) return false;
+  if (st.countries.size && !st.countries.has(d.c)) return false;
+  if (st.stances.size && !st.stances.has(d.st)) return false;
+  if (st.sources.size && !st.sources.has(d.s)) return false;
+  if (st.decades.size && !st.decades.has(d._dec)) return false;
+  if (st.has.has("pdf") && !d.pdf) return false;
+  if (st.terms.length) {
+    for (const t of st.terms) if (d._h.indexOf(t) < 0) return false;
+  }
+  return true;
+}
+
+function sortFn(mode) {
+  const num = v => v || 0;
+  if (mode === "y-") return (a, b) => num(b.y) - num(a.y) || a.c.localeCompare(b.c, "zh") || a.i - b.i;
+  if (mode === "y+") return (a, b) => (a.y ? +a.y : 1e9) - (b.y ? +b.y : 1e9) || a.c.localeCompare(b.c, "zh") || a.i - b.i;
+  if (mode === "c") return (a, b) => a.c.localeCompare(b.c, "zh") || (a.y ? +a.y : 1e9) - (b.y ? +b.y : 1e9) || a.i - b.i;
+  if (mode === "n-") return (a, b) => b.n - a.n || a.i - b.i;
+  if (mode === "t") return (a, b) => (a.tz || a.t).localeCompare(b.tz || b.t, "zh");
+  return (a, b) => a.i - b.i;
+}
+
+/* ==========================================================================
+   渲染：网格
+   ========================================================================== */
+const gcache = new Map();
+
+function plate(d) {
+  const label = `${d.c}　${KIND[d.k]}${d.k === "book" ? "　" + d.n + " 页" : ""}`;
+  if (d.k === "single") {
+    return `<span class="plate single" aria-hidden="true"><span class="frame"></span>
+      <span class="band"><b>${esc(d.y || "无年")}</b></span>
+      <span class="pt"><span>${esc(d.tz || d.t)}</span></span>
+      <span class="pf"><span>${esc(d.c)}</span><i>单页</i></span>
+    </span>`;
+  }
+  return `<span class="plate book" aria-hidden="true"><span class="frame"></span>
+    <span class="py">${esc(d.y || "年代不详")}</span>
+    <span class="pt"><b>${esc(d.tz || d.t)}</b>${d.tz ? `<i>${esc(d.t)}</i>` : ""}</span>
+    <span class="pf"><em>${esc(d.c)}</em>${d.k === "book" ? d.n + " 页" : "单页"}</span>
+  </span>`;
+}
+
+function gridCard(d) {
+  if (gcache.has(d.i)) return gcache.get(d.i);
+  const el = document.createElement("article");
+  el.className = "card";
+  el.tabIndex = 0;
+  el.dataset.i = d.i;
+  el.setAttribute("role", "button");
+  el.setAttribute("aria-label", (d.tz || d.t) + "，" + (d.y || "年代不详") + "，" + d.c);
+
+  const tail = [`<span>${esc(d.c)}</span>`];
+  tail.push(`<span>${d.k === "book" ? d.n + " 页" : "单页"}</span>`);
+  if (d.st) tail.push(`<span class="st">${esc(d.st)}</span>`);
+  if (d.pdf) tail.push(`<span>PDF</span>`);
+
+  el.innerHTML =
+    `<span class="mat">${plate(d)}
+      <img loading="lazy" decoding="async" alt="" src="${asrc(d.cv)}">
+      ${d.k === "single" ? '<span class="tag single">单页</span>' : ""}
+    </span>
+    <span class="cap">
+      <span class="top"><span class="yr${d.y ? "" : " none"} figs">${esc(d.y || "—")}</span></span>
+      <span class="ti">${esc(d.tz || d.t)}</span>
+      ${d.tz ? `<span class="or">${esc(d.t)}</span>` : ""}
+      <span class="tail">${tail.join("")}</span>
+    </span>`;
+
+  const img = el.querySelector("img");
+  img.addEventListener("error", () => { img.hidden = true; }, { once: true });
+
+  el.addEventListener("click", () => openReader(d.i, 1));
+  el.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openReader(d.i, 1); }
+  });
+  gcache.set(d.i, el);
+  return el;
+}
+
+/* ==========================================================================
+   渲染：列表
+   ========================================================================== */
+function hl(text, terms) {
+  const safe = esc(text);
+  if (!terms.length) return safe;
+  const parts = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).filter(Boolean);
+  if (!parts.length) return safe;
+  try {
+    return safe.replace(new RegExp("(" + parts.join("|") + ")", "gi"), "<mark>$1</mark>");
+  } catch (e) { return safe; }
+}
+
+function listRow(d) {
+  const el = document.createElement("div");
+  el.className = "row";
+  el.tabIndex = 0;
+  el.setAttribute("role", "button");
+  el.dataset.i = d.i;
+  const ext = d.u
+    ? `<a class="r-ext" href="${esc(d.u)}" target="_blank" rel="noopener" title="原始来源">↗</a>`
+    : "";
+  el.innerHTML =
+    `<span class="r-y${d.y ? "" : " none"} figs">${esc(d.y || "—")}</span>
+     <span class="r-t"><b>${hl(d.tz || d.t, st.terms)}${ext}</b>
+       ${d.tz ? `<span>${hl(d.t, st.terms)}</span>` : ""}</span>
+     <span class="r-c">${esc(d.c)}</span>
+     <span class="r-k">${KIND[d.k]}</span>
+     <span class="r-n figs">${d.k === "book" ? d.n + "p" : "—"}</span>
+     <span class="r-s${d.st ? "" : " none"}">${esc(d.st || "—")}</span>`;
+  el.addEventListener("click", e => {
+    if (e.target.closest("a")) return;
+    openReader(d.i, 1);
+  });
+  el.addEventListener("keydown", e => {
+    if (e.key === "Enter") { e.preventDefault(); openReader(d.i, 1); }
+  });
+  return el;
+}
+
+/* ==========================================================================
+   应用
+   ========================================================================== */
+const gridEl = $("#grid"), listEl = $("#list"), emptyEl = $("#empty");
+const countEl = $("#count"), chipsEl = $("#chips"), resetEl = $("#reset");
+
+function apply(opts) {
+  const keepScroll = opts && opts.keepScroll;
+  filtered = DATA.filter(matches).sort(sortFn(st.sort));
+
+  if (st.view === "grid") {
+    const frag = document.createDocumentFragment();
+    for (const d of filtered) frag.appendChild(gridCard(d));
+    gridEl.replaceChildren(frag);
+    gridEl.hidden = false;
+    listEl.hidden = true;
+    /* 结果不多时不让卡片被拉伸成巨幅 */
+    gridEl.classList.toggle("tight", filtered.length < 14);
+  } else {
+    const frag = document.createDocumentFragment();
+    for (const d of filtered) frag.appendChild(listRow(d));
+    listEl.replaceChildren(frag);
+    listEl.hidden = false;
+    gridEl.hidden = true;
+  }
+
+  emptyEl.hidden = filtered.length > 0;
+  countEl.innerHTML = `<b class="figs">${filtered.length}</b> / <span class="figs">${DATA.length}</span> 条`;
+
+  renderChips();
+  const anyFilter = !!(st.terms.length || st.kinds.size || st.countries.size ||
+    st.stances.size || st.sources.size || st.decades.size || st.has.size);
+  resetEl.hidden = !anyFilter;
+
+  /* 左栏选中态 */
+  $$("#rail .fopt").forEach(el => {
+    const g = el.dataset.g, v = el.dataset.v;
+    const on = (g === "kind" ? st.kinds : g === "country" ? st.countries
+      : g === "stance" ? st.stances : g === "source" ? st.sources : st.has).has(v);
+    el.classList.toggle("on", on);
+    const box = el.querySelector("input");
+    if (box) box.checked = on;
+  });
+  $$("#histBars button").forEach(b => b.classList.toggle("on", st.decades.has(+b.dataset.dec)));
+
+  const badge = $("#fbadge");
+  const nActive = st.kinds.size + st.countries.size + st.stances.size + st.sources.size + st.decades.size + st.has.size;
+  badge.textContent = String(nActive);
+  badge.classList.toggle("on", nActive > 0);
+
+  if (!keepScroll) {
+    const barH = $(".bar").offsetHeight || 58;
+    const top = gridEl.getBoundingClientRect().top + window.scrollY - barH - 12;
+    if (window.scrollY > top) window.scrollTo({ top: Math.max(0, top) });
+  }
+
+  writeHash();
+}
+
+function renderChips() {
+  const bits = [];
+  const mk = (label, group, value) =>
+    `<span class="chip">${esc(label)}<button data-g="${group}" data-v="${esc(value)}" aria-label="移除">×</button></span>`;
+
+  st.terms.forEach(t => bits.push(mk("“" + t + "”", "term", t)));
+  st.kinds.forEach(v => bits.push(mk(KIND[v], "kind", v)));
+  st.decades.forEach(v => bits.push(mk(v ? v + "s" : "年代不详", "decade", String(v))));
+  st.countries.forEach(v => bits.push(mk(v, "country", v)));
+  st.stances.forEach(v => bits.push(mk(v, "stance", v)));
+  st.sources.forEach(v => bits.push(mk(srcLabel(v) || v, "source", v)));
+  st.has.forEach(v => bits.push(mk("有 PDF", "has", v)));
+
+  chipsEl.innerHTML = bits.join("") +
+    (bits.length > 1 ? `<span class="chip clear" data-clear="1">全部清除</span>` : "");
+}
+
+chipsEl.addEventListener("click", e => {
+  const b = e.target.closest("button");
+  if (b) {
+    const g = b.dataset.g, v = b.dataset.v;
+    if (g === "term") {
+      st.terms = st.terms.filter(t => t !== v);
+      st.q = st.q.split(/\s+/).filter(t => fold(t) !== v).join(" ");
+      $("#q").value = st.q;
+    } else if (g === "decade") {
+      st.decades.delete(+v);
+    } else {
+      const set = g === "kind" ? st.kinds : g === "country" ? st.countries
+        : g === "stance" ? st.stances : g === "source" ? st.sources : st.has;
+      set.delete(v);
+    }
+    apply();
+    return;
+  }
+  if (e.target.closest("[data-clear]")) resetAll();
+});
+
+function resetAll() {
+  st.q = ""; st.terms = [];
+  st.kinds.clear(); st.countries.clear(); st.stances.clear();
+  st.sources.clear(); st.decades.clear(); st.has.clear();
+  $("#q").value = "";
+  apply();
+}
+$("#reset").addEventListener("click", resetAll);
+$("#emptyReset").addEventListener("click", resetAll);
+
+/* ==========================================================================
+   搜索 / 排序 / 视图
+   ========================================================================== */
+let qTimer = null;
+$("#q").addEventListener("input", e => {
+  const v = e.target.value;
+  clearTimeout(qTimer);
+  qTimer = setTimeout(() => {
+    st.q = v.trim();
+    st.terms = st.q ? st.q.split(/\s+/).map(fold).filter(Boolean) : [];
+    apply();
+  }, 110);
+});
+
+$("#sort").addEventListener("change", e => { st.sort = e.target.value; apply(); });
+
+$("#views").addEventListener("click", e => {
+  const b = e.target.closest("button[data-view]");
+  if (!b) return;
+  st.view = b.dataset.view;
+  $$("#views button").forEach(x => x.classList.toggle("on", x === b));
+  apply();
+});
+
+/* 移动端筛选抽屉 */
+const rail = $("#rail"), scrim = $("#scrim");
+const openRail = () => { rail.classList.add("open"); scrim.classList.add("on"); };
+const closeRail = () => { rail.classList.remove("open"); scrim.classList.remove("on"); };
+$("#fbtn").addEventListener("click", openRail);
+scrim.addEventListener("click", closeRail);
+
+/* ==========================================================================
+   URL 状态
+   筛选只替换当前历史项；打开阅读器推一条，于是「后退」等于关闭阅读器。
+   ========================================================================== */
+let hashLock = false;
+
+function hashString() {
+  const p = new URLSearchParams();
+  if (st.q) p.set("q", st.q);
+  if (st.kinds.size) p.set("k", Array.from(st.kinds).join(","));
+  if (st.countries.size) p.set("c", Array.from(st.countries).join(","));
+  if (st.stances.size) p.set("s", Array.from(st.stances).join(","));
+  if (st.sources.size) p.set("src", Array.from(st.sources).join(","));
+  if (st.decades.size) p.set("d", Array.from(st.decades).join(","));
+  if (st.has.size) p.set("has", Array.from(st.has).join(","));
+  if (st.sort !== "y+") p.set("o", st.sort);
+  if (st.view !== "grid") p.set("v", st.view);
+  if (rd.i !== null) { p.set("i", rd.i); if (rd.p > 1) p.set("p", rd.p); }
+  const h = p.toString();
+  return h ? location.pathname + location.search + "#" + h
+           : location.pathname + location.search;
+}
+
+function lockHash() {
+  hashLock = true;
+  setTimeout(() => { hashLock = false; }, 0);
+}
+
+function writeHash(mode) {
+  const url = hashString();
+  lockHash();
+  if (mode === "push") history.pushState({ rd: rd.i }, "", url);
+  else history.replaceState(history.state, "", url);
+}
+
+function readHash() {
+  const p = new URLSearchParams(location.hash.slice(1));
+  st.q = p.get("q") || "";
+  st.terms = st.q ? st.q.split(/\s+/).map(fold).filter(Boolean) : [];
+  const arr = k => (p.get(k) ? p.get(k).split(",").filter(Boolean) : []);
+  st.kinds = new Set(arr("k"));
+  st.countries = new Set(arr("c"));
+  st.stances = new Set(arr("s"));
+  st.sources = new Set(arr("src"));
+  st.decades = new Set(arr("d").map(Number).filter(n => !Number.isNaN(n)));
+  st.has = new Set(arr("has"));
+  st.sort = p.get("o") || "y+";
+  st.view = p.get("v") === "list" ? "list" : "grid";
+  $("#q").value = st.q;
+  $("#sort").value = st.sort;
+  $$("#views button").forEach(b => b.classList.toggle("on", b.dataset.view === st.view));
+  const i = p.get("i");
+  return { i: i !== null && byId.has(+i) ? +i : null, p: +(p.get("p") || 1) };
+}
+
+window.addEventListener("popstate", () => {
+  if (hashLock) return;
+  const r = readHash();
+  if (r.i !== null) {
+    if (r.i === rd.i) { apply({ keepScroll: true }); return; }
+    apply({ keepScroll: true });
+    openReader(r.i, r.p, true);
+  } else if (rd.i !== null) {
+    closeReader(true);
+  }
+});
+
+/* ==========================================================================
+   阅读器
+   ========================================================================== */
+const rd = {
+  i: null,          // 当前条目 id
+  p: 1,             // 当前页
+  si: 0,            // 双页模式下的跨页序号
+  mode: "page",
+  zoom: 1, panX: 0, panY: 0,
+  side: true,
+  list: [],         // 当前筛选结果（阅读器在自己的顺序里翻页）
+};
+let rdPushed = false;   // 阅读器是否已向历史栈压入一条记录
+
+const rdEl = $("#rd"), rdBody = $("#rdBody"), rdSide = $("#rdSide");
+const imgA = $("#rdImgA"), imgB = $("#rdImgB");
+const frames = $("#rdFrames"), vp = $("#rdVp");
+const scroller = $("#rdScroll");
+const spin = $("#rdSpin"), miss = $("#rdMiss");
+const thumbsWrap = $("#rdThumbsWrap"), thumbsEl = $("#rdThumbs");
+const slider = $("#rdSlider"), cntEl = $("#rdCnt"), zoomL = $("#rdZoomL");
+
+const pageSrc = (d, p) => d.k === "book"
+  ? asrc(d.d + "/pages/p-" + String(p).padStart(5, "0") + ".jpg")
+  : asrc(d.cv);
+
+const cur = () => (rd.i === null ? null : byId.get(rd.i));
+
+function spreadPair(d, si) {
+  if (si <= 0) return [1];
+  const a = si * 2, b = a + 1;
+  return b <= d.n ? [a, b] : [a];
+}
+function totalSpreads(d) {
+  if (d.k !== "book" || d.n <= 1) return 1;
+  return 1 + Math.ceil((d.n - 1) / 2);
+}
+function siForPage(d, p) { return p <= 1 ? 0 : Math.ceil(p / 2); }
+
+/* ---- 打开 / 关闭 ---- */
+function openReader(i, page, fromHistory) {
+  const d = byId.get(i);
+  if (!d) return;
+  rd.list = filtered.length ? filtered : DATA;
+  rd.i = i;
+  rd.p = Math.min(Math.max(1, page || 1), d.n || 1);
+  rd.zoom = 1; rd.panX = 0; rd.panY = 0;
+  if (window.innerWidth < 1100 && rd.mode === "spread") rd.mode = "page";
+
+  rdEl.classList.add("on");
+  document.body.classList.add("locked");
+  setSide(defaultSide());
+  buildHeader(d);
+  buildMeta(d);
+  buildThumbs(d);
+  buildScroll(d);
+  syncMode();
+  gotoPage(rd.p, true);
+  syncFoot();
+  noteResolution();
+
+  if (!fromHistory) writeHash(rdPushed ? "replace" : "push");
+  rdPushed = true;
+  setTimeout(() => { try { rdClose.focus(); } catch (e) {} }, 40);
+  remember(d.i, rd.p);
+}
+
+function closeReader(fromHistory) {
+  if (rd.i === null) return;
+  rd.i = null;
+  rdEl.classList.remove("on");
+  document.body.classList.remove("locked");
+  if (document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) {} }
+  if (!fromHistory) {
+    if (rdPushed) { rdPushed = false; history.back(); }
+    else writeHash("replace");
+  }
+}
+
+function buildHeader(d) {
+  $("#rdTitle").textContent = d.tz || d.t;
+  const bits = [d.c, d.y || "年代不详",
+    d.k === "book" ? d.n + " 页" : "单页", d.st].filter(Boolean);
+  const sub = $("#rdSub");
+  sub.innerHTML = (d.tz ? `<span class="it">${esc(d.t)}</span> · ` : "") + esc(bits.join(" · "));
+  const pdf = $("#rdPdf"), src = $("#rdSrc");
+  if (d.pdf) { pdf.href = asrc(d.pdf); pdf.hidden = false; } else pdf.hidden = true;
+  if (d.u) { src.href = d.u; src.hidden = false; } else src.hidden = true;
+}
+
+function buildMeta(d) {
+  const src = SOURCES[d.s];
+  const rows = [
+    ["国别", esc(d.c)],
+    ["年份", d.y ? `<span class="figs">${esc(d.y)}</span>` : "不详"],
+    ["体裁", KIND[d.k]],
+    ["页数", d.k === "book" ? `<span class="figs">${d.n}</span>` : "单页"],
+    ["立场", d.st ? esc(d.st) : "未标注"],
+    ["专藏", src ? `<a href="${esc(src.u)}" target="_blank" rel="noopener">${esc(srcLabel(d.s))} ↗</a>` : "未归属"],
+  ];
+  if (d.u) rows.push(["来源", `<a href="${esc(d.u)}" target="_blank" rel="noopener">原始页面 ↗</a>`]);
+  $("#rdMeta").innerHTML =
+    `<h3>${esc(d.tz || d.t)}</h3>
+     ${d.tz ? `<p class="orig">${esc(d.t)}</p>` : '<p class="orig"></p>'}
+     <dl>${rows.map(([k, v]) =>
+       `<div class="kv"><dt>${k}</dt><dd>${v}</dd></div>`).join("")}
+       <div class="kv" id="rdRes" hidden><dt>原图</dt><dd></dd></div></dl>
+     <details class="rd-file"><summary>文件路径</summary>
+       <code>${esc(d.d)}</code></details>`;
+}
+
+function buildThumbs(d) {
+  if (d.k !== "book" || d.n <= 1) { thumbsWrap.hidden = true; thumbsEl.innerHTML = ""; return; }
+  thumbsWrap.hidden = false;
+  const frag = document.createDocumentFragment();
+  for (let p = 1; p <= d.n; p++) {
+    const b = document.createElement("button");
+    b.dataset.p = p;
+    b.title = "第 " + p + " 页";
+    const im = document.createElement("img");
+    im.loading = "lazy";
+    im.decoding = "async";
+    im.alt = "";
+    im.src = pageSrc(d, p);
+    im.addEventListener("error", () => { b.classList.add("miss"); im.remove(); }, { once: true });
+    b.appendChild(im);
+    b.addEventListener("click", () => gotoPage(p));
+    frag.appendChild(b);
+  }
+  thumbsEl.replaceChildren(frag);
+}
+
+function buildScroll(d) {
+  if (!scroller.classList.contains("on")) { scroller.replaceChildren(); return; }
+  const frag = document.createDocumentFragment();
+  const n = d.k === "book" ? d.n : 1;
+  for (let p = 1; p <= n; p++) {
+    const im = document.createElement("img");
+    im.className = "sc-page";
+    im.loading = p <= 3 ? "eager" : "lazy";
+    im.decoding = "async";
+    im.alt = "第 " + p + " 页";
+    im.dataset.p = p;
+    im.src = pageSrc(d, p);
+    im.addEventListener("error", () => {
+      const ph = document.createElement("div");
+      ph.className = "sc-miss";
+      ph.dataset.p = p;
+      ph.textContent = "第 " + p + " 页 · 图像不在本机";
+      im.replaceWith(ph);
+    }, { once: true });
+    frag.appendChild(im);
+  }
+  scroller.replaceChildren(frag);
+  scroller.scrollTop = 0;
+}
+
+/* ---- 模式 ---- */
+function syncMode() {
+  const d = cur();
+  if (!d) return;
+  const multi = d.k === "book" && d.n > 1;
+  const modes = $$("#rdModes button");
+  modes.forEach(b => {
+    b.classList.toggle("on", b.dataset.mode === rd.mode);
+    b.disabled = !multi && b.dataset.mode !== "page";
+  });
+  vp.hidden = rd.mode === "scroll";
+  scroller.classList.toggle("on", rd.mode === "scroll");
+  if (rd.mode === "scroll") buildScroll(d);
+  rdBody.classList.toggle("noside", !rd.side);
+  rdSide.hidden = !rd.side;
+  $("#rdInfo").setAttribute("aria-pressed", String(rd.side));
+}
+/* ---- 定位到某页 ---- */
+function gotoPage(p, instant) {
+  const d = cur();
+  if (!d) return;
+  rd.p = Math.min(Math.max(1, p), d.n || 1);
+  rd.si = siForPage(d, rd.p);
+  resetZoom();
+  if (rd.mode === "scroll") {
+    const key = d.k === "book" ? 'img[data-p="' + rd.p + '"], .sc-miss[data-p="' + rd.p + '"]'
+                               : ".sc-page";
+    const node = scroller.querySelector(key);
+    if (node) {
+      const top = node.offsetTop - 16;
+      if (instant) scroller.scrollTop = top;
+      else scroller.scrollTo({ top: top, behavior: "smooth" });
+    }
+    syncFoot();
+    return;
+  }
+  paintPages(d);
+  syncFoot();
+}
+
+function paintPages(d) {
+  const pair = rd.mode === "spread" ? spreadPair(d, rd.si) : [rd.p];
+  frames.classList.toggle("two", pair.length > 1);
+  if (!missErr) miss.classList.remove("on");
+
+  const put = (img, p) => {
+    if (p === null) { img.hidden = true; img.dataset.src = ""; return; }
+    const src = pageSrc(d, p);
+    img.hidden = false;
+    if (img.dataset.src !== src) {
+      img.dataset.src = src;
+      showSpin(true);
+      img.src = src;
+    }
+  };
+
+  put(imgA, pair[0] || null);
+  put(imgB, rd.mode === "spread" && pair[1] ? pair[1] : null);
+  preload(d, pair);
+}
+
+let spinTimer = null;
+function showSpin(on) {
+  clearTimeout(spinTimer);
+  if (on) spinTimer = setTimeout(() => spin.classList.add("on"), 160);
+  else { spin.classList.remove("on"); }
+}
+
+/* 缺图态按「当前页」判定，切换页面时复位 */
+let missErr = false;
+imgA.addEventListener("load", () => {
+  showSpin(false);
+  missErr = false;
+  miss.classList.remove("on");
+  noteResolution();
+});
+imgB.addEventListener("load", () => showSpin(false));
+imgA.addEventListener("error", () => {
+  showSpin(false);
+  imgA.hidden = true;
+  missErr = true;
+  miss.classList.add("on");
+});
+imgB.addEventListener("error", () => { showSpin(false); imgB.hidden = true; });
+
+function preload(d, pair) {
+  const n = d.k === "book" ? d.n : 1;
+  const around = new Set();
+  for (const p of pair) {
+    if (!p) continue;
+    [p - 2, p - 1, p + 1, p + 2].forEach(x => { if (x >= 1 && x <= n) around.add(x); });
+  }
+  for (const p of around) { const im = new Image(); im.src = pageSrc(d, p); }
+}
+
+/* ---- 底栏同步 ---- */
+function syncFoot() {
+  const d = cur();
+  if (!d) return;
+  const multi = d.k === "book" && d.n > 1;
+  const spreads = totalSpreads(d);
+
+  if (rd.mode === "spread") {
+    slider.min = 0; slider.max = spreads - 1; slider.value = rd.si;
+    const pair = spreadPair(d, rd.si);
+    cntEl.innerHTML = pair.length > 1
+      ? `<b>${pair[0]}–${pair[1]}</b> / ${d.n}`
+      : `<b>${pair[0]}</b> / ${d.n}`;
+    $("#rdPrevPage").disabled = rd.si <= 0;
+    $("#rdNextPage").disabled = rd.si >= spreads - 1;
+  } else {
+    slider.min = 1; slider.max = Math.max(1, d.n); slider.value = rd.p;
+    cntEl.innerHTML = multi ? `<b>${rd.p}</b> / ${d.n}` : "单页";
+    $("#rdPrevPage").disabled = !multi || rd.p <= 1;
+    $("#rdNextPage").disabled = !multi || rd.p >= d.n;
+  }
+  slider.disabled = !multi;
+
+  const idx = rd.list.findIndex(x => x.i === rd.i);
+  $("#rdPrevBook").disabled = idx <= 0;
+  $("#rdNextBook").disabled = idx < 0 || idx >= rd.list.length - 1;
+
+  zoomL.textContent = rd.zoom === 1 ? "适应" : Math.round(rd.zoom * 100) + "%";
+  frames.classList.toggle("zoom", rd.zoom > 1);
+
+  $$("#rdThumbs button").forEach(b => {
+    const on = +b.dataset.p === rd.p ||
+      (rd.mode === "spread" && Math.abs(+b.dataset.p - rd.p) <= 1);
+    b.classList.toggle("on", on);
+  });
+  const act = $("#rdThumbs button.on");
+  if (act && rd.side) act.scrollIntoView({ block: "nearest", behavior: "smooth" });
+
+  $("#rdMiss").querySelector("#rdMissT").textContent =
+    d.k === "book" ? `第 ${rd.p} 页的图像不在本机` : "这件宣传品的图像不在本机";
+}
+
+/* 扫描件分辨率参差，明确告诉读者放大的上限是原图本身 */
+function noteResolution() {
+  const row = $("#rdRes");
+  if (!row) return;
+  if (!imgA.naturalWidth) { row.hidden = true; return; }
+  row.hidden = false;
+  row.querySelector("dd").innerHTML =
+    `<span class="figs">${imgA.naturalWidth} × ${imgA.naturalHeight}</span>`;
+}
+
+/* ---- 缩放 ---- */
+function resetZoom() { rd.zoom = 1; rd.panX = 0; rd.panY = 0; applyZoom(); }
+
+function applyZoom() {
+  if (rd.mode === "scroll") {
+    frames.style.transform = "";
+    scroller.style.setProperty("--colw", Math.round(760 * rd.zoom) + "px");
+    zoomL.textContent = rd.zoom === 1 ? "适应" : Math.round(rd.zoom * 100) + "%";
+    return;
+  }
+  frames.style.transform =
+    "translate(" + rd.panX + "px," + rd.panY + "px) scale(" + rd.zoom + ")";
+  zoomL.textContent = rd.zoom === 1 ? "适应" : Math.round(rd.zoom * 100) + "%";
+  frames.classList.toggle("zoom", rd.zoom > 1);
+  imgA.style.cursor = rd.zoom > 1 ? "grab" : "zoom-in";
+}
+
+function zoomAt(factor, cx, cy) {
+  const z0 = rd.zoom;
+  let z1 = Math.min(6, Math.max(1, z0 * factor));
+  if (Math.abs(z1 - z0) < 1e-4) return;
+  if (rd.mode === "scroll") { rd.zoom = z1; applyZoom(); return; }
+
+  const r = vp.getBoundingClientRect();
+  const ox = cx == null ? 0 : cx - r.left - r.width / 2;
+  const oy = cy == null ? 0 : cy - r.top - r.height / 2;
+  const k = z1 / z0;
+  rd.panX = ox - (ox - rd.panX) * k;
+  rd.panY = oy - (oy - rd.panY) * k;
+  rd.zoom = z1;
+  if (rd.zoom === 1) { rd.panX = 0; rd.panY = 0; }
+  applyZoom();
+}
+
+/* ---- 翻页 ---- */
+function stepPage(dir) {
+  const d = cur();
+  if (!d) return;
+  const multi = d.k === "book" && d.n > 1;
+  if (!multi) { stepBook(dir); return; }
+
+  if (rd.mode === "spread") {
+    const max = totalSpreads(d) - 1;
+    const next = rd.si + dir;
+    if (next < 0) return stepBook(-1, "end");
+    if (next > max) return stepBook(1, "start");
+    rd.si = next;
+    rd.p = spreadPair(d, next)[0];
+    resetZoom(); paintPages(d); syncFoot(); remember();
+    writeHash();
+    return;
+  }
+  if (rd.mode === "scroll") {
+    const target = rd.p + dir;
+    if (target < 1) return stepBook(-1, "end");
+    if (target > d.n) return stepBook(1, "start");
+    gotoPage(target);
+    writeHash();
+    return;
+  }
+  const target = rd.p + dir;
+  if (target < 1) return stepBook(-1, "end");
+  if (target > d.n) return stepBook(1, "start");
+  rd.p = target;
+  resetZoom(); paintPages(d); syncFoot(); remember();
+  writeHash();
+}
+
+function stepBook(dir, edge) {
+  const idx = rd.list.findIndex(x => x.i === rd.i);
+  const target = rd.list[idx + dir];
+  if (!target) return;
+  rd.i = target.i;
+  rd.p = edge === "end" ? target.n : 1;
+  rd.si = siForPage(target, rd.p);
+  rd.zoom = 1; rd.panX = 0; rd.panY = 0;
+  buildHeader(target); buildMeta(target); buildThumbs(target);
+  if (rd.mode === "scroll") buildScroll(target);
+  paintPages(target);
+  syncFoot(); applyZoom(); remember();
+  writeHash();
+}
+
+/* ---- 缩略图/滑块/按钮 ---- */
+slider.addEventListener("input", () => {
+  const d = cur();
+  if (!d) return;
+  const v = +slider.value;
+  if (rd.mode === "spread") {
+    rd.si = v; rd.p = spreadPair(d, v)[0];
+    resetZoom(); paintPages(d); syncFoot();
+  } else if (rd.mode === "scroll") {
+    gotoPage(v);
+  } else {
+    rd.p = v; resetZoom(); paintPages(d); syncFoot();
+  }
+});
+slider.addEventListener("change", () => writeHash());
+
+$("#rdPrevPage").addEventListener("click", () => stepPage(-1));
+$("#rdNextPage").addEventListener("click", () => stepPage(1));
+$("#rdPrevBook").addEventListener("click", () => stepBook(-1, "end"));
+$("#rdNextBook").addEventListener("click", () => stepBook(1, "start"));
+$("#rdPrev").addEventListener("click", e => { e.stopPropagation(); stepPage(-1); });
+$("#rdNext").addEventListener("click", e => { e.stopPropagation(); stepPage(1); });
+const rdClose = $("#rdClose");
+rdClose.addEventListener("click", () => closeReader(false));
+
+$("#rdZoomIn").addEventListener("click", () => zoomAt(1.25));
+$("#rdZoomOut").addEventListener("click", () => zoomAt(1 / 1.25));
+$("#rdZoomInM").addEventListener("click", () => zoomAt(1.25));
+$("#rdZoomOutM").addEventListener("click", () => zoomAt(1 / 1.25));
+$("#rdFit").addEventListener("click", () => { resetZoom(); });
+
+/* 窄屏：信息栏默认收起，否则会盖掉大半个画面 */
+function defaultSide() { return window.matchMedia("(min-width: 1001px)").matches; }
+function setSide(on) {
+  rd.side = on;
+  rdBody.classList.toggle("noside", !on);
+  rdSide.hidden = !on;
+  $("#rdInfo").setAttribute("aria-pressed", String(on));
+}
+
+$("#rdInfo").addEventListener("click", () => {
+  setSide(!rd.side);
+});
+
+$("#rdFs").addEventListener("click", toggleFs);
+function toggleFs() {
+  if (document.fullscreenElement) { document.exitFullscreen(); }
+  else if (rdEl.requestFullscreen) { rdEl.requestFullscreen().catch(() => {}); }
+}
+
+$("#rdModes").addEventListener("click", e => {
+  const b = e.target.closest("button[data-mode]");
+  if (!b || b.disabled) return;
+  const d = cur();
+  rd.mode = b.dataset.mode;
+  syncMode();
+  if (d) gotoPage(rd.p, true);
+  syncFoot();
+});
+
+/* ---- 滚轮 ---- */
+vp.addEventListener("wheel", e => {
+  if (rd.mode === "scroll") return;
+  e.preventDefault();
+  zoomAt(e.deltaY < 0 ? 1.12 : 1 / 1.12, e.clientX, e.clientY);
+}, { passive: false });
+
+scroller.addEventListener("wheel", e => {
+  if (!e.ctrlKey && !e.metaKey) return;
+  e.preventDefault();
+  zoomAt(e.deltaY < 0 ? 1.1 : 1 / 1.1);
+}, { passive: false });
+
+/* ---- 拖拽平移 ---- */
+let drag = null;
+vp.addEventListener("pointerdown", e => {
+  if (rd.zoom <= 1) return;
+  drag = { x: e.clientX - rd.panX, y: e.clientY - rd.panY, id: e.pointerId };
+  frames.classList.add("dragging");
+  vp.setPointerCapture(e.pointerId);
+});
+vp.addEventListener("pointermove", e => {
+  if (!drag) return;
+  rd.panX = e.clientX - drag.x;
+  rd.panY = e.clientY - drag.y;
+  applyZoom();
+});
+const endDrag = e => {
+  if (!drag) return;
+  drag = null;
+  frames.classList.remove("dragging");
+  try { vp.releasePointerCapture(e.pointerId); } catch (err) {}
+};
+vp.addEventListener("pointerup", endDrag);
+vp.addEventListener("pointercancel", endDrag);
+
+/* ---- 双击 ---- */
+vp.addEventListener("dblclick", e => {
+  if (rd.mode === "scroll") return;
+  e.preventDefault();
+  if (rd.zoom > 1) resetZoom();
+  else zoomAt(2.2, e.clientX, e.clientY);
+});
+
+/* ---- 触摸滑动 ---- */
+let touch = null;
+vp.addEventListener("touchstart", e => {
+  if (e.touches.length !== 1) return;
+  touch = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+}, { passive: true });
+vp.addEventListener("touchend", e => {
+  if (!touch || rd.zoom > 1 || !e.changedTouches.length) { touch = null; return; }
+  const dx = e.changedTouches[0].clientX - touch.x;
+  const dy = e.changedTouches[0].clientY - touch.y;
+  touch = null;
+  if (Math.abs(dx) > 52 && Math.abs(dx) > Math.abs(dy) * 1.4) stepPage(dx < 0 ? 1 : -1);
+}, { passive: true });
+
+/* ---- 连续模式的当前页跟随 ---- */
+let scrollTick = null;
+scroller.addEventListener("scroll", () => {
+  if (rd.mode !== "scroll" || scrollTick) return;
+  scrollTick = requestAnimationFrame(() => {
+    scrollTick = null;
+    const kids = scroller.querySelectorAll(".sc-page, .sc-miss");
+    let best = 1, bestD = Infinity;
+    const top = scroller.scrollTop + 40;
+    kids.forEach(k => {
+      const dd = Math.abs(k.offsetTop - top);
+      if (dd < bestD) { bestD = dd; best = +k.dataset.p; }
+    });
+    if (best !== rd.p) { rd.p = best; syncFoot(); writeHash(); remember(); }
+  });
+});
+
+/* ---- 上次读到哪 ---- */
+function remember(i, p) {
+  try {
+    const id = i == null ? rd.i : i;
+    const page = p == null ? rd.p : p;
+    if (id == null) return;
+    const d = byId.get(id);
+    localStorage.setItem("pam.last", JSON.stringify({
+      i: id, p: page || 1, t: d ? (d.tz || d.t) : ""
+    }));
+  } catch (e) {}
+}
+
+/* ==========================================================================
+   全局键盘
+   ========================================================================== */
+document.addEventListener("keydown", e => {
+  const keysOn = $("#keys").classList.contains("on");
+  if (keysOn) {
+    if (e.key === "Escape" || e.key === "?") { e.preventDefault(); $("#keys").classList.remove("on"); }
+    return;
+  }
+  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
+
+  if (rd.i === null) {
+    if (typing) {
+      if (e.key === "Escape") { $("#q").blur(); }
+      return;
+    }
+    if (e.key === "/") { e.preventDefault(); $("#q").focus(); $("#q").select(); return; }
+    if (e.key === "?") { e.preventDefault(); $("#keys").classList.add("on"); return; }
+    return;
+  }
+
+  const d = cur();
+  if (!d) return;
+  switch (e.key) {
+    case "Escape": e.preventDefault(); closeReader(false); break;
+    case "ArrowLeft": e.preventDefault(); stepPage(-1); break;
+    case "ArrowRight": e.preventDefault(); stepPage(1); break;
+    case "ArrowUp": e.preventDefault(); stepBook(-1, "end"); break;
+    case "ArrowDown": e.preventDefault(); stepBook(1, "start"); break;
+    case "Home": e.preventDefault(); gotoPage(1); writeHash(); break;
+    case "End": e.preventDefault(); gotoPage(d.n); writeHash(); break;
+    case "+": case "=": e.preventDefault(); zoomAt(1.25); break;
+    case "-": case "_": e.preventDefault(); zoomAt(1 / 1.25); break;
+    case "0": e.preventDefault(); resetZoom(); break;
+    case "m": case "M": {
+      e.preventDefault();
+      if (d.k !== "book" || d.n <= 1) return;
+      const order = ["page", "spread", "scroll"];
+      const at = order.indexOf(rd.mode);
+      rd.mode = order[(at + 1) % order.length];
+      syncMode(); gotoPage(rd.p, true); syncFoot();
+      break;
+    }
+    case "i": case "I":
+      e.preventDefault();
+      $("#rdInfo").click();
+      break;
+    case "f": case "F":
+      e.preventDefault();
+      toggleFs();
+      break;
+  }
+});
+
+$("#keysClose").addEventListener("click", () => $("#keys").classList.remove("on"));
+$("#keys").addEventListener("click", e => {
+  if (e.target === $("#keys")) $("#keys").classList.remove("on");
+});
+
+/* ==========================================================================
+   主题
+   ========================================================================== */
+$("#themeBtn").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem("pam.theme", next); } catch (e) {}
+  syncThemeIcon();
+});
+function syncThemeIcon() {
+  const dark = document.documentElement.dataset.theme === "dark";
+  $("#themeIcon").innerHTML = dark
+    ? '<path d="M13.4 9.6A5.6 5.6 0 016.4 2.6a5.8 5.8 0 100 10.8 5.8 5.8 0 007-3.8z" fill="currentColor" stroke="none"></path>'
+    : '<circle cx="8" cy="8" r="3.2"></circle><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3.05 3.05l1.13 1.13M11.82 11.82l1.13 1.13M12.95 3.05l-1.13 1.13M4.18 11.82l-1.13 1.13"></path>';
+}
+
+/* ==========================================================================
+   启动
+   ========================================================================== */
+function buildStats() {
+  const items = [
+    ["条目", STATS.total, ""],
+    ["小册子", STATS.books, ""],
+    ["单页", STATS.singles, ""],
+    ["国家 / 地区", STATS.countries, ""],
+    ["页", STATS.pages, ""],
+  ];
+  $("#stats").innerHTML = items.map(([k, v]) =>
+    `<div><dt>${k}</dt><dd class="figs">${v}</dd></div>`).join("");
+}
+
+/* 报头滚出视野后给工具条加状态类 */
+(function stickyWatch() {
+  const bar = $(".bar"), mast = $(".mast");
+  if (!("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver(
+    ([e]) => bar.classList.toggle("stuck", !e.isIntersecting),
+    { rootMargin: "-1px 0px 0px 0px", threshold: 0 }
+  );
+  io.observe(mast);
+})();
+
+buildFacets();
+buildStats();
+syncThemeIcon();
+$("#buildInfo").textContent = "数据指纹 " + BUILD;
+
+(function boot() {
+  const r = readHash();
+  apply({ keepScroll: true });
+  if (r.i !== null && byId.has(+r.i)) openReader(+r.i, +(r.p || 1), true);
+})();
+</script>
+</body>
+</html>

@@ -51,3 +51,9 @@
 - ⚠️ 共 3 个源只有说明文件：loc-printed-ephemera、pares-carteles、ndl-digital-collections。
   这些站点对自动化访问返回 403 / 429，或正文全在 JS 前端。`notes/` 里保留了失败原因与已知信息，未编造正文。
 - ○ 共 14 个源已核实入口但尚未抓取正文；清单可用，内容待取。
+
+## 抓取记录覆盖
+
+`data/manifest.json` 共 24 条抓取明细，覆盖 24/38 个源。
+
+- 14 个源**尚无抓取记录**（未尝试，非失败）：`social-history-portal`、`rgaspi-comintern`、`ohara-institute`、`osa-archivum`、`memoria-chilena-panfletos`、`bcn-chile-panfletos`、`feltrinelli`、`fpabloiglesias`、`torre-do-tombo-pide`、`vga-wien`、`onb-plakate`、`aan-warszawa`、`arab-stockholm`、`loc-newdelhi-pamphlets`

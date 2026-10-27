@@ -10,41 +10,81 @@
 
 | 内容 | 说明 |
 |---|---|
+| [`data/catalog.json`](data/catalog.json) | **权威条目目录**：203 条（104 本小册子 + 99 件单页），统一 schema，含标题、译名、国别、年份、页数、立场、来源归属 |
 | [`data/sources.json`](data/sources.json) | **38 个专藏**的清单：名称、国别、类型、入口 URL、规模注记 |
-| [`data/index.csv`](data/index.csv) | 同一份清单的表格版，带抓取状态，Excel 可直接打开 |
-| [`data/manifest.json`](data/manifest.json) | 每个源的抓取记录：HTTP 状态、字节数、正文字符数、失败原因 |
-| [`metadata/`](metadata/) | 条目级元数据（中国 1920–1949、西方 1815–1948），含标题、年份、出版者、页数、来源链接 |
+| [`data/index.csv`](data/index.csv) | 同一份专藏清单的表格版，带抓取状态，Excel 可直接打开 |
+| [`data/manifest.json`](data/manifest.json) | 专藏的抓取记录：HTTP 状态、字节数、正文字符数、失败原因 |
+| [`metadata/`](metadata/) | 逐条抓取日志（中国 1920–1949、西方 1815–1948），记录每个下载项的 IIIF 地址与页数 |
 | [`notes/`](notes/) | 已抓取的收藏说明页正文纯文本，可直接 grep |
-| [`docs/index.html`](docs/index.html) | 图像目录页，按来源分列；开启 GitHub Pages 即可浏览 |
+| [`docs/index.html`](docs/index.html) | **目录与阅读器**：多维筛选、年代直方图、网格/列表双视图、URL 记忆、单页·双页·连续三种阅读模式；开启 GitHub Pages 即可浏览 |
 | [`docs/COLLECTIONS.md`](docs/COLLECTIONS.md) | 38 个专藏的可点击清单与抓取状态 |
 | [`docs/FINDING-AIDS.md`](docs/FINDING-AIDS.md) | **检索手册**：14 种语言的体裁检索词、按出版社反查、各类型馆藏查法 |
-| [`scripts/`](scripts/) | 采集脚本，见下 |
+| [`scripts/`](scripts/) | 采集与构建脚本，见下 |
+
+`docs/index.html` 由 `scripts/templates/catalog.html` 加 `data/catalog.json` 生成，不要手改；改了源数据或模板要重跑构建，CI 会校验两者是否一致，并跑一遍页面交互验收。
+
+### 目录页的设计取舍
+
+页面上有几处不是装饰，而是被数据逼出来的决定：
+
+- **图像缺席时，封面不是错误态。** `images/` 不入库，Pages 上 203 张图全部 404。所以卡片在图片加载失败时渲染一块**排版封面**——小册子照扉页排（年份、题名、原名、国别页数），单页照招贴排（年份色条、大字号题名）。有图时它被图盖住，没有时它就是封面本身，目录在任何情况下都读得下去。
+- **封面不裁切。** 实测封面宽高比从 0.38 到 2.08，单页海报多是横版 1.3–1.5。原来的 `aspect-ratio:2/3 + object-fit:cover` 会把横版海报裁掉三分之一，现在改成衬纸 `contain`。
+- **主筛选维度是国别与年代，不是立场。** `stance` 只有 30/203 有值，`source` 只有 44/203。把立场做成主筛选器会让人以为库里只有这些立场；页面上因此显式标注了「另 N 条未标注」，不把缺口伪装成不存在。
+- **年代用可点直方图。** 跨度 1830–1993，76 个年份做成下拉没人愿意滚；直方图一眼看到 1910s、1930s、1940s 三个峰，点击或 Shift 连选收窄。
+- **列表视图是给研究用的。** 网格给浏览，列表给核对：一屏 20 余条，题名、原名、国别、体裁、页数、立场对齐成列，命中词高亮。
+
+### 图像缺失时怎么恢复
+
+页面按 `../images/` 定位图像。要指向别处（例如把自己抓的图放在另一块盘），加查询参数即可：
+
+```
+docs/index.html?assets=/path/to/images/
+```
+
+阅读器侧栏会显示每页原图的实际像素尺寸——部分来源的分辨率本身就很低（最窄的一本只有 330×584），放大到顶就是原图，不是加载失败。
 
 ## 图像不随仓库分发
 
-已抓取的实体材料：**61 本多页小册子**（1645 页、578 MB，中国 20、美国 31、法国 4、德国 2、俄国 2、英国 1、意大利 1）+ 144 件单页传单／海报（131 MB）。都没有放进仓库，原因有二：体积，以及**扫描件的版权属于各原藏机构与捐赠者**，公开再分发不合适。
+已抓取的实体材料：**104 本多页小册子** + **99 件单页传单／海报**，覆盖 17 国。都没有放进仓库，原因有二：体积，以及**扫描件的版权属于各原藏机构与捐赠者**，公开再分发不合适。
 
-条目元数据完整保留，所以任何人都能按下面的步骤把图抓回来。
+`images/` 因此被 .gitignore 排除。条目元数据完整保留在 `data/catalog.json`，所以任何人都能按下面的步骤把图抓回来。目录页在图片缺失时会显示占位块，不会破损。
 
 ```bash
-pip install pillow    # 仅生成画廊预览时需要
+pip install -r requirements.txt
 
-python scripts/harvest_mh2.py         # 抗战平台：按主题搜索并下载封面
-python scripts/harvest_pages.py       # 抗战平台：补抓内页（短篇全本，长篇首尾）
-python scripts/harvest_commons2.py    # Wikimedia Commons：竞选材料
-python scripts/retry_commons2.py      # 对 429 失败的条目重试
-python scripts/build_gallery.py       # 重新生成 docs/index.html
-python scripts/build_index.py         # 重建 index.csv 与 COLLECTIONS.md
-python scripts/organize_images.py     # 按议题把图分到 15 类（先加 --dry 看结果）
+python scripts/harvest_mh2.py            # 抗战平台：按主题搜索并下载封面
+python scripts/harvest_pages.py          # 抗战平台：补抓内页（短篇全本，长篇首尾）
+python scripts/harvest_ia.py             # Internet Archive
+python scripts/harvest_gallica.py        # Gallica（需 Playwright 浏览器会话）
+
+python scripts/validate_catalog.py       # 校验 data/catalog.json
+python scripts/build_catalog.py          # 由模板与目录生成 docs/index.html
+python scripts/build_index.py            # 重建 index.csv 与 COLLECTIONS.md
+python scripts/test_catalog_ui.py        # 目录页与阅读器的端到端验收（需 playwright）
+python scripts/shot_ui.py --dark         # 截图到 images/_ui/，目视检查
+python scripts/organize_images.py        # 按议题把图分到 15 类（先加 --dry 看结果）
 python scripts/build_category_sheets.py  # 每类一张缩略总览
 ```
+
+### 脚本目录结构
+
+```
+scripts/
+  templates/  目录页模板（catalog.html），与数据分离，占位符替换
+  lib/        公共层：paths（仓库路径）、index（目录读写与校验）、http（统一 UA 与重试）、text
+  *.py        生产线：harvest_* 采集 → merge_* 并入 → build_* 构建产物
+  tools/      接口探针、布局体检、缺图验收等一次性工具，不属于发布链路
+  archive/    已被取代的旧脚本（含退役的 build_gallery.py），保留备查
+```
+
+采集脚本统一从 `lib.http.fetch` 取数据，UA 与重试策略只有一处；早期各脚本里复制了十几份的 `safe()` / `fetch()` 已收拢。
 
 ## 采集方式说明
 
 各站点对自动化访问的态度差别很大，脚本里的处理对应这些差异：
 
 - **抗日战争与近代中日关系文献数据平台**：纯前端渲染，普通抓取拿不到内容。用 Playwright 监听 XHR 找出后台接口 `backend-prod/esBook/findByPage`，直接 POST 检索，再从返回的 `imageUrl` 拼 IIIF 地址（`/full/1000,/0/default.jpg`；`/full/pct:100/0/default.jpg` 取全幅）。按 `publishTime` 过滤，只留 1949 年前原版——不加这一步，检索结果里绝大多数是 1980 年代的资料汇编。
-- **Wikimedia Commons**：必须使用符合其[用户代理政策](https://meta.wikimedia.org/wiki/User-Agent_policy)的 UA，否则缩略图服务会持续返回 429。换成 `ToolName/1.0 (URL; mail)` 形式后一次通过。抓取间隔不要低于 1 秒。
+- **Wikimedia Commons**：必须使用符合其[用户代理政策](https://meta.wikimedia.org/wiki/User-Agent_policy)的 UA，否则缩略图服务会持续返回 429。用在 `lib/http.py` 里的 `ToolName/1.0 (URL; mail)` 形式。抓取间隔不要低于 1 秒。
 - **Gallica / Hoover / 西班牙 PARES**：Cloudflare 挑战页，本轮未突破。Gallica 的 SRU 与 IIIF 接口对脚本请求返回 403。
 
 ## 已核实的 38 个专藏（节选）
@@ -98,7 +138,7 @@ python scripts/build_category_sheets.py  # 每类一张缩略总览
 
 - 代码：MIT，见 [LICENSE](LICENSE)。
 - 说明文字与整理后的元数据：由 AI 辅助生成与整理，仅供学术交流，条款见 [DISCLAIMER.md](DISCLAIMER.md)。
-- `metadata/` 与 `notes/` 中的书目信息与馆藏描述摘自已公开的图书馆、档案馆页面，著作权属原机构，仅供研究索引之用。
+- `data/catalog.json` 与 `notes/` 中的书目信息与馆藏描述摘自已公开的图书馆、档案馆页面，著作权属原机构，仅供研究索引之用。
 - 图像不在本仓库内。若自行抓取，请遵守各馆的引用与复制规定。
 
 ## 声明与免责
@@ -115,5 +155,6 @@ python scripts/build_category_sheets.py  # 每类一张缩略总览
 
 - 西班牙内战海报（PARES）、法国二战 9000 份传单（Gallica）、胡佛 10 万张海报——自动化访问被 Cloudflare 拦截，未接入。
 - 中东（奥斯曼档案、以色列国家图书馆）、撒哈拉以南非洲、东南亚的民族主义政党宣传品尚未覆盖。
-- 14 个专藏只登记了入口，正文未抓取（清单状态标 ○）。
+- 38 个专藏中：21 个抓到可读正文，3 个只有说明文件（403/429），14 个仅登记入口、正文待取。`data/manifest.json` 覆盖 24/38 个源，其余 14 个尚未尝试。
 - 抗战平台有 7 张内页取不到，源站对该页返回 403。
+- `data/catalog.json` 的 `source` 字段（条目归属哪个专藏）目前仅回填 44/203 条——可按 URL 域名唯一确定的已填，其余留空未猜。

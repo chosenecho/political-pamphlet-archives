@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# 图像不随仓库分发，Pages 上本就没有可抓的图，无需为 SEO 留出图片路径
