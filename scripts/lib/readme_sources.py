@@ -9,53 +9,19 @@
     `scripts/tools/update_readme_sources.py` 整节重写，`audit_readme.py` 用它
     反查是否一致。两边共用同一份生成函数，就不会再各说各话。
 
-地区为什么在渲染层转换
-    `sources.json` 的 `region` 取值是混用的（`UK`/`US`/`DE` 是代码，`智利`/`跨国`
-    是中文名，另有 `US/UK`、`俄/美` 这类复合值），24 个取值 40 条记录。直接改成
-    全中文会牵动 `add_terms.py` 的 REGION_LANG 映射与 docs/COLLECTIONS.md 的
-    既有显示，属于另一件事。所以这里只做**显示层转换**：数据不动，README 里显示
-    中文。REGION_ZH 里没有的值原样输出，新增国别不会静默消失。
+地区显示
+    早期 `data/sources.json` 的 `region` 混用 ISO 代码与中文名，本模块曾自带
+    一份 REGION_ZH 做显示层转换。现在数据已统一为中文名（见 `lib/regions.py`
+    与 `tools/normalize_regions.py`），转换交给 `regions.to_zh()`，本模块不再
+    维护第二份表——两份表正是漂移的来源。
 """
 
-#: sources.json 的 region 代码 → README 显示用的中文名。
-#: 只覆盖代码型取值；中文型取值（智利、跨国、欧洲…）原样通过。
-REGION_ZH = {
-    "UK": "英国",
-    "US": "美国",
-    "DE": "德国",
-    "FR": "法国",
-    "NL": "荷兰",
-    "CH": "瑞士",
-    "ES": "西班牙",
-    "CN": "中国",
-    "JP": "日本",
-    "BE": "比利时",
-    "PT": "葡萄牙",
-    "PL": "波兰",
-    "SE": "瑞典",
-    "IT": "意大利",
-    "RU": "俄国",
-    "HU": "匈牙利",
-    "AT": "奥地利",
-    "CZ": "捷克",
-}
+import os
+import sys
 
-#: 复合取值单独给，避免 "US/UK" 被逐段替换后变成 "美国/英国" 这类想当然的猜测。
-#: 这里保留原始写法，因为它是「两地合藏」还是「跨国机构」本就说不清，
-#: 交给读者自己判断比替它决定更好。
-REGION_COMPOSITE = {
-    "US/UK": "美/英",
-    "俄/美": "俄/美",
-    "印度/美": "印度/美",
-}
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
-def region_zh(region):
-    """region 的显示名。未知取值原样返回，不吞、不猜。"""
-    r = (region or "").strip()
-    if r in REGION_COMPOSITE:
-        return REGION_COMPOSITE[r]
-    return REGION_ZH.get(r, r)
+from lib import regions
 
 
 #: 节选哪几条，以及分几个小标题。顺序即 README 里的顺序。
@@ -116,6 +82,6 @@ def render(sources):
             s = by_slug[slug]
             note = (s.get("note") or "").strip() or "—"
             out.append(f"| [{s['title']}]({s['url']}) | "
-                       f"{region_zh(s.get('region'))} | {note} |")
+                       f"{regions.to_zh(s.get('region'))} | {note} |")
         out.append("")
     return "\n".join(out).rstrip("\n")

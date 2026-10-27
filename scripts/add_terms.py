@@ -1,9 +1,18 @@
-"""给每个专藏补上当地语言的检索词，并生成检索手册。"""
+"""给每个专藏补上当地语言的检索词，并生成检索手册。
+
+语言判定不再由本脚本自带映射，改从 scripts/lib/regions.py 取——那里同时
+管着 region 的词表。早先两处各存一份，新增国别只改了一处就会静默退回英文。
+"""
 
 import json
 import os
+import sys
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(BASE, "scripts"))
+
+from lib import regions
+
 P = os.path.join(BASE, "data", "sources.json")
 
 # 语言 → 检索词（体裁词优先，因为编目按体裁标引）
@@ -26,31 +35,40 @@ TERMS = {
     "zh": ["小册子", "传单", "宣传品", "标语", "宣言"],
 }
 
-# 地区 → 语言（按 sources.json 里的 region 字段）
-REGION_LANG = {
-    "UK": "en", "US": "en", "US/UK": "en", "印度/美": "en", "俄/美": "en",
-    "德国": "de", "DE": "de", "奥地利": "de", "CH": "de",
-    "法国": "fr", "FR": "fr", "比利时": "nl", "BE": "nl",
-    "荷兰": "nl", "NL": "nl",
-    "意大利": "it", "西班牙": "es", "葡萄牙": "pt",
-    "俄国": "ru", "波兰": "pl", "捷克": "cs", "瑞典": "sv",
-    "匈牙利": "hu", "日本": "ja", "JP": "ja", "中国": "zh", "CN": "zh",
-    "智利": "es", "拉美": "es", "欧洲": "en",
-}
-
 data = json.load(open(P, encoding="utf-8"))
 upd = 0
+filled = 0
+unknown = []
 for s in data["sources"]:
-    lang = REGION_LANG.get(s.get("region", ""), "en")
+    lang = regions.language_of(s.get("region"))
+    if lang is None:
+        # 不兜底成 en：那会让新增国别「看起来正常」却拿到错误的检索词
+        unknown.append((s["slug"], s.get("region")))
+        continue
     s["lang"] = lang
-    s["terms"] = TERMS.get(lang, TERMS["en"])
+    # terms 只在缺失时按语言填。已有的不覆盖——有的专藏手写过更贴切的词
+    # （internet-archive 的 `Fabian tract`、wiki-commons 的 7 个海报词），
+    # 无条件覆盖会把它们冲成通用英文词，是内容损失而非整理。
+    if not s.get("terms"):
+        s["terms"] = TERMS.get(lang, TERMS["en"])
+        filled += 1
     upd += 1
 
-json.dump(data, open(P, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+if unknown:
+    print("⚠ 这些条目的 region 在 regions.py 里查不到语言，未改动：")
+    for slug, region in unknown:
+        print(f"   {slug}  region={region!r}")
+    sys.exit(1)
+
+with open(P, "w", encoding="utf-8", newline="\n") as f:
+    # indent=2 与既有格式一致；indent=1（json 默认）会重排整个文件
+    json.dump(data, f, ensure_ascii=False, indent=2)
+    f.write("\n")
 
 # 生成检索手册
 L = ["# 检索手册", "",
-     "这份索引里 38 个专藏的编目方式各不相同。真正决定能否找到的，是**用当地语言的体裁词**去检索，"
+     f"这份索引里 {len(data['sources'])} 个专藏的编目方式各不相同。"
+     "真正决定能否找到的，是**用当地语言的体裁词**去检索，"
      "而不是把「小册子」直译成英文。", "",
      "## 一、按语言查体裁词", "",
      "| 语言 | 检索词 |", "|---|---|"]
@@ -94,9 +112,18 @@ L += ["", "## 二、为什么用体裁词", "",
       "2. **地方档案馆**：选区一级的竞选传单几乎只存在于郡／省级档案馆，国家级馆不收。",
       "3. **党代表大会文件**：党纲与竞选纲领通常作为代表大会文件的一部分印刷，"
       "查会议记录（Proceedings／Protokolle／Compte rendu）能连带找到。",
-      ""]
+      "",
+      "---", "",
+      "> 声明：本手册由 AI 辅助整理，仅供学术研究与交流，不对使用后果负责。"
+      "检索词、界面与馆藏状态随时会变，请以各馆现行界面为准；"
+      "如有错误或版权问题，提出后立即更正或移除。"
+      "完整条款见 [DISCLAIMER.md](../DISCLAIMER.md)。", ""]
 
 os.makedirs(os.path.join(BASE, "docs"), exist_ok=True)
-open(os.path.join(BASE, "docs", "FINDING-AIDS.md"), "w", encoding="utf-8").write("\n".join(L))
+# newline="\n"：Windows 上默认会把 \n 转成 \r\n，产物与提交就对不上了
+with open(os.path.join(BASE, "docs", "FINDING-AIDS.md"), "w",
+          encoding="utf-8", newline="\n") as f:
+    f.write("\n".join(L))
 
-print(f"已为 {upd} 个专藏补检索词，生成 docs/FINDING-AIDS.md（{len('\n'.join(L))} 字符）")
+print(f"已核对 {upd} 个专藏的语言，其中 {filled} 个按语言补了检索词"
+      f"（其余保留手写词），生成 docs/FINDING-AIDS.md（{len('\n'.join(L))} 字符）")
