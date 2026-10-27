@@ -1,6 +1,6 @@
 # 专藏清单与抓取状态
 
-源数 39　|　已取正文 21　|　仅登记入口 15　|　catalog 条目 230
+源数 39　|　已取正文 21　|　仅登记入口 15　|　catalog 条目 253
 
 > 声明：本清单由 AI 辅助整理，仅供学术研究与交流；内容可能有误，不对使用后果负责。如有版权或内容问题，提出后立即移除。详见 [DISCLAIMER.md](../DISCLAIMER.md)。
 
@@ -44,7 +44,7 @@
 | 36 | [Archiwum Akt Nowych（波兰新档案）](https://aan.gov.pl/) | 波兰 | 档案馆 | 0 | — | ○ |
 | 37 | [Arbetarrörelsens arkiv och bibliotek](https://arbark.se/sv/) | 瑞典 | 档案馆 | 0 | — | ○ |
 | 38 | [LoC 新德里办事处政治小册子集](https://www.loc.gov/item/2009345307) | 印度/美 | 特藏 | 0 | — | ○ |
-| 39 | [Internet Archive · 政党与政治宣传品扫描件](https://archive.org/) | 跨国 | 数字馆藏(免费) | 0 | 27 | ○ |
+| 39 | [Internet Archive · 政党与政治宣传品扫描件](https://archive.org/) | 跨国 | 数字馆藏(免费) | 0 | 33 | ○ |
 
 ## 状态说明
 
@@ -55,16 +55,16 @@
 
 ## 条目来源分布
 
-`data/catalog.json` 共 230 条条目。按 `source` 字段归属到专藏：
+`data/catalog.json` 共 253 条条目。按 `source` 字段归属到专藏：
 
 | 专藏 | 条目数 |
 |---|---|
-| Internet Archive · 政党与政治宣传品扫描件 | 27 |
+| Internet Archive · 政党与政治宣传品扫描件 | 33 |
 | Gallica (BnF) · Tracts de la Seconde Guerre mondiale | 21 |
 | 抗日战争与近代中日关系文献数据平台 | 20 |
 | Social History Portal (IALHI 聚合) | 3 |
 
-- 另有 **159** 条条目未标注所属专藏（`source` 为空），未计入上表，也未猜断归属。
+- 另有 **176** 条条目未标注所属专藏（`source` 为空），未计入上表，也未猜断归属。
 
 **35 个源只抓到了入口页正文，没有条目入库。**「已取正文」指落地页抓到了可读文本，不等于该源的材料已进入目录。
 
