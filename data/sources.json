@@ -639,5 +639,25 @@
         "election platform"
       ]
     }
+,
+    {
+      "slug": "internet-archive",
+      "title": "Internet Archive · 政党与政治宣传品扫描件",
+      "region": "跨国",
+      "kind": "数字馆藏(免费)",
+      "url": "https://archive.org/",
+      "note": "各国图书馆扫描并托管于 IA 的政党小册子、竞选材料与费边社小册；本目录已收录 27 件，1887-1952",
+      "lang": "en",
+      "terms": [
+        "pamphlet",
+        "leaflet",
+        "handbill",
+        "broadside",
+        "tract",
+        "campaign literature",
+        "election address",
+        "Fabian tract"
+      ]
+    }
   ]
 }

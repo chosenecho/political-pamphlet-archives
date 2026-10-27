@@ -1,6 +1,6 @@
 # 专藏清单与抓取状态
 
-源数 38　|　已取正文 21　|　仅登记入口 14
+源数 39　|　已取正文 21　|　仅登记入口 15
 
 > 声明：本清单由 AI 辅助整理，仅供学术研究与交流；内容可能有误，不对使用后果负责。如有版权或内容问题，提出后立即移除。详见 [DISCLAIMER.md](../DISCLAIMER.md)。
 
@@ -44,16 +44,17 @@
 | 36 | [Archiwum Akt Nowych（波兰新档案）](https://aan.gov.pl/) | 波兰 | 档案馆 | 0 | ○ |
 | 37 | [Arbetarrörelsens arkiv och bibliotek](https://arbark.se/sv/) | 瑞典 | 档案馆 | 0 | ○ |
 | 38 | [LoC 新德里办事处政治小册子集](https://www.loc.gov/item/2009345307) | 印度/美 | 特藏 | 0 | ○ |
+| 39 | [Internet Archive · 政党与政治宣传品扫描件](https://archive.org/) | 跨国 | 数字馆藏(免费) | 0 | ○ |
 
 ## 状态说明
 
 - ✅ 共 21 个源抓到了可读正文。
 - ⚠️ 共 3 个源只有说明文件：loc-printed-ephemera、pares-carteles、ndl-digital-collections。
   这些站点对自动化访问返回 403 / 429，或正文全在 JS 前端。`notes/` 里保留了失败原因与已知信息，未编造正文。
-- ○ 共 14 个源已核实入口但尚未抓取正文；清单可用，内容待取。
+- ○ 共 15 个源已核实入口但尚未抓取正文；清单可用，内容待取。
 
 ## 抓取记录覆盖
 
-`data/manifest.json` 共 24 条抓取明细，覆盖 24/38 个源。
+`data/manifest.json` 共 24 条抓取明细，覆盖 24/39 个源。
 
-- 14 个源**尚无抓取记录**（未尝试，非失败）：`social-history-portal`、`rgaspi-comintern`、`ohara-institute`、`osa-archivum`、`memoria-chilena-panfletos`、`bcn-chile-panfletos`、`feltrinelli`、`fpabloiglesias`、`torre-do-tombo-pide`、`vga-wien`、`onb-plakate`、`aan-warszawa`、`arab-stockholm`、`loc-newdelhi-pamphlets`
+- 15 个源**尚无抓取记录**（未尝试，非失败）：`social-history-portal`、`rgaspi-comintern`、`ohara-institute`、`osa-archivum`、`memoria-chilena-panfletos`、`bcn-chile-panfletos`、`feltrinelli`、`fpabloiglesias`、`torre-do-tombo-pide`、`vga-wien`、`onb-plakate`、`aan-warszawa`、`arab-stockholm`、`loc-newdelhi-pamphlets`、`internet-archive`
