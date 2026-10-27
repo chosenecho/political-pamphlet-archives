@@ -227,7 +227,7 @@ for cat in sorted(groups):
 html = f"""<!doctype html>
 <html lang="zh"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>政党宣传品 · 分类目录</title>
+<title>材料 · 分类目录</title>
 <style>
 :root{{color-scheme:light}}
 body{{margin:0;padding:28px;background:#f7f6f3;color:#1d1d1b;
@@ -246,7 +246,7 @@ figcaption span{{color:#777}}
 .src{{color:#4a6fa5;text-decoration:none}}
 .src:hover{{text-decoration:underline}}
 </style></head><body>
-<h1>政党宣传品 · 分类目录</h1>
+<h1>材料 · 分类目录</h1>
 <p class="lede">共 {len(plan)} 件，{len(groups)} 类。每件一个文件夹：<code>cover.jpg</code> + <code>pages/</code>（内页）。
 图片在 <code>images/分类/</code> 下。</p>
 {''.join(blocks)}

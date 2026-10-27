@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-10-26T13:00:00+08:00",
-  "scope": "19-20 世纪政党、政治家、政治派系的宣传小册子/传单/海报/竞选材料专藏",
+  "scope": "19-20 世纪政治组织、政治家、政治派系的宣传小册子/传单/海报/竞选材料专藏",
   "sources": [
     {
       "slug": "jstor-19c-british-pamphlets",
@@ -642,11 +642,11 @@
 ,
     {
       "slug": "internet-archive",
-      "title": "Internet Archive · 政党与政治宣传品扫描件",
+      "title": "Internet Archive · 政治组织与政治材料扫描件",
       "region": "跨国",
       "kind": "数字馆藏(免费)",
       "url": "https://archive.org/",
-      "note": "各国图书馆扫描并托管于 IA 的政党小册子、竞选材料与费边社小册；本目录已收录 27 件，1887-1952",
+      "note": "各国图书馆扫描并托管于 IA 的政治组织小册子、竞选材料与费边社小册；本目录已收录 27 件，1887-1952",
       "lang": "en",
       "terms": [
         "pamphlet",

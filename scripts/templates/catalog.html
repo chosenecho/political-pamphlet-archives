@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>政黨宣傳品檔案 · 目录与阅读器</title>
-<meta name="description" content="十九至二十世纪政党、政治家与政治派系散发的宣传小册子、传单、竞选材料与政治海报馆藏索引，含可翻页阅读器。仅供学术研究。">
+<title>歷史宣傳材料檔案 · 目录与阅读器</title>
+<meta name="description" content="十九至二十世纪政治组织、政治家与政治派系散发的宣传小册子、传单、竞选材料与政治海报馆藏索引，含可翻页阅读器。仅供学术研究。">
 <script>
 /* 主题先于首屏确定，避免闪白 */
 (function () {
@@ -18,7 +18,7 @@
 <style>
 /* ==========================================================================
    0. 变量：纸、墨、一道赭红
-   整站只用这套色。政治宣传品的色彩由实物自己提供，界面不替它们表态。
+   整站只用这套色。这些材料的色彩由实物自己提供，界面不替它们表态。
    ========================================================================== */
 :root {
   --paper: #efece3;
@@ -120,7 +120,9 @@ mark { background: var(--mark); color: inherit; border-radius: 1px; padding: 0 1
   color: var(--ink-2);
   max-width: 46em;
 }
-.blurb b { color: var(--ink); font-weight: 600; }
+.blurb b { color: var(--ink); font-weight: 600; white-space: nowrap; }
+/* 加粗短语是语义单元（「馆藏索引」），中文默认按字符断行会把它拆成
+   「馆藏索 / 引」，看着像错字。给它不折行，整段一起下移。 */
 
 .stats {
   display: flex; gap: 26px; margin: 0; padding: 0;
@@ -1235,11 +1237,11 @@ main { min-width: 0; }
 <header class="mast">
   <div class="mast-in">
     <div class="brand">
-      <h1>政黨宣傳品檔案</h1>
+      <h1>歷史宣傳材料檔案</h1>
       <p class="en">Political Pamphlet Archives</p>
     </div>
     <p class="blurb">
-      十九至二十世纪政党、政治家与政治派系散发的宣传小册子、传单、竞选材料与政治海报：
+      十九至二十世纪政治组织、政治家与政治派系散发的宣传小册子、传单、竞选材料与政治海报：
       <b>馆藏索引</b>、可翻页的阅读器，以及一份说明它们散落在哪里的专藏清单。
     </p>
     <button class="theme-btn" id="themeBtn" title="切换明暗" aria-label="切换明暗">
@@ -1255,7 +1257,7 @@ main { min-width: 0; }
 <!-- ============================ 工具条 ============================ -->
 <div class="bar">
   <div class="bar-in">
-    <span class="barid">政黨宣傳品檔案</span>
+    <span class="barid">歷史宣傳材料檔案</span>
     <label class="search">
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
         <circle cx="6.8" cy="6.8" r="4.6"></circle><path d="M10.4 10.4L14 14"></path>
@@ -1318,7 +1320,7 @@ main { min-width: 0; }
     </div>
     <footer class="foot">
       <p><b>声明</b>　本页面由 AI 辅助整理，仅供学术研究与交流；元数据抓取自各原藏机构的公开页面，未经逐条人工复核，不保证准确、完整或时效。</p>
-      <p>所收录材料为十九至二十世纪各政党与派系的宣传品，包含法西斯主义、殖民主义、种族主义等今日极具争议的内容；<b>收录不等于认同</b>，本项目不代表任何政党、组织或政治立场。</p>
+      <p>所收录材料为十九至二十世纪各政治组织与派系散发的宣传品，包含法西斯主义、殖民主义、种族主义等今日极具争议的内容；<b>收录不等于认同</b>，本项目不代表任何政党、组织或政治立场。</p>
       <p>扫描图像的著作权属各原藏机构与捐赠者，<b>不随本仓库分发</b>。图上不去时封面显示为排版占位，目录与版本信息仍然完整；在本机跑一次采集脚本即可恢复实物图像。</p>
       <div class="links">
         <span class="figs" id="buildInfo"></span>
@@ -1546,8 +1548,28 @@ const countBy = fn => {
 
 /* 国别次序按区域走，不按条目数：找「东亚」「西欧」时不必先数谁多。
    新增国别若不在表内，会落到末尾——发现新国家时记得补进这里。 */
-const COUNTRY_ORDER = ["中国", "日本", "印度", "拉美", "俄国", "德国", "奥地利", "捷克",
-  "波兰", "匈牙利", "荷兰", "英国", "爱尔兰", "法国", "西班牙", "葡萄牙", "意大利", "美国"];
+const COUNTRY_ORDER = [
+  "中国",
+  "日本",
+  "印度",
+  "拉美",
+  "俄国",
+  "德国",
+  "奥地利",
+  "捷克",
+  "波兰",
+  "匈牙利",
+  "荷兰",
+  "英国",
+  "爱尔兰",
+  "法国",
+  "西班牙",
+  "葡萄牙",
+  "意大利",
+  "美国",
+  "苏联",
+  "比利时",
+  "瑞典"];
 
 function optRow(value, label, n, group, checked) {
   return `<label class="fopt${checked ? " on" : ""}" data-g="${group}" data-v="${esc(value)}">
@@ -2279,7 +2301,7 @@ function syncFoot() {
   if (act && rd.side) act.scrollIntoView({ block: "nearest", behavior: "smooth" });
 
   $("#rdMiss").querySelector("#rdMissT").textContent =
-    d.k === "book" ? `第 ${rd.p} 页的图像不在本机` : "这件宣传品的图像不在本机";
+    d.k === "book" ? `第 ${rd.p} 页的图像不在本机` : "这件材料的图像不在本机";
 }
 
 /* 扫描件分辨率参差，明确告诉读者放大的上限是原图本身 */

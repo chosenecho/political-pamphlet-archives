@@ -23,7 +23,7 @@
 
 ## 二、为什么用体裁词
 
-政党宣传品在图书馆目录里通常不按主题标引，而是单独设一个馆藏位置或体裁字段：
+这类材料在图书馆目录里通常不按主题标引，而是单独设一个馆藏位置或体裁字段：
 
 - 英美编目：著录为 `Pamphlets`、`Tracts`、`Campaign literature`、`Broadsides`，或位置字段写 `Pamphlet` / `Tracts` 专架
 - 德语区：`Flugschrift`（传单式论著）、`Flugblatt`（单页传单）、`Broschüre` 分列

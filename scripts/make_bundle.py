@@ -57,7 +57,7 @@ TIERS = {
     "full": {"max_w": None, "quality": 0, "label": "全分辨率版", "copy": True},
 }
 
-BANNER = """政黨宣傳品檔案 · 离线包
+BANNER = """歷史宣傳材料檔案 · 离线包
 ==================================================
 
 怎么打开
@@ -71,7 +71,7 @@ BANNER = """政黨宣傳品檔案 · 离线包
   免责声明.txt      使用边界与来源说明
 
 注意
-  本包含有法西斯主义、殖民主义、种族主义等今日极具争议的历史宣传品，
+  本包含有法西斯主义、殖民主义、种族主义等今日极具争议的历史材料，
   收录不等于认同。仅供学术研究与教学使用，请勿再分发。
   扫描件版权属各原藏机构与捐赠者。
 
@@ -291,7 +291,7 @@ def main():
         print(f"\n=== {cfg['label']} ({tier}) ===")
         stage = os.path.join(BUILD, f"pkg-{tier}")
         n = build_staging(recs, tier, stage)
-        out = os.path.join(OUT_DIR, f"政党宣传品档案-{cfg['label']}-{n}件.zip")
+        out = os.path.join(OUT_DIR, f"历史宣传歷史宣傳材料檔案-{cfg['label']}-{n}件.zip")
         raw = zip_dir(stage, out)
         print(f"  打包完成 {out}")
         print(f"  解压后 {raw/1e6:.0f} MB，压缩包 {os.path.getsize(out)/1e6:.0f} MB")

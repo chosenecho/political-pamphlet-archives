@@ -30,9 +30,13 @@ ASSET_PREFIX = "../images/"
 
 #: 国别的固定次序模板里定义（前端排序用）；这里保留一份用于打印与自检，
 #: 与模板不一致时构建会报错，免得新增国别后静默落到列表末尾。
-COUNTRY_ORDER = ["中国", "日本", "印度", "拉美", "俄国", "德国", "奥地利", "捷克",
-                 "波兰", "匈牙利", "荷兰", "英国", "爱尔兰", "法国", "西班牙",
-                 "葡萄牙", "意大利", "美国"]
+COUNTRY_ORDER = ["中国", "日本", "印度",
+                 "拉美", "俄国", "德国",
+                 "奥地利", "捷克", "波兰",
+                 "匈牙利", "荷兰", "英国",
+                 "爱尔兰", "法国", "西班牙",
+                 "葡萄牙", "意大利", "美国",
+                 "苏联", "比利时", "瑞典"]
 
 
 def load_records():
@@ -95,6 +99,15 @@ def build_stats(recs):
 
 
 def main():
+    # 先把站名与对外文案统一（幂等），再读模板。这样即使有人改回旧称，
+    # 只要走一次构建就会收敛回来，不会带着旧词发到线上。
+    try:
+        import rename_terms
+
+        rename_terms.apply()
+    except Exception as e:                     # 改称失败不该挡住构建
+        print(f"（改称步骤跳过：{type(e).__name__}: {e}）")
+
     recs = load_records()
     sources = load_sources()
     data = build_payload(recs)
