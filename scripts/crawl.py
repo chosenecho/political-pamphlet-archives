@@ -117,6 +117,44 @@ def fetch(url, timeout=40):
         return r.status, r.read(), r.geturl()
 
 
+#: 正文字符数下限。低于此值多半不是「正文本来就短」，而是反爬拦截或 JS 门禁
+#: 返回的空壳页——页面能连上，但没有任何可用正文。与 build_index.py 判定
+#: notes/ 状态用的阈值一致，两处口径相同才不会互相打架。
+MIN_CHARS = 500
+
+
+def judge(rec):
+    """判定一次抓取，返回 (fetched, readable, 原因)。
+
+    要分开两件事，合成一个布尔值就说不清了：
+      fetched   直连有没有拿到 2xx 响应
+      readable  最终有没有可读正文（正文也可能来自人工/其它渠道，见 via）
+
+    例如 kas-archiv-bibliothek 直连 403，但用 firecrawl 取到了 2000+ 字符正文：
+    fetched=False、readable=True。旧写法只记一个 ok，把这种情况要么说成「成功」
+    （掩盖被反爬拦截的事实），要么说成「失败」（抹掉实际到手的正文）。
+    """
+    status = rec.get("status")
+    chars = rec.get("chars") or 0
+
+    if not isinstance(status, int):
+        return False, False, rec.get("error") or "没有 HTTP 状态"
+    if rec.get("text_error"):
+        return False, False, rec["text_error"]
+
+    fetched = status < 400
+    readable = chars >= MIN_CHARS
+    if fetched and not readable:
+        return True, False, (f"正文仅 {chars} 字符（下限 {MIN_CHARS}），"
+                             f"疑似 JS 门禁或空壳页")
+    if not fetched and readable:
+        # 直连被拒但正文够长：正文是绕过后取得的，不是这次直连的成果
+        return False, True, f"HTTP {status}（正文另行取得）"
+    if not fetched:
+        return False, False, f"HTTP {status}"
+    return True, True, ""
+
+
 manifest = []
 
 for slug, title, region, url in SOURCES:
@@ -136,18 +174,23 @@ for slug, title, region, url in SOURCES:
                 f.write(text)
         except Exception as e:  # noqa: BLE001
             rec["text_error"] = f"{type(e).__name__}: {e}"
-        rec["ok"] = True
     except urllib.error.HTTPError as e:
-        rec["ok"] = False
         rec["status"] = e.code
         rec["error"] = f"HTTP {e.code} {e.reason}"
     except Exception as e:  # noqa: BLE001
-        rec["ok"] = False
         rec["error"] = f"{type(e).__name__}: {str(e)[:200]}"
+
+    # ok 统一由 judge 判定：拿到 403/429 的响应页或 JS 空壳页都不算抓到
+    rec["fetched"], rec["readable"], why = judge(rec)
+    rec["ok"] = rec["readable"]
+    if why:
+        rec["error"] = why
     rec["seconds"] = round(time.time() - t0, 1)
     rec["via"] = "urllib-crawl"
     manifest.append(rec)
-    print(f"{'OK ' if rec.get('ok') else 'ERR'} {slug:34s} {rec.get('status', '-'):>4} {rec.get('chars', rec.get('error', ''))}")
+    flag = "OK " if rec["ok"] else "ERR"
+    print(f"{flag} {slug:34s} {rec.get('status', '-'):>4} "
+          f"{rec.get('chars', rec.get('error', ''))}")
     time.sleep(1.5)
 
 with open(os.path.join(BASE, "data", "manifest.json"), "w", encoding="utf-8") as f:
