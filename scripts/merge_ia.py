@@ -1,17 +1,22 @@
-"""把 Internet Archive 抓到的 18 本并入小册子合集，并重建索引。"""
+"""把 Internet Archive 抓到的 18 本并入小册子合集，并重建目录。"""
 
 import json
 import os
 import re
 import shutil
+import sys
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMG = os.path.join(BASE, "images")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from lib import index as catalog
+from lib import paths
+
+IMG = paths.IMAGES
 IA = os.path.join(IMG, "ia")
 BK = os.path.join(IMG, "小册子")
 
 meta = json.load(open(os.path.join(IA, "metadata.json"), encoding="utf-8"))
-index = json.load(open(os.path.join(IMG, "索引.json"), encoding="utf-8"))
+index = catalog.load()
 
 BAD = re.compile(r'[\\/:*?"<>|]+')
 
@@ -48,8 +53,7 @@ for rec in meta:
     added += 1
 
 shutil.rmtree(IA, ignore_errors=True)
-json.dump(index, open(os.path.join(IMG, "索引.json"), "w", encoding="utf-8"),
-          ensure_ascii=False, indent=2)
+catalog.save(index)
 
 book = [r for r in index if r["kind"] == "小册子"]
 from collections import Counter

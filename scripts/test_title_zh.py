@@ -2,11 +2,15 @@
 
 import os
 import pathlib
+import sys
 
 from playwright.sync_api import sync_playwright
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-URL = pathlib.Path(os.path.join(BASE, "images", "目录.html")).as_uri()
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from lib import paths
+
+URL = pathlib.Path(paths.SITE).as_uri()
 fails = []
 
 

@@ -4,9 +4,14 @@ import json
 import os
 import re
 import shutil
+import sys
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMG = os.path.join(BASE, "images")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from lib import index as catalog
+from lib import paths
+
+IMG = paths.IMAGES
 SRC = os.path.join(IMG, "gallica", "raw")
 BK = os.path.join(IMG, "小册子")
 BAD = re.compile(r'[\\/:*?"<>|]+')
@@ -18,7 +23,7 @@ def safe(s, n=48):
 
 
 meta = json.load(open(os.path.join(IMG, "gallica", "metadata.json"), encoding="utf-8"))
-index = json.load(open(os.path.join(IMG, "索引.json"), encoding="utf-8"))
+index = catalog.load()
 
 added = 0
 for rec in meta:
@@ -51,8 +56,7 @@ for f in ("_gal核对.jpg", "_gal内页.jpg"):
     if os.path.exists(p):
         os.remove(p)
 
-json.dump(index, open(os.path.join(IMG, "索引.json"), "w", encoding="utf-8"),
-          ensure_ascii=False, indent=2)
+catalog.save(index)
 
 book = [r for r in index if r["kind"] == "小册子"]
 from collections import Counter

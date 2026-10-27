@@ -145,6 +145,7 @@ for slug, title, region, url in SOURCES:
         rec["ok"] = False
         rec["error"] = f"{type(e).__name__}: {str(e)[:200]}"
     rec["seconds"] = round(time.time() - t0, 1)
+    rec["via"] = "urllib-crawl"
     manifest.append(rec)
     print(f"{'OK ' if rec.get('ok') else 'ERR'} {slug:34s} {rec.get('status', '-'):>4} {rec.get('chars', rec.get('error', ''))}")
     time.sleep(1.5)

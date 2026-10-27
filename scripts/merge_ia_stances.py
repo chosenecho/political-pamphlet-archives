@@ -4,9 +4,14 @@ import json
 import os
 import re
 import shutil
+import sys
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMG = os.path.join(BASE, "images")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from lib import index as catalog
+from lib import paths
+
+IMG = paths.IMAGES
 ROOT = os.path.join(IMG, "ia-stance")
 SRC = os.path.join(ROOT, "raw")
 BK = os.path.join(IMG, "小册子")
@@ -36,7 +41,7 @@ KEEP = {
 
 meta = {f"{r['no']:03d}": r for r in json.load(
     open(os.path.join(ROOT, "metadata.json"), encoding="utf-8"))}
-index = json.load(open(os.path.join(IMG, "索引.json"), encoding="utf-8"))
+index = catalog.load()
 BAD = re.compile(r'[\\/:*?"<>|]+')
 
 
@@ -78,8 +83,7 @@ p = os.path.join(IMG, "_ia核对3.jpg")
 if os.path.exists(p):
     os.remove(p)
 
-json.dump(index, open(os.path.join(IMG, "索引.json"), "w", encoding="utf-8"),
-          ensure_ascii=False, indent=2)
+catalog.save(index)
 
 book = [r for r in index if r["kind"] == "小册子"]
 from collections import Counter

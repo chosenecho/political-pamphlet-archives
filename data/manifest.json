@@ -24,7 +24,8 @@
     "chars": 4262,
     "ok": true,
     "seconds": 1.8,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "bishopsgate-labour-socialist",
@@ -37,7 +38,8 @@
     "chars": 3159,
     "ok": true,
     "seconds": 1.6,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "phm-labour-history-archive",
@@ -50,7 +52,8 @@
     "chars": 3130,
     "ok": true,
     "seconds": 1.6,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "lse-digital-library",
@@ -63,7 +66,8 @@
     "chars": 3426,
     "ok": true,
     "seconds": 2.1,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "nyu-tamiment-cpusa",
@@ -76,7 +80,8 @@
     "chars": 12699,
     "ok": true,
     "seconds": 0.8,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "umich-labadie",
@@ -89,7 +94,8 @@
     "chars": 12644,
     "ok": true,
     "seconds": 1.0,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "hoover-posters",
@@ -102,7 +108,8 @@
     "chars": 7616,
     "ok": true,
     "seconds": 1.2,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "hoover-digital-collections",
@@ -115,7 +122,8 @@
     "chars": 21105,
     "ok": true,
     "seconds": 0.7,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "loc-printed-ephemera",
@@ -141,7 +149,8 @@
     "chars": 2974,
     "ok": true,
     "seconds": 2.7,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "sozialarchiv-zuerich",
@@ -154,7 +163,8 @@
     "chars": 1868,
     "ok": true,
     "seconds": 1.5,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "fes-adsd",
@@ -167,7 +177,8 @@
     "chars": 16023,
     "ok": true,
     "seconds": 2.7,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "fes-digitale-bibliothek",
@@ -180,7 +191,8 @@
     "chars": 20461,
     "ok": true,
     "seconds": 2.3,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "kas-archiv-bibliothek",
@@ -206,7 +218,8 @@
     "chars": 6264,
     "ok": true,
     "seconds": 2.1,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "la-contemporaine",
@@ -219,7 +232,8 @@
     "chars": 18050,
     "ok": true,
     "seconds": 2.5,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "francearchives-tracts",
@@ -248,7 +262,8 @@
     "chars": 13004,
     "ok": true,
     "seconds": 1.2,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "pares-carteles",
@@ -274,7 +289,8 @@
     "chars": 757,
     "ok": true,
     "seconds": 1.7,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   },
   {
     "slug": "modernhistory-cn",
@@ -317,6 +333,7 @@
     "chars": 6456,
     "ok": true,
     "seconds": 1.9,
-    "encoding": "utf-8"
+    "encoding": "utf-8",
+    "via": "urllib-crawl"
   }
 ]

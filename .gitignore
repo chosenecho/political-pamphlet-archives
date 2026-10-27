@@ -1,9 +1,13 @@
-# 忽略抓取产物（体积大、版权归原藏机构）
+# 抓取产物：体积大、版权归原藏机构，不入库。
+# 目录内容由 data/catalog.json 描述，任何人可据此重新抓取。
 images/
 raw/
 samples/
 *.7z
-*/metadata.json.bak
+
+# 备份文件（metadata/ 在根级，需带目录前缀才匹配）
+metadata/*.bak
+metadata/*.json.bak
 
 # 系统与编辑器
 .DS_Store

@@ -4,9 +4,15 @@ import json
 import os
 import re
 import shutil
+import sys
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMG = os.path.join(BASE, "images")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from lib import index as catalog
+from lib import paths
+
+BASE = paths.BASE
+IMG = paths.IMAGES
 RAW = os.path.join(IMG, "小册子国际", "raw")
 
 # 经人工核对可用的小册子：(目录号, 国别, 年份, 标题)
@@ -47,7 +53,7 @@ if os.path.isdir(cn_src) and not os.path.isdir(cn_dst):
     shutil.move(cn_src, cn_dst)
 
 index = []
-cn_old = json.load(open(os.path.join(IMG, "索引.json"), encoding="utf-8"))
+cn_old = catalog.load()
 for r in cn_old:
     if r["country"] != "中国":
         continue
@@ -101,8 +107,7 @@ for junk in ("小册子国际", "总览", "_核对.jpg"):
     elif os.path.exists(p):
         os.remove(p)
 
-json.dump(index, open(os.path.join(IMG, "索引.json"), "w", encoding="utf-8"),
-          ensure_ascii=False, indent=2)
+catalog.save(index)
 
 bk = [r for r in index if r["kind"] == "小册子"]
 print(f"小册子 {len(bk)} 本（中国 {sum(1 for r in bk if r['country']=='中国')}，国际 {sum(1 for r in bk if r['country']!='中国')}）")

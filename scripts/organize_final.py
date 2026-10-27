@@ -5,11 +5,17 @@ import json
 import os
 import re
 import shutil
+import sys
 
 from PIL import Image, ImageDraw, ImageFont
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMG = os.path.join(BASE, "images")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from lib import index as catalog
+from lib import paths
+
+BASE = paths.BASE
+IMG = paths.IMAGES
 CN_SRC = os.path.join(IMG, "小册子", "raw")
 CN_META = os.path.join(IMG, "小册子", "选定20.json")
 INTL_SRC = os.path.join(IMG, "国际", "raw")
@@ -95,10 +101,9 @@ for p in (INTL_SRC, os.path.join(IMG, "国际", "raw")):
     if os.path.isdir(p):
         shutil.rmtree(p)
 
-# ---------- 3. 索引 ----------
+# ---------- 3. 目录 ----------
 allrec = cn_out + intl_out
-json.dump(allrec, open(os.path.join(IMG, "索引.json"), "w", encoding="utf-8"),
-          ensure_ascii=False, indent=2)
+catalog.save(allrec)
 
 with open(os.path.join(IMG, "目录.csv"), "w", encoding="utf-8-sig", newline="") as f:
     w = csv.writer(f)

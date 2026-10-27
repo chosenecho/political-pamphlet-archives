@@ -1,39 +1,39 @@
-﻿slug,title,region,kind,url,chars,status,via,note
-jstor-19c-british-pamphlets,JSTOR · 19th Century British Pamphlets,UK,数据库(订阅),https://about.jstor.org/products/journals-and-primary-sources/licensed-collections/19th-century-british-pamphlets/,10649,ok,urllib-retry,2.6 万册 / 逾 100 万页，7 所英国大学馆藏合并
-bodleian-john-johnson,Bodleian · John Johnson Collection of Printed Ephemera,UK,特藏(部分在线),https://www.bodleian.ox.ac.uk/collections-and-resources/special-collections/catalogues/johnson,4262,ok,,6.5 万件印刷品，含选举传单 handbill
-bishopsgate-labour-socialist,Bishopsgate Institute · Labour and Socialist History,UK,特藏,https://www.bishopsgate.org.uk/collections/labour-and-socialist-history/,3159,ok,,
-phm-labour-history-archive,People's History Museum · Labour History Archive & Study Centre,UK,档案馆,https://phm.org.uk/collection/labour-history-archive-study-centre/,3130,ok,,
-lse-digital-library,LSE Digital Library · Collections,UK,数字馆藏(免费),https://digital.library.lse.ac.uk/collections,3426,ok,,
-nyu-tamiment-cpusa,NYU Tamiment · Printed Ephemera Collection on the CPUSA,US,档案馆,https://findingaids.library.nyu.edu/tamwag/pe_031/,12699,ok,,
-umich-labadie,University of Michigan · Joseph A. Labadie Collection,US,特藏,https://www.lib.umich.edu/collections/collecting-areas/special-collections/joseph-labadie-collection/,12644,ok,,
-hoover-posters,Hoover Institution · Poster Collection,US,特藏(在线),https://www.hoover.org/library-archives/collections/posters,7616,ok,,
-hoover-digital-collections,Hoover Institution · Digital Collections,US,数字馆藏(免费),https://www.hoover.org/library-archives/collections/digital-collections,21105,ok,,
-loc-printed-ephemera,Library of Congress · Printed Ephemera (An American Time Capsule),US,数字馆藏(免费),https://www.loc.gov/loc/lcib/9905/newammem.html,416,partial,firecrawl/manual,
-iisg-collections,IISH Amsterdam · Collections,NL,档案馆,https://iisg.amsterdam/en/collections,2974,ok,,
-sozialarchiv-zuerich,Schweizerisches Sozialarchiv,CH,档案馆,https://www.sozialarchiv.ch/,1868,ok,,
-fes-adsd,Friedrich-Ebert-Stiftung · Archiv der sozialen Demokratie,DE,党档案馆,https://www.fes.de/archiv-der-sozialen-demokratie,16023,ok,,
-fes-digitale-bibliothek,FES · Digitale Bibliothek,DE,数字馆藏,https://www.fes.de/bibliothek/zeitschriften-digitalisierung,20461,ok,,
-kas-archiv-bibliothek,Konrad-Adenauer-Stiftung · ACDP 档案馆与图书馆,DE,党档案馆,https://www.kas.de/de/archiv-und-bibliothek,2084,ok,firecrawl/manual,
-wlb-zeit-der-weltkriege,Württembergische Landesbibliothek · Zeit der Weltkriege,DE,特藏,https://www.wlb-stuttgart.de/sammlungen/zeit-der-weltkriege,6264,ok,,
-la-contemporaine,La Contemporaine · Collections,FR,档案馆/博物馆,https://www.lacontemporaine.fr/en/collections/,18050,ok,,
-francearchives-tracts,FranceArchives · Fonds des Tracts politiques (Sciences Po / CEVIPOF),FR,在线档案目录(免费),https://francearchives.gouv.fr/fr/findingaid/1e48faec7165e984c693396f23969f5e00008e55,2274,ok,firecrawl/manual,1934-2024，按年份+生产者+主题分类；含 PCF/PS/CFDT 等
-gallica-tracts-ww2,Gallica (BnF) · Tracts de la Seconde Guerre mondiale,FR,数字馆藏(免费),https://gallica.bnf.fr/accueil/fr/html/les-tracts-de-la-seconde-guerre-mondiale-a-la-reserve-des-livres-rares,13004,ok,,9000 份二战传单已上线
-pares-carteles,PARES · Carteles de la España Republicana,ES,在线档案目录(免费),https://pares.cultura.gob.es/ParesBusquedas20/catalogo/description/117015,419,partial,firecrawl/manual,
-gale-political-extremism,Gale · Political Extremism and Radicalism,US/UK,数据库(订阅),https://www.gale.com/primary-sources/political-extremism-and-radicalism,757,ok,,
-modernhistory-cn,抗日战争与近代中日关系文献数据平台,CN,数字馆藏(免费),https://www.modernhistory.org.cn/,643,ok,firecrawl/manual,含红色文献专题库、中共党史/组织史专题库
-ndl-digital-collections,国立国会図書館デジタルコレクション / NDL 电子展示,JP,数字馆藏,https://www.ndl.go.jp/gallery/exhibitions/202507,243,partial,firecrawl/manual,
-amsab-isg,Amsab-ISG · Institute of Social History,BE,档案馆,https://www.amsab.be/en/,6456,ok,,
-social-history-portal,Social History Portal (IALHI 聚合),欧洲,聚合检索,https://www.socialhistoryportal.org/,0,index-only,,国际劳工史机构协会（IALHI）门户，跨馆检索社会运动与工运档案、100 余种期刊目次
-rgaspi-comintern,RGASPI 共产国际档案（经 LoC 指南）,俄/美,档案馆,https://guides.loc.gov/comintern-archives/,0,index-only,,莫斯科 RGASPI 藏 1919–1943 共产国际档案约 2000 万页，各国共产党文献；LoC 提供 INCOMKA 检索指南与缩微
-ohara-institute,法政大学大原社会問題研究所,日本,档案馆,https://oisr-org.ws.hosei.ac.jp/,0,index-only,,日本社会运动史核心机构，藏有大量政党、工会的ビラ（传单）与パンフレット
-osa-archivum,Blinken OSA Archivum,匈牙利,档案馆,https://archivum.org/,0,index-only,,冷战、自由欧洲电台、samizdat（地下出版物）与人权材料，1956 匈牙利革命专题
-memoria-chilena-panfletos,Memoria Chilena · Panfletos 1973–1988,智利,数字馆藏(免费),https://www.memoriachilena.gob.cl/602/w3-article-3641.html,0,index-only,,军事独裁时期政党活动被禁，传单成为主要宣传形式；该专题收录此期 panfletos
-bcn-chile-panfletos,智利国会图书馆 · Estantería Digital 传单集,智利,数字馆藏(免费),https://www.bcn.cl/estanteriadigital/resultados?terminos=portada_sitio&coleccion=panfletos,0,index-only,,含 1969 年政治传单等竞选材料
-feltrinelli,Fondazione Giangiacomo Feltrinelli,意大利,档案馆,https://fondazionefeltrinelli.it/,0,index-only,,意大利政治社会运动档案与「Archivi del presente」当代运动文献采集项目
-fpabloiglesias,Fundación Pablo Iglesias,西班牙,党档案馆,https://fpabloiglesias.es/archivo-y-biblioteca/,0,index-only,,PSOE、UGT、JSE 及主要领导人（Pablo Iglesias、Largo Caballero 等）的历史档案与书刊
-torre-do-tombo-pide,Arquivo Nacional Torre do Tombo · PIDE/DGS 档案,葡萄牙,档案馆,https://antt.dglab.gov.pt/,0,index-only,,政治警察档案，内含大量被查扣的地下传单与政党印刷品
-vga-wien,Verein für Geschichte der ArbeiterInnenbewegung,奥地利,档案馆,https://www.vga.at/,0,index-only,,经「zeithistorischer politischer Archive」平台可在线检索 6000 余张政治海报
-onb-plakate,Österreichische Nationalbibliothek · 海报与传单,奥地利,特藏,https://www.onb.ac.at/sammlungen/bildarchiv-und-grafiksammlung/bestandsuebersicht/plakate-flugblaetter-exlibris,0,index-only,,海报收藏约 10 万张、跨三个世纪，另有 Flugblätter（传单）专藏
-aan-warszawa,Archiwum Akt Nowych（波兰新档案）,波兰,档案馆,https://aan.gov.pl/,0,index-only,,1919 年设立的国家central档案馆，藏 19–20 世纪政党与政治组织档案
-arab-stockholm,Arbetarrörelsens arkiv och bibliotek,瑞典,档案馆,https://arbark.se/sv/,0,index-only,,瑞典工人运动档案与图书馆，社民党、工会的竞选与宣传材料
-loc-newdelhi-pamphlets,LoC 新德里办事处政治小册子集,印度/美,特藏,https://www.loc.gov/item/2009345307,0,index-only,,美国国会图书馆新德里办公室收集整理的南亚政治小册子（1959–2009，含孟加拉语、印地语等）
+﻿slug,title,region,kind,url,chars,status,has_manifest,via,note
+jstor-19c-british-pamphlets,JSTOR · 19th Century British Pamphlets,UK,数据库(订阅),https://about.jstor.org/products/journals-and-primary-sources/licensed-collections/19th-century-british-pamphlets/,10649,ok,True,urllib-retry,2.6 万册 / 逾 100 万页，7 所英国大学馆藏合并
+bodleian-john-johnson,Bodleian · John Johnson Collection of Printed Ephemera,UK,特藏(部分在线),https://www.bodleian.ox.ac.uk/collections-and-resources/special-collections/catalogues/johnson,4262,ok,True,urllib-crawl,6.5 万件印刷品，含选举传单 handbill
+bishopsgate-labour-socialist,Bishopsgate Institute · Labour and Socialist History,UK,特藏,https://www.bishopsgate.org.uk/collections/labour-and-socialist-history/,3159,ok,True,urllib-crawl,
+phm-labour-history-archive,People's History Museum · Labour History Archive & Study Centre,UK,档案馆,https://phm.org.uk/collection/labour-history-archive-study-centre/,3130,ok,True,urllib-crawl,
+lse-digital-library,LSE Digital Library · Collections,UK,数字馆藏(免费),https://digital.library.lse.ac.uk/collections,3426,ok,True,urllib-crawl,
+nyu-tamiment-cpusa,NYU Tamiment · Printed Ephemera Collection on the CPUSA,US,档案馆,https://findingaids.library.nyu.edu/tamwag/pe_031/,12699,ok,True,urllib-crawl,
+umich-labadie,University of Michigan · Joseph A. Labadie Collection,US,特藏,https://www.lib.umich.edu/collections/collecting-areas/special-collections/joseph-labadie-collection/,12644,ok,True,urllib-crawl,
+hoover-posters,Hoover Institution · Poster Collection,US,特藏(在线),https://www.hoover.org/library-archives/collections/posters,7616,ok,True,urllib-crawl,
+hoover-digital-collections,Hoover Institution · Digital Collections,US,数字馆藏(免费),https://www.hoover.org/library-archives/collections/digital-collections,21105,ok,True,urllib-crawl,
+loc-printed-ephemera,Library of Congress · Printed Ephemera (An American Time Capsule),US,数字馆藏(免费),https://www.loc.gov/loc/lcib/9905/newammem.html,416,partial,True,firecrawl/manual,
+iisg-collections,IISH Amsterdam · Collections,NL,档案馆,https://iisg.amsterdam/en/collections,2974,ok,True,urllib-crawl,
+sozialarchiv-zuerich,Schweizerisches Sozialarchiv,CH,档案馆,https://www.sozialarchiv.ch/,1868,ok,True,urllib-crawl,
+fes-adsd,Friedrich-Ebert-Stiftung · Archiv der sozialen Demokratie,DE,党档案馆,https://www.fes.de/archiv-der-sozialen-demokratie,16023,ok,True,urllib-crawl,
+fes-digitale-bibliothek,FES · Digitale Bibliothek,DE,数字馆藏,https://www.fes.de/bibliothek/zeitschriften-digitalisierung,20461,ok,True,urllib-crawl,
+kas-archiv-bibliothek,Konrad-Adenauer-Stiftung · ACDP 档案馆与图书馆,DE,党档案馆,https://www.kas.de/de/archiv-und-bibliothek,2084,ok,True,firecrawl/manual,
+wlb-zeit-der-weltkriege,Württembergische Landesbibliothek · Zeit der Weltkriege,DE,特藏,https://www.wlb-stuttgart.de/sammlungen/zeit-der-weltkriege,6264,ok,True,urllib-crawl,
+la-contemporaine,La Contemporaine · Collections,FR,档案馆/博物馆,https://www.lacontemporaine.fr/en/collections/,18050,ok,True,urllib-crawl,
+francearchives-tracts,FranceArchives · Fonds des Tracts politiques (Sciences Po / CEVIPOF),FR,在线档案目录(免费),https://francearchives.gouv.fr/fr/findingaid/1e48faec7165e984c693396f23969f5e00008e55,2274,ok,True,firecrawl/manual,1934-2024，按年份+生产者+主题分类；含 PCF/PS/CFDT 等
+gallica-tracts-ww2,Gallica (BnF) · Tracts de la Seconde Guerre mondiale,FR,数字馆藏(免费),https://gallica.bnf.fr/accueil/fr/html/les-tracts-de-la-seconde-guerre-mondiale-a-la-reserve-des-livres-rares,13004,ok,True,urllib-crawl,9000 份二战传单已上线
+pares-carteles,PARES · Carteles de la España Republicana,ES,在线档案目录(免费),https://pares.cultura.gob.es/ParesBusquedas20/catalogo/description/117015,419,partial,True,firecrawl/manual,
+gale-political-extremism,Gale · Political Extremism and Radicalism,US/UK,数据库(订阅),https://www.gale.com/primary-sources/political-extremism-and-radicalism,757,ok,True,urllib-crawl,
+modernhistory-cn,抗日战争与近代中日关系文献数据平台,CN,数字馆藏(免费),https://www.modernhistory.org.cn/,643,ok,True,firecrawl/manual,含红色文献专题库、中共党史/组织史专题库
+ndl-digital-collections,国立国会図書館デジタルコレクション / NDL 电子展示,JP,数字馆藏,https://www.ndl.go.jp/gallery/exhibitions/202507,243,partial,True,firecrawl/manual,
+amsab-isg,Amsab-ISG · Institute of Social History,BE,档案馆,https://www.amsab.be/en/,6456,ok,True,urllib-crawl,
+social-history-portal,Social History Portal (IALHI 聚合),欧洲,聚合检索,https://www.socialhistoryportal.org/,0,index-only,False,,国际劳工史机构协会（IALHI）门户，跨馆检索社会运动与工运档案、100 余种期刊目次
+rgaspi-comintern,RGASPI 共产国际档案（经 LoC 指南）,俄/美,档案馆,https://guides.loc.gov/comintern-archives/,0,index-only,False,,莫斯科 RGASPI 藏 1919–1943 共产国际档案约 2000 万页，各国共产党文献；LoC 提供 INCOMKA 检索指南与缩微
+ohara-institute,法政大学大原社会問題研究所,日本,档案馆,https://oisr-org.ws.hosei.ac.jp/,0,index-only,False,,日本社会运动史核心机构，藏有大量政党、工会的ビラ（传单）与パンフレット
+osa-archivum,Blinken OSA Archivum,匈牙利,档案馆,https://archivum.org/,0,index-only,False,,冷战、自由欧洲电台、samizdat（地下出版物）与人权材料，1956 匈牙利革命专题
+memoria-chilena-panfletos,Memoria Chilena · Panfletos 1973–1988,智利,数字馆藏(免费),https://www.memoriachilena.gob.cl/602/w3-article-3641.html,0,index-only,False,,军事独裁时期政党活动被禁，传单成为主要宣传形式；该专题收录此期 panfletos
+bcn-chile-panfletos,智利国会图书馆 · Estantería Digital 传单集,智利,数字馆藏(免费),https://www.bcn.cl/estanteriadigital/resultados?terminos=portada_sitio&coleccion=panfletos,0,index-only,False,,含 1969 年政治传单等竞选材料
+feltrinelli,Fondazione Giangiacomo Feltrinelli,意大利,档案馆,https://fondazionefeltrinelli.it/,0,index-only,False,,意大利政治社会运动档案与「Archivi del presente」当代运动文献采集项目
+fpabloiglesias,Fundación Pablo Iglesias,西班牙,党档案馆,https://fpabloiglesias.es/archivo-y-biblioteca/,0,index-only,False,,PSOE、UGT、JSE 及主要领导人（Pablo Iglesias、Largo Caballero 等）的历史档案与书刊
+torre-do-tombo-pide,Arquivo Nacional Torre do Tombo · PIDE/DGS 档案,葡萄牙,档案馆,https://antt.dglab.gov.pt/,0,index-only,False,,政治警察档案，内含大量被查扣的地下传单与政党印刷品
+vga-wien,Verein für Geschichte der ArbeiterInnenbewegung,奥地利,档案馆,https://www.vga.at/,0,index-only,False,,经「zeithistorischer politischer Archive」平台可在线检索 6000 余张政治海报
+onb-plakate,Österreichische Nationalbibliothek · 海报与传单,奥地利,特藏,https://www.onb.ac.at/sammlungen/bildarchiv-und-grafiksammlung/bestandsuebersicht/plakate-flugblaetter-exlibris,0,index-only,False,,海报收藏约 10 万张、跨三个世纪，另有 Flugblätter（传单）专藏
+aan-warszawa,Archiwum Akt Nowych（波兰新档案）,波兰,档案馆,https://aan.gov.pl/,0,index-only,False,,1919 年设立的国家central档案馆，藏 19–20 世纪政党与政治组织档案
+arab-stockholm,Arbetarrörelsens arkiv och bibliotek,瑞典,档案馆,https://arbark.se/sv/,0,index-only,False,,瑞典工人运动档案与图书馆，社民党、工会的竞选与宣传材料
+loc-newdelhi-pamphlets,LoC 新德里办事处政治小册子集,印度/美,特藏,https://www.loc.gov/item/2009345307,0,index-only,False,,美国国会图书馆新德里办公室收集整理的南亚政治小册子（1959–2009，含孟加拉语、印地语等）

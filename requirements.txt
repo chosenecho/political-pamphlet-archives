@@ -1,0 +1,6 @@
+# 运行 scripts/ 采集与构建所需依赖。
+# 采集脚本只用标准库 urllib；下列为下载图片、解析页面、跑 UI 测试所需。
+Pillow>=10.0
+lxml>=5.0
+playwright>=1.40
+PyMuPDF>=1.23

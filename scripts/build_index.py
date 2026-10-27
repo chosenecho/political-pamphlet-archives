@@ -3,13 +3,20 @@
 import csv
 import json
 import os
+import sys
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NOTES = os.path.join(BASE, "notes")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from lib import paths
+
+BASE = paths.BASE
+NOTES = paths.NOTES
 RAW = os.path.join(BASE, "raw")
 
-src = json.load(open(os.path.join(BASE, "data", "sources.json"), encoding="utf-8"))
-man = {r["slug"]: r for r in json.load(open(os.path.join(BASE, "data", "manifest.json"), encoding="utf-8"))}
+with open(paths.SOURCES, encoding="utf-8") as f:
+    src = json.load(f)
+with open(paths.MANIFEST, encoding="utf-8") as f:
+    man = {r["slug"]: r for r in json.load(f)}
 
 rows = []
 for s in src["sources"]:
@@ -31,12 +38,15 @@ for s in src["sources"]:
         "url": s["url"],
         "chars": chars,
         "status": status,
-        "via": man.get(slug, {}).get("via", ""),
+        # via 为空有两种情况，必须分清：无抓取记录 / 有记录但未记抓取方式
+        "via": (man.get(slug, {}).get("via") or ""),
+        "has_manifest": slug in man,
         "note": s.get("note", ""),
     })
 
-with open(os.path.join(BASE, "data", "index.csv"), "w", encoding="utf-8-sig", newline="") as f:
-    w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+with open(paths.INDEX_CSV, "w", encoding="utf-8-sig", newline="") as f:
+    w = csv.DictWriter(f, fieldnames=["slug", "title", "region", "kind", "url",
+                                      "chars", "status", "has_manifest", "via", "note"])
     w.writeheader()
     w.writerows(rows)
 
@@ -59,6 +69,17 @@ L += [f"- ✅ 共 {len(ok)} 个源抓到了可读正文。"]
 L += [f"- ⚠️ 共 {len(part)} 个源只有说明文件：" + "、".join(r["slug"] for r in part) + "。"]
 L += ["  这些站点对自动化访问返回 403 / 429，或正文全在 JS 前端。`notes/` 里保留了失败原因与已知信息，未编造正文。"]
 L += [f"- ○ 共 {len(only)} 个源已核实入口但尚未抓取正文；清单可用，内容待取。"]
+L += [""]
+
+no_manifest = [r["slug"] for r in rows if not r["has_manifest"]]
+no_via = [r["slug"] for r in rows if r["has_manifest"] and not r["via"]]
+L += ["## 抓取记录覆盖", ""]
+L += [f"`data/manifest.json` 共 {len(man)} 条抓取明细，覆盖 {len(rows) - len(no_manifest)}/{len(rows)} 个源。"]
+if no_manifest:
+    L += ["", f"- {len(no_manifest)} 个源**尚无抓取记录**（未尝试，非失败）："
+          + "、".join(f"`{s}`" for s in no_manifest)]
+if no_via:
+    L += [f"- {len(no_via)} 个源有记录但未填写抓取方式（`via` 为空），不影响正文可用性。"]
 L += [""]
 
 os.makedirs(os.path.join(BASE, "docs"), exist_ok=True)

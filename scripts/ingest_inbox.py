@@ -16,9 +16,14 @@ import re
 import shutil
 import sys
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMG = os.path.join(BASE, "images")
-INBOX = os.path.join(BASE, "inbox")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from lib import index as catalog
+from lib import paths
+
+BASE = paths.BASE
+IMG = paths.IMAGES
+INBOX = paths.INBOX
 BK = os.path.join(IMG, "小册子")
 
 COUNTRIES = ["中国", "美国", "英国", "法国", "德国", "俄国", "意大利", "西班牙",
@@ -75,7 +80,7 @@ if not found:
     print("inbox/ 里没有文件。按国别建子目录，把 PDF 或扫描图放进去。")
     sys.exit(0)
 
-index = json.load(open(os.path.join(IMG, "索引.json"), encoding="utf-8"))
+index = catalog.load()
 added = 0
 for path in found:
     rel_dir = os.path.relpath(os.path.dirname(path), INBOX)
@@ -125,8 +130,7 @@ for path in found:
     print(f"并入 {country} {year} {pages}p  {title[:44]}")
 
 if commit and added:
-    json.dump(index, open(os.path.join(IMG, "索引.json"), "w", encoding="utf-8"),
-              ensure_ascii=False, indent=2)
+    catalog.save(index)
     print(f"\n完成，并入 {added} 本。接着跑：python scripts/build_catalog.py")
 else:
     print(f"\n共发现 {len(found)} 个文件。加 --commit 执行并入。")

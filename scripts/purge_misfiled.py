@@ -1,13 +1,17 @@
 """删除误收条目：移入 images/_误收 而非直接销毁，可回滚。"""
 
-import json
 import os
 import shutil
+import sys
 
-P = "images/索引.json"
-QUAR = "images/_误收"
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-d = json.load(open(P, encoding="utf-8"))
+from lib import index as catalog
+from lib import paths
+
+QUAR = os.path.join(paths.IMAGES, "_误收")
+
+d = catalog.load()
 
 # 判定标准：译名里已标注「误收」，或明显非政宣材料
 def is_misfiled(r):
@@ -32,7 +36,7 @@ for r in bad:
 os.makedirs(QUAR, exist_ok=True)
 moved_dir = moved_file = 0
 for r in bad:
-    src = os.path.join("images", r["dir"])
+    src = os.path.join(paths.IMAGES, r["dir"].replace("/", os.sep))
     dst = os.path.join(QUAR, r["country"], os.path.basename(r["dir"]))
     if os.path.isdir(src):
         os.makedirs(os.path.dirname(dst), exist_ok=True)
@@ -40,7 +44,7 @@ for r in bad:
             shutil.move(src, dst)
             moved_dir += 1
     else:
-        f = os.path.join("images", r["cover"])
+        f = os.path.join(paths.IMAGES, r["cover"].replace("/", os.sep))
         if os.path.isfile(f):
             os.makedirs(os.path.join(QUAR, r["country"]), exist_ok=True)
             dstf = os.path.join(QUAR, r["country"], os.path.basename(f))
@@ -48,7 +52,7 @@ for r in bad:
                 shutil.move(f, dstf)
                 moved_file += 1
 
-json.dump(good, open(P, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+catalog.save(good)
 
 from collections import Counter
 print(f"\n移走目录 {moved_dir} 个、文件 {moved_file} 个")

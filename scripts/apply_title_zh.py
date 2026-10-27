@@ -1,13 +1,17 @@
-"""把中文译名写入索引。可重复运行。"""
+"""把中文译名写入目录。可重复运行（幂等）。"""
 
-import json
+import os
 import sys
 
-sys.path.insert(0, "scripts")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from lib import index as catalog
+from lib import paths
+
+sys.path.insert(0, paths.SCRIPTS)
 from title_zh import TITLE_ZH
 
-P = "images/索引.json"
-d = json.load(open(P, encoding="utf-8"))
+d = catalog.load()
 
 n = 0
 for r in d:
@@ -18,7 +22,8 @@ for r in d:
     r["title_zh"] = zh
     n += 1
 
-json.dump(d, open(P, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+catalog.save(d)
 
 have = sum(1 for r in d if r.get("title_zh"))
-print(f"已写入 title_zh：{have}/{len(d)} 条（中国 {sum(1 for r in d if r['country']=='中国')} 条无需翻译）")
+zh_cn = sum(1 for r in d if r["country"] == "中国")
+print(f"已写入 title_zh：{have}/{len(d)} 条（中国 {zh_cn} 条无需翻译）")
