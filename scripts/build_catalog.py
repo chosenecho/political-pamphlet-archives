@@ -28,10 +28,11 @@ TEMPLATE = os.path.join(paths.SCRIPTS, "templates", "catalog.html")
 #: docs/index.html 相对 images/ 的前缀。图片不入库，缺失时前端回退为排版封面。
 ASSET_PREFIX = "../images/"
 
-#: 国别在筛选栏里的固定次序：按区域走，不按条目数，读者找"东亚""西欧"时不必先数数。
+#: 国别的固定次序模板里定义（前端排序用）；这里保留一份用于打印与自检，
+#: 与模板不一致时构建会报错，免得新增国别后静默落到列表末尾。
 COUNTRY_ORDER = ["中国", "日本", "印度", "拉美", "俄国", "德国", "奥地利", "捷克",
-                 "波兰", "匈牙利", "荷兰", "英国", "法国", "西班牙", "葡萄牙",
-                 "意大利", "美国"]
+                 "波兰", "匈牙利", "荷兰", "英国", "爱尔兰", "法国", "西班牙",
+                 "葡萄牙", "意大利", "美国"]
 
 
 def load_records():
@@ -126,12 +127,27 @@ def main():
     if leftover:
         raise SystemExit(f"模板占位符未替换：{'、'.join(leftover)}")
 
+    # 模板里的国别次序必须与这里的常量一致：新增国别却只改了一处时，构建直接失败，
+    # 而不是让它在筛选栏里静默落到末尾。
+    import re
+
+    m = re.search(r"const COUNTRY_ORDER = \[(.*?)\];", html, re.S)
+    tpl_order = re.findall(r'"([^"]+)"', m.group(1)) if m else []
+    if tpl_order != COUNTRY_ORDER:
+        only_tpl = [c for c in tpl_order if c not in COUNTRY_ORDER]
+        only_py = [c for c in COUNTRY_ORDER if c not in tpl_order]
+        raise SystemExit(
+            "国别次序在模板与 build_catalog.py 里不一致："
+            f"仅模板有 {only_tpl}，仅脚本有 {only_py}")
+
     paths.ensure_dir(paths.DOCS)
     with open(paths.SITE, "w", encoding="utf-8", newline="\n") as f:
         f.write(out)
 
     order = [c for c in COUNTRY_ORDER if any(d["c"] == c for d in data)]
-    order += [c for c in sorted({d["c"] for d in data}) if c not in order]
+    # 数据里出现但次序表没有的国别：打印出来提醒补进表里
+    unlisted = [c for c in sorted({d["c"] for d in data}) if c not in order]
+    order += unlisted
 
     total = len(recs)
     gaps = [f"{k} {v}/{total}" for k, v in (
@@ -145,6 +161,9 @@ def main():
           f"国家 {stats['countries']} 个、立场 {stats['stances']} 种；"
           f"来源覆盖 {stats['sources']} 个专藏")
     print(f"缺口 {' · '.join(gaps)}")
+    if unlisted:
+        print(f"⚠ 次序表未收录的国别（已排到末尾）：{'、'.join(unlisted)}"
+              f"——请补进 templates/catalog.html 与 build_catalog.py 的 COUNTRY_ORDER")
     print(f"数据指纹 {stamp}")
     print(f"体积 {os.path.getsize(paths.SITE) / 1024:.0f} KB")
 
