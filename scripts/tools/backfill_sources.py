@@ -50,8 +50,12 @@ def ensure_source():
         print(f"sources.json：已含 {COMMONS_SLUG}")
         return False
     srcs.append(COMMONS_ENTRY)
+    # indent=2：data/sources.json 原本就是 2 空格缩进。用 json 默认的 indent=1
+    # 会把整个文件重新缩进，产生上千行与内容无关的 diff，把真正的改动埋掉。
+    # （本行原为 indent=1，因 wiki-commons 早已登记、该分支从不执行到这里，
+    #  所以一直没有暴露；一旦在干净数据上重跑就会把格式改坏。）
     with open(p, "w", encoding="utf-8", newline="\n") as f:
-        json.dump(doc, f, ensure_ascii=False, indent=1)
+        json.dump(doc, f, ensure_ascii=False, indent=2)
         f.write("\n")
     print(f"sources.json：登记 {COMMONS_SLUG}，现有 {len(srcs)} 个专藏")
     return True

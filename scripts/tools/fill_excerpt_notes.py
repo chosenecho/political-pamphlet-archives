@@ -64,8 +64,10 @@ def main():
     for slug, old, new in changed:
         print(f"  ~ {slug}\n      旧: {old or '(空)'}\n      新: {new}")
 
+    # indent=2：与 data/sources.json 既有格式一致。写成 indent=1（json 默认）
+    # 会让整个文件重新缩进，多出上千行与内容无关的 diff，把真正的改动埋掉。
     with open(p, "w", encoding="utf-8", newline="\n") as f:
-        json.dump(doc, f, ensure_ascii=False, indent=1)
+        json.dump(doc, f, ensure_ascii=False, indent=2)
         f.write("\n")
     print(f"\n已写入 {p}（{len(changed)} 条）")
     return 0
