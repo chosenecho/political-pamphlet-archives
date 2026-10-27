@@ -22,3 +22,8 @@ __pycache__/
 # 临时
 *.log
 tmp/
+
+# 分发包与打包中间产物：由 scripts/make_bundle.py 生成，体积以 GB 计，
+# 不该进仓库。需要时本地重跑即可。
+dist/
+build/

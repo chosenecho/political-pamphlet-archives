@@ -2003,9 +2003,16 @@ const spin = $("#rdSpin"), miss = $("#rdMiss");
 const thumbsWrap = $("#rdThumbsWrap"), thumbsEl = $("#rdThumbs");
 const slider = $("#rdSlider"), cntEl = $("#rdCnt"), zoomL = $("#rdZoomL");
 
-const pageSrc = (d, p) => d.k === "book"
-  ? asrc(d.d + "/pages/p-" + String(p).padStart(5, "0") + ".jpg")
-  : asrc(d.cv);
+/* 内页路径由 PAGE 规则决定：线上是 <dir>/pages/p-00001.jpg，
+   离线包是 pages/<编号>/p-00001.webp。写死一种结构的话，另一种就得改模板。 */
+const PAGE = {
+  dir: "/pages/",   // 追加在 d.d 之后；"/" 表示 d.d 是目录、文件名在外
+  prefix: "p-",
+  ext: ".jpg",
+  pad: 5,
+};
+const pageName = p => PAGE.prefix + String(p).padStart(PAGE.pad, "0") + PAGE.ext;
+const pageSrc = (d, p) => d.k === "book" ? asrc(d.d + PAGE.dir + pageName(p)) : asrc(d.cv);
 
 const cur = () => (rd.i === null ? null : byId.get(rd.i));
 

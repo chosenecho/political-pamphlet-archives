@@ -120,9 +120,16 @@ def main():
            .replace("__DATA__", payload)
            .replace("__STATS__", json.dumps(stats, ensure_ascii=False))
            .replace("__SOURCES__", json.dumps(srcs, ensure_ascii=False, separators=(",", ":")))
-           .replace("__BUILD__", stamp))
+           .replace("__BUILD__", stamp)
+           # 内页路径规则：线上是 images/<dir>/pages/p-00001.jpg。
+           # 离线包用同一份模板，只把这四个值换成 pages/<编号>/p-00001.webp。
+           .replace("__PAGE_DIR__", '"/pages/"')
+           .replace("__PAGE_PREFIX__", '"p-"')
+           .replace("__PAGE_EXT__", '".jpg"')
+           .replace("__PAGE_PAD__", "5"))
 
-    leftover = [t for t in ("__ASSET__", "__DATA__", "__STATS__", "__SOURCES__", "__BUILD__")
+    leftover = [t for t in ("__ASSET__", "__DATA__", "__STATS__", "__SOURCES__", "__BUILD__",
+                            "__PAGE_DIR__", "__PAGE_PREFIX__", "__PAGE_EXT__", "__PAGE_PAD__")
                 if t in out]
     if leftover:
         raise SystemExit(f"模板占位符未替换：{'、'.join(leftover)}")
