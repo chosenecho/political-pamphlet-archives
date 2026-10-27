@@ -259,6 +259,12 @@ def attribute(md):
     low = pub.lower()
     for country, pat in PLACE_RULES:
         if re.search(pat, low):
+            # 出版地只定国别，定不了派系。派系若能在 subject 里读到，
+            # 就用 subject——Sinn Fein 材料常由都柏林的商业出版社印行，
+            # 按出版地兜底会一律标成"民族主义"，而它们其实是共和派。
+            for c2, stance, pat2 in ORG_RULES:
+                if re.search(pat2, subject, re.I):
+                    return country, stance, "出版地+主题词"
             stance = {
                 "爱尔兰": "民族主义", "英国": "工党与社会主义",
                 "意大利": "社会主义", "德国": "社会主义",

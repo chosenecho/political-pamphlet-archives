@@ -113,7 +113,10 @@ def main():
             "pdf": f"小册子/{country}/{rel}/doc.pdf" if has_pdf else "",
             "url": m.get("url", ""),
             "stance": m.get("stance", ""),
-            "source": "internet-archive",
+            # source 必须是 data/sources.json 的 slug。Internet Archive 本身
+            # 不是那 38 个专藏之一，其余 37 条 IA 条目的 source 也留空，
+            # 这里保持一致，不造一个 sources.json 里不存在的 slug。
+            "source": "",
         })
         have_urls.add(m.get("url", ""))
         have_titles.add(tkey)
