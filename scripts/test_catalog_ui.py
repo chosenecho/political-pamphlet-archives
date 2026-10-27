@@ -36,6 +36,13 @@ WITH_PDF = sum(1 for r in RECS if r["pdf"])
 NOYEAR = sum(1 for r in RECS if not r["year"])
 MULTI = [r for r in BOOKS if r["pages"] > 1]
 
+# images/ 不入库，CI 与线上都没有图——那是常态，不是故障。
+# 测试因此按「有没有图」分两支：有图时验图像真的显示，没图时验退化到排版封面。
+HAS_IMAGES = any(
+    os.path.exists(os.path.join(paths.IMAGES, r["cover"].replace("/", os.sep)))
+    for r in RECS[:20]
+)
+
 fails = []
 
 
@@ -43,6 +50,10 @@ def check(name, cond, extra=""):
     print(("  PASS " if cond else "  FAIL ") + name + (("   " + str(extra)) if extra else ""))
     if not cond:
         fails.append(name)
+
+
+def is_img_url(u):
+    return any(x in (u or "").lower() for x in (".jpg", ".jpeg", ".png", ".webp", ".gif"))
 
 
 def count(pg):
@@ -61,11 +72,24 @@ with sync_playwright() as p:
     ctx = b.new_context(viewport={"width": 1500, "height": 950})
     pg = ctx.new_page()
     errs = []
+    cond = []          # 条件触发的问题；图像 404 在这里被滤掉
+
+    def on_console(m):
+        if m.type != "error":
+            return
+        # 资源加载失败时 m.text 只有一句「Failed to load resource」，URL 在 location 里
+        loc = (m.location or {}).get("url", "")
+        if m.text.startswith("Failed to load resource") and is_img_url(loc):
+            return
+        cond.append(f"{m.text} @ {loc}")
+
     pg.on("pageerror", lambda e: errs.append(str(e)))
-    pg.on("console", lambda m: errs.append("console: " + m.text) if m.type == "error" else None)
+    pg.on("console", on_console)
 
     pg.goto(URL, wait_until="load")
     pg.wait_for_timeout(900)
+
+    print(f"\n[环境] images/ {'存在' if HAS_IMAGES else '不存在'}（不存在是 CI 与线上的常态）")
 
     # ---------------------------------------------------------------- 渲染
     print(f"\n[渲染] 期望 {TOTAL} 条（小册子 {NBOOK} / 单页 {NSINGLE}）")
@@ -236,11 +260,19 @@ with sync_playwright() as p:
     check("打开", pg.locator("#rd.on").count() == 1)
     info = pg.evaluate("() => ({cnt: rdCnt.textContent, n: cur().n, p: rd.p, i: rd.i})")
     check("页码文本", "/" in info["cnt"] or info["cnt"] == "单页", info["cnt"])
-    check("图像已加载", pg.eval_on_selector("#rdImgA", "e => e.complete && e.naturalWidth > 0"))
     check("缩略图齐全", pg.locator("#rdThumbs button").count() == info["n"],
           f"{pg.locator('#rdThumbs button').count()} vs {info['n']}")
     check("元数据含国别", "国别" in pg.inner_text("#rdMeta"))
-    check("原图尺寸已标注", "×" in pg.inner_text("#rdRes"))
+
+    if HAS_IMAGES:
+        check("图像已加载", pg.eval_on_selector("#rdImgA", "e => e.complete && e.naturalWidth > 0"))
+        check("原图尺寸已标注", "×" in pg.inner_text("#rdRes"))
+        check("无缺图提示", pg.locator("#rdMiss.on").count() == 0)
+    else:
+        # 没有图时，正确的行为是：给出说明、不显示破图、其余功能照常
+        check("缺图提示出现", pg.locator("#rdMiss.on").count() == 1)
+        check("缺图时主图隐藏", pg.evaluate("() => document.getElementById('rdImgA').hidden"))
+        check("缺图不掩盖元数据", "国别" in pg.inner_text("#rdMeta"))
 
     n = info["n"]
     pg.keyboard.press("ArrowRight")
@@ -273,7 +305,11 @@ with sync_playwright() as p:
     pg.wait_for_timeout(700)
     mode = pg.evaluate("() => rd.mode")
     check("切到双页", mode == "spread", mode)
-    check("双页显示两张", pg.evaluate("() => !document.getElementById('rdImgB').hidden"))
+    if HAS_IMAGES:
+        check("双页显示两张", pg.evaluate("() => !document.getElementById('rdImgB').hidden"))
+    else:
+        # 无图时 imgB 因 load 失败被隐藏，但页码仍应按跨页推进
+        check("双页页码为区间", "–" in pg.inner_text("#rdCnt"), pg.inner_text("#rdCnt"))
     sp = pg.evaluate("() => rd.si")
     pg.click("#rdNextPage")
     pg.wait_for_timeout(600)
@@ -411,9 +447,16 @@ with sync_playwright() as p:
     check("缺图有说明", n.locator("#rdMiss.on").count() == 1)
     n.close()
 
-    print("\n错误:", errs or "无")
+    print("\n[运行期错误]")
+    print("  JS 异常:", errs or "无")
+    print("  控制台错误（已滤掉图像 404，那是无图环境的常态）:", cond[:5] or "无")
+    print("  移动端 JS 异常:", merrs or "无")
     if errs:
-        fails.append("JS 错误")
+        fails.append("JS 异常")
+    if cond:
+        fails.append("控制台错误")
+    if merrs:
+        fails.append("移动端 JS 异常")
     b.close()
 
 print("\n" + ("全部通过" if not fails else f"失败 {len(fails)} 项：" + "、".join(fails)))
