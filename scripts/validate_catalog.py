@@ -13,6 +13,45 @@ from lib import index as catalog
 from lib import paths
 
 
+def duplicate_padding(records):
+    """检查 pages/ 尾部是否有字节相同的重复页，且 pages 把填充页也算了进去。
+
+    返回 [(dir, 文件数, 重复块长度, 真实页数)]；images/ 不存在时返回 None。
+    与 fix_duplicates.py 用同一条判据，两边必须一致，否则修完仍会报错。
+    """
+    import hashlib
+
+    images_root = os.environ.get("DSH_PAMPHLET_IMAGES") or paths.IMAGES
+    if not os.path.isdir(images_root):
+        return None
+    bad = []
+    for r in records:
+        if r["kind"] != catalog.KIND_BOOK:
+            continue
+        pages_dir = os.path.join(images_root, r["dir"].replace("/", os.sep), "pages")
+        if not os.path.isdir(pages_dir):
+            continue
+        files = sorted(f for f in os.listdir(pages_dir) if f.lower().endswith(".jpg"))
+        if len(files) < 2:
+            continue
+        hashes = []
+        for f in files:
+            with open(os.path.join(pages_dir, f), "rb") as fh:
+                hashes.append(hashlib.md5(fh.read()).hexdigest())
+        block = 0
+        for i in range(len(hashes) - 1, 0, -1):
+            if hashes[i] == hashes[i - 1]:
+                block += 1
+            else:
+                break
+        block = block + 1 if block else 0
+        true_pages = len(files) - block
+        if block and r["pages"] != true_pages:
+            bad.append((r["dir"], len(files), block, true_pages))
+    return bad
+
+
+
 def main():
     records = catalog.load()
     if not records:
@@ -37,6 +76,18 @@ def main():
 
     if missing:
         print(f"  （封面文件 {len(missing)} 个不在本地，images/ 不入库，跳过不视为错误）")
+
+    # 填充页：抓取脚本在内页不足时会把最后一页重复存一遍凑数，pages 若照文件数写
+    # 就会把填充页算成真页。这里只在 images/ 存在时检查，CI 上没有图属正常。
+    padded = duplicate_padding(records)
+    if padded is None:
+        print("  （images/ 不在本地，跳过填充页检查）")
+    elif padded:
+        for dir_, n_files, block, true_pages in padded[:10]:
+            print(f"  ✗ {dir_}: {n_files} 个页文件里尾部有 {block} 张字节完全相同，"
+                  f"真实页数应为 {true_pages}")
+        print(f"\n填充页问题 {len(padded)} 本——先跑 scripts/tools/fix_duplicates.py")
+        return 1
 
     # 模板占位符：目录页由模板生成，占位符写错会让整页空白
     tpl = os.path.join(paths.SCRIPTS, "templates", "catalog.html")
