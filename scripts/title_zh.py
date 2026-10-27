@@ -441,4 +441,152 @@ TITLE_ZH = {
         "智利1980年公投：大骗局",
     "Afiche Radomiro Tomic 1970 (2).jpg": "托米奇1970年竞选海报",
     "¡¡Fuera Pinochet!!.jpg": "皮诺切特下台！（1988）",
+
+    # ---------- 德国海报（Commons，2026-10 第二批） ----------
+    "An-das-Weltgewissen.jpg": "致世界良知（1923）",
+    "Bei Deutschland dauern der Wohlstand; bei Polen, Armut und Auswanderung LCCN2004665982.jpg":
+        "在德国是富足，在波兰是贫困与外流（1920，德波对立宣传）",
+    "Brennstaebe-Plakat-1983.jpg": "反核燃料棒海报（1983）",
+    "Buecherverbrennung-flugblatt.jpg": "反对焚书传单（1934）",
+    "Der Gelbe Fleck (Antisemittic book 1936) p45 Wider den undeutschen Geist Deutsche Studentenschaft Plakat Nazi propaganda poster German Student Union Campaign against un-German spirit Book burnings Berlin May 1933 (archive.org scan) No.jpg":
+        "《黄色印记》第45页：德国学生会「反对非德意志精神」宣传画（1933）",
+    "Erwürgt nicht die junge Freiheit - LABW - Staatsarchiv Freiburg W 134 Nr. 007393.jpg":
+        "不要扼杀年轻的自由（1935）",
+    "Eure Schuld.jpg": "你们的罪责（1945）",
+    "Frauentag 1914 Heraus mit dem Frauenwahlrecht (cropped).jpg":
+        "1914年妇女节：争得妇女选举权",
+    "Freiheit und Arbeit! (Mit dem Symbol der \"Eisernen Front\" über dem Hakenkreuz).jpg":
+        "自由与工作！铁阵线标志压过卐字（1932，社民党反纳粹）",
+    "Freischar Loeschebrand, der Garde Kavallerie Schützen Division. Offiziere, Unteroffiziere und Mannschaften aller Waffen, meldet euch LCCN2004666109.jpg":
+        "勒舍布兰德自由军团招募海报（1919）",
+    "Germany human traffic.JPG": "德国人口贩运（约1900，社会问题宣传）",
+    "1920 Komm Mit Jung-Stahlhelm. Der Stahlhelm Bund Der Frontsoldaten Plakat Ludwig Hohlwein (1874-1949) München German propaganda recruitment poster for paramilitary youth organisation of WWI veterans c 1920-23 Cadet Public domain.jpg":
+        "霍夫魏因：随钢盔团去！青年钢盔团招募海报（约1920）",
+    "Hände weg vom Ruhrgebiet (1923).jpg": "把手从鲁尔区拿开（1923）",
+    "Ist Schleswig dänisch? ... Schleswig ist deutsch! LCCN2004665992.jpg":
+        "石勒苏益格是丹麦的吗？……石勒苏益格是德意志的！（1919）",
+
+    # ---------- 奥地利海报（Commons，2026-10 第二批） ----------
+    "Deutsche in Wien ! Zeichnet 7 Kriegsanleihe... (7ème Emprunt de guerre) - affiche - non identifié - btv1b9017858q.jpg":
+        "维也纳的德意志人！认购第七次战争公债（1917）",
+    "Kaiser Karl I Plakat Verzicht 1918.jpg": "卡尔一世皇帝放弃皇位海报（1918）",
+    "Kutter Volksabstimmung in Kärnten 1920 Plakat.jpg":
+        "克恩顿公投海报（1920）",
+    "Mihály Bíró - DIE DORT SIND AN UNSEREM ELEND SCHULD, 1920.jpg":
+        "比罗：他们该为我们的苦难负责（1920，社会民主党）",
+    "Plakat ob plebiscitu Mama, ne štimajte za Jugoslavijo 1920.jpg":
+        "公投海报：母亲们，别投给南斯拉夫（1920）",
+    "Plakat ob plebiscitu Pojdimo vsi k glasovanju 1920.jpg":
+        "公投海报：大家都去投票（1920）",
+    "Keine Klassen - Keine Rassen - ÖVP.jpg": "无阶级、无种族——奥地利人民党（1945）",
+    "Nie mehr Februar 1934 - Darum, keine neue Wehrmacht!.jpg":
+        "不再有1934年二月——因此不要新国防军（1949）",
+
+    # ---------- 法国海报（Commons，2026-10 第二批） ----------
+    "1942-TRAVAIL-FAMILLE-PATRIE-忠孝-CẦN-LAO-GIA-ĐÌNH-TỔ-QUỐC-600x854.jpg":
+        "劳动·家庭·祖国（1942，维希政权口号，含越南语版本）",
+    "Affiche conférence Patrie française à Nancy (1899-06-04).jpg":
+        "「法兰西祖国」南锡演讲会海报（1899）",
+    "Affiche de propagande anticommuniste - Le communisme c'est le règne du crime.jpg":
+        "反共宣传：共产主义即罪恶统治（1930）",
+    "Affiche délégation municipale Dijon 16 juin 1940.jpg":
+        "第戎市政代表团公告（1940年6月16日）",
+    "Affiche électorale liste Vincent Badie 1946-Archives départementales de l’Hérault- 12FI329-1.jpg":
+        "巴迪名单竞选海报（1946）",
+    "Cultivateurs agriculteurs éleveurs, à bas le cartel-vie-chère - Charles de Boussay.jpg":
+        "农工商各界：打倒高物价卡特尔（1928）",
+    "Dernier mot.jpg": "最后的话（1848）",
+    "Election législative du 16 février 1890. Francis Laur défenseur du suffrage universel, Joffrin, la honte du suffrage universel etson nourrisson Lissagaray. Electeurs du Canton de Neuilly, choisissez..jpg":
+        "1890年2月16日立法选举：洛尔捍卫普选权（讷伊选区）",
+    "Elections législatives du 2 février 1879. Arrondissement de Pontivy - Choisissez ... Dr Le Maguet...Comte de Mun - affiche - And. G. - btv1b9007706c.jpg":
+        "1879年2月2日立法选举：蓬蒂维选区（勒马盖医生与曼伯爵）",
+    "Elections législatives du 22 septembre 1889 (...), Ad. Willette candidat antisémite (...), le judaïsme voilà l'ennemi ! (...) A.Willette directeur du Pierrot. - affiche - A. Willette ... - btv1b90118383.jpg":
+        "1889年9月22日立法选举：维莱特反犹竞选海报",
+
+    # ---------- 英国海报（Commons，2026-10 第二批） ----------
+    "\"Demand the Beveridge Plan\", 1944 (8219741831).jpg":
+        "要求实行贝弗里奇计划（1944）",
+    "'Leicester police sent to bludgeon starving workers!' 1893 anarchist-communist poster.jpg":
+        "「莱斯特警察被派去殴打饥饿的工人！」（1893，无政府共产主义）",
+    "A Question of Control (22710476510).jpg": "控制权问题（1907）",
+    "A Warning! Free Traders read this! (22279848674) (cropped).jpg":
+        "警告！自由贸易派读读这个！（1909）",
+    "Anarchists on Anarchy! poster, Leicester 1894.jpg":
+        "无政府主义者论无政府（1894，莱斯特）",
+    "Anarchy! What is it? 1894 Fauset MacDonald meeting poster original.jpg":
+        "无政府是什么？（1894，福塞特·麦克唐纳演讲会）",
+    "Anarchy-Order Without Law poster advertising David Nicoll talk in Leicester, 1893.jpg":
+        "无政府：没有法律的秩序（1893，尼科尔莱斯特演讲会）",
+    "British Factory- closed through unfair foreign competition… (22281691733).jpg":
+        "英国工厂因不公平的外国竞争而关门（1905，关税改革宣传）",
+    "British Workman- It's no use trying to hide it, guv'ner. We are going to vote for Tariff Reform - (3268711009).jpg":
+        "英国工人：躲也没用，老板，我们要投关税改革（1905）",
+    "C1905-c1910 Signor Campbell Bannerman's Original Troupe of Radical Pierrots.jpg":
+        "坎贝尔-班纳曼的激进小丑剧团（约1905–1910，讽刺画）",
+    "Chartist Demonstration.jpg": "宪章派示威（1848）",
+    "Each for all and all for each (3268711083).jpg": "人人为我，我为人人（1905）",
+
+    # ---------- 荷兰海报（Commons，2026-10 第二批） ----------
+    "Alg. Kiesrecht voor Mannen en Vrouwen.jpg": "男女普选权（1919）",
+    "Algemeen kiesrecht.jpg": "普选权（1911）",
+    "Groote Nationale Betooging.jpg": "全国大集会（1910）",
+    "Jeugd bezint u! NASB, AJC, NVV-jeugd.jpg": "青年们，想一想！（1933）",
+    "Laat mij binnen - ik breng nieuw licht.jpg": "让我进来——我带来新光（1918）",
+    "Landelijke verkiezingen 1913 SDAP.jpg": "1913年全国选举：社会民主工党",
+
+    # ---------- 其他欧洲海报（Commons，2026-10 第二批） ----------
+    "Avec l'ouvrier soldat pour le socialisme.jpg": "与工人士兵一起为社会主义（1942，比利时）",
+    "Vi bygger landet.jpg": "我们在建设国家（1930，瑞典社民党）",
+    "Capitalist pyramid 1900.jpg": "资本主义金字塔（1900）",
+    "Ты записался добровольцем (Д. Моор, 1920).jpg": "摩尔：你报名了吗？（1920）",
+    "1940. Latvia. Poster. Vote for the Workers' Block.jpg":
+        "1940年拉脱维亚：投工人联盟一票",
+    "Poster of Azerbaijan 1939. General elections.jpg":
+        "1939年阿塞拜疆大选海报",
+    "Corpo Truppe Volontarie 24.jpg": "志愿军团（1937，意大利法西斯）",
+    "Ordinamento Corporativo dello Stato Fascista manifesto storico anni 1930 (ricolorato).png":
+        "法西斯国家社团制度宣传画（1930年代）",
+
+    # ---------- 美国海报（Commons，2026-10 第二批） ----------
+    "\"I Want You\" (FDR) - NARA - 513640.jpg": "「我需要你」（罗斯福战时宣传，1941）",
+    "... for all the people STEVENSON AND SPARKMAN (Adlai Stevenson - John Sparkman campaign poster, 1972).jpg":
+        "为了全体人民：史蒂文森与斯帕克曼竞选海报（1952）",
+    "An Available Candidate 1848.jpg": "合适的候选人（1848）",
+    "1856 cartoon union soup.jpg": "1856年漫画：联邦这锅汤",
+    "1888DemocraticPoster.png": "1888年民主党竞选海报",
+    "1892PopulistPoster.png": "1892年人民党竞选海报",
+    "1904RepublicanPoster.png": "1904年共和党竞选海报",
+    "1904socialist.jpg": "1904年社会党竞选海报",
+    "1908DemocraticPoster.png": "1908年民主党竞选海报",
+    "1908RepublicanPoster.png": "1908年共和党竞选海报",
+
+    # ---------- 日本海报（Commons，2026-10 第二批） ----------
+    "Art detail, The poster for 1936 Japanese general election (cropped).jpg":
+        "1936年日本大选海报（局部）",
+    "Election posters in Toyama Prefecture(1).jpg": "富山县选举海报（1935）",
+    "The poster for 1936 Japanese general election.jpg": "1936年日本大选海报",
+
+    # ---------- 爱尔兰海报（Commons，2026-10 第二批） ----------
+    "Cumann na nGaedheal anti-communist poster, circa 1932.jpg":
+        "爱尔兰统一党反共海报（约1932）",
+    "Cumann na nGaedheal anti-Saor Éire poster, circa 1932.png":
+        "爱尔兰统一党反「自由爱尔兰党」海报（约1932）",
+    "Easter Lily poster, c. 1928-1932.png": "复活节百合海报（约1928–1932，共和派）",
+
+    # ---------- 匈牙利 / 拉美 / 波兰海报（Commons，2026-10 第二批） ----------
+    "Szociáldemokrata Párt.jpg": "匈牙利社会民主党（1990）",
+    "Afiche Abdulajad 1962.jpg": "阿卜杜拉哈德竞选海报（1962）",
+    "Ahora el argentinazo con Alfonsín.JPG": "如今是阿方辛的阿根廷（1983）",
+    "Ahora vivienda para todos.JPG": "如今人人有住房（1983）",
+    "Campaña de empadronamiento - 1951.jpg": "选民登记运动（1951）",
+    "Campaña política de 1973 en Argentina - Afiche de Cámpora.jpg":
+        "1973年阿根廷竞选：坎波拉海报",
+    "Museo del Bicentenario - Afiche \"Lealtad\".jpg": "「忠诚」海报（1973，庇隆主义）",
+    "Museo del Bicentenario - Afiche \"Libertad y amnistia\".jpg":
+        "「自由与大赦」海报（1973，庇隆主义）",
+    "Altamirano es decision revolucionaria.jpg": "阿尔塔米拉诺就是革命抉择（1973）",
+    "Appeal of the Jewish community in Łuków, encouraging to take part in the celebration of the Constitution Day on May 3, 1933..jpg":
+        "武库夫犹太社群呼吁参加1933年五三宪法日庆典",
+    "Poster Pracujemy w trójkę budujemy za dwunastu.jpg":
+        "三人干活、顶十二人的建设（1953，波兰宣传画）",
 }

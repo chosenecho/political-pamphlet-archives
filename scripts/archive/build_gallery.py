@@ -13,12 +13,12 @@ IMG = os.path.join(BASE, "images")
 REPO_URL = "https://github.com/chosenecho/political-pamphlet-archives"
 
 BANNER = """<div class="disc" role="note">
-<b>声明</b>　本目录由 AI 辅助生成与整理，<b>仅供学术研究与交流</b>；内容可能有误，不保证准确、完整，也不对使用后果负责。所收录材料为历史宣传品，收录不等于认同其立场。若权利人或其他方面认为内容不当，<a href="{repo}/issues">提出即删</a>。完整条款见 <a href="{repo}/blob/main/DISCLAIMER.md">DISCLAIMER.md</a>。
+<b>声明</b>　本目录由 AI 辅助生成与整理，<b>仅供学术研究与交流</b>；内容可能有误，不保证准确、完整，也不对使用后果负责。所收录材料为历史材料，收录不等于认同其立场。若权利人或其他方面认为内容不当，<a href="{repo}/issues">提出即删</a>。完整条款见 <a href="{repo}/blob/main/DISCLAIMER.md">DISCLAIMER.md</a>。
 </div>"""
 
 FOOTER = """<footer class="foot">
 <p><b>声明与免责</b>　本页与仓库内容由 AI 辅助生成与整理，仅供历史学、图书馆学与政治传播史方向的研究、教学与检索方法交流，不构成法律、版权或政治意见。维护者不对内容的准确性、完整性作保证，也不对因使用或无法使用这些内容而产生的后果负责。</p>
-<p>书目信息与馆藏描述摘自已公开的图书馆、档案馆页面，著作权归各原机构与捐赠者；扫描图像<b>不随仓库分发</b>。所收录材料为十九至二十世纪各政党与派系的宣传品，其中包含今日看来极具争议的内容，<b>收录不等于认同</b>。</p>
+<p>书目信息与馆藏描述摘自已公开的图书馆、档案馆页面，著作权归各原机构与捐赠者；扫描图像<b>不随仓库分发</b>。所收录材料为十九至二十世纪各政治组织与派系散发的材料，其中包含今日看来极具争议的内容，<b>收录不等于认同</b>。</p>
 <p>若任何机构或个人认为某条目、摘录或链接侵犯其权利或不宜公开，请在 <a href="{repo}/issues">Issues</a> 留言，核实后<b>立即下架</b>相关条目或整库。完整条款与英文说明见 <a href="{repo}/blob/main/DISCLAIMER.md">DISCLAIMER.md</a>。</p>
 </footer>"""
 
@@ -134,7 +134,7 @@ else:
 html = f"""<!doctype html>
 <html lang="zh"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>政党宣传品图像集 · 目录</title>
+<title>材料图像集 · 目录</title>
 <style>
 :root{{color-scheme:light}}
 body{{margin:0;padding:28px;background:#f7f6f3;color:#1d1d1b;
@@ -166,7 +166,7 @@ font-size:12.5px;line-height:1.7;max-width:900px}}
 .foot a{{color:#4a6fa5}}
 </style></head><body>
 {BANNER.format(repo=REPO_URL)}
-<h1>政党与政治派系宣传品 · 目录</h1>
+<h1>政治组织与政治派系材料 · 目录</h1>
 <p class="lede">{lede}</p>
 {body}
 {FOOTER.format(repo=REPO_URL)}
