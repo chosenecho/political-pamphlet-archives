@@ -392,4 +392,53 @@ TITLE_ZH = {
         "帝国议会中的社会民主党工作组（1915–1916）",
     "Was ist, was will der sozialismus [microform]?":
         "社会主义是什么、要什么（1919）",
+
+    # ---------- 印度（2026-10 深度补采） ----------
+    "Bread Labour": "面包劳动（甘地，1960）",
+    "Varnashramadharma": "种姓法（甘地，1962）",
+
+    # ---------- 英国（I.L.P. 与工党，2026-10 补采） ----------
+    "These present discontents, and the Labour Party and social credit":
+        "当前的不满：工党与社会信用（1922）",
+    "Irish nationalism and labour internationalism":
+        "爱尔兰民族主义与劳工国际主义（1920）",
+    "My confession of faith in the labour alliance":
+        "我对劳工联盟的信仰自白（1909）",
+    "The I. L. P. and all about it": "独立工党及其始末（1910）",
+
+    # ---------- 爱尔兰（Commons 单页，2026-10） ----------
+    "Fianna Fáil 1948 Election Poster (Skipper).jpg":
+        "共和党1948年大选海报（船工）",
+    "Fianna Fáil Election Poster 1948 (Workers!).jpg":
+        "共和党1948年大选海报（工人！）",
+    "Fine Gael 1937 poster (Digitalised version).jpg":
+        "统一党1937年海报",
+    "\"To Protest Against the Lawless Policy of Carsonism\".jpg":
+        "抗议卡森主义不法政策（1913）",
+    "1913 Seachtain na Gaeilge poster.jpg": "爱尔兰语周海报（1913）",
+
+    # ---------- 奥地利（Commons 单页，2026-10） ----------
+    "1919 election poster - Die bürgerlich-demokratische Partei.jpg":
+        "1919年选举海报：民主公民党",
+    "Ernst Ludwig Franke - Bürger! rettet euch - wählt für Freiheit- Arbeit- Brot!.jpg":
+        "弗兰克：公民们，救救自己——投票要自由、工作、面包（1919）",
+    "Mütter! Denkt an Eure toten Söhne - Wollt Ihr keinen Krieg mehr, so wählt sozialdemokratisch!.jpg":
+        "母亲们！想想你们死去的儿子——不愿再战就投社会民主党（1919）",
+    "Antisemitisches Wahlplakat CSP 1920.jpg":
+        "基督教社会党反犹选举海报（1920）",
+    "Wählt christlichsozial.jpg": "投基督教社会党（1920）",
+    "11 Jahre Faschismus - wähle Sozialistische Partei.jpg":
+        "法西斯十一年——投社会党（1945）",
+    "\"Deutsche Christen Rettet Osterreich\" (Vote Christian Socialist; German Christians will save Austria) by Bernd Steiner (1920) HQ Ed.png":
+        "施泰纳：德意志基督徒救奥地利——投基督教社会党（1920）",
+
+    # ---------- 匈牙利（Commons 单页，2026-10） ----------
+    "Mszdp szorolap 1922.jpg": "匈牙利社会民主党传单（1922）",
+    "Mihály Bíró anti-war poster 1912.png": "比罗·米哈伊反战海报（1912）",
+
+    # ---------- 拉美（Commons 单页，2026-10） ----------
+    "BCN-Chile Plebiscito 1980 - La gran farsa.jpg":
+        "智利1980年公投：大骗局",
+    "Afiche Radomiro Tomic 1970 (2).jpg": "托米奇1970年竞选海报",
+    "¡¡Fuera Pinochet!!.jpg": "皮诺切特下台！（1988）",
 }
