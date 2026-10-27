@@ -330,4 +330,66 @@ TITLE_ZH = {
     "Cartel electoral AP elecciones generales 1977.jpg": "人民联盟1977年大选竞选海报",
     "Cartel electoral PSP elecciones generales 1977.jpg": "人民社会党1977年大选竞选海报",
     "Cartel electoral UCD elecciones generales 1977.jpg": "民主中间联盟1977年大选竞选海报",
+
+    # ---------- 英国（费边社 / 工党，2026-10 由 Internet Archive 补采） ----------
+    "Fabianism and the fiscal question : an alternative policy":
+        "费边主义与财政问题：另一种政策（1904）",
+    "Socialism and superior brains : a reply to Mr. Mallock":
+        "社会主义与优越头脑：答马洛克先生（1909）",
+    "Public control of electric power and transit ..":
+        "电力与交通的公营（1905）",
+    "Industrial conditions after the war: the place of the labour exchange..":
+        "战后工业状况：劳工介绍所的位置（1916）",
+    "Fabian Summer School, Barrow House, near Keswick, Cumberland, 1915 [microform]":
+        "费边暑期学校（1915，坎伯兰郡凯西克）",
+    "Taxation today. By a Fabian Research Group. Evidence to the Royal Commission on Taxation":
+        "今日税制：费边研究组向皇家税务委员会提交的证据（1952）",
+    "Memorandum on methods of assisting the unemployed and the powers of local authorities in respect thereto [microform] ..":
+        "济贫方法备忘录：地方当局的相关权限（1904）",
+    "Fabian Tract No. 163 Women and Prisons":
+        "费边社小册第163号：妇女与监狱（1912）",
+    "Fabian Tract No.171. The Nationalization of MInes and Minerals Bill":
+        "费边社小册第171号：矿山与矿产国有化法案（1913）",
+    "Fabian Tract No. 173. Public Versus Private Electricity Supply":
+        "费边社小册第173号：公营与私营供电之比较（1913）",
+    "Fabian Tract No. 182 Robert Owen, Idealist":
+        "费边社小册第182号：理想主义者欧文（1917）",
+    "Fabian Tract No. 161. Afforestation and Unemployment":
+        "费边社小册第161号：造林与失业（1912）",
+
+    # ---------- 爱尔兰（2026-10 新增国别） ----------
+    "Count Plunkett : the man and his message":
+        "普伦基特伯爵：其人其言（1917）",
+    "The testament of the Republic":
+        "共和的遗训（1921）",
+    "Impressions of Sinn Fein in America : an account of eighteen months' Irish propaganda in the United States":
+        "新芬党在美国：十八个月爱尔兰宣传纪实（1919）",
+    "The issue : the case for Sinn Fein":
+        "问题所在：为新芬党辩护（1918）",
+    "Daniel O'Connell and Sinn Fein [microform] :":
+        "奥康奈尔与新芬党（1915）",
+    "Three months of the National League : a record of the working of the National League branches in Ireland for the months of June, July, and August, 1887":
+        "民族同盟的三个月：1887年6至8月爱尔兰各分部工作报告",
+    "Ireland under the ordinary law : a record of the agrarian crimes & offences reported in the Dublin Daily Press : for the six months running from 1st October, 1886, to 31st March, 1887":
+        "常态法下的爱尔兰：1886年10月至1887年3月都柏林日报所载土地犯罪记录",
+    "The potato blight in Ireland : a plain statement of facts collected from various independent authorities":
+        "爱尔兰马铃薯疫病：各方独立记载的事实陈述（1890）",
+    "The separatist conspiracy in Ireland / by Pactum Serva":
+        "爱尔兰的分裂阴谋（1907，署名 Pactum Serva）",
+    "The great fallacy : a speech by the right Rev. the Lord Bishop of Derry, D.D., delivered in the Albert Hall, London, on Saturday, 22nd April, 1892":
+        "大谬不然：德里主教1892年4月22日在伦敦阿尔伯特厅的演讲",
+
+    # ---------- 意大利 ----------
+    "Statuto del Partito comunista italiano [microform]":
+        "意大利共产党章程（1920）",
+
+    # ---------- 德国 ----------
+    "Die Italienische Sozialistische Partei":
+        "意大利社会党（1922，共产国际出版社德文本）",
+    "Verhandlungen des Parteitags der deutschen Sozialdemokratie in St. Gallen : abgehalten vom 2. bis 6. Oktober 1887":
+        "德国社会民主党圣加仑代表大会会议记录（1887年10月2–6日）",
+    "Die Sozialdemokratische Arbeitsgemeinschaft im Reichstag 1915/1916 [microform]":
+        "帝国议会中的社会民主党工作组（1915–1916）",
+    "Was ist, was will der sozialismus [microform]?":
+        "社会主义是什么、要什么（1919）",
 }

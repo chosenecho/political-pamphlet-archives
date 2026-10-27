@@ -133,7 +133,8 @@ def main():
     order = [c for c in COUNTRY_ORDER if any(d["c"] == c for d in data)]
     order += [c for c in sorted({d["c"] for d in data}) if c not in order]
 
-    gaps = [f"{k} {v}/203" for k, v in (
+    total = len(recs)
+    gaps = [f"{k} {v}/{total}" for k, v in (
         ("立场未标", sum(1 for r in recs if not r["stance"])),
         ("来源未归属", sum(1 for r in recs if not r["source"])),
         ("年份不详", sum(1 for r in recs if not r["year"])),
@@ -142,7 +143,7 @@ def main():
 
     print(f"docs/index.html：小册子 {stats['books']} 本、单页 {stats['singles']} 件；"
           f"国家 {stats['countries']} 个、立场 {stats['stances']} 种；"
-          f"已归属来源 {stats['sources']} 个")
+          f"来源覆盖 {stats['sources']} 个专藏")
     print(f"缺口 {' · '.join(gaps)}")
     print(f"数据指纹 {stamp}")
     print(f"体积 {os.path.getsize(paths.SITE) / 1024:.0f} KB")
