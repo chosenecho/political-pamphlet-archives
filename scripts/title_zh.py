@@ -705,4 +705,226 @@ TITLE_ZH = {
         "按乡镇禁烈酒，作为禁酒之始——反对（1929，迈尔）",
     "CH-NB Poster Collection SNL POL 90.jpg":
         "为本土谷物种植、为廉价面包：1.倡议反对，2.联邦议会提案赞成，3.统计费赞成（1929，卡尔迪诺）",
+
+    # ---------- 瑞士 TIFF 批次（2026-10-28） ----------
+    "Nationalrats-Wahlen 1899 - Sozarch F 5068-Pa-0516.tif":
+        "1899年国民院选举海报",
+    "CH-000957-X-7667 Annen.tif":
+        "瑞士选举海报（1910，安嫩）",
+    "CH-000957-X-1126 Mangold.tif":
+        "瑞士选举海报（1919，曼戈尔德）",
+    "CH-000957-X-7568 Scherer.tif":
+        "瑞士选举海报（1919，舍雷尔）",
+    "CH-000957-X-7599 Kammueller.tif":
+        "瑞士选举海报（1919，卡米勒）",
+    "CH-000957-X-AN-16-1 Mangold - Gegen den Bolschewismus.tiff":
+        "反对布尔什维克主义（1919，曼戈尔德）",
+    "CH-000957-X-17186 Cardinaux.tif":
+        "瑞士选举海报（1920，卡尔迪诺）",
+    "CH-000957-X-7580 Scherer.tif":
+        "瑞士选举海报（1920，舍雷尔）",
+    "CH-000957-X-7670 Wieland.tif":
+        "瑞士选举海报（1920，维兰德）",
+    "CH-000957-X-7663 Wieland.tif":
+        "瑞士选举海报（1921，维兰德）",
+    "CH-000957-X-29073 Scherer.tif":
+        "瑞士选举海报（1922，舍雷尔）",
+    "CH-000957-X-4427 Plattner.tif":
+        "瑞士选举海报（1922，普拉特纳）",
+    "CH-000957-X-7625 Courvoisier.tif":
+        "瑞士选举海报（1922，库尔瓦西耶）",
+    "CH-000957-X-7643 Diveky.tif":
+        "瑞士选举海报（1922，迪韦基）",
+    "CH-000957-X-7646 Scherer.tif":
+        "瑞士选举海报（1922，舍雷尔）",
+    "CH-000957-X-7662 Wieland.tif":
+        "瑞士选举海报（1922，维兰德）",
+    "CH-000957-X-1141 Mangold.tif":
+        "瑞士选举海报（1923，曼戈尔德）",
+    "CH-000957-X-3401 Cardinaux.tif":
+        "瑞士选举海报（1923，卡尔迪诺）",
+    "CH-000957-X-4444 Plattner.tif":
+        "瑞士选举海报（1923，普拉特纳）",
+    "CH-000957-X-4451 Plattner.tif":
+        "瑞士选举海报（1923，普拉特纳）",
+    "CH-000957-X-7664 Moll.tif":
+        "瑞士选举海报（1924，莫尔）",
+    "CH-000957-X-38286 Scherer.tif":
+        "瑞士选举海报（1925，舍雷尔）",
+    "CH-000957-X-4432 Plattner.tif":
+        "瑞士选举海报（1925，普拉特纳）",
+    "CH-000957-X-4438 Plattner.tif":
+        "瑞士选举海报（1925，普拉特纳）",
+    "CH-000957-X-7497 Scherer.tif":
+        "瑞士选举海报（1925，舍雷尔）",
+    "CH-000957-X-17196 Cardinaux.tif":
+        "瑞士选举海报（1926，卡尔迪诺）",
+    "CH-000957-X-4433 Plattner.tif":
+        "瑞士选举海报（1926，普拉特纳）",
+    "CH-000957-X-4439 Plattner.tif":
+        "瑞士选举海报（1926，普拉特纳）",
+    "CH-000957-X-4440 Plattner.tif":
+        "瑞士选举海报（1926，普拉特纳）",
+    "CH-000957-X-4441 Plattner.tif":
+        "瑞士选举海报（1926，普拉特纳）",
+    "CH-000957-X-4436 Plattner.tif":
+        "瑞士选举海报（1927，普拉特纳）",
+    "CH-000957-X-4445 Plattner.tif":
+        "瑞士选举海报（1927，普拉特纳）",
+    "CH-000957-X-7579 Scherer.tif":
+        "瑞士选举海报（1927，舍雷尔）",
+    "CH-000957-X-4443 Plattner.tif":
+        "瑞士选举海报（1928，普拉特纳）",
+    "CH-000957-X-7573 Marxer.tif":
+        "瑞士选举海报（1928，马克泽）",
+    "CH-000957-X-4437 Plattner.tif":
+        "瑞士选举海报（1929，普拉特纳）",
+    "CH-000957-X-1161 Mangold.tif":
+        "瑞士选举海报（1930，曼戈尔德）",
+    "CH-000957-X-4448 Plattner.tif":
+        "瑞士选举海报（1930，普拉特纳）",
+    "CH-000957-X-4766 Senn.tif":
+        "瑞士选举海报（1931，森）",
+    "CH-000957-X-7661 Wieland.tif":
+        "瑞士选举海报（1931，维兰德）",
+    "CH-000957-X-4449 Plattner.tif":
+        "瑞士选举海报（1932，普拉特纳）",
+    "CH-000957-X-7659 Kammueller.tif":
+        "瑞士选举海报（1933，卡米勒）",
+    "CH-000957-X-4435 Plattner.tif":
+        "瑞士选举海报（1934，普拉特纳）",
+    "CH-000957-X-7297 Cardinaux.tif":
+        "瑞士选举海报（1934，卡尔迪诺）",
+    "CH-000957-X-4250 l'Eplattenier.tif":
+        "瑞士选举海报（1935，勒普拉特尼耶）",
+    "CH-000957-X-4446 Plattner.tif":
+        "瑞士选举海报（1935，普拉特纳）",
+    "CH-000957-X-4450 Plattner.tif":
+        "瑞士选举海报（1935，普拉特纳）",
+    "CH-000957-X-7635 Arnhold.tif":
+        "瑞士选举海报（1935，阿恩霍尔德）",
+    "CH-000957-X-26227 Plattner.tif":
+        "瑞士选举海报（1936，普拉特纳）",
+    "CH-000957-X-29148 Scherer.tif":
+        "瑞士选举海报（1938，舍雷尔）",
+    "CH-000957-X-42398 Plattner.tif":
+        "瑞士选举海报（1938，普拉特纳）",
+    "CH-000957-X-4426 Plattner.tif":
+        "瑞士选举海报（1938，普拉特纳）",
+    "CH-000957-X-9930 Scherer.tif":
+        "瑞士选举海报（1938，舍雷尔）",
+    "CH-000957-X-4430 Plattner.tif":
+        "瑞士选举海报（1939，普拉特纳）",
+    "CH-000957-X-7701 Plattner.tif":
+        "瑞士选举海报（1940，普拉特纳）",
+
+    # ---------- 第三批（美国妇女参政等，2026-10-28） ----------
+    "DEMOCRATIC WOMEN. WOMAN SUFFRAGE LCCN2016866065.jpg":
+        "民主党妇女：妇女参政（1914）",
+    "Mrs. Harriet Stanton Blatch 148007v.jpg":
+        "哈里雅特·斯坦顿·布拉奇夫人（1916）",
+    "National Woman's Party Headquarters- Alva Belmont House159047v.jpg":
+        "全国妇女党总部：阿尔瓦·贝尔蒙特宅（1929）",
+    "National Woman's Party members standing in line 159028v.jpg":
+        "全国妇女党党员列队（1922）",
+    "National Woman's Party National Council 160005v.jpg":
+        "全国妇女党全国委员会（1922）",
+    "Officers of the National Woman's Party 276045v.jpg":
+        "全国妇女党干事（1922）",
+    "Penn on the picket line 160022v.jpg":
+        "宾州人在纠察线上（1917）",
+    "Picket line-- Feb. 14, 1917 160018v.jpg":
+        "纠察线（1917年2月14日）",
+    "Raising the Suffrage banner in the ratification of terms LCCN2016828522.jpg":
+        "批准条款时升起参政横幅（1920）",
+    "Ribbon of the Brooklyn Woman Suffrage Association honoring Susan B. Anthony, 1869.jpg":
+        "布鲁克林妇女参政协会纪念苏珊·安东尼的绶带（1869）",
+    "Shoe shining suffrage (...), 1-12-21 LOC npcc.03352.jpg":
+        "擦鞋童为参政宣传（1921）",
+    "Suffrage dancers - Russian group LCCN2014695283.jpg":
+        "参政宣传舞者——俄国组（1910）",
+    "Suffrage dancers LCCN2014695284.jpg":
+        "参政宣传舞者（1910）",
+    "Suffrage dancers LCCN2014695285.jpg":
+        "参政宣传舞者（1910）",
+    "Suffrage Day, 5-2-14, Mrs. O.H.P. Belmont LCCN2014696033.jpg":
+        "参政日：贝尔蒙特夫人（1914年5月2日）",
+    "Suffrage group LCCN2016823586.jpg":
+        "参政团体合影（1920）",
+    "Suffrage Group Union Station 159014v.jpg":
+        "联合车站的参政团体（1914）",
+    "Suffrage meeting - City Hall LCCN2014695026.jpg":
+        "市政厅参政集会（1913）",
+    "Suffrage news girls - Liz Freeman LCCN2014692944.jpg":
+        "售报的参政运动女童（1913）",
+    "Suffrage open air meeting 159006v.jpg":
+        "参政露天集会（1913）",
+    "Suffrage pageant LCCN2014692942.jpg":
+        "参政运动游行表演（1913）",
+    "Suffrage shop LCCN2014698845.jpg":
+        "参政运动商店（1910）",
+    "COLL MISC 0519 (22511159959).jpg":
+        "英国妇女参政宣传海报（1910）",
+    "Electors! Do You Like McKenna's Navy Cut? (22914896191).jpg":
+        "选民们！你喜欢麦肯纳的海军裁减吗？（1910）",
+    "He's Good Enough for Me (3258029366).jpg":
+        "他对我来说够好了（1905，关税改革）",
+    "I'll give him Home Rule! (3268710259).jpg":
+        "我会给他自治！（1905，关税改革）",
+    "John Bull and Uncle Sam detail, The Great Rapprochement (cropped).jpg":
+        "约翰牛与山姆大叔：大和解（1898）",
+    "London Trades Demonstration.jpg":
+        "伦敦行业工会示威（1873）",
+    "LWMA Reform Demonstration.jpg":
+        "伦敦工人市政协会改革示威（1866）",
+    "Peterloo poster.jpg":
+        "彼得卢集会海报（1819）",
+    "Affiche from Galleti.jpg":
+        "加利蒂海报（1795）",
+    "Elections législatives du 8 mai 1898, Rety-Hayard Marius Rety, Léon Hayard candidats économiques radicaux socialistes révolutionnaires, Programme, affiche, non identifié.jpg":
+        "1898年5月8日立法选举：雷蒂-阿亚尔激进社会主义候选人纲领",
+    "Ile de France, Sarcelle St Briec, Une affiche politique - A64300.jpg":
+        "法兰西岛圣布里厄克的政治海报（1930）",
+    "L'Action française-1918.jpg":
+        "《法兰西行动报》（1918）",
+    "La Guerre civile est voulue et préparée, avec le concours de l'Etranger, par des Français ennemis de la République... Le parti communiste français... - affiche - non identifié - btv1b9017839c.jpg":
+        "内战由共和之敌与外国势力策动：指认法国共产党（1936）",
+    "La Question de la Grande Chartreuse... Ligue dauphinoise d'Action catholique - affiche - non identifié - btv1b9013908x.jpg":
+        "大沙特勒斯问题：多菲内天主教行动同盟（1928）",
+    "Le suffrage à 2 tours vaincra la réaction (cropped).jpg":
+        "两轮投票将击败反动派（1932）",
+    "Le suffrage à 2 tours vaincra la réaction.jpg":
+        "两轮投票将击败反动派（1932，完整版）",
+    "Kärntner Volksabstimmung Plakat 1920 dt.jpg":
+        "克恩顿公投海报（1920，德文本）",
+    "Mihaly Biro - Kehrt aus! Wählt sozialdemokratisch, 1920.jpg":
+        "比罗：归来吧！投社会民主党（1920）",
+    "Mihaly Biro - Wählt Sozialdemokratisch, 1920.jpg":
+        "比罗：投社会民主党（1920）",
+    "Landelijke verkiezingen SDAP 1918 (smooth).jpg":
+        "1918年全国选举：社会民主工党（平滑版）",
+    "Landelijke verkiezingen SDAP 1918.jpg":
+        "1918年全国选举：社会民主工党",
+    "Leest het Volksdagblad.jpg":
+        "读《人民报》（1930）",
+    "\"Before another Christmas - less of armament and none of war\" LCCN2002697161.jpg":
+        "「在下一个圣诞之前——少些军备，绝不要战争」（1921）",
+    "Emergency Peace Federation 1917.jpg":
+        "紧急和平联合会（1917）",
+    "L'Europe des points noirs à éclairer pacifiquement au XXe siècle par des concessions réciproques rendant possible un plus grand pas vers les Etats-Unis du monde. 2e édition - btv1b530637374.jpg":
+        "二十世纪以互让照亮欧洲的黑暗点，迈向世界合众国（第二版，1911）",
+    "Wahlaufruf des Deutschen Republikanischen Reichsbundes.jpg":
+        "德国共和派帝国同盟选举呼吁（1924）",
+    "Cartel Colombinas Huelva 0002.jpg":
+        "韦尔瓦哥伦布节海报（1892）",
+    "Cartel-no pasaran madrid cke.jpg":
+        "他们休想通过！马德里（1936）",
+    "Cartel-no-pasaran-madrid-cke.jpg":
+        "他们休想通过！马德里（1936）",
+    "Corpo Truppe Volontarie 70.jpg":
+        "意大利志愿军团（1938）",
+    "CnG 1932 Posters.jpg":
+        "爱尔兰统一党1932年海报组",
+    "Shadow of the Gunman poster.jpg":
+        "枪手的阴影（1932，爱尔兰）",
 }
