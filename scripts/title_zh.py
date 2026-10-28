@@ -643,4 +643,66 @@ TITLE_ZH = {
     # ---------- 匈牙利小册子（IA 第五轮） ----------
     "HUNGARY. Az ötéves tervvel a szocializmus felé. Törvény a Magyar Népköztársaság elsö ötéves népgazdasági tervéröl. [Budapest, 1950.]":
         "匈牙利：以五年计划走向社会主义——匈牙利人民共和国第一个五年国民经济计划法（1950）",
+
+    # ---------- 瑞士海报（Commons，2026-10-28 首次补入） ----------
+    "CH-NB Poster Collection SNL POL 8.jpg":
+        "行商法公投：赞成（1908，奥托·普拉特纳）",
+    "Bild Plakat Majorz Proporz.jpg":
+        "瑞士国民院比例代表制行动委员会海报（1918）",
+    "CH-NB Poster Collection SNL POL 11.jpg":
+        "正义使民族兴盛——10月13日投赞成（1918）",
+    "CH-NB Poster Collection SNL POL 12.jpg":
+        "正义使民族兴盛——10月23日投赞成（1918）",
+    "CH-NB Poster Collection SNL POL 345.jpg":
+        "自由，瑞士（1919）",
+    "CH-NB Poster Collection SNL POL 350.jpg":
+        "工人们！同胞们，投社会民主党第6号名单（1919，舍雷尔）",
+    "CH-NB Poster Collection SNL POL 351.jpg":
+        "要纸还是要工作？（1919）",
+    "CH-NB Poster Collection SNL POL 358.jpg":
+        "瑞士公民，守护家园！——10月25、26日（1919，卡米勒）",
+    "CH-NB Poster Collection SNL POL 28.jpg":
+        "工时法：赞成——我们担着责任，请帮我们扛起（1920，舍雷尔）",
+    "CH-NB Poster Collection SNL POL 29.jpg":
+        "我们的面包：这位也只干44小时吗？（1920，卡米勒）",
+    "CH-NB Poster Collection SNL POL 32.jpg":
+        "瑞士人民，别让自己被捆住！（1920）",
+    "CH-NB Poster Collection SNL POL 33.jpg":
+        "瑞士人民，为与他们共事，加入国际联盟是你的义务（1920，库尔瓦西耶）",
+    "CH-NB Poster Collection SNL POL 34.jpg":
+        "赞成国际联盟（1920）",
+    "CH-NB Poster Collection SNL POL 35.jpg":
+        "赞成国际联盟（1920）",
+    "CH-NB Poster Collection SNL POL 484.jpg":
+        "投中右翼：第2号自由民主党、第1号公民党（1920，特拉费莱）",
+    "CH-NB Poster Collection SNL POL 55.jpg":
+        "想要养老与残障保险，就赞成财产税！（1922）",
+    "CH-NB Poster Collection SNL POL 56.jpg":
+        "投反对：不再雇人，因清算而关门——财产税的真正结果（1922）",
+    "Plakat Einmalige Abgabe 1922.jpg":
+        "一次性财产税公投海报（1922，卡尔迪诺）",
+    "CH-NB Poster Collection SNL POL 487.jpg":
+        "伯尔尼人，帮帮困境中的岛医院，4月15日投赞成（1923）",
+    "CH-NB Poster Collection SNL POL 61.jpg":
+        "烧酒的危险又来了！6月3日为民福祉投赞成（1923，卡尔迪诺）",
+    "CH-NB Poster Collection SNL POL 70.jpg":
+        "为了劳动自由，2月17日投赞成（1924，库尔瓦西耶）",
+    "CH-NB Poster Collection SNL POL 72.jpg":
+        "48小时工作制：否决舒尔泰斯法，投反对（1924，施特克林）",
+    "CH-NB Poster Collection SNL POL 73.jpg":
+        "48小时工作制：否决舒尔泰斯法，投反对（1924，施特克林，法文本）",
+    "CH-NB Poster Collection SNL POL 624.jpg":
+        "公民们起来！投自由民主党第6号名单（1925，舍雷尔）",
+    "CH-NB Poster Collection SNL POL 74.jpg":
+        "为了老人与残障者——罗滕贝格倡议，赞成（1925，卡尔迪诺）",
+    "CH-NB Poster Collection SNL POL 75.jpg":
+        "为了老人与残障者——罗滕贝格倡议，赞成（1925，卡尔迪诺，法文本）",
+    "Pour échapper au bolchevisme, political poster 1925.jpg":
+        "要躲开布尔什维克主义，就投激进党名单（约1925，瑞士激进党）",
+    "CH-NB Poster Collection SNL POL 84.jpg":
+        "拿掉面包篮！联邦公投12月5日：反对面包专卖（1926）",
+    "CH-NB Poster Collection SNL POL 100.jpg":
+        "按乡镇禁烈酒，作为禁酒之始——反对（1929，迈尔）",
+    "CH-NB Poster Collection SNL POL 90.jpg":
+        "为本土谷物种植、为廉价面包：1.倡议反对，2.联邦议会提案赞成，3.统计费赞成（1929，卡尔迪诺）",
 }
