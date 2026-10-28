@@ -291,7 +291,7 @@ def main():
         print(f"\n=== {cfg['label']} ({tier}) ===")
         stage = os.path.join(BUILD, f"pkg-{tier}")
         n = build_staging(recs, tier, stage)
-        out = os.path.join(OUT_DIR, f"历史宣传歷史宣傳材料檔案-{cfg['label']}-{n}件.zip")
+        out = os.path.join(OUT_DIR, f"歷史宣傳材料檔案-{cfg['label']}-{n}件.zip")
         raw = zip_dir(stage, out)
         print(f"  打包完成 {out}")
         print(f"  解压后 {raw/1e6:.0f} MB，压缩包 {os.path.getsize(out)/1e6:.0f} MB")

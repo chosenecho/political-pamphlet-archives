@@ -22,27 +22,45 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TITLE_ZH = "歷史宣傳材料檔案"
 TITLE_CN = "历史宣传材料档案"
 
-#: 文案替换表。键是旧串，值是统一后的新串；重复执行不会叠加。
+#: 站位符：把完整站名先挖走，碎片替换就碰不到它内部了。
+#: 用 \x00 包住，正常文本里不可能出现。
+_SENTINEL = "\x00TITLE\x00"
+
+#: 完整站名的已有写法，先整体挖掉
+_FULL_FORMS = (TITLE_ZH, TITLE_CN)
+
+#: 碎片：旧站名、半截中间态、以及站名自身的简繁前缀。
+#: 这些串**都可能是完整站名的子串**，所以必须在上一步之后才处理。
+_FRAGMENTS = (
+    "政黨宣傳品檔案", "政党宣传品档案",
+    "材料檔案", "材料档案",
+    "歷史宣傳", "历史宣传",
+)
+
+
 def normalize_title(s):
     """把站名的任何中间态与重复嵌套统一成 TITLE_ZH，且只留一层。
 
-    做法：把「已知中间态」与「任意层叠的目标值」全部抹成空串，最后统一插入
-    一次 TITLE_ZH。抹除比替换更安全——替换会让目标值里含有的子串再匹配一次，
-    这正是之前叠成「歷史宣傳歷史宣傳材料檔案」的原因。
+    做法分四步：
+      1. 先把**完整站名**（简繁两种写法）换成占位符。这一步是关键：不先挖走，
+         后面的碎片替换会命中完整站名内部的「材料檔案」，替换出新的一份完整
+         站名，叠成「歷史宣傳 + 歷史宣傳材料檔案」。
+      2. 剩下的都是碎片，逐个换成占位符。任意层叠因此自然坍缩成一层。
+      3. 连续占位符压成一个。
+      4. 占位符还原成 TITLE_ZH。
+
+    早先的实现直接在整串上替换「材料檔案」「材料档案」，并用正则
+    r"(?:歷史宣傳)+(歷史宣傳材料檔案)" 压叠。那个正则只认繁体前缀，压不掉
+    「历史宣传」+「歷史宣傳材料檔案」这种简繁混写——make_bundle.py 生成的
+    文件名就是这样变成「历史宣传歷史宣傳材料檔案-精简版-3999件.zip」的。
     """
-    # 先把已叠的任何层数清掉：循环剥掉最外层的「歷史宣傳」，剩一个完整目标值
-    while TITLE_ZH + TITLE_ZH in s:
-        s = s.replace(TITLE_ZH + TITLE_ZH, TITLE_ZH)
-    # 把「歷史宣傳」重复前缀压掉：歷史宣傳*N 材料檔案 -> 歷史宣傳材料檔案
-    s = re.sub(r"(?:歷史宣傳)+(歷史宣傳材料檔案)", r"\1", s)
-    # 中间态直接换成目标值（此步之后 TITLE_ZH 已不含待替换子串）
-    for mid in ("政黨宣傳品檔案", "材料檔案", "材料档案"):
-        s = s.replace(mid, TITLE_ZH)
-    # 上一步可能又叠（材料檔案 是 TITLE_ZH 的子串），再压一次
-    while TITLE_ZH + TITLE_ZH in s:
-        s = s.replace(TITLE_ZH + TITLE_ZH, TITLE_ZH)
-    s = re.sub(r"(?:歷史宣傳)+(歷史宣傳材料檔案)", r"\1", s)
-    return s
+    for form in _FULL_FORMS:
+        s = s.replace(form, _SENTINEL)
+    for frag in _FRAGMENTS:
+        s = s.replace(frag, _SENTINEL)
+    while _SENTINEL + _SENTINEL in s:
+        s = s.replace(_SENTINEL + _SENTINEL, _SENTINEL)
+    return s.replace(_SENTINEL, TITLE_ZH)
 
 
 PAIRS = [
