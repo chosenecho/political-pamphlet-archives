@@ -196,7 +196,10 @@ def build_staging(recs, tier, stage):
     write_notice(stage, tier)
     shutil.copy2(os.path.join(paths.BASE, "DISCLAIMER.md"),
                  os.path.join(stage, "免责声明.md"))
-    return len(jobs)
+    # 返回条目数而不是页面数：压缩包文件名里的「N 件」指的是收录了多少件
+    # 材料，不是总共多少张扫描页。原先 return len(jobs) 会把 384 件写成
+    # 3999 件（那是页面总数），文件名严重失真。
+    return len(recs)
 
 
 def write_page(rows, recs, stage, tier="lite"):
