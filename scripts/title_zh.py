@@ -589,4 +589,30 @@ TITLE_ZH = {
         "武库夫犹太社群呼吁参加1933年五三宪法日庆典",
     "Poster Pracujemy w trójkę budujemy za dwunastu.jpg":
         "三人干活、顶十二人的建设（1953，波兰宣传画）",
+
+    # ---------- 波兰小册子（IA 第三轮，2026-10-28） ----------
+    "Program Polskiego Stronnictwa Demokratyczno-Narodowego w pastwie austryackiem. Uchwalony na 2. Zjedzie Stronnictwa w dniu 8 i 9 grudnia 1905 we Lwowie":
+        "波兰民族民主党（奥属部分）纲领：1905年12月8–9日利沃夫第二次代表大会通过",
+    "Program, taktyka, organizacja":
+        "纲领·策略·组织：波兰社会党第十次代表大会（1908）",
+    "Odezwa do narodow slawianskich,wzgledem przeznaczen swiata.":
+        "告斯拉夫各民族书：论世界的使命（1848，波兰弥赛亚主义）",
+
+    # ---------- 拉美小册子（IA 第三轮，2026-10-28） ----------
+    "Plataforma de acciíon politica ... aprobada en la convención de junio de 1927":
+        "政治行动纲领：1927年6月全国反连任党代表大会通过（墨西哥）",
+    "La conquista del gobierno comunal":
+        "市政权力的夺取（1914，阿根廷社会党）",
+    "Manifesto del Partido liberal a sus correlijionarios [microform]":
+        "自由党告同仁宣言（1896，智利）",
+
+    # ---------- 苏联小册子（IA 第三轮，2026-10-28） ----------
+    "Хитрая механика. Рассказ о том, отчего и как погибает наша родина, что нам делать и откуда ждать избавления":
+        "狡猾的机械：祖国为何沦亡、我们该做什么、出路何在（1919）",
+    "Белофинское зверье": "白芬兰野兽（1943，苏联战时宣传册）",
+
+    # ---------- 续传补齐（2026-10-28） ----------
+    "The Moral Basis of Vegetarianism": "素食的道德基础（甘地，1959）",
+    "The programme of the I. L. P. and the unemployed":
+        "独立工党纲领与失业问题（1895）",
 }
