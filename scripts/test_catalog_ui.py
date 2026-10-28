@@ -194,7 +194,11 @@ with sync_playwright() as p:
     pg.wait_for_timeout(400)
     first_down = pg.locator(".card:visible .yr").first.inner_text().strip()
     check("年代升降序相反", first_up != first_down, f"{first_up} vs {first_down}")
-    check("升序首项为最早年", first_up == "1830", first_up)
+    # 期望值从数据算，不写死年份：目录会持续补入更早的材料
+    # （1830 → 1795 就因为一次补采而变），硬编码会让测试每次都要改。
+    years = [r["year"] for r in RECS if r.get("year")]
+    earliest = min(years) if years else ""
+    check("升序首项为最早年", first_up == earliest, f"{first_up} vs {earliest}")
     pg.select_option("#sort", "y+")
     pg.wait_for_timeout(300)
 
