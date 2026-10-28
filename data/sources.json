@@ -5,7 +5,7 @@
     {
       "slug": "jstor-19c-british-pamphlets",
       "title": "JSTOR · 19th Century British Pamphlets",
-      "region": "UK",
+      "region": "英国",
       "kind": "数据库(订阅)",
       "url": "https://about.jstor.org/products/journals-and-primary-sources/licensed-collections/19th-century-british-pamphlets/",
       "note": "2.6 万册 / 逾 100 万页，7 所英国大学馆藏合并",
@@ -24,7 +24,7 @@
     {
       "slug": "bodleian-john-johnson",
       "title": "Bodleian · John Johnson Collection of Printed Ephemera",
-      "region": "UK",
+      "region": "英国",
       "kind": "特藏(部分在线)",
       "url": "https://www.bodleian.ox.ac.uk/collections-and-resources/special-collections/catalogues/johnson",
       "note": "6.5 万件印刷品，含选举传单 handbill",
@@ -43,7 +43,7 @@
     {
       "slug": "bishopsgate-labour-socialist",
       "title": "Bishopsgate Institute · Labour and Socialist History",
-      "region": "UK",
+      "region": "英国",
       "kind": "特藏",
       "url": "https://www.bishopsgate.org.uk/collections/labour-and-socialist-history/",
       "lang": "en",
@@ -61,7 +61,7 @@
     {
       "slug": "phm-labour-history-archive",
       "title": "People's History Museum · Labour History Archive & Study Centre",
-      "region": "UK",
+      "region": "英国",
       "kind": "档案馆",
       "url": "https://phm.org.uk/collection/labour-history-archive-study-centre/",
       "lang": "en",
@@ -80,7 +80,7 @@
     {
       "slug": "lse-digital-library",
       "title": "LSE Digital Library · Collections",
-      "region": "UK",
+      "region": "英国",
       "kind": "数字馆藏(免费)",
       "url": "https://digital.library.lse.ac.uk/collections",
       "lang": "en",
@@ -98,7 +98,7 @@
     {
       "slug": "nyu-tamiment-cpusa",
       "title": "NYU Tamiment · Printed Ephemera Collection on the CPUSA",
-      "region": "US",
+      "region": "美国",
       "kind": "档案馆",
       "url": "https://findingaids.library.nyu.edu/tamwag/pe_031/",
       "lang": "en",
@@ -116,7 +116,7 @@
     {
       "slug": "umich-labadie",
       "title": "University of Michigan · Joseph A. Labadie Collection",
-      "region": "US",
+      "region": "美国",
       "kind": "特藏",
       "url": "https://www.lib.umich.edu/collections/collecting-areas/special-collections/joseph-labadie-collection/",
       "lang": "en",
@@ -134,7 +134,7 @@
     {
       "slug": "hoover-posters",
       "title": "Hoover Institution · Poster Collection",
-      "region": "US",
+      "region": "美国",
       "kind": "特藏(在线)",
       "url": "https://www.hoover.org/library-archives/collections/posters",
       "lang": "en",
@@ -152,7 +152,7 @@
     {
       "slug": "hoover-digital-collections",
       "title": "Hoover Institution · Digital Collections",
-      "region": "US",
+      "region": "美国",
       "kind": "数字馆藏(免费)",
       "url": "https://www.hoover.org/library-archives/collections/digital-collections",
       "lang": "en",
@@ -170,7 +170,7 @@
     {
       "slug": "loc-printed-ephemera",
       "title": "Library of Congress · Printed Ephemera (An American Time Capsule)",
-      "region": "US",
+      "region": "美国",
       "kind": "数字馆藏(免费)",
       "url": "https://www.loc.gov/loc/lcib/9905/newammem.html",
       "lang": "en",
@@ -188,7 +188,7 @@
     {
       "slug": "iisg-collections",
       "title": "IISH Amsterdam · Collections",
-      "region": "NL",
+      "region": "荷兰",
       "kind": "档案馆",
       "url": "https://iisg.amsterdam/en/collections",
       "lang": "nl",
@@ -202,7 +202,7 @@
     {
       "slug": "sozialarchiv-zuerich",
       "title": "Schweizerisches Sozialarchiv",
-      "region": "CH",
+      "region": "瑞士",
       "kind": "档案馆",
       "url": "https://www.sozialarchiv.ch/",
       "lang": "de",
@@ -220,7 +220,7 @@
     {
       "slug": "fes-adsd",
       "title": "Friedrich-Ebert-Stiftung · Archiv der sozialen Demokratie",
-      "region": "DE",
+      "region": "德国",
       "kind": "党档案馆",
       "url": "https://www.fes.de/archiv-der-sozialen-demokratie",
       "lang": "de",
@@ -238,7 +238,7 @@
     {
       "slug": "fes-digitale-bibliothek",
       "title": "FES · Digitale Bibliothek",
-      "region": "DE",
+      "region": "德国",
       "kind": "数字馆藏",
       "url": "https://www.fes.de/bibliothek/zeitschriften-digitalisierung",
       "lang": "de",
@@ -255,7 +255,7 @@
     {
       "slug": "kas-archiv-bibliothek",
       "title": "Konrad-Adenauer-Stiftung · ACDP 档案馆与图书馆",
-      "region": "DE",
+      "region": "德国",
       "kind": "党档案馆",
       "url": "https://www.kas.de/de/archiv-und-bibliothek",
       "lang": "de",
@@ -273,7 +273,7 @@
     {
       "slug": "wlb-zeit-der-weltkriege",
       "title": "Württembergische Landesbibliothek · Zeit der Weltkriege",
-      "region": "DE",
+      "region": "德国",
       "kind": "特藏",
       "url": "https://www.wlb-stuttgart.de/sammlungen/zeit-der-weltkriege",
       "lang": "de",
@@ -290,7 +290,7 @@
     {
       "slug": "la-contemporaine",
       "title": "La Contemporaine · Collections",
-      "region": "FR",
+      "region": "法国",
       "kind": "档案馆/博物馆",
       "url": "https://www.lacontemporaine.fr/en/collections/",
       "lang": "fr",
@@ -305,7 +305,7 @@
     {
       "slug": "francearchives-tracts",
       "title": "FranceArchives · Fonds des Tracts politiques (Sciences Po / CEVIPOF)",
-      "region": "FR",
+      "region": "法国",
       "kind": "在线档案目录(免费)",
       "url": "https://francearchives.gouv.fr/fr/findingaid/1e48faec7165e984c693396f23969f5e00008e55",
       "note": "1934-2024，按年份+生产者+主题分类；含 PCF/PS/CFDT 等",
@@ -321,7 +321,7 @@
     {
       "slug": "gallica-tracts-ww2",
       "title": "Gallica (BnF) · Tracts de la Seconde Guerre mondiale",
-      "region": "FR",
+      "region": "法国",
       "kind": "数字馆藏(免费)",
       "url": "https://gallica.bnf.fr/accueil/fr/html/les-tracts-de-la-seconde-guerre-mondiale-a-la-reserve-des-livres-rares",
       "note": "9000 份二战传单已上线",
@@ -337,25 +337,22 @@
     {
       "slug": "pares-carteles",
       "title": "PARES · Carteles de la España Republicana",
-      "region": "ES",
+      "region": "西班牙",
       "kind": "在线档案目录(免费)",
       "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/description/117015",
-      "lang": "en",
+      "lang": "es",
       "terms": [
-        "pamphlet",
-        "leaflet",
-        "handbill",
-        "broadside",
-        "tract",
-        "campaign literature",
-        "election address",
-        "election platform"
+        "folleto",
+        "panfleto",
+        "hoja volante",
+        "cartel",
+        "programa electoral"
       ]
     },
     {
       "slug": "gale-political-extremism",
       "title": "Gale · Political Extremism and Radicalism",
-      "region": "US/UK",
+      "region": "美/英",
       "kind": "数据库(订阅)",
       "url": "https://www.gale.com/primary-sources/political-extremism-and-radicalism",
       "lang": "en",
@@ -373,7 +370,7 @@
     {
       "slug": "modernhistory-cn",
       "title": "抗日战争与近代中日关系文献数据平台",
-      "region": "CN",
+      "region": "中国",
       "kind": "数字馆藏(免费)",
       "url": "https://www.modernhistory.org.cn/",
       "note": "含红色文献专题库、中共党史/组织史专题库",
@@ -389,7 +386,7 @@
     {
       "slug": "ndl-digital-collections",
       "title": "国立国会図書館デジタルコレクション / NDL 电子展示",
-      "region": "JP",
+      "region": "日本",
       "kind": "数字馆藏",
       "url": "https://www.ndl.go.jp/gallery/exhibitions/202507",
       "lang": "ja",
@@ -403,7 +400,7 @@
     {
       "slug": "amsab-isg",
       "title": "Amsab-ISG · Institute of Social History",
-      "region": "BE",
+      "region": "比利时",
       "kind": "档案馆",
       "url": "https://www.amsab.be/en/",
       "lang": "nl",
