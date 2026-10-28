@@ -1,6 +1,6 @@
 # 专藏清单与抓取状态
 
-源数 40　|　已取正文 21　|　仅登记入口 16　|　catalog 条目 358
+源数 40　|　已取正文 21　|　仅登记入口 16　|　catalog 条目 354
 
 > 声明：本清单由 AI 辅助整理，仅供学术研究与交流；内容可能有误，不对使用后果负责。如有版权或内容问题，提出后立即移除。详见 [DISCLAIMER.md](../DISCLAIMER.md)。
 
@@ -27,7 +27,7 @@
 | 19 | [Gallica (BnF) · Tracts de la Seconde Guerre mondiale](https://gallica.bnf.fr/accueil/fr/html/les-tracts-de-la-seconde-guerre-mondiale-a-la-reserve-des-livres-rares) | 法国 | 数字馆藏(免费) | 13004 | 21 | ✅ |
 | 20 | [PARES · Carteles de la España Republicana](https://pares.cultura.gob.es/ParesBusquedas20/catalogo/description/117015) | 西班牙 | 在线档案目录(免费) | 419 | — | ⚠️ |
 | 21 | [Gale · Political Extremism and Radicalism](https://www.gale.com/primary-sources/political-extremism-and-radicalism) | 美/英 | 数据库(订阅) | 757 | — | ✅ |
-| 22 | [抗日战争与近代中日关系文献数据平台](https://www.modernhistory.org.cn/) | 中国 | 数字馆藏(免费) | 643 | 20 | ✅ |
+| 22 | [抗日战争与近代中日关系文献数据平台](https://www.modernhistory.org.cn/) | 中国 | 数字馆藏(免费) | 643 | 19 | ✅ |
 | 23 | [国立国会図書館デジタルコレクション / NDL 电子展示](https://www.ndl.go.jp/gallery/exhibitions/202507) | 日本 | 数字馆藏 | 243 | — | ⚠️ |
 | 24 | [Amsab-ISG · Institute of Social History](https://www.amsab.be/en/) | 比利时 | 档案馆 | 6456 | — | ✅ |
 | 25 | [Social History Portal (IALHI 聚合)](https://www.socialhistoryportal.org/) | 欧洲 | 聚合检索 | 0 | 3 | ○ |
@@ -45,7 +45,7 @@
 | 37 | [Arbetarrörelsens arkiv och bibliotek](https://arbark.se/sv/) | 瑞典 | 档案馆 | 0 | — | ○ |
 | 38 | [LoC 新德里办事处政治小册子集](https://www.loc.gov/item/2009345307) | 印度/美 | 特藏 | 0 | — | ○ |
 | 39 | [Internet Archive · 政治组织与政治材料扫描件](https://archive.org/) | 跨国 | 数字馆藏(免费) | 0 | 95 | ○ |
-| 40 | [Wikimedia Commons · 政治海报与传单扫描件](https://commons.wikimedia.org/) | 跨国 | 数字馆藏(免费) | 0 | 201 | ○ |
+| 40 | [Wikimedia Commons · 政治海报与传单扫描件](https://commons.wikimedia.org/) | 跨国 | 数字馆藏(免费) | 0 | 198 | ○ |
 
 ## 状态说明
 
@@ -56,14 +56,14 @@
 
 ## 条目来源分布
 
-`data/catalog.json` 共 358 条条目。按 `source` 字段归属到专藏：
+`data/catalog.json` 共 354 条条目。按 `source` 字段归属到专藏：
 
 | 专藏 | 条目数 |
 |---|---|
-| Wikimedia Commons · 政治海报与传单扫描件 | 201 |
+| Wikimedia Commons · 政治海报与传单扫描件 | 198 |
 | Internet Archive · 政治组织与政治材料扫描件 | 95 |
 | Gallica (BnF) · Tracts de la Seconde Guerre mondiale | 21 |
-| 抗日战争与近代中日关系文献数据平台 | 20 |
+| 抗日战争与近代中日关系文献数据平台 | 19 |
 | Social History Portal (IALHI 聚合) | 3 |
 
 - 另有 **18** 条条目未标注所属专藏（`source` 为空），未计入上表，也未猜断归属。
