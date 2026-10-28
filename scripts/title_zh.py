@@ -927,4 +927,104 @@ TITLE_ZH = {
         "爱尔兰统一党1932年海报组",
     "Shadow of the Gunman poster.jpg":
         "枪手的阴影（1932，爱尔兰）",
+
+    # ---------- 第九轮（2026-10-28） ----------
+    "1900BryanPoster.png":
+        "布莱恩1900年竞选海报",
+    "Anti-annexation flyer, north Seattle, circa 1944.jpg":
+        "反兼并传单（西雅图北部，约1944）",
+    "Bryan-Sewall.jpg":
+        "布莱恩-西沃尔竞选海报（1896）",
+    "Free Soil campaign banner.jpg":
+        "自由土地党竞选横幅（1848）",
+    "Huey Long Governorship campaign poster.png":
+        "休伊·朗州长竞选海报（1924）",
+    "M.J. Carrigan campaign poster, 1920.jpg":
+        "卡里根竞选海报（1920，西雅图）",
+    "McKinley-Hobart 1896.jpg":
+        "麦金莱-霍巴特竞选海报（1896）",
+    "Our home defenders LCCN94513583.jpg":
+        "我们的家园保卫者（1896）",
+    "Robert Moses 1934 (cropped).jpg":
+        "罗伯特·摩西1934年州长竞选海报（裁切版）",
+    "Robert Moses gubernatorial election poster, 1934.jpg":
+        "罗伯特·摩西1934年州长竞选海报",
+    "Mrs. H.S. Blatch.png":
+        "布拉奇夫人（1905，美国妇女参政）",
+    "MVale-Suffrage.png":
+        "妇女参政宣传（1915）",
+    "Norwegian Suffrage Demonstration for American Women, New York, 1913.png":
+        "挪威妇女为美国妇女举行的参政示威（纽约，1913）",
+    "Suffrage Shop LCCN2014698882.jpg":
+        "参政运动商店（1910）",
+    "Suffrage Straw Ride LCCN2014693789.jpg":
+        "参政宣传马车游行（1910）",
+    "Suffragets (i.e., suffragettes) Freeman, Wentworth LCCN2014693703.jpg":
+        "参政运动者弗里曼与温特沃斯（1913）",
+    "Suffragette Ball - Butterfly Dance LCCN2014695282.jpg":
+        "参政运动舞会：蝴蝶舞（1910）",
+    "Suffragette Ball - Gr. Cymball Dance LCCN2014695280.jpg":
+        "参政运动舞会：大铙钹舞（1910）",
+    "Suffragette card index LCCN2016828582.jpg":
+        "参政运动者卡片索引（1920）",
+    "Suffragette card index LCCN2016828583.jpg":
+        "参政运动者卡片索引（1920，另一页）",
+    "The Red Flag - 2-A.jpg":
+        "《赤旗》第2号A面（1932）",
+    "The Red Flag - 2-B.jpg":
+        "《赤旗》第2号B面（1932）",
+    "The Red Flag - 3-A.jpg":
+        "《赤旗》第3号A面（1933）",
+    "The Red Flag - No. 164.jpg":
+        "《赤旗》第164号（1933）",
+    "The Red Flag - No. 39.jpg":
+        "《赤旗》第39号（1931，五一节号召）",
+    "The Red Flag - No. 43.jpg":
+        "《赤旗》第43号（1931）",
+    "The Red Flag - No. 50.jpg":
+        "《赤旗》第50号（1931）",
+    "Das Dritte Reich! 1932 SPD Wahlplakat. German propaganda Anti-Nazi election poster Social Democrats Party Richard Hauschildt Berlin No known copyright Public domain.jpg":
+        "「第三帝国！」社民党反纳粹选举海报（1932）",
+    "Das dritte Reich? Nein! (The Third Reich? No!) Rx Mar Political Anti-Nazi poster Germany Reichspräsidentenwahl 1932 SPD Skeleton Swastika cap Hitler salute Library of Congress Public domain.jpg":
+        "「第三帝国？不！」社民党1932年总统选举反纳粹海报",
+    "KAS-Preußische Landtagswahl 1932-Bild-31772-1.jpg":
+        "普鲁士邦议会选举海报（1932）",
+    "Mich zwingt ihr nicht (1923).jpg":
+        "你们逼不了我（1923）",
+    "Neu-Geographie-Propaganda-Postkarte.png":
+        "新地理学宣传明信片（1915）",
+    "Nieder mit dem Bolschewismus. Bolschewismus bringt Krieg und Verderben, Hunger und Tod LCCN2004665807.jpg":
+        "打倒布尔什维克主义：它带来战争、毁灭、饥饿与死亡（1919）",
+    "Proklamation of 1849-05-18.jpg":
+        "1849年5月18日公告",
+    "Sammelt-Eicheln-und-Kastanien.jpg":
+        "收集橡实与栗子（1917，战时征集）",
+    "Proclamtion.jpg":
+        "伊利治安法官告骚乱者书（1816）",
+    "Quite Disinterested!.jpg":
+        "何其无私！（1907，政治讽刺画）",
+    "Sheffield Typographical Society - Reform Act.jpg":
+        "谢菲尔德印刷工会与改革法案（1832）",
+    "Socialist League Leicester talk by John Burns poster (1889).jpg":
+        "社会主义同盟：约翰·伯恩斯莱斯特演讲会海报（1889）",
+    "South Side Central Strike Committee.jpg":
+        "南岸中央罢工委员会（1889）",
+    "Strike at the new Houses of Parliament.jpg":
+        "新议会大厦工地罢工（1841）",
+    "Le voilà le mur d'argent - Charles de Boussay.jpg":
+        "这就是那堵银墙（1926，法国左翼反财阀宣传）",
+    "Les écraseurs, les écrasés - Pierre Dukercy 1932.jpg":
+        "压榨者与被压榨者（1932）",
+    "Léon Gambetta, candidat radical - 1ère circonscription de la Seine (1869).jpg":
+        "甘必大：激进派候选人（1869，塞纳第一选区）",
+    "Maîtres et valet. Contre les 200 familles vive l'Union du Front populaire.JPG":
+        "主人与仆从：反对二百家族，人民阵线联合万岁（1936）",
+    "Olympe de Gouges. Les Trois Urnes, ou Le salut de la patrie (Paris, 1793). British Library 443.a.3(7).jpg":
+        "古热《三个投票箱，或祖国的救赎》（1793）",
+    "PCF Hitler veut l'Alsace, la preuve. affiche, non identifié.jpg":
+        "法共：希特勒要阿尔萨斯，证据在此（1938）",
+    "Uchwala KPRP (HistoriaPolski str.137).jpg":
+        "波兰共产党决议（1923，波兰史第137页翻拍）",
+    "Franco mantiene la Paz de España (1944).jpg":
+        "佛朗哥维护西班牙的和平（1944）",
 }
