@@ -615,4 +615,32 @@ TITLE_ZH = {
     "The Moral Basis of Vegetarianism": "素食的道德基础（甘地，1959）",
     "The programme of the I. L. P. and the unemployed":
         "独立工党纲领与失业问题（1895）",
+
+    # ---------- 捷克小册子（IA 第四轮，2026-10-28） ----------
+    "The action programme of the Czechoslovak Communist Party, Prague, April 1968":
+        "捷克斯洛伐克共产党行动纲领（1968年4月，布拉格之春）",
+    "The voice of an oppressed people ..":
+        "一个受压迫民族的声音（马萨里克，1917，波希米亚民族同盟）",
+    "Bohemia: A Brief Evaluation of Bohemia's Contribution to Civilization":
+        "波希米亚：其对文明的贡献简述（波希米亚民族同盟，1917）",
+    "Budoucí echy": "捷克的未来（马萨里克，1919）",
+
+    # ---------- 比利时小册子（IA 第四轮） ----------
+    "Compte rendu officiel du XXXIIe congrès annuel tenu les 26, 27 et 28 mars 1921 à la Maison du peuple d'Anvers":
+        "比利时工人党第三十二次年会正式记录（1921年3月26–28日，安特卫普人民宫）",
+    "German attempts to divide Belgium": "德国分裂比利时的企图（1918）",
+
+    # ---------- 日本小册子（IA 第四轮） ----------
+    "A Survey of The Japan Communist Party": "日本共产党概观（内珀，1913）",
+
+    # ---------- 奥地利 / 意大利 / 西班牙小册子（IA 第四轮） ----------
+    "Revolutionary essays": "革命文集（贝拉·库恩，1919，英国社会党）",
+    "Mussolini: Dottrina politica e sociale del fascismo":
+        "墨索里尼：法西斯主义的政治与社会学说（1932）",
+    "The \"Trial\" of Ferrer : A Clerical Judicial Murder":
+        "费雷尔的「审判」：一桩教会司法谋杀（1911，纽约劳工新闻社）",
+
+    # ---------- 匈牙利小册子（IA 第五轮） ----------
+    "HUNGARY. Az ötéves tervvel a szocializmus felé. Törvény a Magyar Népköztársaság elsö ötéves népgazdasági tervéröl. [Budapest, 1950.]":
+        "匈牙利：以五年计划走向社会主义——匈牙利人民共和国第一个五年国民经济计划法（1950）",
 }
