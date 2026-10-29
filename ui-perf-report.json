@@ -1,0 +1,798 @@
+{
+  "generated": "2026-10-28T20:39:09+08:00",
+  "site": "C:\\WorkSpace\\pamphlet-archives\\docs\\index.html",
+  "siteBytes": 318460,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "throttling": "none（本机 file://，无 CPU 降速、无网络模拟）",
+  "phases": {
+    "boot": {
+      "url": "file:///C:/WorkSpace/pamphlet-archives/docs/index.html",
+      "htmlBytesOnDisk": 318460,
+      "dcl": 553.1,
+      "load": 557.3,
+      "loadWall": 564.4,
+      "firstPaint": 544.0,
+      "firstContentfulPaint": 544.0,
+      "lcp": {
+        "ms": 564.0,
+        "size": 50215,
+        "tag": "IMG"
+      },
+      "domElementsAtDCL": 11042,
+      "domElements": 11042,
+      "cards": 492,
+      "gridChildren": 492,
+      "gridHeight": 31421,
+      "scrollHeight": 31939,
+      "matImgElements": 492,
+      "matImgsLoaded": 60,
+      "coverDecodedMB": 518.8,
+      "railOptions": 90,
+      "histBars": 20,
+      "initialImageRequests": 60,
+      "initialImageBytes": 22384696,
+      "initialImageMB": 21.35,
+      "initialImageUnresolved": 0,
+      "coldApplyMs": 27.6,
+      "coldApplyLongTaskMs": 0,
+      "warmApplyMs": 7.1,
+      "measureFloorMs": 30.6,
+      "measureFloorSamples": [
+        12.9,
+        30.7,
+        30.6,
+        30,
+        32.5
+      ],
+      "navigationTiming": {
+        "responseEnd": 1,
+        "domInteractive": 552.9,
+        "domContentLoaded": 553.4,
+        "loadEventEnd": 557.3,
+        "transferSize": 318760,
+        "decodedBodySize": 318460
+      },
+      "forcedLayout": {
+        "relayoutAllCardsMs": 65.9,
+        "reinsertAllCardsMs": 61.7,
+        "withAll": 62.2,
+        "noPlateDecoration": 81.2,
+        "noPlateAtAll": 35.8,
+        "noImages": 33.3
+      },
+      "longTasks": {
+        "count": 1,
+        "totalMs": 469.0,
+        "entries": [
+          {
+            "start": 44.1,
+            "dur": 469,
+            "name": "unknown"
+          }
+        ]
+      },
+      "loaf": [
+        {
+          "start": 1.6,
+          "dur": 499.9,
+          "blocking": 441.6,
+          "styleLayoutMs": 457.4,
+          "renderMs": 457.4,
+          "scriptMs": 0,
+          "scripts": []
+        }
+      ],
+      "perf": {
+        "Nodes": 23977,
+        "LayoutCount": 2,
+        "RecalcStyleCount": 16,
+        "LayoutDuration": 0.431,
+        "RecalcStyleDuration": 0.017,
+        "ScriptDuration": 0.027,
+        "TaskDuration": 0.651,
+        "JSHeapUsedSize": 1405092
+      },
+      "dataFacts": {
+        "records": 492,
+        "build": "目录 09aebd3223",
+        "stats": {
+          "total": 492,
+          "books": 156,
+          "singles": 336,
+          "countries": 22,
+          "pages": 4608,
+          "stances": 60,
+          "sources": 5
+        },
+        "maxPages": 89,
+        "lazyImgs": 492,
+        "cardsInDom": 492,
+        "observers": [],
+        "resourceTimingEntries": 0
+      },
+      "errors": []
+    },
+    "boot_variance": {
+      "fullLoadRuns": [
+        568.4,
+        976.2,
+        531.6,
+        1034.8,
+        561.6,
+        974
+      ],
+      "byCardCount": [
+        {
+          "label": "0 张卡",
+          "cards": 0,
+          "domElements": 627,
+          "dclMedian": 139.9,
+          "samples": [
+            177.6,
+            21.4,
+            170.4,
+            109.4
+          ]
+        },
+        {
+          "label": "搜索「海报」",
+          "cards": 164,
+          "domElements": 4169,
+          "dclMedian": 468.9,
+          "samples": [
+            474.4,
+            463.4,
+            296.7,
+            506.7
+          ]
+        },
+        {
+          "label": "全量",
+          "cards": 492,
+          "domElements": 11042,
+          "dclMedian": 749.5,
+          "samples": [
+            591.2,
+            994.7,
+            569.8,
+            907.8
+          ]
+        }
+      ],
+      "fullLoadSummary": {
+        "median": 771.2,
+        "min": 531.6,
+        "max": 1034.8,
+        "runs": 6
+      }
+    },
+    "ab_fix": {
+      "runsPerVariant": 4,
+      "variants": {
+        "A_baseline": {
+          "dclMedian": 823.2,
+          "samples": [
+            660.6,
+            985.7,
+            576.4,
+            1016.7
+          ],
+          "domElements": 11042,
+          "cards": 492,
+          "savingVsBaselineMs": 0.0,
+          "savingVsBaselinePct": 0.0
+        },
+        "B_grid_not_laid_out": {
+          "dclMedian": 182.9,
+          "samples": [
+            143.2,
+            139.9,
+            222.6,
+            229.3
+          ],
+          "domElements": 11042,
+          "cards": 492,
+          "savingVsBaselineMs": 640.3,
+          "savingVsBaselinePct": 77.8
+        },
+        "C_card_content_visibility": {
+          "dclMedian": 373.7,
+          "samples": [
+            305.7,
+            441.7,
+            278.2,
+            549.4
+          ],
+          "domElements": 11042,
+          "cards": 492,
+          "savingVsBaselineMs": 449.5,
+          "savingVsBaselinePct": 54.6
+        },
+        "D_simplified_card": {
+          "dclMedian": 622.5,
+          "samples": [
+            766.5,
+            640.3,
+            349.7,
+            604.8
+          ],
+          "domElements": 7281,
+          "cards": 492,
+          "savingVsBaselineMs": 200.7,
+          "savingVsBaselinePct": 24.4
+        }
+      },
+      "note": "临时副本实验，docs/index.html 未改动"
+    },
+    "grid_scroll": {
+      "steps": 36,
+      "scrollHeight": 31939,
+      "domElementsBefore": 11042,
+      "domElementsAfter": 11042,
+      "peakDomElements": 11042,
+      "cards": 492,
+      "gridChildren": 492,
+      "matImgElements": 492,
+      "matImgsLoadedAfterScroll": 492,
+      "coversDecodedMB_afterScroll": 4553.7,
+      "imgRequestsBeforeScroll": 60,
+      "imgRequestsAfterScroll": 492,
+      "imgRequestsAdded": 432,
+      "imgBytesBeforeMB": 21.35,
+      "imgBytesAddedMB": 224.33,
+      "imgBytesAfterMB": 245.68,
+      "imgSampleAdded": [
+        "小册子/法国/018_1898_Déclarations _ de G. Etievant/pages/p-00001.jpg",
+        "小册子/法国/024_1898_Quatre lettres _ [signé Georges Grosjean et L/pages/p-00001.jpg",
+        "小册子/法国/025_1898_Vraie Réponse à Zola _ par un étudiant/pages/p-00001.jpg"
+      ],
+      "layoutCountDuringScroll": 110,
+      "recalcStyleCountDuringScroll": 162,
+      "layoutDurationDuringScroll": 0.055,
+      "taskDurationDuringScroll": 2.28,
+      "longTasksDuringScroll": {
+        "count": 6,
+        "totalMs": 395.0,
+        "entries": [
+          {
+            "start": 2363.2,
+            "dur": 62,
+            "name": "unknown"
+          },
+          {
+            "start": 2860.9,
+            "dur": 59,
+            "name": "unknown"
+          },
+          {
+            "start": 3277.6,
+            "dur": 52,
+            "name": "unknown"
+          },
+          {
+            "start": 4080.1,
+            "dur": 93,
+            "name": "unknown"
+          },
+          {
+            "start": 4250.1,
+            "dur": 50,
+            "name": "unknown"
+          },
+          {
+            "start": 4800.4,
+            "dur": 79,
+            "name": "self"
+          }
+        ]
+      },
+      "errors": []
+    },
+    "list": {
+      "measureFloorMs": 28.5,
+      "switchToGridTo_List_ms": 176.4,
+      "switchToListLongTaskMs": 165,
+      "rows": 492,
+      "domElementsInList": 15925,
+      "listLayoutCount": 1,
+      "listRecalcStyleCount": 3,
+      "listLayoutDuration": 0.132,
+      "listScriptDuration": 0.012,
+      "switchBackToGridMs": 79.2,
+      "switchToListAgainMs": 61.3,
+      "syncRebuildMs": 21.3,
+      "listWithQueryMs": 29.1,
+      "rowsWithQuery": 164,
+      "listQueryDeltaVsBase": 0.6,
+      "longTasks": {
+        "count": 5,
+        "totalMs": 1149.0
+      },
+      "errors": []
+    },
+    "filter": {
+      "measureFloorMs": 29.0,
+      "measureFloorSamples": [
+        11.1,
+        30.4,
+        29,
+        28.7,
+        28.7,
+        29.5,
+        30.3
+      ],
+      "pureApplyMs": [
+        6.8,
+        6.2,
+        1.6,
+        1.4,
+        1.3
+      ],
+      "pureApplyMedian": 1.6,
+      "byAction": {
+        "country": {
+          "label": "法国",
+          "samples": [
+            18.5,
+            19.1,
+            42.2
+          ],
+          "median": 19.1,
+          "syncJsMedian": 13.2,
+          "syncJsSamples": [
+            13.2,
+            12,
+            23.6
+          ],
+          "netOfFrameFloor": -9.9,
+          "min": 18.5,
+          "max": 42.2,
+          "longTaskMs": 0,
+          "resultCards": 56,
+          "resultRows": 0,
+          "countText": "56 / 492 条",
+          "errors": []
+        },
+        "decade": {
+          "label": "1930s",
+          "samples": [
+            44.3,
+            55,
+            45.1
+          ],
+          "median": 45.1,
+          "syncJsMedian": 34.3,
+          "syncJsSamples": [
+            38.5,
+            30.6,
+            34.3
+          ],
+          "netOfFrameFloor": 16.1,
+          "min": 44.3,
+          "max": 55,
+          "longTaskMs": 0,
+          "resultCards": 84,
+          "resultRows": 0,
+          "countText": "84 / 492 条",
+          "errors": []
+        },
+        "kind": {
+          "label": "小册子",
+          "samples": [
+            75.2,
+            81.8,
+            71.6
+          ],
+          "median": 75.2,
+          "syncJsMedian": 59.5,
+          "syncJsSamples": [
+            64.3,
+            50.2,
+            59.5
+          ],
+          "netOfFrameFloor": 46.2,
+          "min": 71.6,
+          "max": 81.8,
+          "longTaskMs": 168,
+          "resultCards": 156,
+          "resultRows": 0,
+          "countText": "156 / 492 条",
+          "errors": []
+        },
+        "stance": {
+          "label": "社会主义",
+          "samples": [
+            27.5,
+            25.8,
+            30.9
+          ],
+          "median": 27.5,
+          "syncJsMedian": 23.3,
+          "syncJsSamples": [
+            19,
+            23.3,
+            25.6
+          ],
+          "netOfFrameFloor": -1.5,
+          "min": 25.8,
+          "max": 30.9,
+          "longTaskMs": 0,
+          "resultCards": 29,
+          "resultRows": 0,
+          "countText": "29 / 492 条",
+          "errors": []
+        },
+        "sort": {
+          "label": "页数↓（439 全量重排）",
+          "samples": [
+            158.2,
+            210.4,
+            202.8
+          ],
+          "median": 202.8,
+          "syncJsMedian": 155.9,
+          "syncJsSamples": [
+            155.9,
+            158.8,
+            113.3
+          ],
+          "netOfFrameFloor": 173.8,
+          "min": 158.2,
+          "max": 210.4,
+          "longTaskMs": 451,
+          "resultCards": 492,
+          "resultRows": 0,
+          "countText": "492 / 492 条",
+          "errors": []
+        },
+        "search": {
+          "label": "海报",
+          "samples": [
+            169.5,
+            16.6,
+            15.5
+          ],
+          "median": 16.6,
+          "syncJsMedian": 0.2,
+          "syncJsSamples": [
+            0.2,
+            0.2,
+            0.1
+          ],
+          "netOfFrameFloor": -12.4,
+          "min": 15.5,
+          "max": 169.5,
+          "longTaskMs": 127,
+          "resultCards": 492,
+          "resultRows": 0,
+          "countText": "492 / 492 条",
+          "errors": []
+        },
+        "reset": {
+          "label": "清除筛选（回到 439）",
+          "samples": [
+            161.5,
+            164,
+            209.2
+          ],
+          "median": 164.0,
+          "syncJsMedian": 133.1,
+          "syncJsSamples": [
+            127.9,
+            133.1,
+            147.5
+          ],
+          "netOfFrameFloor": 135.0,
+          "min": 161.5,
+          "max": 209.2,
+          "longTaskMs": 410,
+          "resultCards": 492,
+          "resultRows": 0,
+          "countText": "492 / 492 条",
+          "errors": []
+        }
+      },
+      "overallMedianMs": 55.0,
+      "railOptions": 90,
+      "histBars": 20,
+      "errors": []
+    },
+    "reader": {
+      "item": {
+        "id": 353,
+        "pages": 89
+      },
+      "open": {
+        "ms": 87.2,
+        "longTaskMs": 71,
+        "domElementsBefore": 11042,
+        "domElementsAfter": 11257,
+        "domElementsDelta": 215,
+        "thumbs": 89,
+        "thumbsImgs": 89,
+        "requestsOnOpen": {
+          "images": 89,
+          "bytesMB": 42.97,
+          "thumbLike": 89,
+          "sample": [
+            "小册子/匈牙利/003_1950_HUNGARY. Az ötéves tervvel a szocializmus fe/pages/p-00001.jpg",
+            "小册子/匈牙利/003_1950_HUNGARY. Az ötéves tervvel a szocializmus fe/pages/p-00002.jpg",
+            "小册子/匈牙利/003_1950_HUNGARY. Az ötéves tervvel a szocializmus fe/pages/p-00003.jpg"
+          ]
+        },
+        "thumbnailDecode": {
+          "thumbCount": 89,
+          "thumbsDecoded": 89,
+          "thumbSourceMP": 365.5,
+          "thumbDecodedMB": 1394.3,
+          "thumbSourceSample": [
+            "1657x2482",
+            "1799x2511",
+            "1657x2514"
+          ],
+          "cellW": 49,
+          "cellH": 65,
+          "mainNatural": "1657x2482",
+          "mainDecodedMB": 15.7
+        },
+        "layoutCount": 7,
+        "recalcStyleCount": 10,
+        "layoutDuration": 0.048,
+        "scriptDuration": 0.02,
+        "taskDuration": 0.389
+      },
+      "pageStep": {
+        "samples": [
+          30.4,
+          29.9,
+          19.2,
+          20.5,
+          27.3
+        ],
+        "median": 27.3,
+        "longTaskMs": 0,
+        "imgRequestsPerStep": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "imgMBPerStep": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "layoutCount": 15,
+        "recalcStyleCount": 47,
+        "layoutDuration": 0.006
+      },
+      "jumpToLastPage": {
+        "ms": 31.6,
+        "counter": "89 / 89",
+        "layoutCount": 3,
+        "layoutDuration": 0.003
+      },
+      "spreadMode": {
+        "ms": 18.7,
+        "counter": "90 / 89",
+        "counterAtLastSpread": "88–89 / 89",
+        "geometry": {
+          "pages": 89,
+          "siForLastPage": 45,
+          "pairAtLastSpread": [
+            90
+          ],
+          "maxPairs": 45,
+          "overflow": [
+            90
+          ]
+        },
+        "requestsForLastSpread": {
+          "images": 0,
+          "bytesMB": 0.0
+        },
+        "failedImageRequests": 0,
+        "missOverlayShown": false
+      },
+      "scrollMode": {
+        "ms": 23.7,
+        "pageImgsCreated": 89,
+        "imgRequests": 0,
+        "imgMB": 0.0
+      },
+      "backToPageMode": {
+        "ms": 77.3
+      },
+      "smallBookControl": {
+        "id": 338,
+        "openMs": 31.7,
+        "thumbs": 14,
+        "pageStepMs": 21.4
+      },
+      "memory": {
+        "before": {
+          "heapMB": 1.29,
+          "nodes": 23977,
+          "domElements": 11042
+        },
+        "readerOpen": {
+          "heapMB": 1.38,
+          "nodes": 24230,
+          "domElements": 11257
+        },
+        "afterScrollMode": {
+          "heapMB": 1.46,
+          "nodes": 24320
+        },
+        "afterClose": {
+          "heapMB": 1.46,
+          "nodes": 24320,
+          "domElements": 11346
+        },
+        "retainedDomElementsAfterClose": 304,
+        "retainedThumbsAfterClose": 89,
+        "retainedScrollPagesAfterClose": 89,
+        "heapDeltaOnOpenMB": 0.09,
+        "heapDeltaAfterCloseMB": 0.18,
+        "gc": "每次读数前执行 HeapProfiler.collectGarbage"
+      },
+      "longTasks": {
+        "count": 19,
+        "totalMs": 1329.0,
+        "entries": [
+          {
+            "start": 1204.3,
+            "dur": 71,
+            "name": "self"
+          },
+          {
+            "start": 1317.8,
+            "dur": 59,
+            "name": "self"
+          },
+          {
+            "start": 1450.6,
+            "dur": 78,
+            "name": "self"
+          },
+          {
+            "start": 4337.2,
+            "dur": 127,
+            "name": "self"
+          },
+          {
+            "start": 4753.7,
+            "dur": 100,
+            "name": "self"
+          },
+          {
+            "start": 7170.9,
+            "dur": 51,
+            "name": "self"
+          },
+          {
+            "start": 7222.4,
+            "dur": 91,
+            "name": "self"
+          },
+          {
+            "start": 7320.5,
+            "dur": 58,
+            "name": "self"
+          },
+          {
+            "start": 7387.1,
+            "dur": 90,
+            "name": "self"
+          },
+          {
+            "start": 7652.6,
+            "dur": 56,
+            "name": "self"
+          },
+          {
+            "start": 7709,
+            "dur": 52,
+            "name": "self"
+          },
+          {
+            "start": 7769.3,
+            "dur": 51,
+            "name": "self"
+          },
+          {
+            "start": 7820.7,
+            "dur": 54,
+            "name": "self"
+          },
+          {
+            "start": 7936,
+            "dur": 72,
+            "name": "self"
+          },
+          {
+            "start": 8008.6,
+            "dur": 57,
+            "name": "self"
+          },
+          {
+            "start": 8069.4,
+            "dur": 56,
+            "name": "self"
+          },
+          {
+            "start": 8125.4,
+            "dur": 64,
+            "name": "self"
+          },
+          {
+            "start": 8202.9,
+            "dur": 50,
+            "name": "self"
+          },
+          {
+            "start": 8753.1,
+            "dur": 92,
+            "name": "unknown"
+          }
+        ],
+        "window": "从打开阅读器到关闭后复位，含各模式切换"
+      },
+      "imageRequestFailures": {
+        "count": 1,
+        "sample": [
+          "小册子/匈牙利/003_1950_HUNGARY. Az ötéves tervvel a szocializmus fe/pages/p-00090.jpg"
+        ],
+        "error": "net::ERR_FILE_NOT_FOUND"
+      },
+      "errors": []
+    },
+    "missing": {
+      "url": "file:///C:/WorkSpace/pamphlet-archives/docs/index.html?assets=/nope/",
+      "dcl": 550.8,
+      "load": 560.2,
+      "domElements": 11042,
+      "cards": 492,
+      "matImgElements": 492,
+      "imgsHiddenByError": 60,
+      "imgRequests": 60,
+      "failedRequests": 60,
+      "failureMode": "net::ERR_FILE_NOT_FOUND",
+      "failedSample": [
+        "file:///C:/nope/传单与海报/按国别/03-法国/Affiche from Galleti.jpg",
+        "file:///C:/nope/传单与海报/按国别/04-英国/Peterloo poster.jpg",
+        "file:///C:/nope/小册子/法国/001_1830_Profession de foi des libéraux/pages/p-00001.jpg"
+      ],
+      "longTasks": {
+        "count": 2,
+        "totalMs": 534.0
+      },
+      "perf": {
+        "Nodes": 24277,
+        "LayoutCount": 3,
+        "RecalcStyleCount": 8,
+        "LayoutDuration": 0.446,
+        "RecalcStyleDuration": 0.017,
+        "ScriptDuration": 0.044,
+        "TaskDuration": 0.629,
+        "JSHeapUsedSize": 1373928
+      },
+      "errors": []
+    }
+  },
+  "notMeasured": [],
+  "browser": "Chromium 149.0.7827.55",
+  "readOnly": {
+    "sha256Before": "1791c637359873a5042bd8e9c1f613ba72d97347acc93668c1eada2c02142794",
+    "sha256After": "1791c637359873a5042bd8e9c1f613ba72d97347acc93668c1eada2c02142794",
+    "bytesBefore": 318460,
+    "bytesAfter": 318460,
+    "unchanged": true
+  }
+}
