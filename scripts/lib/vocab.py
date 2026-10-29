@@ -104,6 +104,10 @@ STANCE = [
     "选举制度议题",         # 瑞士比例代表制
     "选举宣传",            # 读得出是竞选材料、读不出党派立场
     "选举权",              # 荷兰/瑞士等普选权运动，与「妇女参政」区分
+
+    # ---- 以下为后续批次追加，未并入上面的码位序。查重时按值搜，别按位置找。----
+    "反共宣传",            # 瑞士 1919–25 反布尔什维克海报（Commons 分类
+                          # Anti-communism in Switzerland 确认，9 条）
 ]
 
 #: 已被脚本引用、但数据里暂无条目的值。
@@ -119,7 +123,6 @@ RESERVED = [
     "卡洛斯派",            # 西班牙 Carlism，仅 `audit_stance.py` 白名单提到
     "革命派",              # 拉美革命派，`harvest_commons_new.py` 检索式提到
     "公民党与中右翼",       # 瑞士 Bürgerpartei，`tools/label_swiss_*.py` 有映射
-    "反共宣传",            # 瑞士 1920s 反布尔什维克宣传，`tools/label_swiss_stance.py`
     "天主教",              # 法国 Gallica `catholicisme` 检索路
     "激进派",              # 法国 Parti radical，Gallica `radicalisme` 检索路
     "殖民主义",            # 法国 Gallica `colonialisme` 检索路

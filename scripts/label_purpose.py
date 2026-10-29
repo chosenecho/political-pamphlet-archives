@@ -138,29 +138,46 @@ def main():
     before = sum(1 for r in recs if vocab.normalize(r.get("purpose")))
     planned = {}
     changed = 0
+    skipped = []
 
     for r in recs:
         purpose, why = judge(r)
         planned[purpose] = planned.get(purpose, 0) + 1
         old = vocab.normalize(r.get("purpose"))
-        if old != purpose:
-            changed += 1
-            if dry or "--verbose" in sys.argv:
-                tag = f"{old} → {purpose}" if old else (purpose or "(留空)")
-                print(f"  {r['kind']:4s} {r['country']:4s} {r['year'] or '????'} "
-                      f"[{tag:14s}] {(r['title_zh'] or r['title'])[:44]}")
-                if why:
-                    print(f"        {why}")
-            if not dry:
-                r["purpose"] = purpose
+        if old == purpose:
+            continue
+
+        # 判不出时**不清空已有值**。别的途径补的 purpose 比"本规则读不出"
+        # 更有依据：`enrich_swiss_categories.py` 用的是 Commons 上的结构化
+        # 分类，那比标题正则可靠。早先这里无条件写 purpose，会把 61 条
+        # 从分类补来的用途一次清空——规则判不出不等于它没有用途。
+        if not purpose and old:
+            skipped.append((r, old))
+            continue
+
+        changed += 1
+        if dry or "--verbose" in sys.argv:
+            tag = f"{old} → {purpose}" if old else (purpose or "(留空)")
+            print(f"  {r['kind']:4s} {r['country']:4s} {r['year'] or '????'} "
+                  f"[{tag:14s}] {(r['title_zh'] or r['title'])[:44]}")
+            if why:
+                print(f"        {why}")
+        if not dry:
+            r["purpose"] = purpose
 
     from collections import Counter
     print(f"\n{'（试运行）' if dry else ''}判定结果：")
     for p, n in Counter(planned).most_common():
         print(f"  {p or '(留空)':16s} {n:4d}")
-    print(f"\n合计 {len(recs)} 条；变动 {changed} 条；"
-          f"覆盖率 {(len(recs)-planned.get('', 0))/len(recs)*100:.0f}%"
-          f"（改前 {before} 条有值）")
+    print(f"\n合计 {len(recs)} 条；变动 {changed} 条"
+          + (f"；另有 {len(skipped)} 条已有值但本规则读不出，保留原值" if skipped else "")
+          + f"（改前 {before} 条有值）")
+    if skipped:
+        print("  受保护的原值来自别的判据（如 Commons 分类），不因规则读不出而清空：")
+        for r, v in skipped[:5]:
+            print(f"    {v} — {(r['title_zh'] or r['title'])[:40]}")
+        if len(skipped) > 5:
+            print(f"    …另 {len(skipped) - 5} 条")
 
     if dry:
         print("\n试运行不改文件。加 --verbose 看每条的依据。")

@@ -43,7 +43,43 @@ TOP = max(MARKED, key=MARKED.get)
 TOP_N = MARKED[TOP]
 
 
+def check_rule_does_not_clobber():
+    """`label_purpose.py` 不得清空别的判据补出来的用途。
+
+    这是实际踩到的 bug：规则判不出时它无条件写空串，把
+    `enrich_swiss_categories.py` 从 Commons 分类补的 61 条一次清空。
+    「本规则读不出」不等于「这条没有用途」——规则只是判据之一。
+    """
+    print("\n[规则不覆盖其它判据的结果]")
+    from label_purpose import judge
+
+    clobber = []
+    for r in RECS:
+        p, _ = judge(r)
+        old = vocab.normalize(r.get("purpose"))
+        if not p and old:
+            clobber.append((r, old))
+    # 这是「可能被清空」的集合；真正跑一遍脚本再看数据有没有变，才算验证。
+    import subprocess
+    import tempfile
+    import hashlib
+    import json as _json
+
+    before = hashlib.sha256(
+        _json.dumps([r.get("purpose") for r in RECS], ensure_ascii=False).encode()).hexdigest()
+    r = subprocess.run([sys.executable, os.path.join(paths.SCRIPTS, "label_purpose.py")],
+                       capture_output=True, text=True, encoding="utf-8", errors="replace",
+                       env=dict(os.environ, PYTHONIOENCODING="utf-8"))
+    after_recs = catalog.load()
+    after = hashlib.sha256(
+        _json.dumps([x.get("purpose") for x in after_recs], ensure_ascii=False).encode()).hexdigest()
+    check("重跑 label_purpose 后数据不变", before == after,
+          f"{len(clobber)} 条已有值但规则读不出" if before != after else "")
+
+
 def main():
+    check_rule_does_not_clobber()
+
     with sync_playwright() as p:
         b = p.chromium.launch(headless=True)
         pg = b.new_page(viewport={"width": 1500, "height": 950})

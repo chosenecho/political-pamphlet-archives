@@ -138,13 +138,34 @@ scripts/
 
 标注由 `scripts/label_purpose.py` 按标题规则生成，**幂等**——CI 里会重跑一遍并断言数据不再变化，所以手改 `catalog.json` 里的 purpose 会被拦下。要改判定，改规则表；要改单条，改 `title_zh` 或给它加例外。
 
-**覆盖率 31%（186/593），其余 407 条留空。** 这不是没做完，是判定纪律：
+**覆盖率 42%（247/593），其余 346 条留空。** 这不是没做完，是判定纪律：
 
-- **瑞士 81 条判不了**：那批的 `title_zh` 是当初为了卡片不空白补的占位译名「瑞士选举海报（NNNN，作者）」，档案号 `CH-000957-X-*` 本身不含题材。拿占位译名当判据属于用结论证明结论，`label_purpose.py` 显式跳过这类译名。
+- **瑞士 81 条曾判不了**：那批的 `title_zh` 是当初为了卡片不空白补的占位译名「瑞士选举海报（NNNN，作者）」，档案号 `CH-000957-X-*` 本身不含题材。拿占位译名当判据属于用结论证明结论，`label_purpose.py` 显式跳过这类译名。后来改从 **Commons 分类**取（那是原件自带的元数据，不是我们生成的），补回 61 条——见下节。
 - **筛「集会通告」不该混进照片和演说文本**：`purpose` 的价值在精确。「阿尔多·莫罗在天主教民主党大会」是照片，「斯波尔丁议员修订演说」是演说文本，规则收紧后都不再误判成集会通告。
-- 留空是已声明的缺口，页面上写明「另 407 条未判定用途，不进本筛选项」。
+- 留空是已声明的缺口，页面上写明「另 346 条未判定用途，不进本筛选项」。
 
 一条踩过的坑记在这里：`manifesto` 在意大利语/西班牙语里是**海报**，不是英语的「宣言」。原件 `Ordinamento Corporativo dello Stato Fascista manifesto storico anni 1930` 是一张宣传画，早期规则把它判成了「纲领与政策宣示」。跨语言规则表里每个词都要确认它在那种语言里的意思。
+
+### 标题判不出时，去原件自带的元数据里找
+
+`enrich_swiss_categories.py` 解决「标题里没有判据」这一类。瑞士那 53 条占位译名在 Commons 上带着结构化分类，实测 54 条 `CH-000957`：
+
+| 分类 | 条数 | 用途 |
+|---|---|---|
+| `Referendum posters in Switzerland` | 35 | 公投动员 |
+| `Election posters in Switzerland` | 19 | 竞选宣传 |
+
+两者**零冲突**，每条恰好命中一个，可直接取。立场侧另有 `Anti-communism in Switzerland`(14)、`Social Democratic Party of Switzerland`(6)、`Free Democratic Party of Switzerland`(3) 等，但**有五条同时命中「反共」与「自民党」**：那是「某党针对共产党的竞选海报」，组织与议题两层信息，现有单值 `stance` 装不下。这五条留空，并在依据里写明冲突——这正是要拆 `actor`/`agenda` 的理由。
+
+`Bild Plakat Majorz Proporz.jpg` 守着另一条容易犯的错：它的分类含 `Social Democratic Party of Switzerland`，但 Commons 描述写的是「Schweizerischen Actions-Comités für den Nationalrats-Proporz」——**跨党派的比例代表制行动委员会**，不是社民党刊发的。分类里的党名有时只是「参与方」。`COMMITTEE_HINT` 因此把「描述指向委员会」的条目排除在立场判定之外。
+
+这类补值要先改 `vocab.STANCE`（`反共宣传` 原在 `RESERVED`，实际用上后移入 `STANCE`）——闸门会拦下未登记的值。
+
+### 一个已修掉的 bug：规则不该清空别人补的值
+
+`label_purpose.py` 早先对判不出的条目**无条件写空串**，于是从 Commons 分类补来的 61 条用途在一次重跑后全被清空。判据有强弱之分：「本规则读不出」不等于「这条没有用途」，结构化分类比标题正则可靠。
+
+现在规则判不出时保留原值，输出里列出「受保护的原值」。`scripts/test_purpose_ui.py` 有一条断言专门守它：重跑标注后数据指纹必须不变。
 
 ## 采集方式说明
 

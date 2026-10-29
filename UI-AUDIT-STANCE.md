@@ -108,14 +108,14 @@ lib/ 下的：0 个
 
 | 新字段 | 承载 | 现有条目落位 | 目标取值数 | 状态 |
 |---|---|---|---|---|
-| `purpose` | 用来干什么 | 186 条有值 | 11（已落地） | ✅ 已完成 |
+| `purpose` | 用来干什么 | 247 条有值 | 11（已落地） | ✅ 已完成 |
 | `agenda` | 主张什么（思潮） | 177 条 | ≤ 15 | 未做 |
 | `actor` | 谁说的（组织/政党） | 见下 | 开放自由文本 | 未做 |
 | — 议题 | 归入 `agenda` 的下级或独立 `issue` | 76 条 | — | 未做 |
 
-**已落地的 `purpose` 轴**（本轮）：11 个取值，覆盖 186/593 条（31%），页面上是独立筛选组、卡片标签、列表列、阅读器信息栏四个位置。覆盖率低是判定纪律的结果而非失败，理由见 README「用途轴」一节。三条可复用的教训：
+**已落地的 `purpose` 轴**：11 个取值，覆盖 247/593 条（42%），页面上是独立筛选组、卡片标签、列表列、阅读器信息栏四个位置。覆盖率先从标题规则得到 186 条（31%），再从 Commons 结构化分类补了 61 条。仍低的理由见 README「用途轴」一节。四条可复用的教训：
 
-1. **不能用生成的数据当判据。** 瑞士 81 条的 `title_zh` 是占位译名，拿它判 purpose 等于用结论证明结论。`label_purpose.py` 显式跳过。
+1. **不能用生成的数据当判据。** 瑞士 81 条的 `title_zh` 是占位译名，拿它判 purpose 等于用结论证明结论。`label_purpose.py` 显式跳过——但不要就此停手，同样的条目在 Commons 上带着结构化分类，那是原件自带的元数据，可以用（`enrich_swiss_categories.py`）。
 2. **跨语言的同形词要单独确认。** `manifesto` 在意大利语里是「海报」不是「宣言」。
 3. **规则收紧的代价要有数据支撑。** 第一版规则命中 43%，但有照片和演说文本误判成「集会通告」；收紧到 31% 后每条都能对上。
 
@@ -184,9 +184,12 @@ lib/ 下的：0 个
 | `scripts/label_purpose.py` | 新增。按标题规则判定用途，幂等，逐条打印依据 |
 | `scripts/build_catalog.py` | payload 加 `pu` 键（有值才写）；stats 加 `purposes` |
 | `scripts/templates/catalog.html` | 新增「用途」筛选组、卡片标签、列表列、阅读器信息栏；筛选组映射收成 `GROUP_SET` 表 |
-| `scripts/test_purpose_ui.py` | 新增。用途轴端到端验收（筛选/叠加/chip/URL/列表/阅读器/搜索） |
+| `scripts/test_purpose_ui.py` | 新增。用途轴端到端验收（筛选/叠加/chip/URL/列表/阅读器/搜索）+ 规则不覆盖他人结果的断言 |
+| `scripts/enrich_swiss_categories.py` | 新增。从 Commons 结构化分类补瑞士批次的用途（61 条）与立场（17 条） |
+| `scripts/label_purpose.py` | 修：判不出时不再清空已有值（此前会把 61 条清空） |
+| `scripts/lib/vocab.py` | `反共宣传` 从 `RESERVED` 移入 `STANCE`（实际用上后） |
 | `.github/workflows/build.yml` | 加「用途标注可复现」（幂等断言）与「用途轴验收」两步 |
-| `README.md` | 加「用途轴（purpose）」一节 |
+| `README.md` | 加「用途轴（purpose）」「标题判不出时去原件元数据里找」两节 |
 
 模板里顺手修的一处：`toggle()` / `buildChips()` / `isOn()` 三处各写一遍 `group === "kind" ? ... : group === "stance" ? ...` 的映射链，加 `purpose` 时第一次就漏改了一处（点得动、筛不掉）。现在收成 `GROUP_SET` 表，新增分组只改一处。
 
@@ -195,14 +198,17 @@ lib/ 下的：0 个
 ```
 validate_catalog      ✅    test_vocab         ✅ 15 项
 audit_stance          ✅    test_catalog_ui    ✅
-test_purpose_ui       ✅ 21 项
-label_purpose 幂等    ✅ 重跑变动 0 条
+test_purpose_ui       ✅ 22 项
+label_purpose 幂等    ✅ 重跑变动 0 条（61 条受保护）
+enrich_swiss 幂等     ✅ 重跑变动 0 条
 ```
 
 ### 未做的事（留给后续）
 
 - `agenda` / `actor` 两轴未拆（本轮只拆 `purpose`）
-- 407 条 purpose 未判定，其中瑞士 81 条需要先补真实译名（当前是占位译名，需回源 Commons 读描述）
+- 346 条 purpose 未判定。其中瑞士的 29 条既无 Commons 描述也无用途分类，需读图或到馆
+- 瑞士 53 条的 `title_zh` 仍是占位译名（「瑞士选举海报（NNNN，作者）」）。本轮只补 purpose/stance，没动译名——重做译名是独立的一件事，混在一个提交里会让「这条译名对不对」和「这条用途对不对」搅在一起
+- 5 条「某党反共海报」的 stance 留空（组织×议题冲突），等 `actor`/`agenda` 拆出来才能表达
 - 国别轴的 31 条口径冲突、拉美区域值未处理（P3）
 - 筛选栏分层未做（P4）：现在多了一组「用途」，60 项立场的折叠更紧迫了
 
