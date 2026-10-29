@@ -618,6 +618,12 @@ main { min-width: 0; }
   font-size: 10.5px; color: var(--ink-3);
 }
 .cap .tail .st { color: var(--accent); }
+/* 用途与立场是两个不同的轴，用不同颜色分开，避免读者把它们当成同一层级。
+   用途是中性信息（这份材料干什么用），不该抢立场的强调色。 */
+.cap .tail .pu {
+  color: var(--ink-2, #5a554b);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink-3) 45%, transparent);
+}
 
 /* ==========================================================================
    5. 目录：列表（研究用，密度优先）
@@ -665,6 +671,15 @@ main { min-width: 0; }
 .row .r-n { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-3); }
 .row .r-s { font-size: 11.5px; color: var(--accent); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .row .r-s.none { color: var(--ink-3); }
+/* 用途列：接在立场后面另起一行，字体与颜色都弱一档。
+   列表是给核对用的，两个轴挤在一行会看不清哪个是立场哪个是用途。 */
+.row .r-pu {
+  display: block;
+  font-style: normal;
+  font-size: 10.5px;
+  color: var(--ink-3);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
 .row .r-ext {
   position: relative;
   display: inline-block;
@@ -1304,6 +1319,7 @@ main { min-width: 0; }
     <div class="fg" data-f="kind"><h3>体裁</h3><div class="opts" id="fKind"></div></div>
     <div class="fg" data-f="decade"><h3>年代</h3><div id="fDecade"></div></div>
     <div class="fg" data-f="country"><h3>国别 / 地区</h3><div class="opts" id="fCountry"></div></div>
+    <div class="fg" data-f="purpose"><h3>用途</h3><div class="opts" id="fPurpose"></div></div>
     <div class="fg" data-f="stance"><h3>政治立场</h3><div class="opts" id="fStance"></div></div>
     <div class="fg" data-f="source"><h3>来源专藏</h3><div class="opts" id="fSource"></div></div>
     <div class="fg" data-f="has"><h3>可获取</h3><div class="opts" id="fHas"></div></div>
@@ -1512,7 +1528,7 @@ const srcLabel = slug => {
 
 /* 搜索索引一次建好 */
 for (const d of DATA) {
-  d._h = fold([d.t, d.tz, d.c, d.y, d.st, KIND[d.k], srcLabel(d.s)].join(" "));
+  d._h = fold([d.t, d.tz, d.c, d.y, d.st, d.pu, KIND[d.k], srcLabel(d.s)].join(" "));
   d._dec = d.y ? Math.floor(+d.y / 10) * 10 : 0;
 }
 
@@ -1528,6 +1544,7 @@ const st = {
   kinds: new Set(),
   countries: new Set(),
   stances: new Set(),
+  purposes: new Set(),
   sources: new Set(),
   decades: new Set(),
   has: new Set(),      // "pdf" | "img" …… 目前只用 pdf
@@ -1553,6 +1570,7 @@ const COUNTRY_ORDER = [
   "日本",
   "印度",
   "拉美",
+  "土耳其",
   "俄国",
   "德国",
   "瑞士",
@@ -1607,6 +1625,17 @@ function buildFacets() {
   const ordered = COUNTRY_ORDER.filter(c => cc.has(c))
     .concat(names.filter(c => !COUNTRY_ORDER.includes(c)).sort((a, b) => cc.get(b) - cc.get(a)));
   $("#fCountry").innerHTML = ordered.map(c => optRow(c, c, cc.get(c), "country", false)).join("");
+
+  /* 用途：与立场同一套披露规则——只列有值的，把未判定的量说清楚。
+     用途的覆盖率目前只有 31%，不说明白会被当成"库里只有这些类型"。 */
+  const pc = countBy(d => d.pu || "");
+  const purposes = Array.from(pc.keys()).filter(Boolean).sort((a, b) => pc.get(b) - pc.get(a));
+  const pblank = pc.get("") || 0;
+  $("#fPurpose").innerHTML = (purposes.length
+    ? purposes.map(p => optRow(p, p, pc.get(p), "purpose", false)).join("")
+    : `<p style="font-size:12px;color:var(--ink-3);margin:0">尚未判定</p>`)
+    + (pblank ? `<p class="fgap">另 <b class="figs">${pblank}</b> 条未判定用途，不进本筛选项。
+        多数是标题只有档案号、或译名本身是占位译名。</p>` : "");
 
   /* 立场：只列有值的，并把未标注的量说清楚，免得读者以为全库只有这些立场 */
   const sc = countBy(d => d.st);
@@ -1668,9 +1697,23 @@ function decadeRange(from, to, mode) {
   return bars.slice(lo, hi + 1);
 }
 
+/* 筛选组 -> 状态集合名。新增分组只改这一处，不必再去搜那串 ternary。
+   原先 toggle() / buildChips() / isOn() 三处各写一遍同名映射，
+   加 purpose 时第一次漏改就出现了「点得动、筛不掉」。 */
+const GROUP_SET = {
+  kind: "kinds",
+  country: "countries",
+  stance: "stances",
+  purpose: "purposes",
+  source: "sources",
+  decade: "decades",
+  has: "has",
+};
+
 function toggle(group, value) {
-  const set = st[group === "kind" ? "kinds" : group === "country" ? "countries"
-    : group === "stance" ? "stances" : group === "source" ? "sources" : "has"];
+  const key = GROUP_SET[group];
+  if (!key) return;
+  const set = st[key];
   if (set.has(value)) set.delete(value); else set.add(value);
   apply();
 }
@@ -1682,6 +1725,9 @@ function matches(d) {
   if (st.kinds.size && !st.kinds.has(d.k)) return false;
   if (st.countries.size && !st.countries.has(d.c)) return false;
   if (st.stances.size && !st.stances.has(d.st)) return false;
+  /* 用途轴：未判定的条目（pu 缺键）不属于任何用途。
+     筛「竞选宣传」时不该把 373 条未判定的兜进来——那正是缺口伪装成类别的做法。 */
+  if (st.purposes.size && !st.purposes.has(d.pu || "")) return false;
   if (st.sources.size && !st.sources.has(d.s)) return false;
   if (st.decades.size && !st.decades.has(d._dec)) return false;
   if (st.has.has("pdf") && !d.pdf) return false;
@@ -1733,6 +1779,7 @@ function gridCard(d) {
 
   const tail = [`<span>${esc(d.c)}</span>`];
   tail.push(`<span>${d.k === "book" ? d.n + " 页" : "单页"}</span>`);
+  if (d.pu) tail.push(`<span class="pu">${esc(d.pu)}</span>`);
   if (d.st) tail.push(`<span class="st">${esc(d.st)}</span>`);
   if (d.pdf) tail.push(`<span>PDF</span>`);
 
@@ -1788,7 +1835,8 @@ function listRow(d) {
      <span class="r-c">${esc(d.c)}</span>
      <span class="r-k">${KIND[d.k]}</span>
      <span class="r-n figs">${d.k === "book" ? d.n + "p" : "—"}</span>
-     <span class="r-s${d.st ? "" : " none"}">${esc(d.st || "—")}</span>`;
+     <span class="r-s${d.st ? "" : " none"}">${esc(d.st || "—")}
+       ${d.pu ? `<em class="r-pu">${esc(d.pu)}</em>` : ""}</span>`;
   el.addEventListener("click", e => {
     if (e.target.closest("a")) return;
     openReader(d.i, 1);
@@ -1830,14 +1878,14 @@ function apply(opts) {
 
   renderChips();
   const anyFilter = !!(st.terms.length || st.kinds.size || st.countries.size ||
-    st.stances.size || st.sources.size || st.decades.size || st.has.size);
+    st.stances.size || st.purposes.size || st.sources.size || st.decades.size || st.has.size);
   resetEl.hidden = !anyFilter;
 
   /* 左栏选中态 */
   $$("#rail .fopt").forEach(el => {
     const g = el.dataset.g, v = el.dataset.v;
-    const on = (g === "kind" ? st.kinds : g === "country" ? st.countries
-      : g === "stance" ? st.stances : g === "source" ? st.sources : st.has).has(v);
+    const key = GROUP_SET[g];
+    const on = key ? st[key].has(v) : false;
     el.classList.toggle("on", on);
     const box = el.querySelector("input");
     if (box) box.checked = on;
@@ -1845,7 +1893,8 @@ function apply(opts) {
   $$("#histBars button").forEach(b => b.classList.toggle("on", st.decades.has(+b.dataset.dec)));
 
   const badge = $("#fbadge");
-  const nActive = st.kinds.size + st.countries.size + st.stances.size + st.sources.size + st.decades.size + st.has.size;
+  const nActive = st.kinds.size + st.countries.size + st.stances.size + st.purposes.size
+    + st.sources.size + st.decades.size + st.has.size;
   badge.textContent = String(nActive);
   badge.classList.toggle("on", nActive > 0);
 
@@ -1867,6 +1916,7 @@ function renderChips() {
   st.kinds.forEach(v => bits.push(mk(KIND[v], "kind", v)));
   st.decades.forEach(v => bits.push(mk(v ? v + "s" : "年代不详", "decade", String(v))));
   st.countries.forEach(v => bits.push(mk(v, "country", v)));
+  st.purposes.forEach(v => bits.push(mk(v, "purpose", v)));
   st.stances.forEach(v => bits.push(mk(v, "stance", v)));
   st.sources.forEach(v => bits.push(mk(srcLabel(v) || v, "source", v)));
   st.has.forEach(v => bits.push(mk("有 PDF", "has", v)));
@@ -1886,9 +1936,8 @@ chipsEl.addEventListener("click", e => {
     } else if (g === "decade") {
       st.decades.delete(+v);
     } else {
-      const set = g === "kind" ? st.kinds : g === "country" ? st.countries
-        : g === "stance" ? st.stances : g === "source" ? st.sources : st.has;
-      set.delete(v);
+      const key = GROUP_SET[g];
+      if (key) st[key].delete(v);
     }
     apply();
     return;
@@ -1899,6 +1948,7 @@ chipsEl.addEventListener("click", e => {
 function resetAll() {
   st.q = ""; st.terms = [];
   st.kinds.clear(); st.countries.clear(); st.stances.clear();
+  st.purposes.clear();
   st.sources.clear(); st.decades.clear(); st.has.clear();
   $("#q").value = "";
   apply();
@@ -1948,6 +1998,7 @@ function hashString() {
   if (st.q) p.set("q", st.q);
   if (st.kinds.size) p.set("k", Array.from(st.kinds).join(","));
   if (st.countries.size) p.set("c", Array.from(st.countries).join(","));
+  if (st.purposes.size) p.set("pu", Array.from(st.purposes).join(","));
   if (st.stances.size) p.set("s", Array.from(st.stances).join(","));
   if (st.sources.size) p.set("src", Array.from(st.sources).join(","));
   if (st.decades.size) p.set("d", Array.from(st.decades).join(","));
@@ -1979,6 +2030,7 @@ function readHash() {
   const arr = k => (p.get(k) ? p.get(k).split(",").filter(Boolean) : []);
   st.kinds = new Set(arr("k"));
   st.countries = new Set(arr("c"));
+  st.purposes = new Set(arr("pu"));
   st.stances = new Set(arr("s"));
   st.sources = new Set(arr("src"));
   st.decades = new Set(arr("d").map(Number).filter(n => !Number.isNaN(n)));
@@ -2093,7 +2145,7 @@ function closeReader(fromHistory) {
 function buildHeader(d) {
   $("#rdTitle").textContent = d.tz || d.t;
   const bits = [d.c, d.y || "年代不详",
-    d.k === "book" ? d.n + " 页" : "单页", d.st].filter(Boolean);
+    d.k === "book" ? d.n + " 页" : "单页", d.pu, d.st].filter(Boolean);
   const sub = $("#rdSub");
   sub.innerHTML = (d.tz ? `<span class="it">${esc(d.t)}</span> · ` : "") + esc(bits.join(" · "));
   const pdf = $("#rdPdf"), src = $("#rdSrc");
@@ -2108,6 +2160,7 @@ function buildMeta(d) {
     ["年份", d.y ? `<span class="figs">${esc(d.y)}</span>` : "不详"],
     ["体裁", KIND[d.k]],
     ["页数", d.k === "book" ? `<span class="figs">${d.n}</span>` : "单页"],
+    ["用途", d.pu ? esc(d.pu) : "未判定"],
     ["立场", d.st ? esc(d.st) : "未标注"],
     ["专藏", src ? `<a href="${esc(src.u)}" target="_blank" rel="noopener">${esc(srcLabel(d.s))} ↗</a>` : "未归属"],
   ];

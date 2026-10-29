@@ -31,13 +31,13 @@ ASSET_PREFIX = "../images/"
 #: 国别的固定次序模板里定义（前端排序用）；这里保留一份用于打印与自检，
 #: 与模板不一致时构建会报错，免得新增国别后静默落到列表末尾。
 COUNTRY_ORDER = ["中国", "日本", "印度",
-                 "拉美", "俄国", "德国",
-                 "瑞士", "奥地利", "捷克",
-                 "波兰", "匈牙利", "荷兰",
-                 "英国", "爱尔兰", "法国",
-                 "西班牙", "葡萄牙", "意大利",
-                 "美国", "苏联", "比利时",
-                 "瑞典"]
+                 "拉美", "土耳其", "俄国",
+                 "德国", "瑞士", "奥地利",
+                 "捷克", "波兰", "匈牙利",
+                 "荷兰", "英国", "爱尔兰",
+                 "法国", "西班牙", "葡萄牙",
+                 "意大利", "美国", "苏联",
+                 "比利时", "瑞典"]
 
 
 def load_records():
@@ -81,6 +81,10 @@ def build_payload(recs):
             d["pdf"] = r["pdf"]
         if r["url"]:
             d["u"] = r["url"]
+        # 用途轴：未判定的不写键。覆盖率只有 31%，留空的占多数，
+        # 全写上会让 payload 多出几百个 "pu":"" 白占体积。
+        if r.get("purpose"):
+            d["pu"] = r["purpose"]
         rows.append(d)
     return rows
 
@@ -95,6 +99,7 @@ def build_stats(recs):
         "countries": len(countries),
         "pages": sum(r["pages"] for r in books),
         "stances": len({r["stance"] for r in recs if r["stance"]}),
+        "purposes": len({r.get("purpose") for r in recs if r.get("purpose")}),
         "sources": len({r["source"] for r in recs if r["source"]}),
     }
 

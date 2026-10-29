@@ -1027,4 +1027,110 @@ TITLE_ZH = {
         "波兰共产党决议（1923，波兰史第137页翻拍）",
     "Franco mantiene la Paz de España (1944).jpg":
         "佛朗哥维护西班牙的和平（1944）",
+
+    # ---------- 第十轮（round10，2026-10-29） ----------
+    # 键是原始题名。奥地利社民党四份年度报告题名完全相同，只能写不带年份的
+    # 译名——年份由目录的 year 字段承载，不必挤进题名。
+    "Socialism made plain, being the social and political manifesto of the Social-Democratic Federation ..":
+        "社会主义浅说：社会民主同盟社会与政治宣言（1884，伦敦）",
+    "Address to Trades' Unions: Issued by the Council of the Socialist League.":
+        "社会主义同盟理事会告工会书（1885，伦敦）",
+    "The second front and Mr. Churchill; speech of William Gallacher, Communist M.P., in the House of Commons, July 1st, 1942":
+        "第二战场与丘吉尔先生：英共议员加拉赫下院演说（1942年7月1日）",
+    "Gesellschaftliches und Privat-Eigenthun. Ein Beitrag zur Erläuterung des sozialistischen Programms. Mit benutzung der Schrifte: Le Programme du Parti Ouvrier, von Jules Guesde und Paul Lafargue":
+        "社会所有制与私有制：社会主义纲领释义（1891，柏林前进报出版社）",
+    "Conservativ; ein Mahnruf in letzter Stunde. Bericht erstattet auf dem Parteitag der Sächsischen Conservativen zu Dresden am 13. Juni 1892":
+        "保守主义：最后时刻的警号——萨克森保守党德累斯顿代表大会报告（1892）",
+    "Wochenspruche der NSDAP":
+        "纳粹党每周箴言（1942，党中央出版社）",
+    "Bericht der Parteivertretung an den Parteitag":
+        "奥地利社会民主工人党执委会向代表大会的报告",
+    "Protokoll über die Verhandlungen":
+        "奥地利基督教社会工人第九次代表大会会议记录（1911，维也纳）",
+    "Komu bytʹ samoderzht͡sem vserossiĭskim?":
+        "谁来做全俄的专制者？（1905，日内瓦火星报出版社）",
+    "Prostyia riechi o vnutrennikh vragakh":
+        "关于内部敌人的浅近讲话（1905，马尔托夫）",
+    "Istorīi͡a revoli͡ut͡sīonnago dvizhenīi͡a v Rossīi /":
+        "俄国革命运动史（1903，社会革命党印刷所，巴黎）",
+    "Central and local authorities. : a report on Soviet construction read at the VIIth All Russian Congress of Soviets":
+        "中央政权与地方政权：全俄苏维埃第七次代表大会关于苏维埃建设的报告（1920）",
+    "Wie die Polen ihre Freiheit verstehen":
+        "波兰人如何理解自己的自由（1915）",
+    "Discorso dell'onorevole conte Girolamo Marcello agli elettori del II⁰ collegio, 1 marzo 1909":
+        "马尔切洛伯爵向第二选区选民的演说（1909年3月1日，威尼斯）",
+    "Parole del co. Girolamo Marcello, deputato al parlamento, pronunciate a Murano la sera del 7 ottobre 1905 in occasione delle elezioni amministrative":
+        "马尔切洛伯爵在穆拉诺地方选举集会上的演说（1905年10月7日）",
+    "Spain in chains":
+        "被锁链束缚的西班牙（1937，希尔·罗夫莱斯）",
+    "Aanteekeningen voor het debat, bij de stembus van 1905 : niet in den handel":
+        "一九〇五年投票辩论札记（非卖品，荷兰大选手册）",
+    "The case for India : presidential address to the Indian National Congress at its thirty-second annual session, Calcutta, December 26, 1917":
+        "印度的理由：国大党第三十二届年会主席演说（1917年12月26日，加尔各答）",
+    "The future of India; presidential address to the Indian national congress":
+        "印度的未来：国大党年会主席演说（1916）",
+    "Non-co-operation":
+        "不合作（1920，安德鲁斯，马德拉斯）",
+    "Indien und der Weltfrieden; ein Protest gegen das Friedensprogramm des Holländisch-Skandinavischen Sozial-Demokratischen Komitees von Europäischen Zentralkomitee der Indischen Nationalisten. Mit einem Anhang":
+        "印度与世界和平：对荷俄斯堪的纳维亚社会民主委员会和平纲领的抗议（1918，斯德哥尔摩）",
+    "Tablettes révolutionnaires d'un jeune Turc":
+        "一个青年土耳其人的革命札记（1903，巴黎）",
+    "Cuba contra España : manifiesto del Partido Revolucionario Cubano a los pueblos hispano-americanos":
+        "古巴对抗西班牙：古巴革命党告西语美洲各民族宣言（1895，纽约）",
+    "Carta que el Jeneral J. Rufino Barrios Presidente Constitucional de la República de Guatemala, dirige a sus amigos del Partido Liberal de Centro América, con motivo de los trabajos sobre la unión de estas Repúblicas":
+        "危地马拉总统巴里奥斯致中美洲自由党友人书——论各共和国联合事宜（1883）",
+    "Manifiesto del Jeneral D. Gerardo Barrios a los pueblos del Estado del Salvador, y a los demás de Centro-América, sobre Los acontecimientos verificados en los primeros días del mes de Junio del corriente año":
+        "萨尔瓦多总统赫拉尔多·巴里奥斯告萨尔瓦多及中美洲各民族书（1857年6月事变）",
+    "Manifiesto justificativo de los castigos nacionales en Querétaro":
+        "克雷塔罗国民刑罚辩护书（1868，华雷斯）",
+    "The foundation of the republic of Ireland in the vote of the people;":
+        "爱尔兰共和国奠定于人民的投票（1919，德瓦莱拉）",
+    "Correspondence of Mr. Eamon de Valera and others":
+        "德瓦莱拉等人书信集（1922，反对英爱条约一方）",
+    "Free state promises : are they true?":
+        "自由邦的许诺是真的吗？（1921，都柏林）",
+    "The problem of Ulster":
+        "阿尔斯特问题（1920，克劳福德）",
+    "Convicted. A record of disloyal speeches, resolutions, leaflets and posters":
+        "被判罪者：不忠言论、决议、传单与海报的记录（1912）",
+    "Address to the Democracy and the people of the United States, by the National Democratic Executive Committee":
+        "民主党全国执行委员会告民主派与美国人民书（1860，华盛顿）",
+    "Congressional address":
+        "国会宣言（1864，第三十八届国会民主党议员）",
+    "Address by the Union League of Philadelphia : to the citizens of Pennsylvania, in favor of the re-election of Abraham Lincoln":
+        "费城联盟同盟告宾夕法尼亚公民书：赞成林肯连任（1864）",
+    "The Republican leaders : biographical sketches of James A. Garfield, Republican candidate for president, and Chester A. Arthur, Republican candidate for vice-president":
+        "共和党领袖：加菲尔德与阿瑟传略（1880，共和党全国委员会）",
+    "Better times !":
+        "好日子来了！（1884，社会主义劳工党执委会）",
+    "Why the farmers suffer : their best customers are idle owing to the bad governmental policy of the present administration":
+        "农民为何受苦：最好的主顾因现政府的坏政策而失业（1896，共和党全国委员会）",
+    "Horse sense":
+        "常识（1896，共和党全国委员会竞选册）",
+    "The money question":
+        "货币问题（1896，全国民主党宾州州委员会）",
+    "Is the Democratic party honest? : a statement of facts":
+        "民主党诚实吗？事实陈述（1898，北卡平民党州中央委员会）",
+    "Comments by the State Democratic Committee on the hand book issued by the Peoples Party State Executive Committee : a discussion of the contents of this book, showing that it is not issued in the interest of the Populist Party":
+        "北卡民主党州执委会评平民党手册：该书并非为平民党利益而印（1898）",
+    "A contract with the people; platform of the Progressive Party, adopted at its first national convention, Chicago, August 7th, 1912 ..":
+        "与人民订约：进步党第一次全国代表大会通过的政纲（1912年8月7日，芝加哥）",
+    "National Progressive Convention program; Coliseum, Chicago, August 5th, 1912":
+        "进步党全国代表大会日程册（1912年8月5日，芝加哥竞技场）",
+    "Speech of Hon. Henry Cabot Lodge at the Republican State Convention in Tremont Temple, Boston, on Friday, October 4th, 1912":
+        "洛奇在麻州共和党州代表大会的演说（1912年10月4日，波士顿）",
+    "Congressional platform of the Socialist Party, 1918":
+        "美国社会党国会竞选纲领（1918，芝加哥党全国总部）",
+    "Democratic platform 1920 : state democratic platform and national democratic platform":
+        "民主党一九二〇年政纲：北卡州政纲与全国政纲",
+    "Who pays under Wilson? Who'd pay under Cox?":
+        "威尔逊治下谁在纳税？考克斯治下又将如何？（1920，共和党全国委员会）",
+    "Wilson's fatal policy in Mexico; murder, ruin":
+        "威尔逊在墨西哥的致命政策：屠杀与毁灭（1920，共和党全国委员会）",
+    "Manifesto to the Workers of America (Labor Day 1922)":
+        "告美国工人书（1922年劳动节，统一共产党）",
+    "Manifiesto justificativo de los castigos nacionales en Querétaro":
+        "克雷塔罗国民刑罚辩护书（1868，华雷斯）",
+    "Speech of Hon. Henry Cabot Lodge at the Republican State Convention in Tremont Temple, Boston, on Friday, October 4, 1912":
+        "洛奇在麻州共和党州代表大会的演说（1912年10月4日，波士顿）",
 }

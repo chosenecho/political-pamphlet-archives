@@ -30,6 +30,18 @@ jobs:
       - name: 立场词表与标注审计
         run: python scripts/tools/audit_stance.py
 
+      - name: 用途标注可复现
+        run: |
+          # label_purpose.py 必须是幂等的：若它还会改动数据，
+          # 说明有人手改过 catalog.json，或者规则表与数据不一致。
+          python scripts/label_purpose.py
+          if ! git diff --quiet -- data/catalog.json; then
+            echo "::error::label_purpose.py 改动了数据——手改过 catalog.json 或规则与数据不一致"
+            git --no-pager diff --stat -- data/catalog.json
+            exit 1
+          fi
+          echo "用途标注与规则一致"
+
       - name: 重建目录页
         run: python scripts/build_catalog.py
 
@@ -41,6 +53,9 @@ jobs:
 
       - name: 目录页交互验收
         run: python scripts/test_catalog_ui.py
+
+      - name: 用途轴验收
+        run: python scripts/test_purpose_ui.py
 
       - name: 产物是否与提交一致
         run: |

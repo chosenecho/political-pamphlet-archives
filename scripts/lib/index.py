@@ -16,6 +16,7 @@ images/ 目录只存二进制，不再存放索引。
     pdf        str   相对 images/ 的 PDF；无则 ""
     url        str   来源 URL；无则 ""
     stance     str   政治立场；未标注为 ""
+    purpose    str   用途（这份材料用来干什么）；未判定为 ""
     source     str   对应 data/sources.json 的 slug；无法归属为 ""
 """
 
@@ -46,6 +47,7 @@ SCHEMA = {
     "pdf": str,
     "url": str,
     "stance": str,
+    "purpose": str,
     "source": str,
 }
 

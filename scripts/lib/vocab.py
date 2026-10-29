@@ -39,6 +39,7 @@
 STANCE = [
     "人民党",              # 奥地利 ÖVP / 美国 People's Party 的通行译名
     "保守派",              # 有明确保守立场、但读不出具体组织
+    "保守主义",            # 德國萨克森保守党 1892 年德累斯顿代表大会报告（round10）
     "保守派防御宣传",       # 瑞士 1919–22 反革命/反通胀的保卫性宣传，无独立组织名
     "保皇派",              # 法国 Gallica 批次
     "公共卫生议题",         # 瑞士公投议题（医院建设）
@@ -47,6 +48,7 @@ STANCE = [
     "共和党",              # 美国 Republican Party
     "共和派",              # 爱尔兰共和派 / 法国共和派 / 西班牙共和派
     "共青团",              # 俄国 Komsomol 出版物
+    "平民党",              # 美国 People's Party / Populist Party（round10 北卡州中央委员会）
     "养老与残障保险议题",   # 瑞士 Rothenberger 倡议
     "反德宣传",            # 比利时一战
     "反战",                # 读得出反战、读不出组织
@@ -58,6 +60,8 @@ STANCE = [
     "和平主义",            # 匈牙利反战
     "国际联盟议题",         # 瑞士国联加入公投
     "基督教社会党",         # 奥地利 CS / 瑞士 CVP
+    "天主教右翼",           # 西班牙 CEDA 领袖希尔·罗夫莱斯 1937（round10）
+    "天主教社会运动",       # 奥地利基督教社会工人代表大会记录（round10）
     "女权",                # 法国 Gallica：女权论述
     "妇女参政",            # 英美 suffragist / suffragette 材料
     "宪章运动",            # 英国 Chartist
@@ -67,12 +71,14 @@ STANCE = [
     "工团主义",            # 法国 syndicalism
     "工时法议题",          # 瑞士 48 小时工作制公投
     "左翼联盟",            # 法国 Cartel des gauches
+    "青年土耳其党",         # 奥斯曼统一与进步委员会流亡宣传（round10 巴黎 1903）
     "布尔什维克",          # 俄国，与「共产主义」区分：特指布尔什维克派
     "布朗热主义",          # 法国布朗热运动
     "庇隆主义",            # 阿根廷 Peronism
     "德雷福斯事件",         # 法国，事件性材料
     "战时宣传",            # 战争期官方/半官方宣传
     "政治思想宣传",         # 读得出思想宣传性质、读不出具体思潮
+    "社会主义革命党",       # 俄国社会革命党（round10 巴黎 1903 印刷所出版）
     "无政府主义",          # 各国
     "极右·行动法兰西",      # 法国 Action française，单列因组织即立场
     "民主党",              # 美国 Democratic Party
@@ -94,6 +100,7 @@ STANCE = [
     "行商法议题",          # 瑞士
     "财产税议题",          # 瑞士
     "费边社会主义",         # 英国 Fabian Society
+    "进步党",              # 美国 Progressive Party 1912（round10：政纲、代表大会日程册）
     "选举制度议题",         # 瑞士比例代表制
     "选举宣传",            # 读得出是竞选材料、读不出党派立场
     "选举权",              # 荷兰/瑞士等普选权运动，与「妇女参政」区分
@@ -126,9 +133,52 @@ RETIRED = []
 ALL = STANCE + RESERVED
 
 
+# --- 用途轴（purpose）-------------------------------------------------------
+#
+# `stance` 现在同时承担「思潮」「组织」「议题」「用途」四件事（详见
+# UI-AUDIT-STANCE.md）。`purpose` 是拆轴的第一步：只回答一个问题——
+# **这份材料是用来干什么的**，与它持什么立场、属于哪个组织无关。
+#
+# 为什么先拆这一轴：
+#   - 判据在标题里、可机械判定，不需要读图
+#   - 与 stance 正交，不碰现有显示逻辑，可以单独上线观察
+#   - 「选举宣传」一个值现在占 105/369（28%），拆出去后 stance 立刻轻一档
+#
+# 定值原则（照抄给了 stance 的教训）：
+#   - **宁可留空，不可错标**。purpose 的价值在精确——筛"集会海报"却混进
+#     照片和演说文本，这个筛选就没用了。留空是已声明的缺口，错标是错误。
+#   - 值必须跨库可用。只在单国出现的用途（如瑞士的「公投动员」在别处是
+#     竞选）要么合并，要么说明它是独立的一类。
+#   - 不超过 12 个值。超过就会像 stance 一样长尾化。
+PURPOSE = [
+    "竞选宣传",        # 候选人/政党的选举材料：竞选海报、竞选纲领、选举传单
+    "公投动员",        # 就单一议题的表决动员（瑞士/奥地利公投、智利1980公投）
+    "投票指引",        # 教选民怎么投：选民手册、投票指南、选举流程说明
+    "集会通告",        # 通知时间地点：演讲会海报、示威通告、集会宣传
+    "征兵与战争动员",   # 征兵海报、战争公债、战时物资征集
+    "纲领与政策宣示",   # 党纲、宣言、章程、决议、行动纲领
+    "演说与报告",      # 演说记录、工作报告、指示、讲话稿
+    "标语口号",        # 供张贴/呼喊的成组标语
+    "论战与驳斥",      # 针对另一立场/人物的回应、驳斥、警告
+    "文艺宣传",        # 歌谣、故事、漫画、读本、教科书等通俗宣传
+    "纪念与追悼",      # 纪念活动、追悼、周年
+]
+
+#: 预留：规则已写好、但当前数据里没有命中的用途值。
+PURPOSE_RESERVED = []
+
+#: 全部合法用途取值
+PURPOSE_ALL = PURPOSE + PURPOSE_RESERVED
+
+
 def is_stance(value):
     """是否为已登记立场。空串是合法状态（未标注），不算未登记。"""
     return value == "" or value in ALL
+
+
+def is_purpose(value):
+    """是否为已登记用途。空串是合法状态（未判定），不算未登记。"""
+    return value == "" or value in PURPOSE_ALL
 
 
 def normalize(value):
@@ -148,27 +198,48 @@ def unknown(values):
     return c.most_common()
 
 
+def unknown_purpose(values):
+    """同 `unknown()`，查用途轴。"""
+    from collections import Counter
+
+    c = Counter(v for v in (normalize(x) for x in values) if v and v not in PURPOSE_ALL)
+    return c.most_common()
+
+
 def validate(records):
-    """校验一批目录记录的 stance 字段。
+    """校验一批目录记录的 stance 与 purpose 字段。
 
     返回问题列表；空列表表示通过。策略是**只拦新增，不追溯历史**：
 
       - 未登记的值：报错。这是本模块存在的理由。
       - 非 str 类型：报错。
-      - 空值：合法（171/540 未标注是已声明的缺口，不是错误）。
+      - 空值：合法（未标注是已声明的缺口，不是错误）。
     """
     problems = []
     for i, r in enumerate(records):
+        title = (r.get("title") or "?")[:32]
+
         raw = r.get("stance")
         if raw is None or isinstance(raw, str):
             v = normalize(raw)
+            if v and v not in ALL:
+                problems.append(
+                    f"[{i}] stance 未登记：{v!r}（{title}）"
+                    f" —— 在 scripts/lib/vocab.py 的 STANCE 里登记并写明依据")
         else:
             problems.append(f"[{i}] stance 类型错误 {type(raw).__name__}")
-            continue
-        if v and v not in ALL:
-            problems.append(
-                f"[{i}] stance 未登记：{v!r}（{(r.get('title') or '?')[:32]}）"
-                f" —— 在 scripts/lib/vocab.py 的 STANCE 里登记并写明依据")
+
+        # purpose 只在记录**带这个键**时校验。老数据没有该字段，不该因此报错
+        # ——字段是分阶段引入的，`normalize()` 会补空串。
+        raw = r.get("purpose")
+        if raw is None or isinstance(raw, str):
+            v = normalize(raw)
+            if v and v not in PURPOSE_ALL:
+                problems.append(
+                    f"[{i}] purpose 未登记：{v!r}（{title}）"
+                    f" —— 在 scripts/lib/vocab.py 的 PURPOSE 里登记并写明依据")
+        else:
+            problems.append(f"[{i}] purpose 类型错误 {type(raw).__name__}")
     return problems
 
 
@@ -186,5 +257,22 @@ def stats(records):
         "never_used": [v for v in STANCE if v not in used],
         "reserved_hit": [v for v in RESERVED if v in used],
         "unmarked": sum(1 for r in records if not normalize(r.get("stance"))),
+        "total": len(records),
+    }
+
+
+def purpose_stats(records):
+    """用途轴的使用情况。与 `stats()` 分开，因为两条轴的上线时间不同。"""
+    used = {}
+    for r in records:
+        v = normalize(r.get("purpose"))
+        if v:
+            used[v] = used.get(v, 0) + 1
+    return {
+        "registered": len(PURPOSE),
+        "used": len(used),
+        "counts": used,
+        "never_used": [v for v in PURPOSE if v not in used],
+        "unmarked": sum(1 for r in records if not normalize(r.get("purpose"))),
         "total": len(records),
     }
