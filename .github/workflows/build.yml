@@ -24,6 +24,12 @@ jobs:
       - name: 校验目录 schema
         run: python scripts/validate_catalog.py
 
+      - name: 立场词表闸门
+        run: python scripts/test_vocab.py
+
+      - name: 立场词表与标注审计
+        run: python scripts/tools/audit_stance.py
+
       - name: 重建目录页
         run: python scripts/build_catalog.py
 

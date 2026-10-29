@@ -23,10 +23,16 @@ import json
 import os
 
 from . import paths
+from . import vocab
 
 KIND_BOOK = "小册子"
 KIND_SINGLE = "单页"
 KINDS = (KIND_BOOK, KIND_SINGLE)
+
+
+class VocabularyError(ValueError):
+    """写入了未登记的 stance 取值。见 `vocab` 模块与 `save()`。"""
+
 
 SCHEMA = {
     "kind": str,
@@ -61,10 +67,34 @@ def load(path=None):
 
 
 def save(records, path=None):
-    """写 catalog，保证字段齐全、顺序稳定、末尾换行（便于 git diff）。"""
+    """写 catalog，保证字段齐全、顺序稳定、末尾换行（便于 git diff）。
+
+    写入前校验 stance 词表：未登记的值一律拒绝，抛 `VocabularyError`。
+
+    这是全库唯一该长这张闸门的地方——24 处 `catalog.save()` 调用全部经过这里，
+    而 `scripts/` 下 21 个脚本各自持有立场字面量、没有任何公共层。如果不在写入
+    路径上拦，新值就会像过去八批采集那样，从某个 `merge_*.py` 里静默流进数据，
+    直到界面上出现第 61 个筛选项才有人发现。
+
+    **为什么是抛错而不是警告**：这个项目对缺口的态度是"显式声明、不伪装"
+    （见 README「主筛选维度是国别与年代」），同样的标准适用于词表——一个
+    没经过判断的值不该被写进去，而不是写进去之后在日志里留一行没人看的字。
+    真要新增，去 `vocab.STANCE` 登记并写明依据，那是一次有意识的决定。
+    """
     path = path or paths.CATALOG
     paths.ensure_dir(os.path.dirname(path))
     clean = [normalize(r) for r in records]
+
+    problems = vocab.validate(clean)
+    if problems:
+        detail = "\n".join("  " + p for p in problems[:20])
+        more = f"\n  …另有 {len(problems) - 20} 条" if len(problems) > 20 else ""
+        raise VocabularyError(
+            f"stance 有 {len(problems)} 个未登记取值，拒绝写入 {os.path.basename(path)}：\n"
+            f"{detail}{more}\n"
+            "在 scripts/lib/vocab.py 的 STANCE 里登记这些值并写明依据，再重跑。\n"
+            "（未登记不等于错——但需要一次显式判断，而不是让脚本替你做。）")
+
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         json.dump(clean, f, ensure_ascii=False, indent=1)
         f.write("\n")

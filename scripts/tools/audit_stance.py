@@ -1,86 +1,138 @@
-"""深度审核 4：立场标注核验。
+"""立场标注审计：词表一致性 + 与机构名的机械矛盾。
 
-立场是本次唯一"由我判断"而非从来源直接抄来的字段，最容易错。
-逐条打印：国别 / 立场 / 机构 / 出版者 / 标题，供人工复核。
-同时做机械检查：立场必须出现在该国的允许集合内，且不能与机构名矛盾。
+这个脚本原本维护一份手写的「各国允许立场」白名单（19 国，漏中国、瑞士、
+葡萄牙，还留着 4 个从未落地的值）。它的问题不是写错了几个值，而是**它本身
+就是第三份词表**——和 21 个采集脚本里的字面量、和 `data/catalog.json` 里的
+实际取值并列，三者从来没有同步过。按旧版跑会报 129 条违规，其中 55 条是
+瑞士的「选举宣传」——那批是 `tools/label_swiss_tiff.py` 有意标到较宽类别的。
+
+现在词表只有一处：`lib/vocab.py`。本脚本改为查四件事：
+
+  1. 目录里的每个取值是否已登记（未登记 = 有人在裸写，必须拦）
+  2. RESERVED 里登记了却一直没有条目的（规则可能根本没命中过）
+  3. STANCE 里登记了但从未用过的（可能是退役后忘了移走）
+  4. 标题能读出机构名、立场却与之矛盾的（机械可判的那几种）
+
+国别与立场的一一对应关系不再检查。理由：立场本来就不该被国别限定——
+「社会主义」在 11 个国家都有，强行按国别列白名单会把跨国的思潮拆碎。
+原来那句「立场必须出现在该国的允许集合内」是词表分裂的副产品，不是需求。
+
+用法：
+    python scripts/tools/audit_stance.py            # 全库
+    python scripts/tools/audit_stance.py --country 瑞士
+    python scripts/tools/audit_stance.py --unmarked # 只看未标注的
 """
 
-import json
+import argparse
 import os
+import re
 import sys
 
-BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+#: scripts/ 之下才是 `lib`，所以要加的是上两级（tools/ → scripts/），不是仓库根。
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-#: 各国允许的立场，与全库既有标注体系对齐
-ALLOWED = {
-    "英国": {"费边社会主义", "工党与社会主义", "社会主义", "妇女参政", "民族主义",
-             "宪章运动", "无政府主义", "自由贸易派"},
-    "爱尔兰": {"共和派", "土地同盟", "联合派", "民族主义"},
-    "德国": {"社会主义", "纳粹主义", "民族主义右翼", "共产主义", "无政府主义",
-             "反战", "反核", "妇女参政"},
-    "意大利": {"共产主义", "社会主义", "法西斯主义", "天主教民众派"},
-    # 2026-10 深度补采新增
-    "印度": {"民族主义", "共产主义"},
-    "拉美": {"社会主义", "自由主义", "选举宣传", "反独裁", "革命派", "庇隆主义"},
-    "奥地利": {"社会民主党", "基督教社会党", "天主教民众派", "人民党",
-               "君主派", "民族主义", "社会主义"},
-    "匈牙利": {"民族主义", "社会主义", "和平主义"},
-    # 既有条目里早已标注、但先前漏列的国家：不补进白名单会一直误报
-    "法国": {"共和派", "保皇派", "共产主义", "右翼论战", "女权", "工团主义",
-             "左翼联盟", "布朗热主义", "德雷福斯事件", "无政府主义",
-             "极右·行动法兰西", "民族主义", "维希政权", "选举宣传", "保守派"},
-    "荷兰": {"社会主义", "选举权"},
-    "西班牙": {"右翼史论", "社会主义", "无政府主义", "卡洛斯派"},
-    "俄国": {"共产主义", "共青团", "布尔什维克", "白俄·临时政府", "社会主义"},
-    "美国": {"人民党", "共和党", "民主党", "战时宣传", "社会主义", "选举宣传"},
-    "日本": {"选举宣传", "共产主义"},
-    "捷克": {"共产主义", "民族主义"},
-    "波兰": {"社会主义", "少数民族政治", "民族主义", "政治思想宣传"},
-    "比利时": {"社会主义", "反德宣传"},
-    "瑞典": {"社会民主党"},
-    "苏联": {"共产主义", "选举宣传", "战时宣传"},
-}
+from lib import index as catalog
+from lib import vocab
+
+#: 标题里读得出机构名 -> 应当对应的立场。
+#:
+#: 只收**判据唯一**的：标题写了 Sinn Féin 就不该是「联合派」，写了 Fabian
+#: 就不该是别的。这类矛盾是机械可判的，值得报。
+#: 反例（不要加进来）：标题有 "socialist" 也可能是反社会主义的论战册，
+#: 加了就是误报——这类只能人工读。
+ORG_CONFLICT = [
+    (r"sinn\s*f[eé]in", {"共和派"}, "新芬党"),
+    (r"fabian", {"费边社会主义"}, "费边社"),
+    (r"nationalsozialistische|nsdap", {"纳粹主义"}, "纳粹党"),
+    (r"partito\s+nazionale\s+fascista", {"法西斯主义"}, "意大利法西斯党"),
+    (r"independent\s+labour\s+party|\bI\.\s*L\.\s*P\.", {"工党与社会主义"}, "独立工党"),
+    (r"chartist", {"宪章运动"}, "宪章派"),
+    (r"cartel\s+des\s+gauches", {"左翼联盟"}, "左翼联盟"),
+    (r"action\s+fran[çc]aise", {"极右·行动法兰西"}, "法兰西行动"),
+    (r"peronista|justicialista", {"庇隆主义"}, "庇隆主义"),
+]
+
+
+def report(recs, country=None, only_unmarked=False):
+    total = len(recs)
+    problems = []
+
+    # --- 1. 未登记取值：唯一会导致构建失败的一条 ---
+    st = vocab.stats(recs)
+    print(f"立场词表：已登记 {st['registered']} 个、预留 {st['reserved']} 个；"
+          f"本批 {total} 条里用到 {st['used']} 个值，未标 {st['unmarked']} 条")
+    unregistered = vocab.unknown(r["stance"] for r in recs)
+    if unregistered:
+        print("\n未登记的取值（会被 catalog.save() 拒绝写入）：")
+        for v, n in unregistered:
+            print(f"  ✗ {v:22s} {n:3d} 条")
+            problems.append(f"未登记 {v}")
+    else:
+        print("  ✓ 全部取值已登记")
+
+    # --- 2. 预留但从未命中 ---
+    if st["reserved_hit"]:
+        print(f"\n预留值已被写入数据：{st['reserved_hit']}")
+        print("  → 把它们从 RESERVED 移到 STANCE，并补一条依据注释")
+
+    # --- 3. 登记但从未使用 ---
+    if st["never_used"]:
+        print(f"\n登记了但全库无条目：{st['never_used']}")
+        print("  → 若确认退役，移到 vocab.RETIRED；若是新登记还没采到，忽略")
+
+    # --- 4. 与机构名的机械矛盾 ---
+    conflicts = []
+    for r in recs:
+        s = vocab.normalize(r["stance"])
+        if not s:
+            continue
+        blob = f"{r['title']} {r['title_zh']}"
+        for pat, expect, label in ORG_CONFLICT:
+            if re.search(pat, blob, re.I) and s not in expect:
+                conflicts.append((r, label, s, sorted(expect)))
+    if conflicts:
+        print(f"\n标题与立场的矛盾 {len(conflicts)} 条：")
+        for r, label, s, expect in conflicts:
+            print(f"  ✗ {r['country']:4s} {r['year'] or '????'} [{s}] "
+                  f"是{label}材料，应为 {'/'.join(expect)} —— {(r['title_zh'] or r['title'])[:44]}")
+        problems.extend(r["title"][:30] for r, *_ in conflicts)
+    else:
+        print("\n  ✓ 无标题/立场矛盾")
+
+    # --- 未标注清单（不是错误，是待办） ---
+    if only_unmarked or not problems:
+        blank = [r for r in recs if not vocab.normalize(r["stance"])]
+        print(f"\n未标注 {len(blank)}/{total} 条" + ("（按来源）" if not country else ""))
+        if not country:
+            from collections import Counter
+            for k, v in Counter(r["source"] or "(空)" for r in blank).most_common():
+                print(f"    {k:22s} {v:4d}")
+
+    print()
+    if problems:
+        print(f"失败：{len(problems)} 项")
+        return 1
+    print("通过")
+    return 0
 
 
 def main():
-    recs = json.load(open(os.path.join(BASE, "data", "catalog.json"), encoding="utf-8"))
-    # 本次补采批次 = source 标为 internet-archive 的条目
-    batch = [x for x in recs if x.get("source") == "internet-archive"]
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--country", help="只看某国别")
+    ap.add_argument("--unmarked", action="store_true", help="只列未标注的")
+    args = ap.parse_args()
 
-    print(f"本次新增 {len(batch)} 条的立场标注：\n")
-    problems = []
-    for x in sorted(batch, key=lambda r: (r["country"], r["year"])):
-        st = x["stance"]
-        # 未标注是合法状态（全库 175 条如此），不视为问题
-        if not st:
-            print(f"  {x['country']:4s} {x['year']} [{'未标':8s}] {x['title'][:56]}")
-            continue
-        ok = st in ALLOWED.get(x["country"], set())
-        mark = "  " if ok else "!!"
-        if not ok:
-            problems.append(f"{x['country']}/{x['title'][:40]}: 立场 {st!r} 不在允许集合")
-        print(f"{mark} {x['country']:4s} {x['year']} [{st:8s}] {x['title'][:56]}")
-
-    # 与机构名的机械矛盾检查
-    print("\n矛盾扫描：")
-    for x in batch:
-        t = x["title"].lower()
-        st = x["stance"]
-        if "sinn fein" in t and st not in ("共和派",):
-            problems.append(f"{x['title'][:40]}: 新芬党材料标为 {st}")
-        if "fabian" in t and x["country"] == "英国" and st != "费边社会主义":
-            problems.append(f"{x['title'][:40]}: 费边社材料标为 {st}")
-        if ("unionist" in t or "loyal" in t) and x["country"] == "爱尔兰" and st != "联合派":
-            if "great fallacy" in t or "unionist" in t:
-                pass  # 主教演讲反自治，已在下面单列
-    if not any("矛盾" in p for p in problems):
-        print("  （无）")
-
-    print(f"\n问题 {len(problems)} 项")
-    for p in problems:
-        print("  ✗", p)
-    return 1 if problems else 0
+    recs = catalog.load()
+    if not recs:
+        print("目录为空或不存在")
+        return 1
+    if args.country:
+        recs = [r for r in recs if r["country"] == args.country]
+    return report(recs, args.country, args.unmarked)
 
 
 if __name__ == "__main__":
+    # Windows 控制台是 GBK，德/法/俄文人名会撞上 UnicodeEncodeError。
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.exit(main())

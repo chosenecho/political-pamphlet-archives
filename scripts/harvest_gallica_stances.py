@@ -22,6 +22,9 @@ NS = {"srw": "http://www.loc.gov/zing/srw/",
       "dc": "http://purl.org/dc/elements/1.1/"}
 
 # (检索式, 立场标签) —— 刻意覆盖对立阵营
+#: 标签必须是 scripts/lib/vocab.py 里登记过的值，否则 merge_gallica.py 写入
+#: 目录时会被 catalog.save() 的校验拦下。原先这里写 `"行动法兰西"`，与目录里
+#: 已有的 `"极右·行动法兰西"` 是同一概念的两种写法，收成后者。
 QUERIES = [
     ('dc.subject all "communisme" and dc.date all "1925"', "共产主义"),
     ('dc.subject all "socialisme" and dc.date all "1910"', "社会主义"),
@@ -29,7 +32,7 @@ QUERIES = [
     ('dc.subject all "syndicalisme" and dc.date all "1910"', "工团主义"),
     ('dc.subject all "nationalisme" and dc.date all "1910"', "民族主义"),
     ('dc.subject all "royalisme"', "保皇派"),
-    ('dc.subject all "Action française"', "行动法兰西"),
+    ('dc.subject all "Action française"', "极右·行动法兰西"),
     ('dc.subject all "catholicisme" and dc.date all "1905"', "天主教"),
     ('dc.subject all "libéralisme" and dc.date all "1900"', "自由主义"),
     ('dc.subject all "radicalisme" and dc.date all "1905"', "激进派"),

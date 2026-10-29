@@ -17,7 +17,11 @@ NOTES = os.path.join(BASE, "notes")
 INBOX = os.path.join(BASE, "inbox")
 
 #: 权威文献目录（受版本控制）；images/ 只放二进制
-CATALOG = os.path.join(DATA, "catalog.json")
+#:
+#: 允许用环境变量指向别处，仅供测试造脏数据用（`test_vocab.py` 要验证
+#: 「绕过 save 直接改 json 会被 validate_catalog 抓到」，需要有办法喂一份
+#: 含未登记值的目录进去而不污染真实数据）。正常流程不设这个变量。
+CATALOG = os.environ.get("DSH_PAMPHLET_CATALOG") or os.path.join(DATA, "catalog.json")
 SOURCES = os.path.join(DATA, "sources.json")
 MANIFEST = os.path.join(DATA, "manifest.json")
 INDEX_CSV = os.path.join(DATA, "index.csv")
